@@ -30,6 +30,10 @@ model User {
   comments  Comment[]
   following Follow[]  @relation("follower")
   followers Follow[]  @relation("following")
+  liveStreams  LiveStream[]
+  chatMessages ChatMessage[]
+  sentDMs      DirectMessage[] @relation("sentDM")
+  receivedDMs  DirectMessage[] @relation("receivedDM")
 }
 
 model Video {
@@ -99,4 +103,78 @@ model Follow {
 
   @@id([followerId, followingId])
   @@index([followingId])
+}
+
+// ── Livestream + chat ───────────────────────────────────────────────
+
+// One broadcast. The video itself lives in Cloudflare Stream (cfInputId is its
+// "live input"); we only keep the bookkeeping and the chat.
+model LiveStream {
+  id          String    @id @default(cuid())
+  creatorId   String
+  creator     User      @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  title       String    @default("") @db.VarChar(120)
+  cfInputId   String    @db.VarChar(64)
+  // WHIP publish URL contains the secret stream key: only ever sent to the owner.
+  whipUrl     String    @db.VarChar(600)
+  status      String    @default("LIVE") @db.VarChar(10) // LIVE | ENDED
+  startedAt   DateTime  @default(now())
+  endedAt     DateTime?
+  lastBeat    DateTime  @default(now()) // broadcaster heartbeat; a silent stream is closed automatically
+  peakViewers Int       @default(0)
+
+  messages ChatMessage[]
+  viewers  LiveViewer[]
+
+  @@index([status, startedAt])
+  @@index([creatorId, startedAt])
+}
+
+model ChatMessage {
+  id        String     @id @default(cuid())
+  streamId  String
+  stream    LiveStream @relation(fields: [streamId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  body      String     @db.VarChar(300)
+  deleted   Boolean    @default(false)
+  createdAt DateTime   @default(now())
+
+  @@index([streamId, createdAt])
+}
+
+// Who is watching right now: a row is refreshed on every chat poll.
+model LiveViewer {
+  streamId String
+  stream   LiveStream @relation(fields: [streamId], references: [id], onDelete: Cascade)
+  key      String     @db.VarChar(64)
+  lastSeen DateTime   @default(now())
+
+  @@id([streamId, key])
+  @@index([streamId, lastSeen])
+}
+
+// A salon blocking someone from chatting in any of its streams.
+model ChatBan {
+  creatorId String
+  userId    String
+  createdAt DateTime @default(now())
+
+  @@id([creatorId, userId])
+}
+
+// ── Direct messages (1-to-1) ────────────────────────────────────────
+
+model DirectMessage {
+  id          String    @id @default(cuid())
+  senderId    String
+  sender      User      @relation("sentDM", fields: [senderId], references: [id], onDelete: Cascade)
+  recipientId String
+  recipient   User      @relation("receivedDM", fields: [recipientId], references: [id], onDelete: Cascade)
+  body        String    @db.VarChar(1000)
+  createdAt   DateTime  @default(now())
+  readAt      DateTime?
+
+  @@index([recipientId, readAt])
+  @@index([senderId, recipientId, createdAt])
 }

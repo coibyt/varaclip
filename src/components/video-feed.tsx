@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Bookmark, CalendarCheck, Check, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
+  Bookmark, CalendarCheck, Check, Compass, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
 } from "lucide-react";
 import { Avatar } from "./avatar";
 import { CommentsSheet } from "./comments-sheet";
@@ -184,11 +184,17 @@ export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }
                 {k === "foryou" ? t("feed.foryou") : t("feed.following")}
               </button>
             ))}
+            <Link href="/live" className="flex min-h-[40px] items-center gap-1.5 rounded-full px-3.5 text-sm font-extrabold text-white transition hover:bg-white/10">
+              <span className="size-2 animate-pulse rounded-full bg-red-500" aria-hidden /> {t("nav.live")}
+            </Link>
           </div>
         </div>
       )}
 
-      <div className="absolute right-3 top-[112px] z-30 lg:hidden"><LanguageSwitcher iconOnly /></div>
+      <div className="absolute right-3 top-[112px] z-30 flex flex-col gap-2 lg:hidden">
+        <LanguageSwitcher iconOnly />
+        <Link href="/discover" aria-label={t("nav.discover")} className="grid size-10 place-items-center rounded-full bg-black/40 backdrop-blur transition hover:bg-black/60"><Compass className="size-5" aria-hidden /></Link>
+      </div>
 
       <div ref={scroller} className="snap-feed feed-h" tabIndex={-1}>
         {videos.map((v) => (

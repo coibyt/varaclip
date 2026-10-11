@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { getUser } from "@/lib/auth";
+import { db } from "@/lib/db";
 import { getLocale, getMessages, getT } from "@/lib/i18n-server";
 import { isRtl } from "@/lib/i18n";
 import { Shell } from "@/components/shell";
@@ -26,12 +27,13 @@ export const viewport: Viewport = { themeColor: "#0B0B0F", width: "device-width"
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const [me, locale] = await Promise.all([getUser(), getLocale()]);
   const [messages, fallback] = await Promise.all([getMessages(locale), getMessages("en")]);
+  const unread = me ? await db.directMessage.count({ where: { recipientId: me.id, readAt: null } }).catch(() => 0) : 0;
   const user = me ? { handle: me.handle, displayName: me.displayName, isSalon: me.isSalon, hue: me.hue } : null;
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"} className={`${sans.variable} ${display.variable}`}>
       <body className="font-sans">
         <LocaleProvider locale={locale} messages={messages} fallback={fallback}>
-          <Shell user={user}>{children}</Shell>
+          <Shell user={user} unread={unread}>{children}</Shell>
         </LocaleProvider>
       </body>
     </html>

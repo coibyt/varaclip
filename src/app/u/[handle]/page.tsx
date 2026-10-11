@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CalendarCheck, MapPin, Phone, Settings } from "lucide-react";
+import { CalendarCheck, LayoutDashboard, MapPin, MessageCircle, Phone, Radio, Settings } from "lucide-react";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
 import { hydrate, videoInclude } from "@/lib/videos";
@@ -27,7 +27,7 @@ export default async function Profile({ params, searchParams }: { params: Promis
   if (!u) notFound();
   const mine = me?.id === u.id;
 
-  const [followers, following, likeAgg, isFollowing, rows] = await Promise.all([
+  const [followers, following, likeAgg, isFollowing, rows, liveNow] = await Promise.all([
     db.follow.count({ where: { followingId: u.id } }),
     db.follow.count({ where: { followerId: u.id } }),
     db.like.count({ where: { video: { creatorId: u.id } } }),
@@ -35,6 +35,8 @@ export default async function Profile({ params, searchParams }: { params: Promis
     tab === "saved" && mine
       ? db.video.findMany({ where: { saves: { some: { userId: u.id } } }, orderBy: { createdAt: "desc" }, include: videoInclude })
       : db.video.findMany({ where: { creatorId: u.id }, orderBy: { createdAt: "desc" }, include: videoInclude }),
+    // The live tables are created by docs/database-live-chat.sql; until then this must not break the page.
+    db.liveStream.findFirst({ where: { creatorId: u.id, status: "LIVE", lastBeat: { gt: new Date(Date.now() - 90_000) } }, select: { id: true } }).catch(() => null),
   ]);
 
   return (
@@ -42,7 +44,10 @@ export default async function Profile({ params, searchParams }: { params: Promis
       <header className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
         <Avatar name={u.displayName} hue={u.hue} url={mediaUrl(u.avatarKey)} size={112} />
         <div className="min-w-0 flex-1">
-          <h1 className="font-display text-3xl font-bold tracking-tight">{u.salonName || u.displayName}</h1>
+          <h1 className="flex flex-wrap items-center justify-center gap-3 font-display text-3xl font-bold tracking-tight sm:justify-start">
+            {u.salonName || u.displayName}
+            {liveNow && <Link href={`/live/${liveNow.id}`} className="flex items-center gap-1.5 rounded-md bg-red-600 px-2 py-1 font-sans text-xs font-extrabold uppercase tracking-normal text-white"><Radio className="size-3.5" aria-hidden /> {t("live.badge")}</Link>}
+          </h1>
           <p className="text-mist">@{u.handle}{u.isSalon && u.salonName ? ` · ${u.displayName}` : ""}</p>
 
           <dl className="mt-4 flex justify-center gap-6 sm:justify-start">
@@ -53,9 +58,15 @@ export default async function Profile({ params, searchParams }: { params: Promis
 
           <div className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
             {mine ? (
-              <Link href="/settings" className="btn btn-ghost"><Settings className="size-5" aria-hidden /> {t("pf.edit")}</Link>
+              <>
+                <Link href="/settings" className="btn btn-ghost"><Settings className="size-5" aria-hidden /> {t("pf.edit")}</Link>
+                {u.isSalon && <Link href="/studio" className="btn btn-ghost"><LayoutDashboard className="size-5" aria-hidden /> {t("nav.studio")}</Link>}
+              </>
             ) : (
-              <FollowButton handle={u.handle} initial={Boolean(isFollowing)} loggedIn={Boolean(me)} />
+              <>
+                <FollowButton handle={u.handle} initial={Boolean(isFollowing)} loggedIn={Boolean(me)} />
+                <Link href={me ? `/messages/${u.handle}` : `/login?next=${encodeURIComponent(`/messages/${u.handle}`)}`} className="btn btn-ghost"><MessageCircle className="size-5" aria-hidden /> {t("msg.message")}</Link>
+              </>
             )}
             {u.bookingUrl && <a href={u.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary"><CalendarCheck className="size-5" aria-hidden /> {t("card.book")}</a>}
             {u.phone && <a href={`tel:${u.phone.replace(/[^+\d]/g, "")}`} className="btn btn-ghost"><Phone className="size-5" aria-hidden /> {u.phone}</a>}
