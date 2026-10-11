@@ -209,6 +209,11 @@ const fr: Record<string, string> = {
   "dl.preparing": "Téléchargement de la vidéo depuis VaraClip… {p} %",
   "dl.fail": "Impossible de télécharger la vidéo. Veuillez réessayer.",
   "dl.unsupported": "Ce navigateur ne peut pas créer de téléchargement avec logo.",
+  "studio.link": "Lien et code d’intégration",
+  "studio.copyLink": "Copier le lien",
+  "studio.copyEmbed": "Copier le code d’intégration",
+  "studio.copied": "Copié !",
+  "studio.linkHint": "Collez le lien dans le champ « lien vidéo » de VaraaAi à la place d’un lien YouTube, ou collez le code d’intégration dans votre site web.",
 };
 
 export default fr;

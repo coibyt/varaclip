@@ -209,6 +209,11 @@ const ms: Record<string, string> = {
   "dl.preparing": "Memuat turun video daripada VaraClip… {p}%",
   "dl.fail": "Video tidak dapat dimuat turun. Sila cuba lagi.",
   "dl.unsupported": "Pelayar ini tidak dapat membuat muat turun dengan logo.",
+  "studio.link": "Pautan & kod benaman",
+  "studio.copyLink": "Salin pautan",
+  "studio.copyEmbed": "Salin kod benaman",
+  "studio.copied": "Disalin!",
+  "studio.linkHint": "Tampal pautan ke medan “pautan video” di VaraaAi sebagai ganti pautan YouTube, atau tampal kod benaman ke laman web anda.",
 };
 
 export default ms;

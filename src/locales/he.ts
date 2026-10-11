@@ -209,6 +209,11 @@ const he: Record<string, string> = {
   "dl.preparing": "מוריד סרטון מ-VaraClip… {p}%",
   "dl.fail": "לא ניתן היה להוריד את הסרטון. נסו שוב.",
   "dl.unsupported": "הדפדפן הזה אינו יכול ליצור הורדה עם לוגו.",
+  "studio.link": "קישור וקוד הטמעה",
+  "studio.copyLink": "העתקת קישור",
+  "studio.copyEmbed": "העתקת קוד הטמעה",
+  "studio.copied": "הועתק!",
+  "studio.linkHint": "הדביקו את הקישור בשדה ״קישור לסרטון״ ב-VaraaAi במקום קישור יוטיוב, או הדביקו את קוד ההטמעה באתר שלכם.",
 };
 
 export default he;

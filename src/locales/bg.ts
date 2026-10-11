@@ -209,6 +209,11 @@ const bg: Record<string, string> = {
   "dl.preparing": "Изтегляне на видео от VaraClip… {p}%",
   "dl.fail": "Видеото не можа да бъде изтеглено. Опитайте отново.",
   "dl.unsupported": "Този браузър не може да създава изтегляния с лого.",
+  "studio.link": "Връзка и код за вграждане",
+  "studio.copyLink": "Копиране на връзката",
+  "studio.copyEmbed": "Копиране на кода за вграждане",
+  "studio.copied": "Копирано!",
+  "studio.linkHint": "Поставете връзката в полето „връзка към видео“ във VaraaAi вместо YouTube връзка или поставете кода за вграждане в уебсайта си.",
 };
 
 export default bg;

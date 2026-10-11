@@ -209,6 +209,11 @@ const ko: Record<string, string> = {
   "dl.preparing": "VaraClip에서 영상을 다운로드하는 중… {p}%",
   "dl.fail": "영상을 다운로드하지 못했어요. 다시 시도해 주세요.",
   "dl.unsupported": "이 브라우저는 로고가 들어간 다운로드를 만들 수 없어요.",
+  "studio.link": "링크 및 임베드 코드",
+  "studio.copyLink": "링크 복사",
+  "studio.copyEmbed": "임베드 코드 복사",
+  "studio.copied": "복사했어요!",
+  "studio.linkHint": "YouTube 링크 대신 VaraaAi의 “영상 링크” 칸에 이 링크를 붙여 넣거나, 임베드 코드를 내 웹사이트에 붙여 넣으세요.",
 };
 
 export default ko;

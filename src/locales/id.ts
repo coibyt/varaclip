@@ -209,6 +209,11 @@ const id: Record<string, string> = {
   "dl.preparing": "Mengunduh video dari VaraClip… {p}%",
   "dl.fail": "Video tidak dapat diunduh. Silakan coba lagi.",
   "dl.unsupported": "Peramban ini tidak dapat membuat unduhan dengan logo.",
+  "studio.link": "Tautan & kode sematan",
+  "studio.copyLink": "Salin tautan",
+  "studio.copyEmbed": "Salin kode sematan",
+  "studio.copied": "Tersalin!",
+  "studio.linkHint": "Tempel tautan ke kolom “tautan video” di VaraaAi sebagai pengganti tautan YouTube, atau tempel kode sematan ke situs web Anda.",
 };
 
 export default id;

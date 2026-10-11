@@ -209,6 +209,11 @@ const be: Record<string, string> = {
   "dl.preparing": "Спампоўваем відэа з VaraClip… {p}%",
   "dl.fail": "Не ўдалося спампаваць відэа. Паспрабуйце яшчэ раз.",
   "dl.unsupported": "Гэты браўзер не можа стварыць спампоўку з лагатыпам.",
+  "studio.link": "Спасылка і код для ўстаўкі",
+  "studio.copyLink": "Капіраваць спасылку",
+  "studio.copyEmbed": "Капіраваць код для ўстаўкі",
+  "studio.copied": "Скапіравана!",
+  "studio.linkHint": "Устаўце спасылку ў поле «спасылка на відэа» ў VaraaAi замест спасылкі на YouTube або ўстаўце код на свой сайт.",
 };
 
 export default be;

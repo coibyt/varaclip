@@ -209,6 +209,11 @@ const es: Record<string, string> = {
   "dl.preparing": "Descargando vídeo de VaraClip… {p} %",
   "dl.fail": "No se pudo descargar el vídeo. Inténtalo de nuevo.",
   "dl.unsupported": "Este navegador no puede crear descargas con logotipo.",
+  "studio.link": "Enlace y código para insertar",
+  "studio.copyLink": "Copiar enlace",
+  "studio.copyEmbed": "Copiar código para insertar",
+  "studio.copied": "¡Copiado!",
+  "studio.linkHint": "Pega el enlace en el campo “enlace del vídeo” de VaraaAi en lugar de un enlace de YouTube, o pega el código en tu sitio web.",
 };
 
 export default es;

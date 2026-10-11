@@ -209,6 +209,11 @@ const fil: Record<string, string> = {
   "dl.preparing": "Dina-download ang video mula sa VaraClip… {p}%",
   "dl.fail": "Hindi ma-download ang video. Pakisubukan ulit.",
   "dl.unsupported": "Hindi makakagawa ang browser na ito ng download na may logo.",
+  "studio.link": "Link at embed code",
+  "studio.copyLink": "Kopyahin ang link",
+  "studio.copyEmbed": "Kopyahin ang embed code",
+  "studio.copied": "Nakopya!",
+  "studio.linkHint": "I-paste ang link sa field na “video link” sa VaraaAi bilang kapalit ng YouTube link, o i-paste ang embed code sa website mo.",
 };
 
 export default fil;

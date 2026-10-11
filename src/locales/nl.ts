@@ -209,6 +209,11 @@ const nl: Record<string, string> = {
   "dl.preparing": "Video downloaden van VaraClip… {p}%",
   "dl.fail": "De video kon niet worden gedownload. Probeer het opnieuw.",
   "dl.unsupported": "Deze browser kan geen downloads met logo maken.",
+  "studio.link": "Link en insluitcode",
+  "studio.copyLink": "Link kopiëren",
+  "studio.copyEmbed": "Insluitcode kopiëren",
+  "studio.copied": "Gekopieerd!",
+  "studio.linkHint": "Plak de link in het veld “videolink” op VaraaAi in plaats van een YouTube-link, of plak de insluitcode op je website.",
 };
 
 export default nl;

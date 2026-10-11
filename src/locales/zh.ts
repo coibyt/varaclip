@@ -209,6 +209,11 @@ const zh: Record<string, string> = {
   "dl.preparing": "正在从 VaraClip 下载视频… {p}%",
   "dl.fail": "无法下载视频，请重试。",
   "dl.unsupported": "此浏览器无法生成带标志的下载文件。",
+  "studio.link": "链接与嵌入代码",
+  "studio.copyLink": "复制链接",
+  "studio.copyEmbed": "复制嵌入代码",
+  "studio.copied": "已复制！",
+  "studio.linkHint": "将链接粘贴到 VaraaAi 的“视频链接”栏中以代替 YouTube 链接，或把嵌入代码粘贴到你的网站。",
 };
 
 export default zh;

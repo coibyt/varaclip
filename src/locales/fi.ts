@@ -209,6 +209,11 @@ const fi: Record<string, string> = {
   "dl.preparing": "Ladataan videota VaraClipistä… {p} %",
   "dl.fail": "Videota ei voitu ladata. Yritä uudelleen.",
   "dl.unsupported": "Tämä selain ei voi luoda latauksia logolla.",
+  "studio.link": "Linkki ja upotuskoodi",
+  "studio.copyLink": "Kopioi linkki",
+  "studio.copyEmbed": "Kopioi upotuskoodi",
+  "studio.copied": "Kopioitu!",
+  "studio.linkHint": "Liitä linkki VaraaAin “videolinkki”-kenttään YouTube-linkin tilalle tai liitä upotuskoodi omalle verkkosivullesi.",
 };
 
 export default fi;

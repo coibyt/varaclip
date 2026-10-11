@@ -209,6 +209,11 @@ const lv: Record<string, string> = {
   "dl.preparing": "Lejupielādē video no VaraClip… {p}%",
   "dl.fail": "Video neizdevās lejupielādēt. Mēģini vēlreiz.",
   "dl.unsupported": "Šī pārlūkprogramma nevar izveidot lejupielādi ar logotipu.",
+  "studio.link": "Saite un iegulšanas kods",
+  "studio.copyLink": "Kopēt saiti",
+  "studio.copyEmbed": "Kopēt iegulšanas kodu",
+  "studio.copied": "Nokopēts!",
+  "studio.linkHint": "Ielīmē saiti VaraaAi laukā “video saite” YouTube saites vietā vai ielīmē iegulšanas kodu savā tīmekļa vietnē.",
 };
 
 export default lv;

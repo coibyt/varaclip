@@ -209,6 +209,11 @@ const ru: Record<string, string> = {
   "dl.preparing": "Скачиваем видео с VaraClip… {p}%",
   "dl.fail": "Не удалось скачать видео. Попробуйте ещё раз.",
   "dl.unsupported": "Этот браузер не может создать загрузку с логотипом.",
+  "studio.link": "Ссылка и код для вставки",
+  "studio.copyLink": "Копировать ссылку",
+  "studio.copyEmbed": "Копировать код для вставки",
+  "studio.copied": "Скопировано!",
+  "studio.linkHint": "Вставьте ссылку в поле «ссылка на видео» в VaraaAi вместо ссылки на YouTube или вставьте код на свой сайт.",
 };
 
 export default ru;

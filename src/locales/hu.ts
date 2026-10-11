@@ -209,6 +209,11 @@ const hu: Record<string, string> = {
   "dl.preparing": "Videó letöltése a VaraClipről… {p}%",
   "dl.fail": "A videót nem sikerült letölteni. Próbáld újra.",
   "dl.unsupported": "Ez a böngésző nem tud logóval ellátott letöltést készíteni.",
+  "studio.link": "Hivatkozás és beágyazási kód",
+  "studio.copyLink": "Hivatkozás másolása",
+  "studio.copyEmbed": "Beágyazási kód másolása",
+  "studio.copied": "Másolva!",
+  "studio.linkHint": "Illeszd be a hivatkozást a VaraaAi „videó hivatkozása” mezőjébe a YouTube-link helyett, vagy illeszd be a beágyazási kódot a weboldaladba.",
 };
 
 export default hu;

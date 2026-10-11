@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Eye, Heart, MessageCircle, Pencil, Trash2 } from "lucide-react";
+import { Check, Code2, Copy, Eye, Heart, Link2, MessageCircle, Pencil, Trash2 } from "lucide-react";
 import { compact, timeAgo, type FeedVideo } from "@/lib/util";
 import { useI18n } from "./locale-provider";
 
@@ -15,6 +15,26 @@ export function StudioRow({ v }: { v: FeedVideo }) {
   const [caption, setCaption] = useState(v.caption);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [showLink, setShowLink] = useState(false);
+  const [copied, setCopied] = useState<"link" | "embed" | null>(null);
+
+  // Absolute URLs are only known in the browser (the site can sit behind any domain).
+  const links = () => {
+    const origin = window.location.origin;
+    return {
+      link: `${origin}/v/${v.id}`,
+      embed: `<iframe src="${origin}/embed/v/${v.id}" width="360" height="640" style="border:0;border-radius:12px;max-width:100%" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>`,
+    };
+  };
+  async function copy(kind: "link" | "embed") {
+    try {
+      await navigator.clipboard.writeText(links()[kind]);
+      setCopied(kind);
+      setTimeout(() => setCopied(null), 2000);
+    } catch {
+      window.prompt(t(kind === "link" ? "studio.copyLink" : "studio.copyEmbed"), links()[kind]);
+    }
+  }
 
   async function del() {
     setBusy(true);
@@ -80,6 +100,7 @@ export function StudioRow({ v }: { v: FeedVideo }) {
               </div>
             ) : (
               <>
+                <button onClick={() => setShowLink((o) => !o)} aria-label={t("studio.link")} aria-expanded={showLink} className="grid size-11 cursor-pointer place-items-center rounded-full text-mist transition hover:bg-white/10 hover:text-white"><Link2 className="size-5" aria-hidden /></button>
                 <button onClick={() => setEditing(true)} aria-label={t("studio.edit")} className="grid size-11 cursor-pointer place-items-center rounded-full text-mist transition hover:bg-white/10 hover:text-white"><Pencil className="size-5" aria-hidden /></button>
                 <button onClick={() => setConfirm(true)} aria-label={t("studio.deleteVideo")} className="grid size-11 cursor-pointer place-items-center rounded-full text-mist transition hover:bg-red-500/15 hover:text-red-400"><Trash2 className="size-5" aria-hidden /></button>
               </>
@@ -87,6 +108,19 @@ export function StudioRow({ v }: { v: FeedVideo }) {
           </div>
         )}
       </div>
+      {showLink && !editing && (
+        <div className="mt-3 rounded-xl bg-ink-3 p-3">
+          <div className="flex flex-wrap gap-2">
+            <button onClick={() => copy("link")} className="btn btn-ghost !min-h-[40px] text-sm">
+              {copied === "link" ? <Check className="size-4 text-gold" aria-hidden /> : <Copy className="size-4" aria-hidden />} {copied === "link" ? t("studio.copied") : t("studio.copyLink")}
+            </button>
+            <button onClick={() => copy("embed")} className="btn btn-ghost !min-h-[40px] text-sm">
+              {copied === "embed" ? <Check className="size-4 text-gold" aria-hidden /> : <Code2 className="size-4" aria-hidden />} {copied === "embed" ? t("studio.copied") : t("studio.copyEmbed")}
+            </button>
+          </div>
+          <p className="mt-2 text-xs text-mist">{t("studio.linkHint")}</p>
+        </div>
+      )}
       {confirm && !editing && <p className="mt-2 text-sm text-red-300">{t("studio.deleteConfirm")}</p>}
     </li>
   );

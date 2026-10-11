@@ -209,6 +209,11 @@ const da: Record<string, string> = {
   "dl.preparing": "Downloader video fra VaraClip… {p} %",
   "dl.fail": "Videoen kunne ikke downloades. Prøv igen.",
   "dl.unsupported": "Denne browser kan ikke oprette downloads med logo.",
+  "studio.link": "Link og indlejringskode",
+  "studio.copyLink": "Kopier link",
+  "studio.copyEmbed": "Kopier indlejringskode",
+  "studio.copied": "Kopieret!",
+  "studio.linkHint": "Indsæt linket i feltet “videolink” på VaraaAi i stedet for et YouTube-link, eller indsæt indlejringskoden på din hjemmeside.",
 };
 
 export default da;

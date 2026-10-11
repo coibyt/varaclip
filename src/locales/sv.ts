@@ -209,6 +209,11 @@ const sv: Record<string, string> = {
   "dl.preparing": "Laddar ner video från VaraClip… {p} %",
   "dl.fail": "Videon kunde inte laddas ner. Försök igen.",
   "dl.unsupported": "Den här webbläsaren kan inte skapa nedladdningar med logotyp.",
+  "studio.link": "Länk och inbäddningskod",
+  "studio.copyLink": "Kopiera länk",
+  "studio.copyEmbed": "Kopiera inbäddningskod",
+  "studio.copied": "Kopierat!",
+  "studio.linkHint": "Klistra in länken i fältet “videolänk” på VaraaAi i stället för en YouTube-länk, eller klistra in inbäddningskoden på din webbplats.",
 };
 
 export default sv;

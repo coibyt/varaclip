@@ -209,6 +209,11 @@ const sk: Record<string, string> = {
   "dl.preparing": "Sťahuje sa video z VaraClip… {p} %",
   "dl.fail": "Video sa nepodarilo stiahnuť. Skúste to znova.",
   "dl.unsupported": "Tento prehliadač nevie vytvoriť stiahnutie s logom.",
+  "studio.link": "Odkaz a kód na vloženie",
+  "studio.copyLink": "Kopírovať odkaz",
+  "studio.copyEmbed": "Kopírovať kód na vloženie",
+  "studio.copied": "Skopírované!",
+  "studio.linkHint": "Vložte odkaz do poľa „odkaz na video“ vo VaraaAi namiesto odkazu z YouTube, alebo vložte kód na svoj web.",
 };
 
 export default sk;

@@ -209,6 +209,11 @@ const hi: Record<string, string> = {
   "dl.preparing": "VaraClip से वीडियो डाउनलोड हो रहा है… {p}%",
   "dl.fail": "वीडियो डाउनलोड नहीं हो सका। कृपया फिर कोशिश करें।",
   "dl.unsupported": "यह ब्राउज़र लोगो वाला डाउनलोड नहीं बना सकता।",
+  "studio.link": "लिंक और एम्बेड कोड",
+  "studio.copyLink": "लिंक कॉपी करें",
+  "studio.copyEmbed": "एम्बेड कोड कॉपी करें",
+  "studio.copied": "कॉपी हो गया!",
+  "studio.linkHint": "YouTube लिंक की जगह VaraaAi के “वीडियो लिंक” खाने में यह लिंक चिपकाएँ, या एम्बेड कोड अपनी वेबसाइट में चिपकाएँ।",
 };
 
 export default hi;

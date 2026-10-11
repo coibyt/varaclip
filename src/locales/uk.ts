@@ -209,6 +209,11 @@ const uk: Record<string, string> = {
   "dl.preparing": "Завантажуємо відео з VaraClip… {p}%",
   "dl.fail": "Не вдалося завантажити відео. Спробуйте ще раз.",
   "dl.unsupported": "Цей браузер не може створити завантаження з логотипом.",
+  "studio.link": "Посилання й код для вставки",
+  "studio.copyLink": "Копіювати посилання",
+  "studio.copyEmbed": "Копіювати код для вставки",
+  "studio.copied": "Скопійовано!",
+  "studio.linkHint": "Вставте посилання в поле «посилання на відео» у VaraaAi замість посилання на YouTube або вставте код на свій сайт.",
 };
 
 export default uk;

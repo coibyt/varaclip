@@ -225,6 +225,11 @@ const vi: Record<string, string> = {
   "dl.preparing": "Đang tải video từ VaraClip… {p}%",
   "dl.fail": "Không tải được video. Vui lòng thử lại.",
   "dl.unsupported": "Trình duyệt này chưa hỗ trợ tải video có logo.",
+  "studio.link": "Link & mã nhúng",
+  "studio.copyLink": "Sao chép link",
+  "studio.copyEmbed": "Sao chép mã nhúng",
+  "studio.copied": "Đã sao chép!",
+  "studio.linkHint": "Dán link vào ô “Link video” trên VaraaAi để thay link YouTube, hoặc dán mã nhúng vào website của bạn.",
 };
 
 export default vi;

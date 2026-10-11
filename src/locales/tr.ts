@@ -209,6 +209,11 @@ const tr: Record<string, string> = {
   "dl.preparing": "Video VaraClip'ten indiriliyor… %{p}",
   "dl.fail": "Video indirilemedi. Lütfen tekrar deneyin.",
   "dl.unsupported": "Bu tarayıcı logolu indirme oluşturamıyor.",
+  "studio.link": "Bağlantı ve gömme kodu",
+  "studio.copyLink": "Bağlantıyı kopyala",
+  "studio.copyEmbed": "Gömme kodunu kopyala",
+  "studio.copied": "Kopyalandı!",
+  "studio.linkHint": "Bağlantıyı VaraaAi’deki “video bağlantısı” alanına YouTube bağlantısı yerine yapıştırın veya gömme kodunu web sitenize yapıştırın.",
 };
 
 export default tr;

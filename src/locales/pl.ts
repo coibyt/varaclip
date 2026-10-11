@@ -209,6 +209,11 @@ const pl: Record<string, string> = {
   "dl.preparing": "Pobieranie filmu z VaraClip… {p}%",
   "dl.fail": "Nie udało się pobrać filmu. Spróbuj ponownie.",
   "dl.unsupported": "Ta przeglądarka nie może utworzyć pliku z logo.",
+  "studio.link": "Link i kod do osadzenia",
+  "studio.copyLink": "Kopiuj link",
+  "studio.copyEmbed": "Kopiuj kod do osadzenia",
+  "studio.copied": "Skopiowano!",
+  "studio.linkHint": "Wklej link w polu „link do filmu” w VaraaAi zamiast linku z YouTube albo wklej kod do osadzenia na swojej stronie.",
 };
 
 export default pl;

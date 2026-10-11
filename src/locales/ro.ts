@@ -209,6 +209,11 @@ const ro: Record<string, string> = {
   "dl.preparing": "Se descarcă videoclipul de pe VaraClip… {p}%",
   "dl.fail": "Videoclipul nu a putut fi descărcat. Încearcă din nou.",
   "dl.unsupported": "Acest browser nu poate crea descărcări cu logo.",
+  "studio.link": "Link și cod de încorporare",
+  "studio.copyLink": "Copiază linkul",
+  "studio.copyEmbed": "Copiază codul de încorporare",
+  "studio.copied": "Copiat!",
+  "studio.linkHint": "Lipește linkul în câmpul „link video” de pe VaraaAi în locul unui link YouTube sau lipește codul de încorporare în site-ul tău.",
 };
 
 export default ro;

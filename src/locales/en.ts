@@ -224,6 +224,11 @@ const en: Record<string, string> = {
   "dl.preparing": "Downloading video from VaraClip… {p}%",
   "dl.fail": "Could not download the video. Please try again.",
   "dl.unsupported": "This browser cannot create downloads with the logo.",
+  "studio.link": "Link & embed code",
+  "studio.copyLink": "Copy link",
+  "studio.copyEmbed": "Copy embed code",
+  "studio.copied": "Copied!",
+  "studio.linkHint": "Paste the link into the “video link” field on VaraaAi instead of a YouTube link, or paste the embed code into your website.",
 };
 
 export default en;

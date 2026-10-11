@@ -209,6 +209,11 @@ const cs: Record<string, string> = {
   "dl.preparing": "Stahuje se video z VaraClip… {p} %",
   "dl.fail": "Video se nepodařilo stáhnout. Zkuste to znovu.",
   "dl.unsupported": "Tento prohlížeč neumí vytvořit stažení s logem.",
+  "studio.link": "Odkaz a kód pro vložení",
+  "studio.copyLink": "Kopírovat odkaz",
+  "studio.copyEmbed": "Kopírovat kód pro vložení",
+  "studio.copied": "Zkopírováno!",
+  "studio.linkHint": "Vložte odkaz do pole „odkaz na video“ ve VaraaAi místo odkazu z YouTube, nebo vložte kód na svůj web.",
 };
 
 export default cs;

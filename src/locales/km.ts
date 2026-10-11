@@ -209,6 +209,11 @@ const km: Record<string, string> = {
   "dl.preparing": "កំពុងទាញយកវីដេអូពី VaraClip… {p}%",
   "dl.fail": "មិនអាចទាញយកវីដេអូបានទេ។ សូមព្យាយាមម្តងទៀត។",
   "dl.unsupported": "កម្មវិធីរុករកនេះមិនអាចបង្កើតការទាញយកដែលមានឡូហ្គោបានទេ។",
+  "studio.link": "តំណ និងកូដបង្កប់",
+  "studio.copyLink": "ចម្លងតំណ",
+  "studio.copyEmbed": "ចម្លងកូដបង្កប់",
+  "studio.copied": "បានចម្លង!",
+  "studio.linkHint": "បិទភ្ជាប់តំណក្នុងប្រអប់ “តំណវីដេអូ” នៅ VaraaAi ជំនួសតំណ YouTube ឬបិទភ្ជាប់កូដបង្កប់ក្នុងគេហទំព័ររបស់អ្នក។",
 };
 
 export default km;

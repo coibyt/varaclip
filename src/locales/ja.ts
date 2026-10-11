@@ -209,6 +209,11 @@ const ja: Record<string, string> = {
   "dl.preparing": "VaraClipから動画をダウンロード中… {p}%",
   "dl.fail": "動画をダウンロードできませんでした。もう一度お試しください。",
   "dl.unsupported": "このブラウザではロゴ入りのダウンロードを作成できません。",
+  "studio.link": "リンクと埋め込みコード",
+  "studio.copyLink": "リンクをコピー",
+  "studio.copyEmbed": "埋め込みコードをコピー",
+  "studio.copied": "コピーしました！",
+  "studio.linkHint": "YouTubeリンクの代わりに、VaraaAiの「動画リンク」欄にこのリンクを貼り付けるか、埋め込みコードをご自身のウェブサイトに貼り付けてください。",
 };
 
 export default ja;

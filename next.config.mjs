@@ -7,6 +7,10 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 export default {
   poweredByHeader: false,
   images: { remotePatterns: [{ protocol: "https", hostname: "**" }] },
+  async headers() {
+    // The embed player is meant to be shown inside other sites (VaraaAi, salon websites).
+    return [{ source: "/embed/:path*", headers: [{ key: "Content-Security-Policy", value: "frame-ancestors *" }] }];
+  },
   webpack(config) {
     config.resolve.alias["@"] = path.join(root, "src");
     return config;

@@ -209,6 +209,11 @@ const ar: Record<string, string> = {
   "dl.preparing": "جارٍ تنزيل الفيديو من VaraClip… {p}%",
   "dl.fail": "تعذّر تنزيل الفيديو. يرجى المحاولة مرة أخرى.",
   "dl.unsupported": "لا يستطيع هذا المتصفح إنشاء تنزيل بالشعار.",
+  "studio.link": "الرابط وكود التضمين",
+  "studio.copyLink": "نسخ الرابط",
+  "studio.copyEmbed": "نسخ كود التضمين",
+  "studio.copied": "تم النسخ!",
+  "studio.linkHint": "الصق الرابط في حقل «رابط الفيديو» في VaraaAi بدل رابط يوتيوب، أو الصق كود التضمين في موقعك.",
 };
 
 export default ar;

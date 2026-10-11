@@ -209,6 +209,11 @@ const th: Record<string, string> = {
   "dl.preparing": "กำลังดาวน์โหลดวิดีโอจาก VaraClip… {p}%",
   "dl.fail": "ดาวน์โหลดวิดีโอไม่สำเร็จ โปรดลองอีกครั้ง",
   "dl.unsupported": "เบราว์เซอร์นี้ไม่สามารถสร้างไฟล์ดาวน์โหลดที่มีโลโก้ได้",
+  "studio.link": "ลิงก์และโค้ดฝัง",
+  "studio.copyLink": "คัดลอกลิงก์",
+  "studio.copyEmbed": "คัดลอกโค้ดฝัง",
+  "studio.copied": "คัดลอกแล้ว!",
+  "studio.linkHint": "วางลิงก์ในช่อง “ลิงก์วิดีโอ” บน VaraaAi แทนลิงก์ YouTube หรือวางโค้ดฝังลงในเว็บไซต์ของคุณ",
 };
 
 export default th;

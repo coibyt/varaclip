@@ -209,6 +209,11 @@ const no: Record<string, string> = {
   "dl.preparing": "Laster ned video fra VaraClip… {p} %",
   "dl.fail": "Kunne ikke laste ned videoen. Prøv igjen.",
   "dl.unsupported": "Denne nettleseren kan ikke lage nedlastinger med logo.",
+  "studio.link": "Lenke og innbyggingskode",
+  "studio.copyLink": "Kopier lenke",
+  "studio.copyEmbed": "Kopier innbyggingskode",
+  "studio.copied": "Kopiert!",
+  "studio.linkHint": "Lim inn lenken i feltet «videolenke» på VaraaAi i stedet for en YouTube-lenke, eller lim inn innbyggingskoden på nettstedet ditt.",
 };
 
 export default no;

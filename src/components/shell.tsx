@@ -29,11 +29,15 @@ export function Shell({ user, children }: { user: ShellUser; children: React.Rea
     },
   ];
 
+  const isEmbed = path.startsWith("/embed");
+
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
     router.push("/");
     router.refresh();
   }
+
+  if (isEmbed) return <>{children}</>;
 
   return (
     <div className="min-h-dvh">

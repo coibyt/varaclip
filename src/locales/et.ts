@@ -209,6 +209,11 @@ const et: Record<string, string> = {
   "dl.preparing": "Video allalaadimine VaraClipist… {p}%",
   "dl.fail": "Videot ei õnnestunud alla laadida. Proovi uuesti.",
   "dl.unsupported": "See brauser ei saa luua allalaadimist logoga.",
+  "studio.link": "Link ja manustamiskood",
+  "studio.copyLink": "Kopeeri link",
+  "studio.copyEmbed": "Kopeeri manustamiskood",
+  "studio.copied": "Kopeeritud!",
+  "studio.linkHint": "Aseta link VaraaAi väljale „video link“ YouTube’i lingi asemel või aseta manustamiskood oma veebilehele.",
 };
 
 export default et;
