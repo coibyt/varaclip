@@ -7,20 +7,41 @@ export const LOCALES = [
   { code: "en", name: "English" },
   { code: "fi", name: "Suomi" },
   { code: "sv", name: "Svenska" },
-  { code: "es", name: "Español" },
-  { code: "fr", name: "Français" },
+  { code: "no", name: "Norsk" },
+  { code: "da", name: "Dansk" },
+  { code: "nl", name: "Nederlands" },
   { code: "de", name: "Deutsch" },
+  { code: "fr", name: "Français" },
+  { code: "es", name: "Español" },
   { code: "pt", name: "Português" },
   { code: "it", name: "Italiano" },
+  { code: "pl", name: "Polski" },
+  { code: "cs", name: "Čeština" },
+  { code: "sk", name: "Slovenčina" },
+  { code: "hu", name: "Magyar" },
+  { code: "ro", name: "Română" },
+  { code: "bg", name: "Български" },
   { code: "ru", name: "Русский" },
+  { code: "uk", name: "Українська" },
+  { code: "be", name: "Беларуская" },
+  { code: "lv", name: "Latviešu" },
+  { code: "et", name: "Eesti" },
+  { code: "tr", name: "Türkçe" },
+  { code: "ar", name: "العربية", dir: "rtl" },
+  { code: "he", name: "עברית", dir: "rtl" },
+  { code: "hi", name: "हिन्दी" },
+  { code: "th", name: "ไทย" },
+  { code: "km", name: "ខ្មែរ" },
+  { code: "id", name: "Bahasa Indonesia" },
+  { code: "ms", name: "Bahasa Melayu" },
+  { code: "fil", name: "Filipino" },
   { code: "zh", name: "简体中文" },
   { code: "ja", name: "日本語" },
   { code: "ko", name: "한국어" },
-  { code: "th", name: "ไทย" },
-  { code: "id", name: "Bahasa Indonesia" },
 ] as const;
 
 export type Locale = (typeof LOCALES)[number]["code"];
+export const isRtl = (l: Locale) => LOCALES.some((x) => x.code === l && "dir" in x && x.dir === "rtl");
 export const DEFAULT_LOCALE: Locale = "en";
 export const LOCALE_COOKIE = "gr_lang";
 
@@ -42,8 +63,11 @@ export type T = ReturnType<typeof makeT>;
 /** ISO country code → one of our locales. Countries not listed fall back to English. */
 const COUNTRY_LANG: Record<string, Locale> = {
   VN: "vi",
-  FI: "fi",
-  SE: "sv", AX: "fi",
+  FI: "fi", AX: "fi",
+  SE: "sv",
+  NO: "no", SJ: "no",
+  DK: "da", GL: "da", FO: "da",
+  NL: "nl", SR: "nl", AW: "nl", CW: "nl", SX: "nl",
   ES: "es", MX: "es", AR: "es", CO: "es", CL: "es", PE: "es", VE: "es", EC: "es", GT: "es", CU: "es", BO: "es",
   DO: "es", HN: "es", PY: "es", SV: "es", NI: "es", CR: "es", PA: "es", UY: "es", PR: "es", GQ: "es",
   FR: "fr", BE: "fr", LU: "fr", MC: "fr", SN: "fr", CI: "fr", CM: "fr", CD: "fr", MG: "fr", ML: "fr", BF: "fr",
@@ -51,13 +75,17 @@ const COUNTRY_LANG: Record<string, Locale> = {
   DE: "de", AT: "de", LI: "de", CH: "de",
   PT: "pt", BR: "pt", AO: "pt", MZ: "pt", CV: "pt", GW: "pt", ST: "pt", TL: "pt",
   IT: "it", SM: "it", VA: "it",
-  RU: "ru", BY: "ru", KZ: "ru", KG: "ru", TJ: "ru", UZ: "ru", TM: "ru", MD: "ru",
-  CN: "zh", TW: "zh", HK: "zh", MO: "zh", SG: "zh",
+  PL: "pl", CZ: "cs", SK: "sk", HU: "hu", RO: "ro", MD: "ro", BG: "bg", UA: "uk",
+  RU: "ru", BY: "ru", KZ: "ru", KG: "ru", TJ: "ru", UZ: "ru", TM: "ru",
+  LV: "lv", EE: "et", TR: "tr",
+  SA: "ar", AE: "ar", EG: "ar", IQ: "ar", JO: "ar", KW: "ar", QA: "ar", BH: "ar", OM: "ar", LB: "ar", SY: "ar",
+  YE: "ar", LY: "ar", SD: "ar", PS: "ar", MR: "ar",
+  IL: "he",
+  TH: "th", KH: "km", ID: "id", MY: "ms", BN: "ms", PH: "fil",
+  CN: "zh", TW: "zh", HK: "zh", MO: "zh",
   JP: "ja",
   KR: "ko", KP: "ko",
-  TH: "th",
-  ID: "id",
-  US: "en", GB: "en", CA: "en", AU: "en", NZ: "en", IE: "en", IN: "en", PH: "en", ZA: "en", NG: "en", KE: "en",
+  US: "en", GB: "en", CA: "en", AU: "en", NZ: "en", IE: "en", IN: "en", SG: "en", ZA: "en", NG: "en", KE: "en",
 };
 
 export const localeFromCountry = (cc: string | null | undefined): Locale | null => COUNTRY_LANG[(cc ?? "").toUpperCase()] ?? null;
@@ -76,7 +104,8 @@ export function localeFromAcceptLanguage(header: string | null | undefined): Loc
   for (const { tag } of prefs) {
     const base = tag.split("-")[0];
     if (isLocale(base)) return base;
-    if (base === "nb" || base === "nn" || base === "no" || base === "da") return "sv"; // nearest supported Nordic language
+    const alias: Record<string, Locale> = { nb: "no", nn: "no", iw: "he", tl: "fil", in: "id" };
+    if (alias[base]) return alias[base];
   }
   return null;
 }

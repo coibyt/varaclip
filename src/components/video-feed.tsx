@@ -305,7 +305,7 @@ function VideoCard({
   const rail = "grid size-12 cursor-pointer place-items-center rounded-full bg-white/10 backdrop-blur transition hover:bg-white/20 active:scale-90 lg:bg-white/10";
 
   return (
-    <section data-vid={v.id} className="snap-item relative flex h-full items-center justify-center lg:py-3" aria-label={t("card.videoOf", { name: v.creator.salonName || v.creator.displayName })}>
+    <section data-vid={v.id} dir="ltr" className="snap-item relative flex h-full items-center justify-center lg:py-3" aria-label={t("card.videoOf", { name: v.creator.salonName || v.creator.displayName })}>
       <div className="relative h-full w-full lg:aspect-[9/16] lg:h-full lg:max-h-[920px] lg:w-auto">
         <div className="absolute inset-0 overflow-hidden bg-black lg:rounded-3xl lg:shadow-2xl lg:shadow-black/60">
         <video
@@ -359,7 +359,7 @@ function VideoCard({
               <span className="truncate">{[v.creator.salonName, v.creator.city].filter(Boolean).join(" · ")}</span>
             </p>
           )}
-          {v.caption && <p className="mt-2 line-clamp-3 text-[14px] leading-snug text-white/95">{v.caption}</p>}
+          {v.caption && <p dir="auto" className="mt-2 line-clamp-3 text-[14px] leading-snug text-white/95">{v.caption}</p>}
           {tags.length > 0 && (
             <p className="mt-1 flex flex-wrap gap-x-2 text-[13px] font-semibold">
               {tags.map((t) => <Link key={t} href={`/discover?q=${encodeURIComponent("#" + t)}`} className="text-gold hover:underline">#{t}</Link>)}

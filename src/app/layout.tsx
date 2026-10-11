@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { getUser } from "@/lib/auth";
 import { getLocale, getMessages, getT } from "@/lib/i18n-server";
+import { isRtl } from "@/lib/i18n";
 import { Shell } from "@/components/shell";
 import { LocaleProvider } from "@/components/locale-provider";
 
@@ -27,7 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const [messages, fallback] = await Promise.all([getMessages(locale), getMessages("en")]);
   const user = me ? { handle: me.handle, displayName: me.displayName, isSalon: me.isSalon, hue: me.hue } : null;
   return (
-    <html lang={locale} className={`${sans.variable} ${display.variable}`}>
+    <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"} className={`${sans.variable} ${display.variable}`}>
       <body className="font-sans">
         <LocaleProvider locale={locale} messages={messages} fallback={fallback}>
           <Shell user={user}>{children}</Shell>
