@@ -187,7 +187,7 @@ export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }
         </div>
       )}
 
-      <div className="absolute left-3 top-3 z-30 lg:hidden"><LanguageSwitcher className="!min-h-[40px] bg-black/45 backdrop-blur-md [&_select]:w-[72px] [&_select]:truncate" /></div>
+      <div className="absolute right-3 top-[112px] z-30 lg:hidden"><LanguageSwitcher iconOnly /></div>
 
       <div ref={scroller} className="snap-feed feed-h" tabIndex={-1}>
         {videos.map((v) => (
