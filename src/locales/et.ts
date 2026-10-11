@@ -265,6 +265,9 @@ const et: Record<string, string> = {
   "live.externalHint": "See otseülekanne toimub platvormil {platform}. Puuduta nuppu vaatamiseks ja tule siia vestlema tagasi.",
   "live.openOn": "Ava: {platform}",
   "live.watchOn": "Vaata: {platform}",
+  "go.gateTitle": "Peaaegu valmis!",
+  "go.gateBody": "Tee rohkem lühivideoid, et jõuda {need} jälgijani ja avada otseülekanded. Sul on praegu {count}.",
+  "go.gateCta": "Loo lühivideo",
 };
 
 export default et;

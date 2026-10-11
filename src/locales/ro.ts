@@ -265,6 +265,9 @@ const ro: Record<string, string> = {
   "live.externalHint": "Această transmisiune este pe {platform}. Atinge butonul ca să o vezi, apoi revino aici ca să discuți.",
   "live.openOn": "Deschide pe {platform}",
   "live.watchOn": "Vezi pe {platform}",
+  "go.gateTitle": "Aproape gata!",
+  "go.gateBody": "Creează mai multe videoclipuri scurte pentru a ajunge la {need} urmăritori și a debloca transmisiunile live. Ai {count} până acum.",
+  "go.gateCta": "Creează un videoclip scurt",
 };
 
 export default ro;

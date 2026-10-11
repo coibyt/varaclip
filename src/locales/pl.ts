@@ -265,6 +265,9 @@ const pl: Record<string, string> = {
   "live.externalHint": "Ta transmisja odbywa się w serwisie {platform}. Kliknij przycisk, aby oglądać, a potem wróć tutaj na czat.",
   "live.openOn": "Otwórz w {platform}",
   "live.watchOn": "Oglądaj w {platform}",
+  "go.gateTitle": "Prawie gotowe!",
+  "go.gateBody": "Dodaj więcej krótkich filmów, aby zdobyć {need} obserwujących i odblokować transmisje na żywo. Masz na razie {count}.",
+  "go.gateCta": "Utwórz krótki film",
 };
 
 export default pl;

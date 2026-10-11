@@ -265,6 +265,9 @@ const no: Record<string, string> = {
   "live.externalHint": "Denne direktesendingen foregår på {platform}. Trykk på knappen for å se, og kom tilbake hit for å chatte.",
   "live.openOn": "Åpne på {platform}",
   "live.watchOn": "Se på {platform}",
+  "go.gateTitle": "Nesten der!",
+  "go.gateBody": "Lag flere korte videoer for å nå {need} følgere og låse opp direktesending. Du har {count} så langt.",
+  "go.gateCta": "Lag en kort video",
 };
 
 export default no;

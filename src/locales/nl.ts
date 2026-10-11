@@ -265,6 +265,9 @@ const nl: Record<string, string> = {
   "live.externalHint": "Deze livestream is op {platform}. Tik op de knop om te kijken en kom daarna terug om te chatten.",
   "live.openOn": "Openen op {platform}",
   "live.watchOn": "Kijken op {platform}",
+  "go.gateTitle": "Bijna daar!",
+  "go.gateBody": "Maak meer korte video’s om {need} volgers te bereiken en livestreamen te ontgrendelen. Je hebt er nu {count}.",
+  "go.gateCta": "Korte video maken",
 };
 
 export default nl;

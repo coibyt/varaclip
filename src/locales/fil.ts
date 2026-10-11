@@ -265,6 +265,9 @@ const fil: Record<string, string> = {
   "live.externalHint": "Ang live na ito ay nasa {platform}. I-tap ang button para manood, tapos bumalik dito para makipag-chat.",
   "live.openOn": "Buksan sa {platform}",
   "live.watchOn": "Panoorin sa {platform}",
+  "go.gateTitle": "Malapit na!",
+  "go.gateBody": "Gumawa ng mas maraming maikling video para umabot sa {need} followers at ma-unlock ang live stream. Mayroon kang {count} ngayon.",
+  "go.gateCta": "Gumawa ng maikling video",
 };
 
 export default fil;

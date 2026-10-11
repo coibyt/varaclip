@@ -281,6 +281,9 @@ const vi: Record<string, string> = {
   "live.externalHint": "Buổi phát này diễn ra trên {platform}. Bấm nút để xem, rồi quay lại đây để chat.",
   "live.openOn": "Mở trên {platform}",
   "live.watchOn": "Xem trên {platform}",
+  "go.gateTitle": "Gần xong rồi!",
+  "go.gateBody": "Hãy thử tạo thêm nhiều video ngắn để cán mốc {need} người theo dõi và được cấp quyền sử dụng tính năng phát trực tiếp. Hiện bạn có {count}.",
+  "go.gateCta": "Tạo video ngắn",
 };
 
 export default vi;

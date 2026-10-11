@@ -265,6 +265,9 @@ const ko: Record<string, string> = {
   "live.externalHint": "이 라이브는 {platform}에서 진행 중이에요. 버튼을 눌러 시청한 뒤 채팅하러 여기로 돌아오세요.",
   "live.openOn": "{platform}에서 열기",
   "live.watchOn": "{platform}에서 보기",
+  "go.gateTitle": "거의 다 왔어요!",
+  "go.gateBody": "짧은 영상을 더 만들어 팔로워 {need}명을 달성하면 라이브 방송을 사용할 수 있어요. 지금은 {count}명이에요.",
+  "go.gateCta": "짧은 영상 만들기",
 };
 
 export default ko;

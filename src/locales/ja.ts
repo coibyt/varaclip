@@ -265,6 +265,9 @@ const ja: Record<string, string> = {
   "live.externalHint": "このライブは {platform} で配信中です。ボタンをタップして視聴し、チャットはこちらに戻ってください。",
   "live.openOn": "{platform} で開く",
   "live.watchOn": "{platform} で見る",
+  "go.gateTitle": "あと少し！",
+  "go.gateBody": "短い動画をもっと投稿して、フォロワー {need} 人を達成するとライブ配信が使えるようになります。現在は {count} 人です。",
+  "go.gateCta": "短い動画を作成",
 };
 
 export default ja;

@@ -265,6 +265,9 @@ const zh: Record<string, string> = {
   "live.externalHint": "这场直播在 {platform} 上进行。点按钮观看，然后回到这里聊天。",
   "live.openOn": "在 {platform} 打开",
   "live.watchOn": "在 {platform} 观看",
+  "go.gateTitle": "快要成功了！",
+  "go.gateBody": "多发布一些短视频，达到 {need} 位粉丝即可开通直播功能。你目前有 {count} 位。",
+  "go.gateCta": "创建短视频",
 };
 
 export default zh;

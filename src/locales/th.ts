@@ -265,6 +265,9 @@ const th: Record<string, string> = {
   "live.externalHint": "ไลฟ์นี้อยู่บน {platform} แตะปุ่มเพื่อดู แล้วกลับมาแชตที่นี่",
   "live.openOn": "เปิดบน {platform}",
   "live.watchOn": "ดูบน {platform}",
+  "go.gateTitle": "เกือบถึงแล้ว!",
+  "go.gateBody": "ลองสร้างวิดีโอสั้นเพิ่มเพื่อให้ถึงผู้ติดตาม {need} คนและปลดล็อกการไลฟ์สด ตอนนี้คุณมี {count} คน",
+  "go.gateCta": "สร้างวิดีโอสั้น",
 };
 
 export default th;

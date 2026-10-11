@@ -265,6 +265,9 @@ const ms: Record<string, string> = {
   "live.externalHint": "Siaran ini di {platform}. Ketik butang untuk menonton, kemudian kembali ke sini untuk bersembang.",
   "live.openOn": "Buka di {platform}",
   "live.watchOn": "Tonton di {platform}",
+  "go.gateTitle": "Hampir sampai!",
+  "go.gateBody": "Cipta lebih banyak video pendek untuk mencapai {need} pengikut dan membuka siaran langsung. Anda kini ada {count}.",
+  "go.gateCta": "Cipta video pendek",
 };
 
 export default ms;

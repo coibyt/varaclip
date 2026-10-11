@@ -265,6 +265,9 @@ const tr: Record<string, string> = {
   "live.externalHint": "Bu yayın {platform} üzerinde. İzlemek için düğmeye dokunun, sohbet için buraya geri dönün.",
   "live.openOn": "{platform} üzerinde aç",
   "live.watchOn": "{platform} üzerinde izle",
+  "go.gateTitle": "Neredeyse tamam!",
+  "go.gateBody": "{need} takipçiye ulaşmak ve canlı yayının kilidini açmak için daha fazla kısa video oluşturun. Şu an {count} takipçiniz var.",
+  "go.gateCta": "Kısa video oluştur",
 };
 
 export default tr;

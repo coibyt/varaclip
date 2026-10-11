@@ -265,6 +265,9 @@ const pt: Record<string, string> = {
   "live.externalHint": "Esta transmissão está no {platform}. Toque no botão para assistir e volte aqui para conversar.",
   "live.openOn": "Abrir no {platform}",
   "live.watchOn": "Assistir no {platform}",
+  "go.gateTitle": "Quase lá!",
+  "go.gateBody": "Crie mais vídeos curtos para chegar a {need} seguidores e liberar as transmissões ao vivo. Você tem {count} até agora.",
+  "go.gateCta": "Criar um vídeo curto",
 };
 
 export default pt;

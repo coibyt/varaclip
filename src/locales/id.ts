@@ -265,6 +265,9 @@ const id: Record<string, string> = {
   "live.externalHint": "Siaran ini ada di {platform}. Ketuk tombol untuk menonton, lalu kembali ke sini untuk mengobrol.",
   "live.openOn": "Buka di {platform}",
   "live.watchOn": "Tonton di {platform}",
+  "go.gateTitle": "Hampir sampai!",
+  "go.gateBody": "Buat lebih banyak video pendek untuk mencapai {need} pengikut dan membuka siaran langsung. Saat ini Anda punya {count}.",
+  "go.gateCta": "Buat video pendek",
 };
 
 export default id;

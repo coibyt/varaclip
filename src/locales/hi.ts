@@ -265,6 +265,9 @@ const hi: Record<string, string> = {
   "live.externalHint": "यह लाइव {platform} पर है। देखने के लिए बटन दबाएँ और चैट के लिए यहाँ लौट आएँ।",
   "live.openOn": "{platform} पर खोलें",
   "live.watchOn": "{platform} पर देखें",
+  "go.gateTitle": "बस थोड़ा और!",
+  "go.gateBody": "{need} फ़ॉलोअर्स तक पहुँचने और लाइव स्ट्रीम अनलॉक करने के लिए और छोटे वीडियो बनाएँ। अभी आपके {count} हैं।",
+  "go.gateCta": "छोटा वीडियो बनाएँ",
 };
 
 export default hi;

@@ -265,6 +265,9 @@ const hu: Record<string, string> = {
   "live.externalHint": "Ez az élő adás a(z) {platform} oldalon zajlik. Koppints a gombra a megnézéséhez, majd gyere vissza ide csevegni.",
   "live.openOn": "Megnyitás: {platform}",
   "live.watchOn": "Megnézem itt: {platform}",
+  "go.gateTitle": "Majdnem megvan!",
+  "go.gateBody": "Készíts több rövid videót, hogy elérd a(z) {need} követőt, és feloldd az élő adást. Jelenleg {count} követőd van.",
+  "go.gateCta": "Rövid videó készítése",
 };
 
 export default hu;

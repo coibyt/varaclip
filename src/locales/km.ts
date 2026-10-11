@@ -265,6 +265,9 @@ const km: Record<string, string> = {
   "live.externalHint": "ការផ្សាយនេះនៅលើ {platform}។ ចុចប៊ូតុងដើម្បីមើល រួចត្រឡប់មកទីនេះដើម្បីជជែក។",
   "live.openOn": "បើកលើ {platform}",
   "live.watchOn": "មើលលើ {platform}",
+  "go.gateTitle": "ជិតដល់ហើយ!",
+  "go.gateBody": "សូមបង្កើតវីដេអូខ្លីបន្ថែមដើម្បីឈានដល់អ្នកតាមដាន {need} នាក់ និងបើកការផ្សាយផ្ទាល់។ ពេលនេះអ្នកមាន {count} នាក់។",
+  "go.gateCta": "បង្កើតវីដេអូខ្លី",
 };
 
 export default km;

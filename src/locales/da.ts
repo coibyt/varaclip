@@ -265,6 +265,9 @@ const da: Record<string, string> = {
   "live.externalHint": "Denne livestream foregår på {platform}. Tryk på knappen for at se med, og kom så tilbage hertil for at chatte.",
   "live.openOn": "Åbn på {platform}",
   "live.watchOn": "Se på {platform}",
+  "go.gateTitle": "Næsten der!",
+  "go.gateBody": "Lav flere korte videoer for at nå {need} følgere og låse op for livestreaming. Du har {count} indtil videre.",
+  "go.gateCta": "Lav en kort video",
 };
 
 export default da;

@@ -5,6 +5,9 @@ import { db } from "./db";
  * salon pastes the link of its live, VaraClip embeds it (where the platform
  * allows) and adds the chat, viewer count and moderation around it.
  */
+/** A salon needs this many followers before it can announce a live. */
+export const LIVE_MIN_FOLLOWERS = 50;
+
 export type Platform = "youtube" | "facebook" | "tiktok";
 export type LiveSource = { platform: Platform; sourceUrl: string; embedId: string };
 export type ParseError = "invalid" | "channel";

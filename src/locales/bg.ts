@@ -265,6 +265,9 @@ const bg: Record<string, string> = {
   "live.externalHint": "Това излъчване е в {platform}. Натиснете бутона, за да гледате, и се върнете тук, за да чатите.",
   "live.openOn": "Отваряне в {platform}",
   "live.watchOn": "Гледай в {platform}",
+  "go.gateTitle": "Почти сте там!",
+  "go.gateBody": "Създайте още къси видеа, за да достигнете {need} последователи и да отключите излъчването на живо. Засега имате {count}.",
+  "go.gateCta": "Създай късо видео",
 };
 
 export default bg;

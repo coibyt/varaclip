@@ -265,6 +265,9 @@ const sv: Record<string, string> = {
   "live.externalHint": "Den här livesändningen pågår på {platform}. Tryck på knappen för att titta och kom sedan tillbaka hit för att chatta.",
   "live.openOn": "Öppna på {platform}",
   "live.watchOn": "Titta på {platform}",
+  "go.gateTitle": "Nästan där!",
+  "go.gateBody": "Skapa fler korta videor för att nå {need} följare och låsa upp livesändning. Du har {count} hittills.",
+  "go.gateCta": "Skapa en kort video",
 };
 
 export default sv;

@@ -265,6 +265,9 @@ const de: Record<string, string> = {
   "live.externalHint": "Dieser Livestream läuft auf {platform}. Tippe auf den Button, um zuzusehen, und komm danach zum Chatten hierher zurück.",
   "live.openOn": "Auf {platform} öffnen",
   "live.watchOn": "Auf {platform} ansehen",
+  "go.gateTitle": "Fast geschafft!",
+  "go.gateBody": "Erstelle mehr Kurzvideos, um {need} Follower zu erreichen und Livestreams freizuschalten. Du hast aktuell {count}.",
+  "go.gateCta": "Kurzvideo erstellen",
 };
 
 export default de;

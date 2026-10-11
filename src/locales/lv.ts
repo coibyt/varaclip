@@ -265,6 +265,9 @@ const lv: Record<string, string> = {
   "live.externalHint": "Šī tiešraide notiek {platform}. Pieskaries pogai, lai skatītos, un pēc tam atgriezies šeit čatot.",
   "live.openOn": "Atvērt {platform}",
   "live.watchOn": "Skatīties {platform}",
+  "go.gateTitle": "Gandrīz gatavs!",
+  "go.gateBody": "Izveido vairāk īsu video, lai sasniegtu {need} sekotājus un atbloķētu tiešraides. Pagaidām tev ir {count}.",
+  "go.gateCta": "Izveidot īsu video",
 };
 
 export default lv;

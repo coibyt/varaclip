@@ -265,6 +265,9 @@ const fi: Record<string, string> = {
   "live.externalHint": "Tämä live on palvelussa {platform}. Paina painiketta katsoaksesi ja palaa tänne keskustelemaan.",
   "live.openOn": "Avaa palvelussa {platform}",
   "live.watchOn": "Katso palvelussa {platform}",
+  "go.gateTitle": "Melkein perillä!",
+  "go.gateBody": "Tee lisää lyhyitä videoita saavuttaaksesi {need} seuraajaa ja avataksesi livelähetykset. Sinulla on nyt {count}.",
+  "go.gateCta": "Luo lyhyt video",
 };
 
 export default fi;

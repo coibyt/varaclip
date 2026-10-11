@@ -280,6 +280,9 @@ const en: Record<string, string> = {
   "live.externalHint": "This live is on {platform}. Tap the button to watch, then come back here to chat.",
   "live.openOn": "Open on {platform}",
   "live.watchOn": "Watch on {platform}",
+  "go.gateTitle": "Almost there!",
+  "go.gateBody": "Try creating more short videos to reach {need} followers and unlock live streaming. You have {count} so far.",
+  "go.gateCta": "Create a short video",
 };
 
 export default en;

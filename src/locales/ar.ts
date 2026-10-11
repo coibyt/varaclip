@@ -265,6 +265,9 @@ const ar: Record<string, string> = {
   "live.externalHint": "هذا البث على {platform}. اضغط الزر للمشاهدة ثم عد هنا للدردشة.",
   "live.openOn": "فتح على {platform}",
   "live.watchOn": "شاهد على {platform}",
+  "go.gateTitle": "اقتربت من الهدف!",
+  "go.gateBody": "أنشئ المزيد من الفيديوهات القصيرة للوصول إلى {need} متابعًا وفتح البث المباشر. لديك الآن {count}.",
+  "go.gateCta": "إنشاء فيديو قصير",
 };
 
 export default ar;

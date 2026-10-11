@@ -265,6 +265,9 @@ const uk: Record<string, string> = {
   "live.externalHint": "Цей ефір іде на {platform}. Натисніть кнопку, щоб дивитися, а потім поверніться сюди в чат.",
   "live.openOn": "Відкрити в {platform}",
   "live.watchOn": "Дивитися в {platform}",
+  "go.gateTitle": "Майже готово!",
+  "go.gateBody": "Створіть більше коротких відео, щоб набрати {need} підписників і відкрити прямі ефіри. Зараз у вас {count}.",
+  "go.gateCta": "Створити коротке відео",
 };
 
 export default uk;

@@ -265,6 +265,9 @@ const cs: Record<string, string> = {
   "live.externalHint": "Toto vysílání probíhá na {platform}. Klepnutím na tlačítko ho sledujte a pak se vraťte sem chatovat.",
   "live.openOn": "Otevřít na {platform}",
   "live.watchOn": "Sledovat na {platform}",
+  "go.gateTitle": "Skoro hotovo!",
+  "go.gateBody": "Vytvořte více krátkých videí, abyste získali {need} sledujících a odemkli živé vysílání. Zatím máte {count}.",
+  "go.gateCta": "Vytvořit krátké video",
 };
 
 export default cs;

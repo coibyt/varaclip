@@ -3,7 +3,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
 import { getT } from "@/lib/i18n-server";
-import { closeStaleStreams, endStream, parseLiveUrl, thumbUrl, viewerCount } from "@/lib/live";
+import { LIVE_MIN_FOLLOWERS, closeStaleStreams, endStream, parseLiveUrl, thumbUrl, viewerCount } from "@/lib/live";
 import { mediaUrl } from "@/lib/storage";
 
 const json = (b: unknown, status = 200) => NextResponse.json(b, { status });
@@ -37,6 +37,9 @@ export async function POST(req: Request) {
   const me = await getUser();
   if (!me) return json({ error: t("err.login") }, 401);
   if (!me.isSalon) return json({ error: t("err.salonOnly") }, 403);
+
+  const followers = await db.follow.count({ where: { followingId: me.id } });
+  if (followers < LIVE_MIN_FOLLOWERS) return json({ error: t("go.gateBody", { need: LIVE_MIN_FOLLOWERS, count: followers }) }, 403);
 
   const p = z.object({ title: z.string().trim().max(120).default(""), url: z.string().trim().min(8).max(600) }).safeParse(await req.json().catch(() => null));
   if (!p.success) return json({ error: t("err.badLiveUrl") }, 400);
