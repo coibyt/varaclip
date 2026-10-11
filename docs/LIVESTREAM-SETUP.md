@@ -1,35 +1,25 @@
-# Bật Livestream, chat trực tiếp và tin nhắn riêng
+# Livestream tren VaraClip (dan link YouTube / Facebook / TikTok)
 
-## 1. Tạo các bảng mới trong MySQL (một lần)
+VaraClip khong tu phat video truc tiep (khong ton phi Cloudflare Stream). Chu salon phat truc tiep tren
+YouTube, Facebook hoac TikTok, roi dan link vao VaraClip. Khach xem va chat ngay tren VaraClip.
 
-Hostinger không tự tạo bảng, nên làm như lần đầu:
-hPanel → Databases → **Enter phpMyAdmin** → chọn database → tab **SQL** → dán toàn bộ nội dung file
-`docs/database-live-chat.sql` → **Thực hiện** (Go). Sẽ có thêm 5 bảng:
-`LiveStream`, `ChatMessage`, `LiveViewer`, `ChatBan`, `DirectMessage`.
+## Mot lan duy nhat: cap nhat co so du lieu
 
-Chat trực tiếp và tin nhắn riêng chạy ngay sau bước này. Chỉ phần **phát trực tiếp** cần bước 2.
+Neu ban da chay `docs/database-live-chat.sql` ban cu (5 bang da co): phpMyAdmin -> chon database -> tab SQL ->
+dan toan bo noi dung `docs/database-live-update.sql` -> Go.
+Neu cai moi, chi can chay `docs/database-live-chat.sql`.
 
-## 2. Cloudflare Stream (để phát trực tiếp)
+## Chu salon phat truc tiep
 
-1. https://dash.cloudflare.com → menu trái **Stream** → bật Stream (cần thẻ thanh toán; trả theo mức dùng:
-   khoảng 1 USD / 1.000 phút khách xem, không tính tiền lưu vì ta tắt ghi lại).
-2. Lấy **customer code**: trang Stream → mục **Live Inputs** / **Settings** có địa chỉ dạng
-   `customer-abc123xyz.cloudflarestream.com`. Phần `customer-abc123xyz` là giá trị cần dùng.
-3. Tạo API token: dash → **My Profile → API Tokens → Create Token → Create Custom Token**,
-   quyền: **Account → Stream → Edit**, phạm vi: tài khoản của bạn. Sao chép token (chỉ hiện một lần).
-4. Trong Hostinger → Environment variables, thêm (chỉ nhập phần giá trị):
+1. Bat dau live tren YouTube, Facebook hoac TikTok nhu binh thuong.
+2. Sao chep link cua buoi live (nut Chia se). Voi YouTube, dung link cua chinh buoi live
+   (`youtube.com/watch?v=...` hoac `youtube.com/live/...`), khong dung link kenh.
+3. Tren VaraClip: Live -> Phat truc tiep (`/live/go`), dan link, nhap tieu de, bam Bat dau.
+4. Khi xong: ket thuc live tren nen tang goc, roi bam Ket thuc tren VaraClip. Buoi phat cung tu dong dong sau 8 gio.
 
-| Key | Value |
-|---|---|
-| `CF_STREAM_TOKEN` | token vừa tạo |
-| `CF_STREAM_CUSTOMER` | `customer-abc123xyz` |
+## Khach xem
 
-`R2_ACCOUNT_ID` đã có sẽ được dùng lại làm Account ID. Sau đó **Redeploy**.
+- YouTube / Facebook: video nhung thang trong trang, chat ben canh.
+- TikTok khong cho nhung: khach bam "Xem tren TikTok", chat van o VaraClip.
 
-## 3. Cách dùng
-
-- Chủ salon: menu **Trực tiếp** → **Phát trực tiếp** → cho phép camera/micro → đặt tiêu đề → **Bắt đầu**.
-  Giữ màn hình mở trong lúc phát. Có thể chặn người spam và xoá bình luận ngay trong khung chat.
-- Khách: menu **Trực tiếp** xem các buổi đang phát, chat (cần đăng nhập). Nút **Nhắn tin** trên hồ sơ salon
-  để chat riêng.
-- Buổi phát tự đóng nếu trình duyệt của salon im lặng quá 90 giây (tắt máy, mất mạng).
+Khong can bien moi truong nao them.

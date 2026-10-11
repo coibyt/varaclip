@@ -36,7 +36,7 @@ export default async function Profile({ params, searchParams }: { params: Promis
       ? db.video.findMany({ where: { saves: { some: { userId: u.id } } }, orderBy: { createdAt: "desc" }, include: videoInclude })
       : db.video.findMany({ where: { creatorId: u.id }, orderBy: { createdAt: "desc" }, include: videoInclude }),
     // The live tables are created by docs/database-live-chat.sql; until then this must not break the page.
-    db.liveStream.findFirst({ where: { creatorId: u.id, status: "LIVE", lastBeat: { gt: new Date(Date.now() - 90_000) } }, select: { id: true } }).catch(() => null),
+    db.liveStream.findFirst({ where: { creatorId: u.id, status: "LIVE", startedAt: { gt: new Date(Date.now() - 8 * 3600_000) } }, select: { id: true } }).catch(() => null),
   ]);
 
   return (

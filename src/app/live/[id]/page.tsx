@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
-import { getT } from "@/lib/i18n-server";
-import { closeStaleStreams, liveConfigured, playerUrl } from "@/lib/live";
+import { closeStaleStreams, embedSrc, platformName } from "@/lib/live";
 import { mediaUrl } from "@/lib/storage";
 import { LiveWatch } from "@/components/live-watch";
 
@@ -22,19 +21,17 @@ export default async function LiveStreamPage({ params }: { params: Promise<{ id:
     include: { creator: { select: { id: true, handle: true, displayName: true, salonName: true, hue: true, avatarKey: true, bookingUrl: true, phone: true } } },
   });
   if (!s) notFound();
-  const { t } = await getT();
   const me = await getUser();
   const followed = me ? Boolean(await db.follow.findUnique({ where: { followerId_followingId: { followerId: me.id, followingId: s.creatorId } } })) : false;
-
-  if (!liveConfigured() && s.status === "LIVE") {
-    return <p className="p-10 text-center text-mist">{t("err.liveOff")}</p>;
-  }
 
   return (
     <LiveWatch
       streamId={s.id}
       title={s.title}
-      playerSrc={liveConfigured() ? playerUrl(s.cfInputId) : ""}
+      platform={s.platform}
+      platformName={platformName(s.platform)}
+      sourceUrl={s.sourceUrl}
+      embedSrc={embedSrc(s)}
       initialStatus={s.status}
       meId={me?.id ?? null}
       followed={followed}

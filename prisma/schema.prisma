@@ -107,20 +107,21 @@ model Follow {
 
 // ── Livestream + chat ───────────────────────────────────────────────
 
-// One broadcast. The video itself lives in Cloudflare Stream (cfInputId is its
-// "live input"); we only keep the bookkeeping and the chat.
+// One broadcast. The video itself plays on YouTube / Facebook / TikTok: the salon
+// pastes the link of its live there, we embed it (TikTok cannot be embedded, so
+// viewers get an "open on TikTok" button) and run the chat around it.
 model LiveStream {
   id          String    @id @default(cuid())
   creatorId   String
   creator     User      @relation(fields: [creatorId], references: [id], onDelete: Cascade)
   title       String    @default("") @db.VarChar(120)
-  cfInputId   String    @db.VarChar(64)
-  // WHIP publish URL contains the secret stream key: only ever sent to the owner.
-  whipUrl     String    @db.VarChar(600)
+  platform    String    @default("youtube") @db.VarChar(12) // youtube | facebook | tiktok
+  sourceUrl   String    @default("") @db.VarChar(600)
+  // YouTube: the video id (or "channel:UC..." for a channel live link); empty for the others.
+  embedId     String    @default("") @db.VarChar(200)
   status      String    @default("LIVE") @db.VarChar(10) // LIVE | ENDED
   startedAt   DateTime  @default(now())
   endedAt     DateTime?
-  lastBeat    DateTime  @default(now()) // broadcaster heartbeat; a silent stream is closed automatically
   peakViewers Int       @default(0)
 
   messages ChatMessage[]

@@ -1,67 +1,86 @@
 import { db } from "./db";
 
 /**
- * Livestreaming runs on Cloudflare Stream Live: the salon's browser publishes
- * over WebRTC (WHIP) straight to Cloudflare and viewers watch Cloudflare's
- * player. Our server only creates/deletes the "live input" and keeps the chat.
- *
- * Env: CF_STREAM_TOKEN (API token with Stream:Edit), CF_STREAM_CUSTOMER
- * (the "customer-xxxx" subdomain shown in the Stream dashboard) and the
- * account id (CF_ACCOUNT_ID, or R2_ACCOUNT_ID which is the same value).
+ * Livestreams run on the salon's own YouTube / Facebook / TikTok account: the
+ * salon pastes the link of its live, VaraClip embeds it (where the platform
+ * allows) and adds the chat, viewer count and moderation around it.
  */
-const account = () => process.env.CF_ACCOUNT_ID || process.env.R2_ACCOUNT_ID || "";
-const token = () => process.env.CF_STREAM_TOKEN || "";
-export const customerHost = () => {
-  const c = (process.env.CF_STREAM_CUSTOMER || "").trim().replace(/^https?:\/\//, "").replace(/\.cloudflarestream\.com.*$/, "");
-  return c ? `${c.startsWith("customer-") ? c : `customer-${c}`}.cloudflarestream.com` : "";
-};
+export type Platform = "youtube" | "facebook" | "tiktok";
+export type LiveSource = { platform: Platform; sourceUrl: string; embedId: string };
+export type ParseError = "invalid" | "channel";
 
-export const liveConfigured = () => Boolean(account() && token() && customerHost());
+const YT_HOSTS = new Set(["youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be", "www.youtu.be"]);
+const FB_HOSTS = new Set(["facebook.com", "www.facebook.com", "m.facebook.com", "web.facebook.com", "fb.watch"]);
+const TT_HOSTS = new Set(["tiktok.com", "www.tiktok.com", "m.tiktok.com", "vm.tiktok.com", "vt.tiktok.com"]);
+const YT_ID = /^[A-Za-z0-9_-]{11}$/;
+const YT_CHANNEL = /^UC[A-Za-z0-9_-]{22}$/;
 
-const api = (path = "") => `https://api.cloudflare.com/client/v4/accounts/${account()}/stream/live_inputs${path}`;
-const headers = () => ({ Authorization: `Bearer ${token()}`, "Content-Type": "application/json" });
-
-export async function createLiveInput(name: string) {
-  const r = await fetch(api(), {
-    method: "POST",
-    headers: headers(),
-    body: JSON.stringify({ meta: { name }, recording: { mode: "off" } }),
-  });
-  const j = await r.json().catch(() => null);
-  const res = j?.result;
-  if (!r.ok || !res?.uid || !res?.webRTC?.url) {
-    throw new Error(`cloudflare: ${j?.errors?.[0]?.message ?? r.status}`);
-  }
-  return { uid: String(res.uid), whipUrl: String(res.webRTC.url) };
-}
-
-export async function deleteLiveInput(uid: string) {
+export function parseLiveUrl(raw: string): LiveSource | { error: ParseError } {
+  let u: URL;
   try {
-    await fetch(api(`/${uid}`), { method: "DELETE", headers: headers() });
+    u = new URL(raw.trim());
   } catch {
-    /* best effort: an orphaned input costs nothing while idle */
+    return { error: "invalid" };
   }
+  if (u.protocol !== "https:" && u.protocol !== "http:") return { error: "invalid" };
+  const host = u.hostname.toLowerCase();
+  const parts = u.pathname.split("/").filter(Boolean);
+
+  if (YT_HOSTS.has(host)) {
+    let id: string | undefined;
+    if (host.endsWith("youtu.be")) id = parts[0];
+    else if (parts[0] === "watch") id = u.searchParams.get("v") ?? undefined;
+    else if (parts[0] === "live" || parts[0] === "embed") id = parts[1];
+    if (id && YT_ID.test(id)) return { platform: "youtube", sourceUrl: `https://www.youtube.com/watch?v=${id}`, embedId: id };
+    // A link to a channel's "/live" page can be embedded only when it carries the channel id.
+    if (parts[0] === "channel" && YT_CHANNEL.test(parts[1] ?? "")) {
+      return { platform: "youtube", sourceUrl: `https://www.youtube.com/channel/${parts[1]}/live`, embedId: `channel:${parts[1]}` };
+    }
+    return { error: "channel" }; // e.g. youtube.com/@name/live: needs the link of the live itself
+  }
+
+  if (FB_HOSTS.has(host) && (host === "fb.watch" || parts.length > 0)) {
+    return { platform: "facebook", sourceUrl: u.toString().slice(0, 600), embedId: "" };
+  }
+  if (TT_HOSTS.has(host)) {
+    return { platform: "tiktok", sourceUrl: u.toString().slice(0, 600), embedId: "" };
+  }
+  return { error: "invalid" };
 }
 
-/** Player URL for viewers (muted autoplay so browsers allow it; viewers unmute in the player). */
-export const playerUrl = (uid: string) =>
-  `https://${customerHost()}/${uid}/iframe?autoplay=true&muted=true&letterboxColor=black&primaryColor=%23FF4D8D`;
+/** iframe address for the platforms that allow embedding; null for TikTok. */
+export function embedSrc(s: { platform: string; sourceUrl: string; embedId: string }): string | null {
+  if (s.platform === "youtube") {
+    if (s.embedId.startsWith("channel:")) {
+      return `https://www.youtube.com/embed/live_stream?channel=${encodeURIComponent(s.embedId.slice(8))}&autoplay=1&mute=1&playsinline=1&rel=0`;
+    }
+    return YT_ID.test(s.embedId) ? `https://www.youtube.com/embed/${s.embedId}?autoplay=1&mute=1&playsinline=1&rel=0` : null;
+  }
+  if (s.platform === "facebook") {
+    return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(s.sourceUrl)}&show_text=false&autoplay=true&mute=true`;
+  }
+  return null;
+}
 
-const STALE_MS = 90_000;
+export function thumbUrl(s: { platform: string; embedId: string }): string | null {
+  return s.platform === "youtube" && YT_ID.test(s.embedId) ? `https://i.ytimg.com/vi/${s.embedId}/hqdefault.jpg` : null;
+}
+
+export const platformName = (p: string) => (p === "youtube" ? "YouTube" : p === "facebook" ? "Facebook" : p === "tiktok" ? "TikTok" : p);
+
+const MAX_LIVE_MS = 8 * 3600_000; // a forgotten broadcast closes itself
 const VIEWER_WINDOW_MS = 30_000;
 
-export async function endStream(id: string, cfInputId: string) {
+export async function endStream(id: string) {
   await db.liveStream.updateMany({ where: { id, status: "LIVE" }, data: { status: "ENDED", endedAt: new Date() } });
-  await deleteLiveInput(cfInputId);
 }
 
-/** Close broadcasts whose publisher stopped sending heartbeats (closed tab, lost signal). */
+/** Close broadcasts that have been "live" for longer than any real broadcast would run. */
 export async function closeStaleStreams() {
-  const stale = await db.liveStream.findMany({
-    where: { status: "LIVE", lastBeat: { lt: new Date(Date.now() - STALE_MS) } },
-    select: { id: true, cfInputId: true },
+  await db.liveStream.updateMany({
+    where: { status: "LIVE", startedAt: { lt: new Date(Date.now() - MAX_LIVE_MS) } },
+    data: { status: "ENDED", endedAt: new Date() },
   });
-  await Promise.all(stale.map((s) => endStream(s.id, s.cfInputId)));
 }
 
 export async function viewerCount(streamId: string) {
@@ -75,7 +94,6 @@ export async function touchViewer(streamId: string, key: string) {
     create: { streamId, key },
   });
   const n = await viewerCount(streamId);
-  // Remember the high-water mark (best effort).
   await db.liveStream.updateMany({ where: { id: streamId, peakViewers: { lt: n } }, data: { peakViewers: n } });
   return n;
 }

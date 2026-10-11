@@ -3,7 +3,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
 import { getT } from "@/lib/i18n-server";
-import { closeStaleStreams, createLiveInput, endStream, liveConfigured, viewerCount } from "@/lib/live";
+import { closeStaleStreams, endStream, parseLiveUrl, thumbUrl, viewerCount } from "@/lib/live";
 import { mediaUrl } from "@/lib/storage";
 
 const json = (b: unknown, status = 200) => NextResponse.json(b, { status });
@@ -21,6 +21,8 @@ export async function GET() {
     rows.map(async (s) => ({
       id: s.id,
       title: s.title,
+      platform: s.platform,
+      thumb: thumbUrl(s),
       startedAt: s.startedAt.toISOString(),
       viewers: await viewerCount(s.id),
       creator: { ...s.creator, avatarUrl: mediaUrl(s.creator.avatarKey) },
@@ -29,29 +31,25 @@ export async function GET() {
   return json({ streams });
 }
 
-/** A salon starts a broadcast: creates the Cloudflare live input and returns the publish URL (owner only). */
+/** A salon announces that it is live: it pastes the link of the live from YouTube / Facebook / TikTok. */
 export async function POST(req: Request) {
   const { t } = await getT();
   const me = await getUser();
   if (!me) return json({ error: t("err.login") }, 401);
   if (!me.isSalon) return json({ error: t("err.salonOnly") }, 403);
-  if (!liveConfigured()) return json({ error: t("err.liveOff") }, 503);
 
-  const p = z.object({ title: z.string().trim().max(120).default("") }).safeParse(await req.json().catch(() => null));
-  if (!p.success) return json({ error: t("err.invalid") }, 400);
+  const p = z.object({ title: z.string().trim().max(120).default(""), url: z.string().trim().min(8).max(600) }).safeParse(await req.json().catch(() => null));
+  if (!p.success) return json({ error: t("err.badLiveUrl") }, 400);
+
+  const src = parseLiveUrl(p.data.url);
+  if ("error" in src) return json({ error: src.error === "channel" ? t("err.liveChannelLink") : t("err.badLiveUrl") }, 400);
 
   // One broadcast at a time per salon: close any earlier one first.
-  const open = await db.liveStream.findMany({ where: { creatorId: me.id, status: "LIVE" }, select: { id: true, cfInputId: true } });
-  await Promise.all(open.map((s) => endStream(s.id, s.cfInputId)));
+  const open = await db.liveStream.findMany({ where: { creatorId: me.id, status: "LIVE" }, select: { id: true } });
+  await Promise.all(open.map((s) => endStream(s.id)));
 
-  let input;
-  try {
-    input = await createLiveInput(p.data.title || me.salonName || me.displayName);
-  } catch {
-    return json({ error: t("err.liveFail") }, 502);
-  }
   const stream = await db.liveStream.create({
-    data: { creatorId: me.id, title: p.data.title, cfInputId: input.uid, whipUrl: input.whipUrl },
+    data: { creatorId: me.id, title: p.data.title, platform: src.platform, sourceUrl: src.sourceUrl, embedId: src.embedId },
   });
-  return json({ id: stream.id, whipUrl: input.whipUrl });
+  return json({ id: stream.id });
 }
