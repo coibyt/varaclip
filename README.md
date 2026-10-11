@@ -1,19 +1,21 @@
-# GlowReels
+# VaraClip
 
 Trang video ngắn kiểu TikTok "For You" dành cho salon làm đẹp: chủ salon đăng video khách hàng,
 người xem lướt dọc, thích, bình luận, lưu, theo dõi và bấm **Đặt lịch** ngay trên video.
 
-Next.js 15 (App Router) · TypeScript · Tailwind · Prisma (SQLite dev) · Cloudflare R2 cho video.
+Next.js 15 (App Router) · TypeScript · Tailwind · Prisma (MySQL) · Cloudflare R2 cho video.
 
 ## Chạy thử
 
 ```bash
 npm install
-cp .env.example .env        # đổi AUTH_SECRET
+cp .env.example .env        # điền DATABASE_URL (MySQL) và AUTH_SECRET
 npx prisma db push
 npm run db:seed             # 3 salon + 1 khách demo (mật khẩu: demo12345)
 npm run dev
 ```
+
+Triển khai lên Hostinger: xem `docs/DEPLOY-HOSTINGER.md`.
 
 Đăng nhập demo: `lumi-hair@demo.test` (salon), `khach@demo.test` (người xem). Seed **không** có video:
 đăng nhập salon và upload tại `/upload`.

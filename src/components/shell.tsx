@@ -7,7 +7,7 @@ import { Avatar } from "./avatar";
 
 export type ShellUser = { handle: string; displayName: string; isSalon: boolean; hue: number } | null;
 
-const SITE = process.env.NEXT_PUBLIC_SITE_NAME || "GlowReels";
+const SITE = process.env.NEXT_PUBLIC_SITE_NAME || "VaraClip";
 
 export function Shell({ user, children }: { user: ShellUser; children: React.ReactNode }) {
   const path = usePathname();

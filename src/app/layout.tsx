@@ -8,7 +8,7 @@ const sans = Plus_Jakarta_Sans({ subsets: ["latin", "vietnamese"], variable: "--
 
 const display = Playfair_Display({ subsets: ["latin", "vietnamese"], variable: "--font-display", display: "swap" });
 
-const name = process.env.NEXT_PUBLIC_SITE_NAME || "GlowReels";
+const name = process.env.NEXT_PUBLIC_SITE_NAME || "VaraClip";
 
 export const metadata: Metadata = {
   title: { default: `${name} — Video làm đẹp từ các salon`, template: `%s · ${name}` },

@@ -1,14 +1,15 @@
 {
-  "name": "glowreels",
+  "name": "varaclip",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "prisma db push --skip-generate && next start",
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "start:local": "next start"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -42,5 +43,8 @@
     "@prisma/engines@5.22.0": true,
     "esbuild@0.28.2": true,
     "prisma@5.22.0": true
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

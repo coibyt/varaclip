@@ -3,12 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
-// To run on MySQL/Postgres in production: change `provider` and DATABASE_URL,
-// nothing else in the schema is SQLite-specific.
 
 model User {
   id           String   @id @default(cuid())
@@ -16,14 +13,14 @@ model User {
   passwordHash String
   handle       String   @unique // @handle, lowercase a-z 0-9 _ .
   displayName  String
-  bio          String   @default("")
+  bio          String   @default("") @db.VarChar(300)
   // A salon account can publish videos; a viewer account can only watch/like/comment.
   isSalon      Boolean  @default(false)
   salonName    String   @default("")
   city         String   @default("")
-  bookingUrl   String   @default("")
+  bookingUrl   String   @default("") @db.VarChar(300)
   phone        String   @default("")
-  avatarKey    String   @default("")
+  avatarKey    String   @default("") @db.VarChar(512)
   hue          Int      @default(330) // fallback avatar colour
   createdAt    DateTime @default(now())
 
@@ -39,11 +36,11 @@ model Video {
   id          String   @id @default(cuid())
   creatorId   String
   creator     User     @relation(fields: [creatorId], references: [id], onDelete: Cascade)
-  caption     String   @default("")
-  tags        String   @default("") // space separated, lowercase, no '#'
+  caption     String   @default("") @db.VarChar(600)
+  tags        String   @default("") @db.VarChar(255) // space separated, lowercase, no '#'
   // Either an object key in our storage (uploaded) or a full external URL (seed/demo).
-  videoKey    String
-  thumbKey    String   @default("")
+  videoKey    String @db.VarChar(512)
+  thumbKey    String   @default("") @db.VarChar(512)
   mimeType    String   @default("video/mp4")
   duration    Float    @default(0)
   width       Int      @default(0)
@@ -87,7 +84,7 @@ model Comment {
   video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
   authorId  String
   author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  body      String
+  body      String @db.VarChar(600)
   createdAt DateTime @default(now())
 
   @@index([videoId, createdAt])
