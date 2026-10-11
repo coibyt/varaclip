@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// To run on MySQL/Postgres in production: change `provider` and DATABASE_URL,
+// nothing else in the schema is SQLite-specific.
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  handle       String   @unique // @handle, lowercase a-z 0-9 _ .
+  displayName  String
+  bio          String   @default("")
+  // A salon account can publish videos; a viewer account can only watch/like/comment.
+  isSalon      Boolean  @default(false)
+  salonName    String   @default("")
+  city         String   @default("")
+  bookingUrl   String   @default("")
+  phone        String   @default("")
+  avatarKey    String   @default("")
+  hue          Int      @default(330) // fallback avatar colour
+  createdAt    DateTime @default(now())
+
+  videos    Video[]
+  likes     Like[]
+  saves     Save[]
+  comments  Comment[]
+  following Follow[]  @relation("follower")
+  followers Follow[]  @relation("following")
+}
+
+model Video {
+  id          String   @id @default(cuid())
+  creatorId   String
+  creator     User     @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  caption     String   @default("")
+  tags        String   @default("") // space separated, lowercase, no '#'
+  // Either an object key in our storage (uploaded) or a full external URL (seed/demo).
+  videoKey    String
+  thumbKey    String   @default("")
+  mimeType    String   @default("video/mp4")
+  duration    Float    @default(0)
+  width       Int      @default(0)
+  height      Int      @default(0)
+  views       Int      @default(0)
+  shares      Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  likes    Like[]
+  saves    Save[]
+  comments Comment[]
+
+  @@index([createdAt])
+  @@index([creatorId, createdAt])
+}
+
+model Like {
+  userId    String
+  videoId   String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([userId, videoId])
+  @@index([videoId])
+}
+
+model Save {
+  userId    String
+  videoId   String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([userId, videoId])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  videoId   String
+  video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  body      String
+  createdAt DateTime @default(now())
+
+  @@index([videoId, createdAt])
+}
+
+model Follow {
+  followerId  String
+  followingId String
+  follower    User     @relation("follower", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("following", fields: [followingId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+
+  @@id([followerId, followingId])
+  @@index([followingId])
+}
