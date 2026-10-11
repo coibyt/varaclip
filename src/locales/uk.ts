@@ -206,7 +206,7 @@ const uk: Record<string, string> = {
   "ed.preview": "Попередній перегляд",
   "ed.playPause": "Відтворити / пауза",
   "dl.download": "Завантажити відео",
-  "dl.preparing": "Готуємо відео з логотипом VaraClip… {p}%",
+  "dl.preparing": "Завантажуємо відео з VaraClip… {p}%",
   "dl.fail": "Не вдалося завантажити відео. Спробуйте ще раз.",
   "dl.unsupported": "Цей браузер не може створити завантаження з логотипом.",
 };

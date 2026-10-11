@@ -206,7 +206,7 @@ const ru: Record<string, string> = {
   "ed.preview": "Предпросмотр",
   "ed.playPause": "Пуск / пауза",
   "dl.download": "Скачать видео",
-  "dl.preparing": "Готовим видео с логотипом VaraClip… {p}%",
+  "dl.preparing": "Скачиваем видео с VaraClip… {p}%",
   "dl.fail": "Не удалось скачать видео. Попробуйте ещё раз.",
   "dl.unsupported": "Этот браузер не может создать загрузку с логотипом.",
 };

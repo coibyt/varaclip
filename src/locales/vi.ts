@@ -222,7 +222,7 @@ const vi: Record<string, string> = {
   "ed.preview": "Xem trước",
   "ed.playPause": "Phát / dừng",
   "dl.download": "Tải video xuống",
-  "dl.preparing": "Đang tạo video có logo VaraClip… {p}%",
+  "dl.preparing": "Đang tải video từ VaraClip… {p}%",
   "dl.fail": "Không tải được video. Vui lòng thử lại.",
   "dl.unsupported": "Trình duyệt này chưa hỗ trợ tải video có logo.",
 };

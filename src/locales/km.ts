@@ -206,7 +206,7 @@ const km: Record<string, string> = {
   "ed.preview": "មើលជាមុន",
   "ed.playPause": "ចាក់ / ផ្អាក",
   "dl.download": "ទាញយកវីដេអូ",
-  "dl.preparing": "កំពុងរៀបចំវីដេអូជាមួយឡូហ្គោ VaraClip… {p}%",
+  "dl.preparing": "កំពុងទាញយកវីដេអូពី VaraClip… {p}%",
   "dl.fail": "មិនអាចទាញយកវីដេអូបានទេ។ សូមព្យាយាមម្តងទៀត។",
   "dl.unsupported": "កម្មវិធីរុករកនេះមិនអាចបង្កើតការទាញយកដែលមានឡូហ្គោបានទេ។",
 };

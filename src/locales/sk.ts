@@ -206,7 +206,7 @@ const sk: Record<string, string> = {
   "ed.preview": "Ukážka",
   "ed.playPause": "Prehrať / pozastaviť",
   "dl.download": "Stiahnuť video",
-  "dl.preparing": "Pripravuje sa video s logom VaraClip… {p} %",
+  "dl.preparing": "Sťahuje sa video z VaraClip… {p} %",
   "dl.fail": "Video sa nepodarilo stiahnuť. Skúste to znova.",
   "dl.unsupported": "Tento prehliadač nevie vytvoriť stiahnutie s logom.",
 };

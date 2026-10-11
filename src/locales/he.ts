@@ -206,7 +206,7 @@ const he: Record<string, string> = {
   "ed.preview": "תצוגה מקדימה",
   "ed.playPause": "ניגון / השהיה",
   "dl.download": "הורדת הסרטון",
-  "dl.preparing": "מכין את הסרטון עם הלוגו של VaraClip… {p}%",
+  "dl.preparing": "מוריד סרטון מ-VaraClip… {p}%",
   "dl.fail": "לא ניתן היה להוריד את הסרטון. נסו שוב.",
   "dl.unsupported": "הדפדפן הזה אינו יכול ליצור הורדה עם לוגו.",
 };

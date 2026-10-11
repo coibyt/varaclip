@@ -206,7 +206,7 @@ const ro: Record<string, string> = {
   "ed.preview": "Previzualizare",
   "ed.playPause": "Redă / pauză",
   "dl.download": "Descarcă videoclipul",
-  "dl.preparing": "Se pregătește videoclipul cu logo-ul VaraClip… {p}%",
+  "dl.preparing": "Se descarcă videoclipul de pe VaraClip… {p}%",
   "dl.fail": "Videoclipul nu a putut fi descărcat. Încearcă din nou.",
   "dl.unsupported": "Acest browser nu poate crea descărcări cu logo.",
 };

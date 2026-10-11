@@ -206,7 +206,7 @@ const zh: Record<string, string> = {
   "ed.preview": "预览",
   "ed.playPause": "播放 / 暂停",
   "dl.download": "下载视频",
-  "dl.preparing": "正在生成带 VaraClip 标志的视频… {p}%",
+  "dl.preparing": "正在从 VaraClip 下载视频… {p}%",
   "dl.fail": "无法下载视频，请重试。",
   "dl.unsupported": "此浏览器无法生成带标志的下载文件。",
 };

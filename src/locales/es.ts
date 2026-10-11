@@ -206,7 +206,7 @@ const es: Record<string, string> = {
   "ed.preview": "Vista previa",
   "ed.playPause": "Reproducir / pausar",
   "dl.download": "Descargar vídeo",
-  "dl.preparing": "Preparando tu vídeo con el logotipo de VaraClip… {p} %",
+  "dl.preparing": "Descargando vídeo de VaraClip… {p} %",
   "dl.fail": "No se pudo descargar el vídeo. Inténtalo de nuevo.",
   "dl.unsupported": "Este navegador no puede crear descargas con logotipo.",
 };

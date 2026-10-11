@@ -206,7 +206,7 @@ const ko: Record<string, string> = {
   "ed.preview": "미리보기",
   "ed.playPause": "재생 / 일시정지",
   "dl.download": "영상 다운로드",
-  "dl.preparing": "VaraClip 로고가 들어간 영상을 준비 중… {p}%",
+  "dl.preparing": "VaraClip에서 영상을 다운로드하는 중… {p}%",
   "dl.fail": "영상을 다운로드하지 못했어요. 다시 시도해 주세요.",
   "dl.unsupported": "이 브라우저는 로고가 들어간 다운로드를 만들 수 없어요.",
 };

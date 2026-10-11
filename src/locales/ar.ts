@@ -206,7 +206,7 @@ const ar: Record<string, string> = {
   "ed.preview": "معاينة",
   "ed.playPause": "تشغيل / إيقاف مؤقت",
   "dl.download": "تنزيل الفيديو",
-  "dl.preparing": "جارٍ تجهيز الفيديو بشعار VaraClip… {p}%",
+  "dl.preparing": "جارٍ تنزيل الفيديو من VaraClip… {p}%",
   "dl.fail": "تعذّر تنزيل الفيديو. يرجى المحاولة مرة أخرى.",
   "dl.unsupported": "لا يستطيع هذا المتصفح إنشاء تنزيل بالشعار.",
 };

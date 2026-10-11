@@ -221,7 +221,7 @@ const en: Record<string, string> = {
   "ed.preview": "Preview",
   "ed.playPause": "Play / pause",
   "dl.download": "Download video",
-  "dl.preparing": "Preparing your video with the VaraClip logo… {p}%",
+  "dl.preparing": "Downloading video from VaraClip… {p}%",
   "dl.fail": "Could not download the video. Please try again.",
   "dl.unsupported": "This browser cannot create downloads with the logo.",
 };

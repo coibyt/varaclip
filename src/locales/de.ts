@@ -206,7 +206,7 @@ const de: Record<string, string> = {
   "ed.preview": "Vorschau",
   "ed.playPause": "Wiedergabe / Pause",
   "dl.download": "Video herunterladen",
-  "dl.preparing": "Video mit VaraClip-Logo wird vorbereitet… {p} %",
+  "dl.preparing": "Video wird von VaraClip heruntergeladen… {p} %",
   "dl.fail": "Das Video konnte nicht heruntergeladen werden. Bitte versuche es erneut.",
   "dl.unsupported": "Dieser Browser kann keine Downloads mit Logo erstellen.",
 };

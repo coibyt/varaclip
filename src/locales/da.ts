@@ -206,7 +206,7 @@ const da: Record<string, string> = {
   "ed.preview": "Forhåndsvisning",
   "ed.playPause": "Afspil / pause",
   "dl.download": "Download video",
-  "dl.preparing": "Gør videoen klar med VaraClip-logoet… {p} %",
+  "dl.preparing": "Downloader video fra VaraClip… {p} %",
   "dl.fail": "Videoen kunne ikke downloades. Prøv igen.",
   "dl.unsupported": "Denne browser kan ikke oprette downloads med logo.",
 };

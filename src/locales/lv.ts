@@ -206,7 +206,7 @@ const lv: Record<string, string> = {
   "ed.preview": "Priekšskatījums",
   "ed.playPause": "Atskaņot / pauze",
   "dl.download": "Lejupielādēt video",
-  "dl.preparing": "Sagatavo video ar VaraClip logotipu… {p}%",
+  "dl.preparing": "Lejupielādē video no VaraClip… {p}%",
   "dl.fail": "Video neizdevās lejupielādēt. Mēģini vēlreiz.",
   "dl.unsupported": "Šī pārlūkprogramma nevar izveidot lejupielādi ar logotipu.",
 };

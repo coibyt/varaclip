@@ -206,7 +206,7 @@ const hi: Record<string, string> = {
   "ed.preview": "पूर्वावलोकन",
   "ed.playPause": "चलाएँ / रोकें",
   "dl.download": "वीडियो डाउनलोड करें",
-  "dl.preparing": "VaraClip लोगो के साथ वीडियो तैयार हो रहा है… {p}%",
+  "dl.preparing": "VaraClip से वीडियो डाउनलोड हो रहा है… {p}%",
   "dl.fail": "वीडियो डाउनलोड नहीं हो सका। कृपया फिर कोशिश करें।",
   "dl.unsupported": "यह ब्राउज़र लोगो वाला डाउनलोड नहीं बना सकता।",
 };

@@ -206,7 +206,7 @@ const fi: Record<string, string> = {
   "ed.preview": "Esikatselu",
   "ed.playPause": "Toista / tauko",
   "dl.download": "Lataa video",
-  "dl.preparing": "Valmistellaan videota VaraClip-logolla… {p} %",
+  "dl.preparing": "Ladataan videota VaraClipistä… {p} %",
   "dl.fail": "Videota ei voitu ladata. Yritä uudelleen.",
   "dl.unsupported": "Tämä selain ei voi luoda latauksia logolla.",
 };

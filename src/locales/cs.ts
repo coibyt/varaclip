@@ -206,7 +206,7 @@ const cs: Record<string, string> = {
   "ed.preview": "Náhled",
   "ed.playPause": "Přehrát / pozastavit",
   "dl.download": "Stáhnout video",
-  "dl.preparing": "Připravuje se video s logem VaraClip… {p} %",
+  "dl.preparing": "Stahuje se video z VaraClip… {p} %",
   "dl.fail": "Video se nepodařilo stáhnout. Zkuste to znovu.",
   "dl.unsupported": "Tento prohlížeč neumí vytvořit stažení s logem.",
 };

@@ -206,7 +206,7 @@ const be: Record<string, string> = {
   "ed.preview": "Папярэдні прагляд",
   "ed.playPause": "Прайграць / паўза",
   "dl.download": "Спампаваць відэа",
-  "dl.preparing": "Рыхтуем відэа з лагатыпам VaraClip… {p}%",
+  "dl.preparing": "Спампоўваем відэа з VaraClip… {p}%",
   "dl.fail": "Не ўдалося спампаваць відэа. Паспрабуйце яшчэ раз.",
   "dl.unsupported": "Гэты браўзер не можа стварыць спампоўку з лагатыпам.",
 };

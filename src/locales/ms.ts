@@ -206,7 +206,7 @@ const ms: Record<string, string> = {
   "ed.preview": "Pratonton",
   "ed.playPause": "Main / jeda",
   "dl.download": "Muat turun video",
-  "dl.preparing": "Menyediakan video dengan logo VaraClip… {p}%",
+  "dl.preparing": "Memuat turun video daripada VaraClip… {p}%",
   "dl.fail": "Video tidak dapat dimuat turun. Sila cuba lagi.",
   "dl.unsupported": "Pelayar ini tidak dapat membuat muat turun dengan logo.",
 };

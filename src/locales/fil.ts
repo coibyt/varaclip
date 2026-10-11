@@ -206,7 +206,7 @@ const fil: Record<string, string> = {
   "ed.preview": "Preview",
   "ed.playPause": "I-play / i-pause",
   "dl.download": "I-download ang video",
-  "dl.preparing": "Inihahanda ang video na may logo ng VaraClip… {p}%",
+  "dl.preparing": "Dina-download ang video mula sa VaraClip… {p}%",
   "dl.fail": "Hindi ma-download ang video. Pakisubukan ulit.",
   "dl.unsupported": "Hindi makakagawa ang browser na ito ng download na may logo.",
 };

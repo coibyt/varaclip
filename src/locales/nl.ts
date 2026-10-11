@@ -206,7 +206,7 @@ const nl: Record<string, string> = {
   "ed.preview": "Voorbeeld",
   "ed.playPause": "Afspelen / pauzeren",
   "dl.download": "Video downloaden",
-  "dl.preparing": "Video met VaraClip-logo voorbereiden… {p}%",
+  "dl.preparing": "Video downloaden van VaraClip… {p}%",
   "dl.fail": "De video kon niet worden gedownload. Probeer het opnieuw.",
   "dl.unsupported": "Deze browser kan geen downloads met logo maken.",
 };

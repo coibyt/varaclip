@@ -206,7 +206,7 @@ const tr: Record<string, string> = {
   "ed.preview": "Önizleme",
   "ed.playPause": "Oynat / duraklat",
   "dl.download": "Videoyu indir",
-  "dl.preparing": "Video VaraClip logosuyla hazırlanıyor… %{p}",
+  "dl.preparing": "Video VaraClip'ten indiriliyor… %{p}",
   "dl.fail": "Video indirilemedi. Lütfen tekrar deneyin.",
   "dl.unsupported": "Bu tarayıcı logolu indirme oluşturamıyor.",
 };

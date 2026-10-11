@@ -206,7 +206,7 @@ const sv: Record<string, string> = {
   "ed.preview": "Förhandsvisning",
   "ed.playPause": "Spela / pausa",
   "dl.download": "Ladda ner video",
-  "dl.preparing": "Förbereder videon med VaraClip-logotypen… {p} %",
+  "dl.preparing": "Laddar ner video från VaraClip… {p} %",
   "dl.fail": "Videon kunde inte laddas ner. Försök igen.",
   "dl.unsupported": "Den här webbläsaren kan inte skapa nedladdningar med logotyp.",
 };
