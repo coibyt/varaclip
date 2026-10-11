@@ -205,6 +205,10 @@ const hu: Record<string, string> = {
   "ed.unsupported": "Ez a böngésző nem támogatja a videószerkesztést.",
   "ed.preview": "Előnézet",
   "ed.playPause": "Lejátszás / szünet",
+  "dl.download": "Videó letöltése",
+  "dl.preparing": "A videó előkészítése a VaraClip logóval… {p}%",
+  "dl.fail": "A videót nem sikerült letölteni. Próbáld újra.",
+  "dl.unsupported": "Ez a böngésző nem tud logóval ellátott letöltést készíteni.",
 };
 
 export default hu;

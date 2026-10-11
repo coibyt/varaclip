@@ -205,6 +205,10 @@ const lv: Record<string, string> = {
   "ed.unsupported": "Šī pārlūkprogramma neatbalsta video rediģēšanu.",
   "ed.preview": "Priekšskatījums",
   "ed.playPause": "Atskaņot / pauze",
+  "dl.download": "Lejupielādēt video",
+  "dl.preparing": "Sagatavo video ar VaraClip logotipu… {p}%",
+  "dl.fail": "Video neizdevās lejupielādēt. Mēģini vēlreiz.",
+  "dl.unsupported": "Šī pārlūkprogramma nevar izveidot lejupielādi ar logotipu.",
 };
 
 export default lv;

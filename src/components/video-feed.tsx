@@ -11,6 +11,7 @@ import { CommentsSheet } from "./comments-sheet";
 import { compact, type FeedVideo } from "@/lib/util";
 import { useI18n } from "./locale-provider";
 import { LanguageSwitcher } from "./language-switcher";
+import { DownloadButton } from "./download-button";
 
 type Props = {
   initial: FeedVideo[];
@@ -428,6 +429,9 @@ function VideoCard({
           >
             {copied ? <Check className="size-6 text-gold" aria-hidden /> : <Share2 className="size-6" aria-hidden />}
           </Action>
+          <div className="flex flex-col items-center gap-1">
+            <DownloadButton v={v} className={rail} onBusy={(b) => setPaused(b)} />
+          </div>
         </div>
 
       </div>

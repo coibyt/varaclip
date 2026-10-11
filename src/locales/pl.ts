@@ -205,6 +205,10 @@ const pl: Record<string, string> = {
   "ed.unsupported": "Ta przeglądarka nie obsługuje edycji filmów.",
   "ed.preview": "Podgląd",
   "ed.playPause": "Odtwórz / wstrzymaj",
+  "dl.download": "Pobierz film",
+  "dl.preparing": "Przygotowywanie filmu z logo VaraClip… {p}%",
+  "dl.fail": "Nie udało się pobrać filmu. Spróbuj ponownie.",
+  "dl.unsupported": "Ta przeglądarka nie może utworzyć pliku z logo.",
 };
 
 export default pl;

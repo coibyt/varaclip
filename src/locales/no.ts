@@ -205,6 +205,10 @@ const no: Record<string, string> = {
   "ed.unsupported": "Denne nettleseren støtter ikke videoredigering.",
   "ed.preview": "Forhåndsvisning",
   "ed.playPause": "Spill av / pause",
+  "dl.download": "Last ned video",
+  "dl.preparing": "Klargjør videoen med VaraClip-logoen… {p} %",
+  "dl.fail": "Kunne ikke laste ned videoen. Prøv igjen.",
+  "dl.unsupported": "Denne nettleseren kan ikke lage nedlastinger med logo.",
 };
 
 export default no;

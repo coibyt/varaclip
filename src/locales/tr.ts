@@ -205,6 +205,10 @@ const tr: Record<string, string> = {
   "ed.unsupported": "Bu tarayıcı video düzenlemeyi desteklemiyor.",
   "ed.preview": "Önizleme",
   "ed.playPause": "Oynat / duraklat",
+  "dl.download": "Videoyu indir",
+  "dl.preparing": "Video VaraClip logosuyla hazırlanıyor… %{p}",
+  "dl.fail": "Video indirilemedi. Lütfen tekrar deneyin.",
+  "dl.unsupported": "Bu tarayıcı logolu indirme oluşturamıyor.",
 };
 
 export default tr;

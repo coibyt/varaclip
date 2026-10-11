@@ -205,6 +205,10 @@ const nl: Record<string, string> = {
   "ed.unsupported": "Deze browser ondersteunt geen videobewerking.",
   "ed.preview": "Voorbeeld",
   "ed.playPause": "Afspelen / pauzeren",
+  "dl.download": "Video downloaden",
+  "dl.preparing": "Video met VaraClip-logo voorbereiden… {p}%",
+  "dl.fail": "De video kon niet worden gedownload. Probeer het opnieuw.",
+  "dl.unsupported": "Deze browser kan geen downloads met logo maken.",
 };
 
 export default nl;

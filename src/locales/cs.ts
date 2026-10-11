@@ -205,6 +205,10 @@ const cs: Record<string, string> = {
   "ed.unsupported": "Tento prohlížeč nepodporuje úpravy videa.",
   "ed.preview": "Náhled",
   "ed.playPause": "Přehrát / pozastavit",
+  "dl.download": "Stáhnout video",
+  "dl.preparing": "Připravuje se video s logem VaraClip… {p} %",
+  "dl.fail": "Video se nepodařilo stáhnout. Zkuste to znovu.",
+  "dl.unsupported": "Tento prohlížeč neumí vytvořit stažení s logem.",
 };
 
 export default cs;

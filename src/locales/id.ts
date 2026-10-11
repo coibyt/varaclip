@@ -205,6 +205,10 @@ const id: Record<string, string> = {
   "ed.unsupported": "Peramban ini tidak mendukung pengeditan video.",
   "ed.preview": "Pratinjau",
   "ed.playPause": "Putar / jeda",
+  "dl.download": "Unduh video",
+  "dl.preparing": "Menyiapkan video dengan logo VaraClip… {p}%",
+  "dl.fail": "Video tidak dapat diunduh. Silakan coba lagi.",
+  "dl.unsupported": "Peramban ini tidak dapat membuat unduhan dengan logo.",
 };
 
 export default id;

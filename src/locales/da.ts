@@ -205,6 +205,10 @@ const da: Record<string, string> = {
   "ed.unsupported": "Denne browser understøtter ikke videoredigering.",
   "ed.preview": "Forhåndsvisning",
   "ed.playPause": "Afspil / pause",
+  "dl.download": "Download video",
+  "dl.preparing": "Gør videoen klar med VaraClip-logoet… {p} %",
+  "dl.fail": "Videoen kunne ikke downloades. Prøv igen.",
+  "dl.unsupported": "Denne browser kan ikke oprette downloads med logo.",
 };
 
 export default da;

@@ -205,6 +205,10 @@ const sk: Record<string, string> = {
   "ed.unsupported": "Tento prehliadač nepodporuje úpravu videí.",
   "ed.preview": "Ukážka",
   "ed.playPause": "Prehrať / pozastaviť",
+  "dl.download": "Stiahnuť video",
+  "dl.preparing": "Pripravuje sa video s logom VaraClip… {p} %",
+  "dl.fail": "Video sa nepodarilo stiahnuť. Skúste to znova.",
+  "dl.unsupported": "Tento prehliadač nevie vytvoriť stiahnutie s logom.",
 };
 
 export default sk;

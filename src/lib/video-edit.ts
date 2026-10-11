@@ -124,8 +124,17 @@ const once = (el: HTMLMediaElement, ev: string) => new Promise<void>((res, rej) 
 export type RenderControl = { cancelled: boolean };
 
 /** Render the edited clip. Resolves with a Blob whose type is exactly video/mp4 or video/webm. */
-export async function renderEdited(src: string, s: EditSettings, onProgress: (p: number) => void, ctl: RenderControl): Promise<Blob> {
+export type RenderOptions = {
+  /** Set to "anonymous" when the video lives on another origin (needs CORS headers there, or the canvas is tainted). */
+  crossOrigin?: "anonymous";
+  /** Drawn on top of every frame (used for the VaraClip watermark on downloads). */
+  overlay?: (ctx: CanvasRenderingContext2D, W: number, H: number) => void;
+};
+
+/** s.end <= 0 means "until the video ends". */
+export async function renderEdited(src: string, s: EditSettings, onProgress: (p: number) => void, ctl: RenderControl, opts: RenderOptions = {}): Promise<Blob> {
   const video = document.createElement("video");
+  if (opts.crossOrigin) video.crossOrigin = opts.crossOrigin;
   video.src = src;
   video.playsInline = true;
   video.preload = "auto";
@@ -167,10 +176,12 @@ export async function renderEdited(src: string, s: EditSettings, onProgress: (p:
   rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
   const stopped = new Promise<void>((res) => (rec.onstop = () => res()));
 
+  const end = s.end > 0 ? s.end : Number.isFinite(video.duration) ? video.duration : 1e9;
   video.currentTime = s.start;
   await once(video, "seeked");
   video.playbackRate = s.speed;
   drawFrame(ctx, video, W, H, s);
+  opts.overlay?.(ctx, W, H);
   rec.start(250);
   await video.play();
   music?.play().catch(() => {});
@@ -191,9 +202,10 @@ export async function renderEdited(src: string, s: EditSettings, onProgress: (p:
     const step = () => {
       if (done) return;
       drawFrame(ctx, video, W, H, s);
-      const span = Math.max(0.1, s.end - s.start);
+      opts.overlay?.(ctx, W, H);
+      const span = Math.max(0.1, (Number.isFinite(video.duration) ? Math.min(end, video.duration) : end) - s.start);
       onProgress(Math.min(1, Math.max(0, (video.currentTime - s.start) / span)));
-      if (ctl.cancelled || video.ended || video.currentTime >= s.end - 0.03) finish();
+      if (ctl.cancelled || video.ended || video.currentTime >= end - 0.03) finish();
     };
     const frame = () => {
       if (done) return;

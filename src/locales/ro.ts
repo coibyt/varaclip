@@ -205,6 +205,10 @@ const ro: Record<string, string> = {
   "ed.unsupported": "Acest browser nu acceptă editarea videoclipurilor.",
   "ed.preview": "Previzualizare",
   "ed.playPause": "Redă / pauză",
+  "dl.download": "Descarcă videoclipul",
+  "dl.preparing": "Se pregătește videoclipul cu logo-ul VaraClip… {p}%",
+  "dl.fail": "Videoclipul nu a putut fi descărcat. Încearcă din nou.",
+  "dl.unsupported": "Acest browser nu poate crea descărcări cu logo.",
 };
 
 export default ro;

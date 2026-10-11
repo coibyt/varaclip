@@ -205,6 +205,10 @@ const pt: Record<string, string> = {
   "ed.unsupported": "Este navegador não permite editar vídeos.",
   "ed.preview": "Pré-visualização",
   "ed.playPause": "Reproduzir / pausar",
+  "dl.download": "Baixar vídeo",
+  "dl.preparing": "Preparando seu vídeo com o logotipo do VaraClip… {p}%",
+  "dl.fail": "Não foi possível baixar o vídeo. Tente novamente.",
+  "dl.unsupported": "Este navegador não consegue criar downloads com logotipo.",
 };
 
 export default pt;

@@ -220,6 +220,10 @@ const en: Record<string, string> = {
   "ed.unsupported": "This browser does not support video editing.",
   "ed.preview": "Preview",
   "ed.playPause": "Play / pause",
+  "dl.download": "Download video",
+  "dl.preparing": "Preparing your video with the VaraClip logo… {p}%",
+  "dl.fail": "Could not download the video. Please try again.",
+  "dl.unsupported": "This browser cannot create downloads with the logo.",
 };
 
 export default en;

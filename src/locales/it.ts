@@ -205,6 +205,10 @@ const it: Record<string, string> = {
   "ed.unsupported": "Questo browser non supporta la modifica dei video.",
   "ed.preview": "Anteprima",
   "ed.playPause": "Riproduci / pausa",
+  "dl.download": "Scarica video",
+  "dl.preparing": "Preparazione del video con il logo VaraClip… {p}%",
+  "dl.fail": "Impossibile scaricare il video. Riprova.",
+  "dl.unsupported": "Questo browser non può creare download con il logo.",
 };
 
 export default it;

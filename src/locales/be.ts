@@ -205,6 +205,10 @@ const be: Record<string, string> = {
   "ed.unsupported": "Гэты браўзер не падтрымлівае рэдагаванне відэа.",
   "ed.preview": "Папярэдні прагляд",
   "ed.playPause": "Прайграць / паўза",
+  "dl.download": "Спампаваць відэа",
+  "dl.preparing": "Рыхтуем відэа з лагатыпам VaraClip… {p}%",
+  "dl.fail": "Не ўдалося спампаваць відэа. Паспрабуйце яшчэ раз.",
+  "dl.unsupported": "Гэты браўзер не можа стварыць спампоўку з лагатыпам.",
 };
 
 export default be;

@@ -205,6 +205,10 @@ const et: Record<string, string> = {
   "ed.unsupported": "See brauser ei toeta video muutmist.",
   "ed.preview": "Eelvaade",
   "ed.playPause": "Esita / peata",
+  "dl.download": "Laadi video alla",
+  "dl.preparing": "Video ettevalmistus VaraClipi logoga… {p}%",
+  "dl.fail": "Videot ei õnnestunud alla laadida. Proovi uuesti.",
+  "dl.unsupported": "See brauser ei saa luua allalaadimist logoga.",
 };
 
 export default et;

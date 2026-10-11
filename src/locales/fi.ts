@@ -205,6 +205,10 @@ const fi: Record<string, string> = {
   "ed.unsupported": "Tämä selain ei tue videon muokkausta.",
   "ed.preview": "Esikatselu",
   "ed.playPause": "Toista / tauko",
+  "dl.download": "Lataa video",
+  "dl.preparing": "Valmistellaan videota VaraClip-logolla… {p} %",
+  "dl.fail": "Videota ei voitu ladata. Yritä uudelleen.",
+  "dl.unsupported": "Tämä selain ei voi luoda latauksia logolla.",
 };
 
 export default fi;

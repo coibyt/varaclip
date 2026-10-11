@@ -205,6 +205,10 @@ const hi: Record<string, string> = {
   "ed.unsupported": "यह ब्राउज़र वीडियो संपादन का समर्थन नहीं करता।",
   "ed.preview": "पूर्वावलोकन",
   "ed.playPause": "चलाएँ / रोकें",
+  "dl.download": "वीडियो डाउनलोड करें",
+  "dl.preparing": "VaraClip लोगो के साथ वीडियो तैयार हो रहा है… {p}%",
+  "dl.fail": "वीडियो डाउनलोड नहीं हो सका। कृपया फिर कोशिश करें।",
+  "dl.unsupported": "यह ब्राउज़र लोगो वाला डाउनलोड नहीं बना सकता।",
 };
 
 export default hi;

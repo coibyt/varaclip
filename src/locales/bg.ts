@@ -205,6 +205,10 @@ const bg: Record<string, string> = {
   "ed.unsupported": "Този браузър не поддържа редактиране на видео.",
   "ed.preview": "Преглед",
   "ed.playPause": "Пускане / пауза",
+  "dl.download": "Изтегляне на видеото",
+  "dl.preparing": "Подготвя се видеото с логото на VaraClip… {p}%",
+  "dl.fail": "Видеото не можа да бъде изтеглено. Опитайте отново.",
+  "dl.unsupported": "Този браузър не може да създава изтегляния с лого.",
 };
 
 export default bg;

@@ -205,6 +205,10 @@ const fil: Record<string, string> = {
   "ed.unsupported": "Hindi sinusuportahan ng browser na ito ang pag-edit ng video.",
   "ed.preview": "Preview",
   "ed.playPause": "I-play / i-pause",
+  "dl.download": "I-download ang video",
+  "dl.preparing": "Inihahanda ang video na may logo ng VaraClip… {p}%",
+  "dl.fail": "Hindi ma-download ang video. Pakisubukan ulit.",
+  "dl.unsupported": "Hindi makakagawa ang browser na ito ng download na may logo.",
 };
 
 export default fil;

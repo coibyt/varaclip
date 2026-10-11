@@ -205,6 +205,10 @@ const ja: Record<string, string> = {
   "ed.unsupported": "このブラウザは動画編集に対応していません。",
   "ed.preview": "プレビュー",
   "ed.playPause": "再生 / 一時停止",
+  "dl.download": "動画をダウンロード",
+  "dl.preparing": "VaraClipロゴ入りの動画を準備中… {p}%",
+  "dl.fail": "動画をダウンロードできませんでした。もう一度お試しください。",
+  "dl.unsupported": "このブラウザではロゴ入りのダウンロードを作成できません。",
 };
 
 export default ja;

@@ -205,6 +205,10 @@ const th: Record<string, string> = {
   "ed.unsupported": "เบราว์เซอร์นี้ไม่รองรับการแก้ไขวิดีโอ",
   "ed.preview": "ตัวอย่าง",
   "ed.playPause": "เล่น / หยุดชั่วคราว",
+  "dl.download": "ดาวน์โหลดวิดีโอ",
+  "dl.preparing": "กำลังเตรียมวิดีโอพร้อมโลโก้ VaraClip… {p}%",
+  "dl.fail": "ดาวน์โหลดวิดีโอไม่สำเร็จ โปรดลองอีกครั้ง",
+  "dl.unsupported": "เบราว์เซอร์นี้ไม่สามารถสร้างไฟล์ดาวน์โหลดที่มีโลโก้ได้",
 };
 
 export default th;
