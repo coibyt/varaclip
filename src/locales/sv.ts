@@ -94,6 +94,7 @@ const sv: Record<string, string> = {
   "st.about": "Om",
   "st.bookingUrl": "Bokningslänk",
   "st.bookingHint": "Knappen “Boka tid” på dina videor öppnar den här länken.",
+  "st.createBooking": "Skapa en gratis bokningssida här",
   "st.phone": "Telefonnummer",
   "st.phoneHint": "Används för knappen “Ring nu” när det inte finns någon bokningslänk.",
   "st.saved": "Ändringarna sparades.",

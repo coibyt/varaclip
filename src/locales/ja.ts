@@ -94,6 +94,7 @@ const ja: Record<string, string> = {
   "st.about": "紹介文",
   "st.bookingUrl": "予約リンク",
   "st.bookingHint": "動画の「予約する」ボタンでこのリンクが開きます。",
+  "st.createBooking": "無料の予約ページをここで作成",
   "st.phone": "電話番号",
   "st.phoneHint": "予約リンクがない場合、「電話する」ボタンに使われます。",
   "st.saved": "変更を保存しました。",

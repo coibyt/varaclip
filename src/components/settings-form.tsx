@@ -2,9 +2,9 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Camera, Loader2 } from "lucide-react";
+import { Camera, ExternalLink, Loader2 } from "lucide-react";
 import { Avatar } from "./avatar";
-import { useT } from "./locale-provider";
+import { useI18n } from "./locale-provider";
 import { LanguageSwitcher } from "./language-switcher";
 
 type P = {
@@ -14,7 +14,9 @@ type P = {
 
 export function SettingsForm({ p, welcome }: { p: P; welcome: boolean }) {
   const router = useRouter();
-  const t = useT();
+  const { t, locale } = useI18n();
+  // varaaai.com serves its default language (vi) without a prefix and every other language under /<code>/.
+  const applyUrl = `https://varaaai.com${locale === "vi" ? "" : `/${locale}`}/business/apply`;
   const file = useRef<HTMLInputElement>(null);
   const [v, setV] = useState(p);
   const [avatarKey, setAvatarKey] = useState<string | undefined>();
@@ -72,6 +74,9 @@ export function SettingsForm({ p, welcome }: { p: P; welcome: boolean }) {
         {v.isSalon && (
           <>
             <F label={t("st.bookingUrl")} value={v.bookingUrl} onChange={set("bookingUrl")} type="url" placeholder="https://salon-cua-ban.com/dat-lich" hint={t("st.bookingHint")} />
+            <a href={applyUrl} target="_blank" rel="noopener noreferrer" className="btn -mt-1 w-full !bg-sky-500 text-white hover:!bg-sky-400 sm:w-auto">
+              <ExternalLink className="size-4 shrink-0" aria-hidden /> {t("st.createBooking")}
+            </a>
             <F label={t("st.phone")} value={v.phone} onChange={set("phone")} type="tel" autoComplete="tel" hint={t("st.phoneHint")} />
           </>
         )}

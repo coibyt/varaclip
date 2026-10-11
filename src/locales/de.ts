@@ -94,6 +94,7 @@ const de: Record<string, string> = {
   "st.about": "Über uns",
   "st.bookingUrl": "Buchungslink",
   "st.bookingHint": "Der Button „Termin buchen“ bei deinen Videos öffnet diesen Link.",
+  "st.createBooking": "Hier kostenlose Buchungsseite erstellen",
   "st.phone": "Telefonnummer",
   "st.phoneHint": "Wird für den Button „Jetzt anrufen“ verwendet, wenn es keinen Buchungslink gibt.",
   "st.saved": "Änderungen gespeichert.",

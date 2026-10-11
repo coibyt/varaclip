@@ -103,6 +103,7 @@ const en: Record<string, string> = {
   "st.about": "About",
   "st.bookingUrl": "Booking link",
   "st.bookingHint": "The “Book now” button on your videos opens this link.",
+  "st.createBooking": "Create a free booking page here",
   "st.phone": "Phone number",
   "st.phoneHint": "Used for the “Call now” button when there is no booking link.",
   "st.saved": "Changes saved.",

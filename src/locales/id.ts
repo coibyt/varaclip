@@ -94,6 +94,7 @@ const id: Record<string, string> = {
   "st.about": "Tentang",
   "st.bookingUrl": "Tautan pemesanan",
   "st.bookingHint": "Tombol “Pesan sekarang” pada video Anda akan membuka tautan ini.",
+  "st.createBooking": "Buat halaman pemesanan gratis di sini",
   "st.phone": "Nomor telepon",
   "st.phoneHint": "Dipakai untuk tombol “Telepon” jika tidak ada tautan pemesanan.",
   "st.saved": "Perubahan disimpan.",

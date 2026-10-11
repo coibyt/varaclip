@@ -104,6 +104,7 @@ const vi: Record<string, string> = {
   "st.about": "Giới thiệu",
   "st.bookingUrl": "Liên kết đặt lịch",
   "st.bookingHint": "Nút “Đặt lịch” trên video sẽ mở liên kết này.",
+  "st.createBooking": "Tạo trang đặt lịch hẹn miễn phí tại đây",
   "st.phone": "Số điện thoại",
   "st.phoneHint": "Dùng cho nút “Gọi ngay” khi chưa có liên kết đặt lịch.",
   "st.saved": "Đã lưu thay đổi.",

@@ -94,6 +94,7 @@ const pt: Record<string, string> = {
   "st.about": "Sobre",
   "st.bookingUrl": "Link de agendamento",
   "st.bookingHint": "O botão “Agendar” dos seus vídeos abre este link.",
+  "st.createBooking": "Crie aqui sua página de agendamento grátis",
   "st.phone": "Telefone",
   "st.phoneHint": "Usado no botão “Ligar agora” quando não há link de agendamento.",
   "st.saved": "Alterações salvas.",

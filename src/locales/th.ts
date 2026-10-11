@@ -94,6 +94,7 @@ const th: Record<string, string> = {
   "st.about": "เกี่ยวกับ",
   "st.bookingUrl": "ลิงก์จองคิว",
   "st.bookingHint": "ปุ่ม “จองคิว” บนวิดีโอจะเปิดลิงก์นี้",
+  "st.createBooking": "สร้างหน้าจองคิวฟรีที่นี่",
   "st.phone": "เบอร์โทรศัพท์",
   "st.phoneHint": "ใช้กับปุ่ม “โทรเลย” เมื่อไม่มีลิงก์จองคิว",
   "st.saved": "บันทึกการเปลี่ยนแปลงแล้ว",

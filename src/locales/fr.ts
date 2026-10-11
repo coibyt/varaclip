@@ -94,6 +94,7 @@ const fr: Record<string, string> = {
   "st.about": "À propos",
   "st.bookingUrl": "Lien de réservation",
   "st.bookingHint": "Le bouton « Réserver » de vos vidéos ouvre ce lien.",
+  "st.createBooking": "Créez ici votre page de réservation gratuite",
   "st.phone": "Numéro de téléphone",
   "st.phoneHint": "Utilisé pour le bouton « Appeler » quand il n’y a pas de lien de réservation.",
   "st.saved": "Modifications enregistrées.",

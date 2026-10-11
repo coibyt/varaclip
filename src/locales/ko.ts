@@ -94,6 +94,7 @@ const ko: Record<string, string> = {
   "st.about": "소개",
   "st.bookingUrl": "예약 링크",
   "st.bookingHint": "영상의 “예약하기” 버튼을 누르면 이 링크가 열려요.",
+  "st.createBooking": "여기에서 무료 예약 페이지 만들기",
   "st.phone": "전화번호",
   "st.phoneHint": "예약 링크가 없을 때 “전화하기” 버튼에 사용돼요.",
   "st.saved": "변경 사항을 저장했어요.",

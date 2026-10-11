@@ -94,6 +94,7 @@ const zh: Record<string, string> = {
   "st.about": "简介",
   "st.bookingUrl": "预约链接",
   "st.bookingHint": "视频上的“立即预约”按钮会打开此链接。",
+  "st.createBooking": "在此免费创建预约页面",
   "st.phone": "电话号码",
   "st.phoneHint": "没有预约链接时，用于“立即致电”按钮。",
   "st.saved": "更改已保存。",

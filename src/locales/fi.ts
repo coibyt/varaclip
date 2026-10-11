@@ -94,6 +94,7 @@ const fi: Record<string, string> = {
   "st.about": "Esittely",
   "st.bookingUrl": "Ajanvarauslinkki",
   "st.bookingHint": "Videoiden “Varaa aika” -painike avaa tämän linkin.",
+  "st.createBooking": "Luo ilmainen ajanvaraussivu täällä",
   "st.phone": "Puhelinnumero",
   "st.phoneHint": "Käytetään “Soita nyt” -painikkeessa, jos ajanvarauslinkkiä ei ole.",
   "st.saved": "Muutokset tallennettu.",

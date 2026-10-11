@@ -94,6 +94,7 @@ const it: Record<string, string> = {
   "st.about": "Presentazione",
   "st.bookingUrl": "Link di prenotazione",
   "st.bookingHint": "Il pulsante “Prenota” sui tuoi video apre questo link.",
+  "st.createBooking": "Crea qui la tua pagina di prenotazione gratuita",
   "st.phone": "Numero di telefono",
   "st.phoneHint": "Usato per il pulsante “Chiama ora” quando non c’è un link di prenotazione.",
   "st.saved": "Modifiche salvate.",
