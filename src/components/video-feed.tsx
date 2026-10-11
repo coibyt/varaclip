@@ -234,7 +234,8 @@ function VideoCard({
   const bar = useRef<HTMLDivElement>(null);
   const counted = useRef(false);
   const lastTap = useRef(0);
-  const [paused, setPaused] = useState(false);
+  // Respect reduced-motion: do not autoplay, wait for the viewer to press play.
+  const [paused, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [ready, setReady] = useState(false);
   const [hearts, setHearts] = useState<{ id: number; x: number; y: number }[]>([]);
   const [copied, setCopied] = useState(false);

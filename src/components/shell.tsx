@@ -36,7 +36,7 @@ export function Shell({ user, children }: { user: ShellUser; children: React.Rea
     <div className="min-h-dvh">
       {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[240px] flex-col border-r border-white/5 bg-ink px-4 py-6 lg:flex">
-        <Link href="/" className="mb-8 flex items-center gap-2 px-2 text-xl font-extrabold tracking-tight">
+        <Link href="/" className="mb-8 flex items-center gap-2 px-2 font-display text-2xl font-bold tracking-tight">
           <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-glow to-gold text-ink"><Sparkles className="size-5" aria-hidden /></span>
           {SITE}
         </Link>

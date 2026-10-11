@@ -40,7 +40,7 @@ export default async function Profile({ params, searchParams }: { params: Promis
       <header className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
         <Avatar name={u.displayName} hue={u.hue} url={mediaUrl(u.avatarKey)} size={112} />
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl font-extrabold tracking-tight">{u.salonName || u.displayName}</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight">{u.salonName || u.displayName}</h1>
           <p className="text-mist">@{u.handle}{u.isSalon && u.salonName ? ` · ${u.displayName}` : ""}</p>
 
           <dl className="mt-4 flex justify-center gap-6 sm:justify-start">

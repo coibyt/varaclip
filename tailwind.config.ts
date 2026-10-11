@@ -10,7 +10,7 @@ export default {
         gold: "#F5C26B",
         mist: "#A6A6B8",
       },
-      fontFamily: { sans: ["var(--font-sans)", "system-ui", "sans-serif"] },
+      fontFamily: { display: ["var(--font-display)", "Georgia", "serif"], sans: ["var(--font-sans)", "system-ui", "sans-serif"] },
       keyframes: {
         pop: { "0%": { transform: "scale(.4)", opacity: "0" }, "40%": { transform: "scale(1.25)", opacity: "1" }, "100%": { transform: "scale(1)", opacity: "0" } },
         up: { from: { transform: "translateY(12px)", opacity: "0" }, to: { transform: "none", opacity: "1" } },

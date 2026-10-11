@@ -33,7 +33,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
 
   return (
     <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center px-5 py-10 pb-24 lg:pb-10">
-      <h1 className="text-3xl font-extrabold tracking-tight">{reg ? "Tạo tài khoản" : "Chào mừng quay lại"}</h1>
+      <h1 className="font-display text-4xl font-bold tracking-tight">{reg ? "Tạo tài khoản" : "Chào mừng quay lại"}</h1>
       <p className="mt-2 text-mist">{reg ? "Xem video làm đẹp, hoặc đăng video cho salon của bạn." : "Đăng nhập để thích, bình luận và theo dõi salon."}</p>
 
       {reg && (
