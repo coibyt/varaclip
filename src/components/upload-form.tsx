@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCircle2, Film, ImagePlus, Loader2, UploadCloud, X } from "lucide-react";
 import { useT } from "./locale-provider";
+import { VideoEditor } from "./video-editor";
 
 type Meta = { duration: number; width: number; height: number; thumb: Blob | null };
 const MAX = 200 * 1024 * 1024;
@@ -62,6 +63,7 @@ export function UploadForm() {
   const t = useT();
   const input = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
+  const [original, setOriginal] = useState<File | null>(null); // the file as chosen, before any in-browser edit
   const [preview, setPreview] = useState("");
   const [meta, setMeta] = useState<Meta | null>(null);
   const [caption, setCaption] = useState("");
@@ -128,8 +130,22 @@ export function UploadForm() {
     if (f.size > MAX) return setError(t("up.errSize"));
     const url = URL.createObjectURL(f);
     setFile(f);
+    setOriginal(f);
     setPreview(url);
     setMeta(await inspect(url));
+  }
+
+  /** Swap the current clip for another file (an edited render, or the original again). */
+  async function useFile(f: File) {
+    const url = URL.createObjectURL(f);
+    setFile(f);
+    setPreview(url);
+    setMeta(await inspect(url));
+  }
+
+  function applyEdit(blob: Blob) {
+    if (blob.size > MAX) return setError(t("up.errSize"));
+    useFile(new File([blob], blob.type === "video/mp4" ? "edited.mp4" : "edited.webm", { type: blob.type }));
   }
 
   async function publish() {
@@ -178,7 +194,7 @@ export function UploadForm() {
           <div className="relative mx-auto aspect-[9/16] w-full max-w-[280px] overflow-hidden rounded-3xl bg-black">
             <video src={preview} muted loop playsInline autoPlay className="size-full object-cover" />
             {!busy && (
-              <button onClick={() => { setFile(null); setMeta(null); setPreview(""); setCoverBlob(null); }} aria-label={t("up.pickAnother")} className="absolute right-2 top-2 grid size-9 cursor-pointer place-items-center rounded-full bg-black/60 backdrop-blur hover:bg-black/80"><X className="size-5" aria-hidden /></button>
+              <button onClick={() => { setFile(null); setOriginal(null); setMeta(null); setPreview(""); setCoverBlob(null); }} aria-label={t("up.pickAnother")} className="absolute right-2 top-2 grid size-9 cursor-pointer place-items-center rounded-full bg-black/60 backdrop-blur hover:bg-black/80"><X className="size-5" aria-hidden /></button>
             )}
           </div>
         ) : (
@@ -248,6 +264,17 @@ export function UploadForm() {
             <span className="min-w-0 flex-1 truncate">{file.name}</span>
             <span className="shrink-0 text-mist">{(file.size / 1048576).toFixed(1)}MB{meta?.duration ? ` · ${Math.round(meta.duration)}s` : ""}</span>
           </div>
+        )}
+
+        {file && meta && Number.isFinite(meta.duration) && meta.duration > 0 && (
+          <>
+            <VideoEditor src={preview} duration={meta.duration} disabled={busy} onApply={applyEdit} />
+            {original && file !== original && !busy && (
+              <button type="button" onClick={() => useFile(original)} className="mt-3 cursor-pointer text-sm font-semibold text-sky-400 underline underline-offset-2 hover:text-sky-300">
+                {t("ed.revert")}
+              </button>
+            )}
+          </>
         )}
 
         {stage === "uploading" && (
