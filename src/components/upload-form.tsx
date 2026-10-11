@@ -38,7 +38,7 @@ function put(url: string, blob: Blob, type: string, onProgress?: (p: number) => 
     x.setRequestHeader("Content-Type", type);
     x.upload.onprogress = (e) => e.lengthComputable && onProgress?.(e.loaded / e.total);
     x.onload = () => (x.status >= 200 && x.status < 300 ? resolve() : reject(new Error(`Tải lên thất bại (${x.status}).`)));
-    x.onerror = () => reject(new Error("Mất kết nối khi tải lên. Vui lòng thử lại."));
+    x.onerror = () => reject(new Error("Mất kết nối khi tải lên (không tới được kho video). Vui lòng thử lại hoặc đổi mạng."));
     x.send(blob);
   });
 }

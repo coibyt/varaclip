@@ -24,6 +24,7 @@ let client: S3Client | null = null;
 function s3() {
   client ??= new S3Client({
     region: "auto",
+    forcePathStyle: true, // https://<account>.r2.cloudflarestorage.com/<bucket>/<key>: one hostname, no per-bucket DNS
     endpoint: `https://${r2.account}.r2.cloudflarestorage.com`,
     credentials: { accessKeyId: r2.key!, secretAccessKey: r2.secret! },
   });
