@@ -9,6 +9,8 @@ import {
 import { Avatar } from "./avatar";
 import { CommentsSheet } from "./comments-sheet";
 import { compact, type FeedVideo } from "@/lib/util";
+import { useI18n } from "./locale-provider";
+import { LanguageSwitcher } from "./language-switcher";
 
 type Props = {
   initial: FeedVideo[];
@@ -22,6 +24,7 @@ type Props = {
 
 export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }: Props) {
   const router = useRouter();
+  const { t } = useI18n();
   const [tab, setTab] = useState<"foryou" | "following">("foryou");
   const [videos, setVideos] = useState<FeedVideo[]>(initial);
   const [needsLogin, setNeedsLogin] = useState(false);
@@ -169,20 +172,22 @@ export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }
       {tabs && (
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 flex justify-center pt-3 lg:pt-4">
           <div role="tablist" className="pointer-events-auto flex gap-1 rounded-full bg-black/45 p-1 backdrop-blur-md">
-            {(["following", "foryou"] as const).map((t) => (
+            {(["following", "foryou"] as const).map((k) => (
               <button
-                key={t}
+                key={k}
                 role="tab"
-                aria-selected={tab === t}
-                onClick={() => switchTab(t)}
-                className={`min-h-[40px] cursor-pointer rounded-full px-4 text-sm font-bold transition ${tab === t ? "bg-white text-ink" : "text-white/80 hover:text-white"}`}
+                aria-selected={tab === k}
+                onClick={() => switchTab(k)}
+                className={`min-h-[40px] cursor-pointer rounded-full px-4 text-sm font-bold transition ${tab === k ? "bg-white text-ink" : "text-white/80 hover:text-white"}`}
               >
-                {t === "foryou" ? "Dành cho bạn" : "Đang theo dõi"}
+                {k === "foryou" ? t("feed.foryou") : t("feed.following")}
               </button>
             ))}
           </div>
         </div>
       )}
+
+      <div className="absolute left-3 top-3 z-30 lg:hidden"><LanguageSwitcher className="!min-h-[40px] bg-black/45 backdrop-blur-md [&_select]:w-[72px] [&_select]:truncate" /></div>
 
       <div ref={scroller} className="snap-feed feed-h" tabIndex={-1}>
         {videos.map((v) => (
@@ -206,15 +211,15 @@ export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }
         {empty && (
           <div className="snap-item grid h-full place-items-center px-6 text-center">
             <div>
-              <p className="text-lg font-bold">{needsLogin ? "Đăng nhập để xem video từ salon bạn theo dõi" : tab === "following" ? "Bạn chưa theo dõi salon nào" : "Chưa có video nào"}</p>
-              <p className="mt-1 text-sm text-mist">{tab === "following" && !needsLogin ? "Theo dõi vài salon ở tab “Dành cho bạn” để video của họ hiện ở đây." : ""}</p>
-              {needsLogin && <Link href="/login?next=/" className="btn btn-primary mt-4">Đăng nhập</Link>}
+              <p className="text-lg font-bold">{needsLogin ? t("feed.loginToSee") : tab === "following" ? t("feed.noFollowing") : t("feed.noVideos")}</p>
+              <p className="mt-1 text-sm text-mist">{tab === "following" && !needsLogin ? t("feed.followHint") : ""}</p>
+              {needsLogin && <Link href="/login?next=/" className="btn btn-primary mt-4">{t("nav.login")}</Link>}
             </div>
           </div>
         )}
 
         {done && videos.length > 0 && !fixed && (
-          <div className="snap-item grid h-full place-items-center px-6 text-center text-mist">Bạn đã xem hết video mới. Quay lại sau nhé ✨</div>
+          <div className="snap-item grid h-full place-items-center px-6 text-center text-mist">{t("feed.end")}</div>
         )}
       </div>
 
@@ -230,6 +235,7 @@ function VideoCard({
   onLike: () => void; onSave: () => void; onFollow: () => void; onShare: () => Promise<"copied" | "shared" | undefined>;
   onComments: () => void; isMine: boolean;
 }) {
+  const { t, locale } = useI18n();
   const ref = useRef<HTMLVideoElement>(null);
   const bar = useRef<HTMLDivElement>(null);
   const counted = useRef(false);
@@ -291,15 +297,15 @@ function VideoCard({
   }
 
   const cta = v.creator.bookingUrl
-    ? { href: v.creator.bookingUrl, label: "Đặt lịch", icon: CalendarCheck, external: true }
+    ? { href: v.creator.bookingUrl, label: t("card.book"), icon: CalendarCheck, external: true }
     : v.creator.phone
-      ? { href: `tel:${v.creator.phone.replace(/[^+\d]/g, "")}`, label: "Gọi ngay", icon: Phone, external: false }
+      ? { href: `tel:${v.creator.phone.replace(/[^+\d]/g, "")}`, label: t("card.call"), icon: Phone, external: false }
       : null;
 
   const rail = "grid size-12 cursor-pointer place-items-center rounded-full bg-white/10 backdrop-blur transition hover:bg-white/20 active:scale-90 lg:bg-white/10";
 
   return (
-    <section data-vid={v.id} className="snap-item relative flex h-full items-center justify-center lg:py-3" aria-label={`Video của ${v.creator.salonName || v.creator.displayName}`}>
+    <section data-vid={v.id} className="snap-item relative flex h-full items-center justify-center lg:py-3" aria-label={t("card.videoOf", { name: v.creator.salonName || v.creator.displayName })}>
       <div className="relative h-full w-full lg:aspect-[9/16] lg:h-full lg:max-h-[920px] lg:w-auto">
         <div className="absolute inset-0 overflow-hidden bg-black lg:rounded-3xl lg:shadow-2xl lg:shadow-black/60">
         <video
@@ -325,7 +331,7 @@ function VideoCard({
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
 
         {paused && active && (
-          <button onClick={() => setPaused(false)} aria-label="Phát" className="absolute left-1/2 top-1/2 grid size-20 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-black/40 backdrop-blur">
+          <button onClick={() => setPaused(false)} aria-label={t("card.play")} className="absolute left-1/2 top-1/2 grid size-20 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-black/40 backdrop-blur">
             <Play className="size-9 fill-white" aria-hidden />
           </button>
         )}
@@ -336,7 +342,7 @@ function VideoCard({
 
         <button
           onClick={() => setMuted((m) => !m)}
-          aria-label={muted ? "Bật tiếng" : "Tắt tiếng"}
+          aria-label={muted ? t("card.unmute") : t("card.mute")}
           className="absolute right-3 top-16 z-10 grid size-10 cursor-pointer place-items-center rounded-full bg-black/40 backdrop-blur transition hover:bg-black/60 lg:top-4"
         >
           {muted ? <VolumeX className="size-5" aria-hidden /> : <Volume2 className="size-5" aria-hidden />}
@@ -378,13 +384,13 @@ function VideoCard({
         {/* Action rail — inside the card on mobile, beside it on desktop */}
         <div className="absolute bottom-24 right-3 z-20 flex flex-col items-center gap-4 lg:-right-[76px] lg:bottom-4">
           <div className="relative mb-2">
-            <Link href={`/u/${v.creator.handle}`} aria-label={`Hồ sơ ${v.creator.displayName}`}>
+            <Link href={`/u/${v.creator.handle}`} aria-label={t("card.profileOf", { name: v.creator.displayName })}>
               <span className="block rounded-full ring-2 ring-white"><Avatar name={v.creator.displayName} hue={v.creator.hue} url={v.creator.avatarUrl} size={48} /></span>
             </Link>
             {!isMine && (
               <button
                 onClick={onFollow}
-                aria-label={v.creator.followed ? "Bỏ theo dõi" : "Theo dõi"}
+                aria-label={v.creator.followed ? t("card.unfollow") : t("common.follow")}
                 aria-pressed={v.creator.followed}
                 className={`absolute -bottom-2 left-1/2 grid size-6 -translate-x-1/2 cursor-pointer place-items-center rounded-full text-white transition ${v.creator.followed ? "bg-white text-ink" : "bg-glow"}`}
               >
@@ -393,18 +399,19 @@ function VideoCard({
             )}
           </div>
 
-          <Action label="Thích" count={v.likes} onClick={onLike} pressed={v.liked} className={rail}>
+          <Action label={t("card.like")} count={v.likes} locale={locale} onClick={onLike} pressed={v.liked} className={rail}>
             <Heart className={`size-6 transition ${v.liked ? "fill-glow text-glow" : ""}`} aria-hidden />
           </Action>
-          <Action label="Bình luận" count={v.comments} onClick={onComments} className={rail}>
+          <Action label={t("card.comments")} count={v.comments} locale={locale} onClick={onComments} className={rail}>
             <MessageCircle className="size-6" aria-hidden />
           </Action>
-          <Action label="Lưu" onClick={onSave} pressed={v.saved} className={rail}>
+          <Action label={t("card.save")} onClick={onSave} pressed={v.saved} className={rail}>
             <Bookmark className={`size-6 ${v.saved ? "fill-gold text-gold" : ""}`} aria-hidden />
           </Action>
           <Action
-            label={copied ? "Đã chép liên kết" : "Chia sẻ"}
+            label={copied ? t("card.copied") : t("card.share")}
             count={v.shares}
+            locale={locale}
             onClick={async () => {
               if ((await onShare()) === "copied") {
                 setCopied(true);
@@ -423,12 +430,12 @@ function VideoCard({
 }
 
 function Action({
-  label, count, onClick, pressed, className, children,
-}: { label: string; count?: number; onClick: () => void; pressed?: boolean; className: string; children: React.ReactNode }) {
+  label, count, locale, onClick, pressed, className, children,
+}: { label: string; count?: number; locale?: string; onClick: () => void; pressed?: boolean; className: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col items-center gap-1">
       <button onClick={onClick} aria-label={label} aria-pressed={pressed} className={className}>{children}</button>
-      {count !== undefined && <span className="text-xs font-bold tabular-nums drop-shadow">{compact(count)}</span>}
+      {count !== undefined && <span className="text-xs font-bold tabular-nums drop-shadow">{compact(count, locale)}</span>}
     </div>
   );
 }

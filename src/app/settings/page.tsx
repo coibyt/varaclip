@@ -2,8 +2,12 @@ import { redirect } from "next/navigation";
 import { getUser } from "@/lib/auth";
 import { mediaUrl } from "@/lib/storage";
 import { SettingsForm } from "@/components/settings-form";
+import { getT } from "@/lib/i18n-server";
 
-export const metadata = { title: "Cài đặt" };
+export async function generateMetadata() {
+  const { t } = await getT();
+  return { title: t("nav.settings") };
+}
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ welcome?: string }> }) {
   const me = await getUser();

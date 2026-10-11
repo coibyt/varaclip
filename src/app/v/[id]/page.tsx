@@ -5,16 +5,18 @@ import { getUser } from "@/lib/auth";
 import { forYou, hydrate, videoInclude } from "@/lib/videos";
 import { mediaUrl } from "@/lib/storage";
 import { VideoFeed } from "@/components/video-feed";
+import { getT } from "@/lib/i18n-server";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const v = await db.video.findUnique({ where: { id: (await params).id }, include: { creator: true } });
   if (!v) return {};
+  const { t } = await getT();
   const title = `${v.creator.salonName || v.creator.displayName} (@${v.creator.handle})`;
   return {
     title,
-    description: v.caption || "Video làm đẹp",
+    description: v.caption || t("meta.description"),
     openGraph: { title, description: v.caption, type: "video.other", videos: [mediaUrl(v.videoKey)], images: v.thumbKey ? [mediaUrl(v.thumbKey)] : [] },
   };
 }

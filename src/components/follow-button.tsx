@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Check, UserPlus } from "lucide-react";
+import { useT } from "./locale-provider";
 
 export function FollowButton({ handle, initial, loggedIn }: { handle: string; initial: boolean; loggedIn: boolean }) {
   const router = useRouter();
+  const t = useT();
   const [on, setOn] = useState(initial);
   const [busy, setBusy] = useState(false);
 
@@ -21,7 +23,7 @@ export function FollowButton({ handle, initial, loggedIn }: { handle: string; in
 
   return (
     <button onClick={click} disabled={busy} aria-pressed={on} className={`btn ${on ? "btn-ghost" : "btn-primary"}`}>
-      {on ? <><Check className="size-5" aria-hidden /> Đang theo dõi</> : <><UserPlus className="size-5" aria-hidden /> Theo dõi</>}
+      {on ? <><Check className="size-5" aria-hidden /> {t("common.following")}</> : <><UserPlus className="size-5" aria-hidden /> {t("common.follow")}</>}
     </button>
   );
 }

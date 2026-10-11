@@ -2,28 +2,36 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { getUser } from "@/lib/auth";
+import { getLocale, getMessages, getT } from "@/lib/i18n-server";
 import { Shell } from "@/components/shell";
+import { LocaleProvider } from "@/components/locale-provider";
 
-const sans = Plus_Jakarta_Sans({ subsets: ["latin", "vietnamese"], variable: "--font-sans", display: "swap" });
+const sans = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext", "vietnamese"], variable: "--font-sans", display: "swap" });
 
-const display = Playfair_Display({ subsets: ["latin", "vietnamese"], variable: "--font-display", display: "swap" });
+const display = Playfair_Display({ subsets: ["latin", "latin-ext", "vietnamese", "cyrillic"], variable: "--font-display", display: "swap" });
 
 const name = process.env.NEXT_PUBLIC_SITE_NAME || "VaraClip";
 
-export const metadata: Metadata = {
-  title: { default: `${name} — Video làm đẹp từ các salon`, template: `%s · ${name}` },
-  description: "Xem và chia sẻ video làm đẹp ngắn từ các salon tóc, nail, spa. Thích, theo dõi và đặt lịch ngay.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getT();
+  return {
+    title: { default: `${name} — ${t("meta.title")}`, template: `%s · ${name}` },
+    description: t("meta.description"),
+  };
+}
 
 export const viewport: Viewport = { themeColor: "#0B0B0F", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const me = await getUser();
+  const [me, locale] = await Promise.all([getUser(), getLocale()]);
+  const [messages, fallback] = await Promise.all([getMessages(locale), getMessages("en")]);
   const user = me ? { handle: me.handle, displayName: me.displayName, isSalon: me.isSalon, hue: me.hue } : null;
   return (
-    <html lang="vi" className={`${sans.variable} ${display.variable}`}>
+    <html lang={locale} className={`${sans.variable} ${display.variable}`}>
       <body className="font-sans">
-        <Shell user={user}>{children}</Shell>
+        <LocaleProvider locale={locale} messages={messages} fallback={fallback}>
+          <Shell user={user}>{children}</Shell>
+        </LocaleProvider>
       </body>
     </html>
   );

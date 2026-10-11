@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCircle2, Film, Loader2, UploadCloud, X } from "lucide-react";
+import { useT } from "./locale-provider";
 
 type Meta = { duration: number; width: number; height: number; thumb: Blob | null };
 const MAX = 200 * 1024 * 1024;
@@ -31,20 +32,21 @@ function inspect(url: string): Promise<Meta> {
   });
 }
 
-function put(url: string, blob: Blob, type: string, onProgress?: (p: number) => void) {
+function put(url: string, blob: Blob, type: string, msgs: { status: (s: number) => string; network: string }, onProgress?: (p: number) => void) {
   return new Promise<void>((resolve, reject) => {
     const x = new XMLHttpRequest();
     x.open("PUT", url);
     x.setRequestHeader("Content-Type", type);
     x.upload.onprogress = (e) => e.lengthComputable && onProgress?.(e.loaded / e.total);
-    x.onload = () => (x.status >= 200 && x.status < 300 ? resolve() : reject(new Error(`Tải lên thất bại (${x.status}).`)));
-    x.onerror = () => reject(new Error("Mất kết nối khi tải lên (không tới được kho video). Vui lòng thử lại hoặc đổi mạng."));
+    x.onload = () => (x.status >= 200 && x.status < 300 ? resolve() : reject(new Error(msgs.status(x.status))));
+    x.onerror = () => reject(new Error(msgs.network));
     x.send(blob);
   });
 }
 
 export function UploadForm() {
   const router = useRouter();
+  const t = useT();
   const input = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
@@ -60,8 +62,8 @@ export function UploadForm() {
   async function pick(f: File | undefined) {
     setError("");
     if (!f) return;
-    if (!/^video\/(mp4|webm|quicktime)$/.test(f.type)) return setError("Chỉ hỗ trợ video MP4, WebM hoặc MOV.");
-    if (f.size > MAX) return setError("Video tối đa 200MB.");
+    if (!/^video\/(mp4|webm|quicktime)$/.test(f.type)) return setError(t("up.errType"));
+    if (f.size > MAX) return setError(t("up.errSize"));
     const url = URL.createObjectURL(f);
     setFile(f);
     setPreview(url);
@@ -79,27 +81,28 @@ export function UploadForm() {
         method: "PUT", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ videoType: file.type, videoSize: file.size, ...(thumb ? { thumbType: "image/jpeg", thumbSize: thumb.size } : {}) }),
       });
-      const t = await r.json();
-      if (!r.ok) throw new Error(t.error ?? "Không thể bắt đầu tải lên.");
+      const up = await r.json();
+      if (!r.ok) throw new Error(up.error ?? t("up.errStart"));
 
-      if (thumb && t.thumb) await put(t.thumb.url, thumb, "image/jpeg");
-      await put(t.video.url, file, file.type, setProgress);
+      const msgs = { status: (status: number) => t("up.errStatus", { status }), network: t("up.errNetwork") };
+      if (thumb && up.thumb) await put(up.thumb.url, thumb, "image/jpeg", msgs);
+      await put(up.video.url, file, file.type, msgs, setProgress);
 
       setStage("saving");
       const c = await fetch("/api/videos", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          videoKey: t.videoKey, thumbKey: t.thumb ? t.thumbKey : undefined, mimeType: file.type, caption,
+          videoKey: up.videoKey, thumbKey: up.thumb ? up.thumbKey : undefined, mimeType: file.type, caption,
           duration: meta?.duration || 0, width: meta?.width || 0, height: meta?.height || 0,
         }),
       });
       const j = await c.json();
-      if (!c.ok) throw new Error(j.error ?? "Không lưu được video.");
+      if (!c.ok) throw new Error(j.error ?? t("up.errSave"));
       setStage("done");
       setTimeout(() => { router.push(`/v/${j.id}`); router.refresh(); }, 900);
     } catch (e) {
       setStage("idle");
-      setError(e instanceof Error ? e.message : "Có lỗi xảy ra.");
+      setError(e instanceof Error ? e.message : t("up.errGeneric"));
     }
   }
 
@@ -113,7 +116,7 @@ export function UploadForm() {
           <div className="relative mx-auto aspect-[9/16] w-full max-w-[280px] overflow-hidden rounded-3xl bg-black">
             <video src={preview} muted loop playsInline autoPlay className="size-full object-cover" />
             {!busy && (
-              <button onClick={() => { setFile(null); setMeta(null); setPreview(""); }} aria-label="Chọn video khác" className="absolute right-2 top-2 grid size-9 cursor-pointer place-items-center rounded-full bg-black/60 backdrop-blur hover:bg-black/80"><X className="size-5" aria-hidden /></button>
+              <button onClick={() => { setFile(null); setMeta(null); setPreview(""); }} aria-label={t("up.pickAnother")} className="absolute right-2 top-2 grid size-9 cursor-pointer place-items-center rounded-full bg-black/60 backdrop-blur hover:bg-black/80"><X className="size-5" aria-hidden /></button>
             )}
           </div>
         ) : (
@@ -126,24 +129,24 @@ export function UploadForm() {
             className={`mx-auto flex aspect-[9/16] w-full max-w-[280px] cursor-pointer flex-col items-center justify-center gap-3 rounded-3xl border-2 border-dashed p-6 text-center transition ${drag ? "border-glow bg-glow/10" : "border-white/20 bg-ink-2 hover:border-glow/60"}`}
           >
             <UploadCloud className="size-10 text-glow" aria-hidden />
-            <span className="font-bold">Chọn video để tải lên</span>
-            <span className="text-xs text-mist">hoặc kéo thả vào đây<br />MP4, WebM, MOV · tối đa 200MB<br />Tỉ lệ dọc 9:16 là đẹp nhất</span>
+            <span className="font-bold">{t("up.choose")}</span>
+            <span className="whitespace-pre-line text-xs text-mist">{t("up.dropHint")}</span>
           </button>
         )}
         <input ref={input} type="file" accept="video/mp4,video/webm,video/quicktime" className="sr-only" onChange={(e) => pick(e.target.files?.[0])} />
       </div>
 
       <div>
-        <h1 className="text-2xl font-extrabold tracking-tight">Đăng video mới</h1>
-        <p className="mt-1 text-mist">Chia sẻ kết quả làm đẹp của khách hàng — nhớ xin phép khách trước khi đăng.</p>
+        <h1 className="text-2xl font-extrabold tracking-tight">{t("up.title")}</h1>
+        <p className="mt-1 text-mist">{t("up.subtitle")}</p>
 
         <div className="mt-6">
           <label htmlFor="cap" className="mb-1.5 flex justify-between text-sm font-semibold">
-            <span>Mô tả</span><span className={`tabular-nums ${tooLong ? "text-red-400" : "text-mist"}`}>{caption.length}/500</span>
+            <span>{t("up.caption")}</span><span className={`tabular-nums ${tooLong ? "text-red-400" : "text-mist"}`}>{caption.length}/500</span>
           </label>
           <textarea id="cap" rows={5} value={caption} onChange={(e) => setCaption(e.target.value)} disabled={busy}
-            placeholder="Balayage tro khói cho khách ✨ #toc #balayage #nail" className="input resize-none" />
-          <p className="mt-1 text-xs text-mist">Thêm #hashtag để khách dễ tìm thấy video của bạn.</p>
+            placeholder={t("up.captionPlaceholder")} className="input resize-none" />
+          <p className="mt-1 text-xs text-mist">{t("up.captionHint")}</p>
         </div>
 
         {file && (
@@ -157,14 +160,14 @@ export function UploadForm() {
         {stage === "uploading" && (
           <div className="mt-4" role="progressbar" aria-valuenow={Math.round(progress * 100)} aria-valuemin={0} aria-valuemax={100}>
             <div className="h-2 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-glow to-gold transition-[width]" style={{ width: `${progress * 100}%` }} /></div>
-            <p className="mt-1 text-xs text-mist">Đang tải lên… {Math.round(progress * 100)}%</p>
+            <p className="mt-1 text-xs text-mist">{t("up.progress", { p: Math.round(progress * 100) })}</p>
           </div>
         )}
 
         {error && <p role="alert" className="mt-4 rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{error}</p>}
 
         <button onClick={publish} disabled={!file || busy || tooLong} className="btn btn-primary mt-6 w-full sm:w-auto sm:min-w-[200px]">
-          {stage === "done" ? <><CheckCircle2 className="size-5" aria-hidden /> Đã đăng!</> : busy ? <><Loader2 className="size-5 animate-spin" aria-hidden /> {stage === "saving" ? "Đang lưu…" : "Đang tải lên…"}</> : "Đăng video"}
+          {stage === "done" ? <><CheckCircle2 className="size-5" aria-hidden /> {t("up.done")}</> : busy ? <><Loader2 className="size-5 animate-spin" aria-hidden /> {stage === "saving" ? t("up.saving") : t("up.uploading")}</> : t("up.publish")}
         </button>
       </div>
     </div>

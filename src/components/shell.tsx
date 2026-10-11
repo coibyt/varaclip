@@ -4,23 +4,26 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Compass, Home, LogOut, Plus, Settings, Sparkles, User, LayoutDashboard } from "lucide-react";
 import { Avatar } from "./avatar";
+import { LanguageSwitcher } from "./language-switcher";
+import { useT } from "./locale-provider";
 
 export type ShellUser = { handle: string; displayName: string; isSalon: boolean; hue: number } | null;
 
 const SITE = process.env.NEXT_PUBLIC_SITE_NAME || "VaraClip";
 
 export function Shell({ user, children }: { user: ShellUser; children: React.ReactNode }) {
+  const t = useT();
   const path = usePathname();
   const router = useRouter();
   const uploadHref = user ? (user.isSalon ? "/upload" : "/register?salon=1") : "/login?next=/upload";
 
   const items = [
-    { href: "/", label: "Dành cho bạn", icon: Home, match: (p: string) => p === "/" },
-    { href: "/discover", label: "Khám phá", icon: Compass, match: (p: string) => p.startsWith("/discover") },
-    ...(user?.isSalon ? [{ href: "/studio", label: "Studio", icon: LayoutDashboard, match: (p: string) => p.startsWith("/studio") }] : []),
+    { href: "/", label: t("nav.foryou"), mobileLabel: t("nav.home"), icon: Home, match: (p: string) => p === "/" },
+    { href: "/discover", label: t("nav.discover"), icon: Compass, match: (p: string) => p.startsWith("/discover") },
+    ...(user?.isSalon ? [{ href: "/studio", label: t("nav.studio"), icon: LayoutDashboard, match: (p: string) => p.startsWith("/studio") }] : []),
     {
       href: user ? `/u/${user.handle}` : "/login",
-      label: user ? "Hồ sơ" : "Đăng nhập",
+      label: user ? t("nav.profile") : t("nav.login"),
       icon: User,
       match: (p: string) => (user ? p === `/u/${user.handle}` : p.startsWith("/login")),
     },
@@ -40,7 +43,7 @@ export function Shell({ user, children }: { user: ShellUser; children: React.Rea
           <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-glow to-gold text-ink"><Sparkles className="size-5" aria-hidden /></span>
           {SITE}
         </Link>
-        <nav className="flex flex-col gap-1" aria-label="Chính">
+        <nav className="flex flex-col gap-1" aria-label={t("nav.main")}>
           {items.map(({ href, label, icon: Icon, match }) => (
             <Link
               key={label}
@@ -52,11 +55,12 @@ export function Shell({ user, children }: { user: ShellUser; children: React.Rea
             </Link>
           ))}
           <Link href={uploadHref} className="btn btn-primary mt-3">
-            <Plus className="size-5" aria-hidden /> Đăng video
+            <Plus className="size-5" aria-hidden /> {t("nav.upload")}
           </Link>
         </nav>
 
-        <div className="mt-auto">
+        <div className="mt-auto space-y-3">
+          <LanguageSwitcher />
           {user ? (
             <div className="rounded-2xl bg-ink-2 p-3">
               <Link href={`/u/${user.handle}`} className="flex items-center gap-3">
@@ -67,15 +71,15 @@ export function Shell({ user, children }: { user: ShellUser; children: React.Rea
                 </span>
               </Link>
               <div className="mt-3 flex gap-2">
-                <Link href="/settings" className="btn btn-ghost !min-h-[40px] flex-1 !px-3 text-sm"><Settings className="size-4" aria-hidden /> Cài đặt</Link>
-                <button onClick={logout} aria-label="Đăng xuất" className="btn btn-ghost !min-h-[40px] !px-3"><LogOut className="size-4" aria-hidden /></button>
+                <Link href="/settings" className="btn btn-ghost !min-h-[40px] flex-1 !px-3 text-sm"><Settings className="size-4" aria-hidden /> {t("nav.settings")}</Link>
+                <button onClick={logout} aria-label={t("nav.logout")} className="btn btn-ghost !min-h-[40px] !px-3"><LogOut className="size-4" aria-hidden /></button>
               </div>
             </div>
           ) : (
             <div className="rounded-2xl bg-ink-2 p-4">
-              <p className="text-sm text-mist">Đăng nhập để thích, bình luận và theo dõi salon.</p>
-              <Link href="/login" className="btn btn-primary mt-3 w-full">Đăng nhập</Link>
-              <Link href="/register" className="btn btn-ghost mt-2 w-full">Tạo tài khoản</Link>
+              <p className="text-sm text-mist">{t("nav.guestHint")}</p>
+              <Link href="/login" className="btn btn-primary mt-3 w-full">{t("nav.login")}</Link>
+              <Link href="/register" className="btn btn-ghost mt-2 w-full">{t("auth.submitCreate")}</Link>
             </div>
           )}
         </div>
@@ -85,15 +89,15 @@ export function Shell({ user, children }: { user: ShellUser; children: React.Rea
 
       {/* Mobile tab bar */}
       <nav
-        aria-label="Chính"
+        aria-label={t("nav.main")}
         className="safe-bottom fixed inset-x-0 bottom-0 z-40 flex h-[calc(var(--nav-h)+env(safe-area-inset-bottom))] items-center justify-around border-t border-white/10 bg-ink/95 backdrop-blur lg:hidden"
       >
         {[items[0], items[1]].map(({ href, label, icon: Icon, match }) => (
           <Link key={label} href={href} aria-current={match(path) ? "page" : undefined} className={`flex min-h-[48px] min-w-[64px] flex-col items-center justify-center gap-0.5 text-[11px] font-semibold ${match(path) ? "text-glow" : "text-mist"}`}>
-            <Icon className="size-6" aria-hidden /> {label === "Dành cho bạn" ? "Trang chủ" : label}
+            <Icon className="size-6" aria-hidden /> {"mobileLabel" in items[0] && label === items[0].label ? items[0].mobileLabel : label}
           </Link>
         ))}
-        <Link href={uploadHref} aria-label="Đăng video" className="grid h-10 w-14 place-items-center rounded-xl bg-gradient-to-r from-glow to-gold text-ink">
+        <Link href={uploadHref} aria-label={t("nav.upload")} className="grid h-10 w-14 place-items-center rounded-xl bg-gradient-to-r from-glow to-gold text-ink">
           <Plus className="size-6" aria-hidden />
         </Link>
         {items.slice(2).map(({ href, label, icon: Icon, match }) => (

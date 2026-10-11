@@ -3,6 +3,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { checkPassword, createSession, destroySession, hashPassword } from "@/lib/auth";
 import { HANDLE_RE } from "@/lib/util";
+import { getT } from "@/lib/i18n-server";
 
 const registerSchema = z.object({
   email: z.string().email().max(120),
@@ -20,6 +21,7 @@ const err = (message: string, status = 400) => NextResponse.json({ error: messag
 
 export async function POST(req: Request, { params }: { params: Promise<{ action: string }> }) {
   const { action } = await params;
+  const { t } = await getT();
 
   if (action === "logout") {
     await destroySession();
@@ -33,18 +35,18 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
     if (!p.success) {
       const bad = p.error.issues[0]?.path[0];
       const msg: Record<string, string> = {
-        email: "Email không hợp lệ.",
-        password: "Mật khẩu cần ít nhất 8 ký tự.",
-        displayName: "Tên hiển thị cần 2–50 ký tự.",
-        handle: "Tên người dùng gồm 3–24 ký tự: chữ thường, số, dấu _ hoặc dấu chấm.",
+        email: t("err.email"),
+        password: t("err.password"),
+        displayName: t("err.displayName"),
+        handle: t("err.handle"),
       };
-      return err(msg[String(bad)] ?? "Thông tin chưa hợp lệ.");
+      return err(msg[String(bad)] ?? t("err.invalid"));
     }
     const d = p.data;
-    if (d.isSalon && !d.salonName) return err("Vui lòng nhập tên salon.");
+    if (d.isSalon && !d.salonName) return err(t("err.salonName"));
     const email = d.email.toLowerCase();
-    if (await db.user.findUnique({ where: { email } })) return err("Email này đã được đăng ký.", 409);
-    if (await db.user.findUnique({ where: { handle: d.handle } })) return err("Tên người dùng đã có người dùng.", 409);
+    if (await db.user.findUnique({ where: { email } })) return err(t("err.emailTaken"), 409);
+    if (await db.user.findUnique({ where: { handle: d.handle } })) return err(t("err.handleTaken"), 409);
     const user = await db.user.create({
       data: {
         email, passwordHash: await hashPassword(d.password), displayName: d.displayName, handle: d.handle,
@@ -57,10 +59,10 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
 
   if (action === "login") {
     const p = loginSchema.safeParse(body);
-    if (!p.success) return err("Vui lòng nhập email và mật khẩu.");
+    if (!p.success) return err(t("err.loginFields"));
     const user = await db.user.findUnique({ where: { email: p.data.email.toLowerCase() } });
     // Same message for unknown email and wrong password, to avoid account enumeration.
-    if (!user || !(await checkPassword(p.data.password, user.passwordHash))) return err("Email hoặc mật khẩu không đúng.", 401);
+    if (!user || !(await checkPassword(p.data.password, user.passwordHash))) return err(t("err.badCreds"), 401);
     await createSession(user.id);
     return NextResponse.json({ ok: true, handle: user.handle });
   }

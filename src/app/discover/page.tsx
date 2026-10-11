@@ -5,11 +5,18 @@ import { hydrate, videoInclude } from "@/lib/videos";
 import { VideoGrid } from "@/components/video-grid";
 import { Avatar } from "@/components/avatar";
 import { mediaUrl } from "@/lib/storage";
+import { getT } from "@/lib/i18n-server";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
-export const metadata = { title: "Khám phá" };
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata() {
+  const { t } = await getT();
+  return { title: t("dc.title") };
+}
+
 export default async function Discover({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
+  const { t, locale } = await getT();
   const q = ((await searchParams).q ?? "").trim().slice(0, 60);
   const isTag = q.startsWith("#");
   const term = q.replace(/^#/, "").toLowerCase();
@@ -37,12 +44,15 @@ export default async function Discover({ searchParams }: { searchParams: Promise
 
   return (
     <div className="mx-auto max-w-5xl px-4 pb-28 pt-6 lg:pb-12">
-      <h1 className="text-2xl font-extrabold tracking-tight">Khám phá</h1>
+      <div className="flex items-center justify-between gap-3">
+        <h1 className="text-2xl font-extrabold tracking-tight">{t("dc.title")}</h1>
+        <LanguageSwitcher className="lg:hidden" />
+      </div>
 
       <form action="/discover" role="search" className="relative mt-4">
-        <label htmlFor="q" className="sr-only">Tìm kiếm</label>
+        <label htmlFor="q" className="sr-only">{t("dc.search")}</label>
         <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-mist" aria-hidden />
-        <input id="q" name="q" defaultValue={q} placeholder="Tìm salon, kiểu tóc, nail, #hashtag…" className="input !rounded-full !pl-12" />
+        <input id="q" name="q" defaultValue={q} placeholder={t("dc.placeholder")} className="input !rounded-full !pl-12" />
       </form>
 
       {trending.length > 0 && (
@@ -56,8 +66,8 @@ export default async function Discover({ searchParams }: { searchParams: Promise
       )}
 
       {salons.length > 0 && (
-        <section className="mt-8" aria-label="Salon">
-          <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-mist">Salon</h2>
+        <section className="mt-8" aria-label={t("dc.salons")}>
+          <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-mist">{t("dc.salons")}</h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {salons.map((s) => (
               <li key={s.id}>
@@ -71,9 +81,9 @@ export default async function Discover({ searchParams }: { searchParams: Promise
         </section>
       )}
 
-      <section className="mt-8" aria-label="Video">
-        <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-mist">{term ? `Kết quả cho “${q}”` : "Được xem nhiều nhất"}</h2>
-        <VideoGrid videos={await hydrate(rows)} empty="Không tìm thấy video phù hợp." />
+      <section className="mt-8" aria-label={t("common.videos")}>
+        <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-mist">{term ? t("dc.resultsFor", { q }) : t("dc.mostViewed")}</h2>
+        <VideoGrid videos={await hydrate(rows)} empty={t("dc.noResults")} watch={t("studio.watch")} locale={locale} />
       </section>
     </div>
   );

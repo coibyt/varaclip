@@ -8,6 +8,7 @@ import {
   LOCAL_DIR, MAX_IMAGE_BYTES, MAX_VIDEO_BYTES, isAllowedType, isOwnKey, isVideoType, newKey, uploadTarget, usingR2,
 } from "@/lib/storage";
 import { parseTags } from "@/lib/util";
+import { getT } from "@/lib/i18n-server";
 
 const err = (message: string, status = 400) => NextResponse.json({ error: message }, { status });
 
@@ -20,15 +21,16 @@ const presignSchema = z.object({
 });
 
 export async function PUT(req: Request) {
+  const { t } = await getT();
   const me = await getUser();
-  if (!me) return err("Bạn cần đăng nhập.", 401);
-  if (!me.isSalon) return err("Chỉ tài khoản salon mới được đăng video.", 403);
+  if (!me) return err(t("err.login"), 401);
+  if (!me.isSalon) return err(t("err.salonOnly"), 403);
   const p = presignSchema.safeParse(await req.json().catch(() => null));
-  if (!p.success) return err("Yêu cầu không hợp lệ.");
+  if (!p.success) return err(t("err.badRequest"));
   const d = p.data;
 
-  if (!isVideoType(d.videoType)) return err("Chỉ hỗ trợ video MP4, WebM hoặc MOV.");
-  if (d.videoSize > MAX_VIDEO_BYTES) return err("Video tối đa 200MB.");
+  if (!isVideoType(d.videoType)) return err(t("err.videoType"));
+  if (d.videoSize > MAX_VIDEO_BYTES) return err(t("err.videoSize"));
 
   const videoKey = newKey("video", d.videoType);
   const out: Record<string, unknown> = { videoKey, video: await uploadTarget(videoKey, d.videoType), local: !usingR2 };
@@ -52,19 +54,20 @@ const createSchema = z.object({
 });
 
 export async function POST(req: Request) {
+  const { t } = await getT();
   const me = await getUser();
-  if (!me) return err("Bạn cần đăng nhập.", 401);
-  if (!me.isSalon) return err("Chỉ tài khoản salon mới được đăng video.", 403);
+  if (!me) return err(t("err.login"), 401);
+  if (!me.isSalon) return err(t("err.salonOnly"), 403);
   const p = createSchema.safeParse(await req.json().catch(() => null));
-  if (!p.success) return err("Thông tin video chưa hợp lệ.");
+  if (!p.success) return err(t("err.videoInfo"));
   const d = p.data;
 
   if (!isOwnKey(d.videoKey) || !d.videoKey.startsWith("videos/") || (d.thumbKey && (!isOwnKey(d.thumbKey) || !d.thumbKey.startsWith("thumbs/")))) {
-    return err("Khoá tệp không hợp lệ.");
+    return err(t("err.badKey"));
   }
   if (!usingR2) {
     const ok = await fs.stat(path.join(LOCAL_DIR, d.videoKey)).then((s) => s.size > 0).catch(() => false);
-    if (!ok) return err("Chưa tìm thấy tệp video đã tải lên.");
+    if (!ok) return err(t("err.noFile"));
   }
 
   const video = await db.video.create({

@@ -1,16 +1,16 @@
-export function compact(n: number) {
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(n >= 1e7 ? 0 : 1).replace(/\.0$/, "") + "M";
-  if (n >= 1_000) return (n / 1_000).toFixed(n >= 1e4 ? 0 : 1).replace(/\.0$/, "") + "K";
-  return String(n);
+export function compact(n: number, locale = "en") {
+  return new Intl.NumberFormat(locale, { notation: "compact", maximumFractionDigits: n >= 10_000 ? 0 : 1 }).format(n);
 }
 
-export function timeAgo(d: Date | string) {
-  const s = (Date.now() - new Date(d).getTime()) / 1000;
-  if (s < 60) return "vừa xong";
-  if (s < 3600) return `${Math.floor(s / 60)} phút trước`;
-  if (s < 86400) return `${Math.floor(s / 3600)} giờ trước`;
-  if (s < 86400 * 30) return `${Math.floor(s / 86400)} ngày trước`;
-  return new Date(d).toLocaleDateString("vi-VN");
+export function timeAgo(d: Date | string, locale = "en", justNow = "now") {
+  const s = (new Date(d).getTime() - Date.now()) / 1000; // negative = past
+  const abs = Math.abs(s);
+  if (abs < 60) return justNow;
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
+  if (abs < 3600) return rtf.format(Math.round(s / 60), "minute");
+  if (abs < 86400) return rtf.format(Math.round(s / 3600), "hour");
+  if (abs < 86400 * 30) return rtf.format(Math.round(s / 86400), "day");
+  return new Date(d).toLocaleDateString(locale);
 }
 
 export function parseTags(raw: string) {

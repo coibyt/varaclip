@@ -4,9 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader2, Scissors, User } from "lucide-react";
+import { useT } from "./locale-provider";
+import { LanguageSwitcher } from "./language-switcher";
 
 export function AuthForm({ mode }: { mode: "login" | "register" }) {
   const router = useRouter();
+  const t = useT();
   const sp = useSearchParams();
   const next = sp.get("next") && sp.get("next")!.startsWith("/") ? sp.get("next")! : "/";
   const [isSalon, setIsSalon] = useState(sp.get("salon") === "1");
@@ -25,7 +28,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
     const j = await r.json();
     if (!r.ok) {
       setBusy(false);
-      return setError(j.error ?? "Có lỗi xảy ra, vui lòng thử lại.");
+      return setError(j.error ?? t("auth.genericError"));
     }
     router.push(reg && isSalon ? "/settings?welcome=1" : next);
     router.refresh();
@@ -33,14 +36,14 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
 
   return (
     <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center px-5 py-10 pb-24 lg:pb-10">
-      <h1 className="font-display text-4xl font-bold tracking-tight">{reg ? "Tạo tài khoản" : "Chào mừng quay lại"}</h1>
-      <p className="mt-2 text-mist">{reg ? "Xem video làm đẹp, hoặc đăng video cho salon của bạn." : "Đăng nhập để thích, bình luận và theo dõi salon."}</p>
+      <h1 className="font-display text-4xl font-bold tracking-tight">{reg ? t("auth.createTitle") : t("auth.loginTitle")}</h1>
+      <p className="mt-2 text-mist">{reg ? t("auth.createSub") : t("auth.loginSub")}</p>
 
       {reg && (
-        <div className="mt-6 grid grid-cols-2 gap-3" role="radiogroup" aria-label="Loại tài khoản">
+        <div className="mt-6 grid grid-cols-2 gap-3" role="radiogroup" aria-label={t("auth.accountType")}>
           {[
-            { v: false, label: "Người xem", sub: "Xem & tương tác", icon: User },
-            { v: true, label: "Chủ salon", sub: "Đăng video", icon: Scissors },
+            { v: false, label: t("auth.viewer"), sub: t("auth.viewerSub"), icon: User },
+            { v: true, label: t("auth.owner"), sub: t("auth.ownerSub"), icon: Scissors },
           ].map((o) => (
             <button
               key={o.label} type="button" role="radio" aria-checked={isSalon === o.v} onClick={() => setIsSalon(o.v)}
@@ -57,30 +60,31 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
       <form onSubmit={submit} className="mt-6 space-y-4">
         {reg && (
           <>
-            <Field label="Tên hiển thị" name="displayName" autoComplete="name" required minLength={2} />
-            <Field label="Tên người dùng" name="handle" autoComplete="username" required hint="Chữ thường, số, _ hoặc dấu chấm (3–24 ký tự)" pattern="[a-zA-Z0-9_.]{3,24}" />
+            <Field label={t("auth.displayName")} name="displayName" autoComplete="name" required minLength={2} />
+            <Field label={t("auth.handle")} name="handle" autoComplete="username" required hint={t("auth.handleHint")} pattern="[a-zA-Z0-9_.]{3,24}" />
             {isSalon && (
               <>
-                <Field label="Tên salon" name="salonName" required />
-                <Field label="Thành phố" name="city" autoComplete="address-level2" />
+                <Field label={t("auth.salonName")} name="salonName" required />
+                <Field label={t("auth.city")} name="city" autoComplete="address-level2" />
               </>
             )}
           </>
         )}
-        <Field label="Email" name="email" type="email" autoComplete="email" required />
-        <Field label="Mật khẩu" name="password" type="password" autoComplete={reg ? "new-password" : "current-password"} required minLength={reg ? 8 : 1} hint={reg ? "Tối thiểu 8 ký tự" : undefined} />
+        <Field label={t("auth.email")} name="email" type="email" autoComplete="email" required />
+        <Field label={t("auth.password")} name="password" type="password" autoComplete={reg ? "new-password" : "current-password"} required minLength={reg ? 8 : 1} hint={reg ? t("auth.passwordHint") : undefined} />
 
         {error && <p role="alert" className="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{error}</p>}
 
         <button disabled={busy} className="btn btn-primary w-full">
-          {busy && <Loader2 className="size-5 animate-spin" aria-hidden />} {reg ? "Tạo tài khoản" : "Đăng nhập"}
+          {busy && <Loader2 className="size-5 animate-spin" aria-hidden />} {reg ? t("auth.submitCreate") : t("auth.submitLogin")}
         </button>
       </form>
 
       <p className="mt-6 text-center text-sm text-mist">
-        {reg ? "Đã có tài khoản?" : "Chưa có tài khoản?"}{" "}
-        <Link href={reg ? "/login" : "/register"} className="font-bold text-glow hover:underline">{reg ? "Đăng nhập" : "Đăng ký"}</Link>
+        {reg ? t("auth.haveAccount") : t("auth.noAccount")}{" "}
+        <Link href={reg ? "/login" : "/register"} className="font-bold text-glow hover:underline">{reg ? t("auth.submitLogin") : t("auth.register")}</Link>
       </p>
+      <LanguageSwitcher className="mx-auto mt-6 w-fit" />
     </div>
   );
 }
