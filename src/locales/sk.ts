@@ -156,5 +156,14 @@ const sk: Record<string, string> = {
   "err.image": "Obrázok JPG/PNG/WebP, najviac 5 MB.",
   "err.badUrl": "Odkaz musí začínať http:// alebo https://",
   "err.imageKey": "Neplatný kľúč obrázka.",
+  "up.cover": "Obálka videa",
+  "up.coverHint": "Posuvníkom vyberte záber ako obálku, alebo nahrajte vlastný obrázok.",
+  "up.coverFrame": "Vybrať záber",
+  "up.coverUpload": "Nahrať vlastnú obálku",
+  "studio.edit": "Upraviť popis",
+  "studio.save": "Uložiť",
+  "studio.saveFail": "Uloženie sa nepodarilo.",
+  "studio.captionLabel": "Popis videa",
+  "studio.deleteConfirm": "Odstrániť toto video? Túto akciu nemožno vrátiť späť.",
 };
 export default sk;

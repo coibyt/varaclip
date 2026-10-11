@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CheckCircle2, Film, Loader2, UploadCloud, X } from "lucide-react";
+import { CheckCircle2, Film, ImagePlus, Loader2, UploadCloud, X } from "lucide-react";
 import { useT } from "./locale-provider";
 
 type Meta = { duration: number; width: number; height: number; thumb: Blob | null };
@@ -18,10 +18,23 @@ function inspect(url: string): Promise<Meta> {
     v.src = url;
     const fail = () => resolve({ duration: 0, width: 0, height: 0, thumb: null });
     v.onerror = fail;
+    // Some recorders (and a few phones) write no duration; seeking far past the end makes the browser compute it.
+    let fixing = false;
     v.onloadedmetadata = () => {
+      if (!Number.isFinite(v.duration)) {
+        fixing = true;
+        v.ontimeupdate = () => {
+          v.ontimeupdate = null;
+          fixing = false;
+          v.currentTime = Math.min(1, v.duration / 2 || 0);
+        };
+        v.currentTime = 1e101;
+        return;
+      }
       v.currentTime = Math.min(1, v.duration / 2 || 0);
     };
     v.onseeked = () => {
+      if (fixing) return;
       const scale = Math.min(1, 720 / Math.max(v.videoWidth, 1));
       const c = document.createElement("canvas");
       c.width = Math.round(v.videoWidth * scale);
@@ -56,8 +69,57 @@ export function UploadForm() {
   const [progress, setProgress] = useState(0);
   const [stage, setStage] = useState<"idle" | "uploading" | "saving" | "done">("idle");
   const [error, setError] = useState("");
+  // Cover image (poster) — an auto frame by default, a frame the owner scrubs to, or their own picture.
+  const [cover, setCover] = useState<Blob | null>(null);
+  const [coverUrl, setCoverUrl] = useState("");
+  const [frameAt, setFrameAt] = useState(0);
+  const grab = useRef<HTMLVideoElement>(null);
+  const coverInput = useRef<HTMLInputElement>(null);
+  const grabToken = useRef(0);
 
   useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
+  useEffect(() => () => { if (coverUrl) URL.revokeObjectURL(coverUrl); }, [coverUrl]);
+
+  function setCoverBlob(b: Blob | null) {
+    setCover(b);
+    setCoverUrl(b ? URL.createObjectURL(b) : "");
+  }
+
+  // The first automatic frame becomes the default cover.
+  useEffect(() => {
+    if (meta?.thumb) {
+      setCoverBlob(meta.thumb);
+      setFrameAt(Math.min(1, (meta.duration || 0) / 2));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [meta]);
+
+  /** Capture the frame at second t from the hidden copy of the video. */
+  function grabFrame(tSec: number) {
+    const v = grab.current;
+    if (!v) return;
+    const token = ++grabToken.current;
+    setFrameAt(tSec);
+    const draw = () => {
+      if (token !== grabToken.current) return; // a newer slider position superseded this one
+      const scale = Math.min(1, 720 / Math.max(v.videoWidth, 1));
+      const c = document.createElement("canvas");
+      c.width = Math.round(v.videoWidth * scale);
+      c.height = Math.round(v.videoHeight * scale);
+      c.getContext("2d")?.drawImage(v, 0, 0, c.width, c.height);
+      c.toBlob((b) => token === grabToken.current && b && setCoverBlob(b), "image/jpeg", 0.85);
+    };
+    v.onseeked = draw;
+    v.currentTime = tSec;
+  }
+
+  function pickCover(f: File | undefined) {
+    if (!f) return;
+    if (!/^image\/(jpeg|png|webp)$/.test(f.type)|| f.size > 5 * 1024 * 1024) return setError(t("err.image"));
+    setError("");
+    grabToken.current++; // stop any pending frame capture from overwriting the chosen picture
+    setCoverBlob(f);
+  }
 
   async function pick(f: File | undefined) {
     setError("");
@@ -76,16 +138,16 @@ export function UploadForm() {
     setStage("uploading");
     setProgress(0);
     try {
-      const thumb = meta?.thumb;
+      const thumb = cover;
       const r = await fetch("/api/videos", {
         method: "PUT", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ videoType: file.type, videoSize: file.size, ...(thumb ? { thumbType: "image/jpeg", thumbSize: thumb.size } : {}) }),
+        body: JSON.stringify({ videoType: file.type, videoSize: file.size, ...(thumb ? { thumbType: thumb.type || "image/jpeg", thumbSize: thumb.size } : {}) }),
       });
       const up = await r.json();
       if (!r.ok) throw new Error(up.error ?? t("up.errStart"));
 
       const msgs = { status: (status: number) => t("up.errStatus", { status }), network: t("up.errNetwork") };
-      if (thumb && up.thumb) await put(up.thumb.url, thumb, "image/jpeg", msgs);
+      if (thumb && up.thumb) await put(up.thumb.url, thumb, thumb.type || "image/jpeg", msgs);
       await put(up.video.url, file, file.type, msgs, setProgress);
 
       setStage("saving");
@@ -116,7 +178,7 @@ export function UploadForm() {
           <div className="relative mx-auto aspect-[9/16] w-full max-w-[280px] overflow-hidden rounded-3xl bg-black">
             <video src={preview} muted loop playsInline autoPlay className="size-full object-cover" />
             {!busy && (
-              <button onClick={() => { setFile(null); setMeta(null); setPreview(""); }} aria-label={t("up.pickAnother")} className="absolute right-2 top-2 grid size-9 cursor-pointer place-items-center rounded-full bg-black/60 backdrop-blur hover:bg-black/80"><X className="size-5" aria-hidden /></button>
+              <button onClick={() => { setFile(null); setMeta(null); setPreview(""); setCoverBlob(null); }} aria-label={t("up.pickAnother")} className="absolute right-2 top-2 grid size-9 cursor-pointer place-items-center rounded-full bg-black/60 backdrop-blur hover:bg-black/80"><X className="size-5" aria-hidden /></button>
             )}
           </div>
         ) : (
@@ -133,6 +195,7 @@ export function UploadForm() {
             <span className="whitespace-pre-line text-xs text-mist">{t("up.dropHint")}</span>
           </button>
         )}
+        {file && <video ref={grab} src={preview} muted playsInline preload="auto" aria-hidden tabIndex={-1} style={{ position: "absolute", width: 1, height: 1, opacity: 0, pointerEvents: "none" }} />}
         <input ref={input} type="file" accept="video/mp4,video/webm,video/quicktime" className="sr-only" onChange={(e) => pick(e.target.files?.[0])} />
       </div>
 
@@ -148,6 +211,36 @@ export function UploadForm() {
             placeholder={t("up.captionPlaceholder")} className="input resize-none" />
           <p className="mt-1 text-xs text-mist">{t("up.captionHint")}</p>
         </div>
+
+        {file && (
+          <div className="mt-6">
+            <p className="mb-1.5 text-sm font-semibold">{t("up.cover")}</p>
+            <div className="flex gap-4 rounded-xl bg-ink-2 p-3">
+              <div className="aspect-[9/16] w-24 shrink-0 overflow-hidden rounded-lg bg-black">
+                {coverUrl && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={coverUrl} alt="" className="size-full object-cover" />
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                {meta && Number.isFinite(meta.duration) && meta.duration > 0 && (
+                  <>
+                    <label htmlFor="frame" className="text-xs text-mist">{t("up.coverFrame")}</label>
+                    <input
+                      id="frame" type="range" min={0} max={meta.duration} step={0.1} value={frameAt} disabled={busy}
+                      onChange={(e) => grabFrame(parseFloat(e.target.value))} className="mt-1 w-full cursor-pointer accent-[#FF4D8D]"
+                    />
+                  </>
+                )}
+                <p className="mt-1 text-xs text-mist">{t("up.coverHint")}</p>
+                <button type="button" disabled={busy} onClick={() => coverInput.current?.click()} className="btn btn-ghost mt-3 !min-h-[40px] text-sm">
+                  <ImagePlus className="size-4" aria-hidden /> {t("up.coverUpload")}
+                </button>
+                <input ref={coverInput} type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={(e) => { pickCover(e.target.files?.[0]); e.target.value = ""; }} />
+              </div>
+            </div>
+          </div>
+        )}
 
         {file && (
           <div className="mt-4 flex items-center gap-3 rounded-xl bg-ink-2 p-3 text-sm">

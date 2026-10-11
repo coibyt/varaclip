@@ -156,5 +156,14 @@ const ru: Record<string, string> = {
   "err.image": "Изображение JPG/PNG/WebP, не более 5 МБ.",
   "err.badUrl": "Ссылка должна начинаться с http:// или https://",
   "err.imageKey": "Недопустимый ключ изображения.",
+  "up.cover": "Обложка видео",
+  "up.coverHint": "Перетащите ползунок, чтобы выбрать кадр для обложки, или загрузите своё изображение.",
+  "up.coverFrame": "Выбрать кадр",
+  "up.coverUpload": "Загрузить свою обложку",
+  "studio.edit": "Изменить описание",
+  "studio.save": "Сохранить",
+  "studio.saveFail": "Не удалось сохранить.",
+  "studio.captionLabel": "Описание видео",
+  "studio.deleteConfirm": "Удалить это видео? Это действие нельзя отменить.",
 };
 export default ru;

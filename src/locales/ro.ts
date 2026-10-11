@@ -156,5 +156,14 @@ const ro: Record<string, string> = {
   "err.image": "Imagine JPG/PNG/WebP, cel mult 5 MB.",
   "err.badUrl": "Linkul trebuie să înceapă cu http:// sau https://",
   "err.imageKey": "Cheie de imagine nevalidă.",
+  "up.cover": "Coperta videoclipului",
+  "up.coverHint": "Trage cursorul pentru a alege un cadru drept copertă sau încarcă propria imagine.",
+  "up.coverFrame": "Alege un cadru",
+  "up.coverUpload": "Încarcă propria copertă",
+  "studio.edit": "Editează descrierea",
+  "studio.save": "Salvează",
+  "studio.saveFail": "Nu s-a putut salva.",
+  "studio.captionLabel": "Descrierea videoclipului",
+  "studio.deleteConfirm": "Ștergi acest videoclip? Acțiunea nu poate fi anulată.",
 };
 export default ro;

@@ -156,5 +156,14 @@ const fr: Record<string, string> = {
   "err.image": "Image JPG/PNG/WebP, 5 Mo maximum.",
   "err.badUrl": "Le lien doit commencer par http:// ou https://",
   "err.imageKey": "Clé d’image invalide.",
+  "up.cover": "Image de couverture de la vidéo",
+  "up.coverHint": "Faites glisser le curseur pour choisir une image comme couverture, ou téléversez la vôtre.",
+  "up.coverFrame": "Choisir une image",
+  "up.coverUpload": "Téléverser ma couverture",
+  "studio.edit": "Modifier la description",
+  "studio.save": "Enregistrer",
+  "studio.saveFail": "Enregistrement impossible.",
+  "studio.captionLabel": "Description de la vidéo",
+  "studio.deleteConfirm": "Supprimer cette vidéo ? Cette action est irréversible.",
 };
 export default fr;

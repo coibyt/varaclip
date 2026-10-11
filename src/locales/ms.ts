@@ -156,5 +156,14 @@ const ms: Record<string, string> = {
   "err.image": "Imej JPG/PNG/WebP, maksimum 5MB.",
   "err.badUrl": "Pautan mesti bermula dengan http:// atau https://",
   "err.imageKey": "Kunci imej tidak sah.",
+  "up.cover": "Sampul video",
+  "up.coverHint": "Seret penggelongsor untuk memilih satu bingkai sebagai sampul, atau muat naik gambar anda sendiri.",
+  "up.coverFrame": "Pilih bingkai",
+  "up.coverUpload": "Muat naik sampul sendiri",
+  "studio.edit": "Sunting keterangan",
+  "studio.save": "Simpan",
+  "studio.saveFail": "Tidak dapat menyimpan.",
+  "studio.captionLabel": "Keterangan video",
+  "studio.deleteConfirm": "Padam video ini? Tindakan ini tidak boleh dibatalkan.",
 };
 export default ms;

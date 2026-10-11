@@ -156,5 +156,14 @@ const be: Record<string, string> = {
   "err.image": "Відарыс JPG/PNG/WebP, не больш за 5 МБ.",
   "err.badUrl": "Спасылка павінна пачынацца з http:// або https://",
   "err.imageKey": "Няправільны ключ відарыса.",
+  "up.cover": "Вокладка відэа",
+  "up.coverHint": "Перацягніце паўзунок, каб выбраць кадр для вокладкі, або загрузіце сваё відарыс.",
+  "up.coverFrame": "Выбраць кадр",
+  "up.coverUpload": "Загрузіць сваю вокладку",
+  "studio.edit": "Змяніць апісанне",
+  "studio.save": "Захаваць",
+  "studio.saveFail": "Не ўдалося захаваць.",
+  "studio.captionLabel": "Апісанне відэа",
+  "studio.deleteConfirm": "Выдаліць гэта відэа? Гэта дзеянне нельга адмяніць.",
 };
 export default be;

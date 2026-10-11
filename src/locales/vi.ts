@@ -172,6 +172,15 @@ const vi: Record<string, string> = {
   "err.image": "Ảnh JPG/PNG/WebP, tối đa 5MB.",
   "err.badUrl": "Liên kết phải bắt đầu bằng http:// hoặc https://",
   "err.imageKey": "Khoá ảnh không hợp lệ.",
+  "up.cover": "Ảnh bìa video",
+  "up.coverHint": "Kéo thanh để chọn khung hình làm ảnh bìa, hoặc tải ảnh riêng.",
+  "up.coverFrame": "Chọn khung hình",
+  "up.coverUpload": "Tải ảnh bìa riêng",
+  "studio.edit": "Sửa mô tả",
+  "studio.save": "Lưu",
+  "studio.saveFail": "Không lưu được.",
+  "studio.captionLabel": "Mô tả video",
+  "studio.deleteConfirm": "Xoá video này? Không thể hoàn tác.",
 };
 
 export default vi;

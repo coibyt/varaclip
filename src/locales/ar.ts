@@ -156,5 +156,14 @@ const ar: Record<string, string> = {
   "err.image": "صورة JPG/PNG/WebP بحجم أقصاه 5 ميغابايت.",
   "err.badUrl": "يجب أن يبدأ الرابط بـ http:// أو https://",
   "err.imageKey": "مفتاح الصورة غير صالح.",
+  "up.cover": "غلاف الفيديو",
+  "up.coverHint": "اسحب المؤشر لاختيار لقطة كغلاف، أو ارفع صورتك الخاصة.",
+  "up.coverFrame": "اختر لقطة",
+  "up.coverUpload": "ارفع غلافًا خاصًا",
+  "studio.edit": "تعديل الوصف",
+  "studio.save": "حفظ",
+  "studio.saveFail": "تعذّر الحفظ.",
+  "studio.captionLabel": "وصف الفيديو",
+  "studio.deleteConfirm": "هل تريد حذف هذا الفيديو؟ لا يمكن التراجع عن ذلك.",
 };
 export default ar;

@@ -156,5 +156,14 @@ const fi: Record<string, string> = {
   "err.image": "JPG/PNG/WebP-kuva, enintään 5 Mt.",
   "err.badUrl": "Linkin on alettava merkeillä http:// tai https://",
   "err.imageKey": "Virheellinen kuvatunniste.",
+  "up.cover": "Videon kansikuva",
+  "up.coverHint": "Valitse kansikuvaksi kuvakaappaus liukusäätimellä tai lataa oma kuva.",
+  "up.coverFrame": "Valitse kuva",
+  "up.coverUpload": "Lataa oma kansikuva",
+  "studio.edit": "Muokkaa kuvausta",
+  "studio.save": "Tallenna",
+  "studio.saveFail": "Tallennus epäonnistui.",
+  "studio.captionLabel": "Videon kuvaus",
+  "studio.deleteConfirm": "Poistetaanko tämä video? Tätä ei voi perua.",
 };
 export default fi;

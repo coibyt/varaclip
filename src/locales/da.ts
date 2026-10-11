@@ -156,5 +156,14 @@ const da: Record<string, string> = {
   "err.image": "JPG/PNG/WebP-billede, højst 5 MB.",
   "err.badUrl": "Linket skal starte med http:// eller https://",
   "err.imageKey": "Ugyldig billednøgle.",
+  "up.cover": "Videoens coverbillede",
+  "up.coverHint": "Træk i skyderen for at vælge et billede som cover, eller upload dit eget billede.",
+  "up.coverFrame": "Vælg billede",
+  "up.coverUpload": "Upload eget cover",
+  "studio.edit": "Rediger beskrivelse",
+  "studio.save": "Gem",
+  "studio.saveFail": "Kunne ikke gemme.",
+  "studio.captionLabel": "Videobeskrivelse",
+  "studio.deleteConfirm": "Slet denne video? Det kan ikke fortrydes.",
 };
 export default da;

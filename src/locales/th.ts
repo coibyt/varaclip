@@ -156,5 +156,14 @@ const th: Record<string, string> = {
   "err.image": "รูปภาพ JPG/PNG/WebP ขนาดไม่เกิน 5MB",
   "err.badUrl": "ลิงก์ต้องขึ้นต้นด้วย http:// หรือ https://",
   "err.imageKey": "คีย์รูปภาพไม่ถูกต้อง",
+  "up.cover": "ภาพปกวิดีโอ",
+  "up.coverHint": "ลากแถบเลื่อนเพื่อเลือกเฟรมเป็นภาพปก หรืออัปโหลดรูปของคุณเอง",
+  "up.coverFrame": "เลือกเฟรม",
+  "up.coverUpload": "อัปโหลดภาพปกของคุณเอง",
+  "studio.edit": "แก้ไขคำอธิบาย",
+  "studio.save": "บันทึก",
+  "studio.saveFail": "บันทึกไม่สำเร็จ",
+  "studio.captionLabel": "คำอธิบายวิดีโอ",
+  "studio.deleteConfirm": "ลบวิดีโอนี้ใช่ไหม การลบไม่สามารถย้อนกลับได้",
 };
 export default th;

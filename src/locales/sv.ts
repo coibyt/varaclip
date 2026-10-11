@@ -156,5 +156,14 @@ const sv: Record<string, string> = {
   "err.image": "JPG/PNG/WebP-bild, högst 5 MB.",
   "err.badUrl": "Länken måste börja med http:// eller https://",
   "err.imageKey": "Ogiltig bildnyckel.",
+  "up.cover": "Videons omslagsbild",
+  "up.coverHint": "Dra i reglaget för att välja en bildruta som omslag, eller ladda upp en egen bild.",
+  "up.coverFrame": "Välj bildruta",
+  "up.coverUpload": "Ladda upp eget omslag",
+  "studio.edit": "Redigera beskrivning",
+  "studio.save": "Spara",
+  "studio.saveFail": "Kunde inte spara.",
+  "studio.captionLabel": "Videobeskrivning",
+  "studio.deleteConfirm": "Ta bort den här videon? Det går inte att ångra.",
 };
 export default sv;

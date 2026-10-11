@@ -156,5 +156,14 @@ const tr: Record<string, string> = {
   "err.image": "JPG/PNG/WebP görsel, en fazla 5 MB.",
   "err.badUrl": "Bağlantı http:// veya https:// ile başlamalıdır",
   "err.imageKey": "Geçersiz görsel anahtarı.",
+  "up.cover": "Video kapağı",
+  "up.coverHint": "Kapak olarak bir kare seçmek için kaydırıcıyı sürükleyin veya kendi görselinizi yükleyin.",
+  "up.coverFrame": "Kare seç",
+  "up.coverUpload": "Kendi kapağını yükle",
+  "studio.edit": "Açıklamayı düzenle",
+  "studio.save": "Kaydet",
+  "studio.saveFail": "Kaydedilemedi.",
+  "studio.captionLabel": "Video açıklaması",
+  "studio.deleteConfirm": "Bu video silinsin mi? Bu işlem geri alınamaz.",
 };
 export default tr;

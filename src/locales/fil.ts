@@ -156,5 +156,14 @@ const fil: Record<string, string> = {
   "err.image": "JPG/PNG/WebP na larawan, hanggang 5MB.",
   "err.badUrl": "Dapat magsimula ang link sa http:// o https://",
   "err.imageKey": "Di-wastong image key.",
+  "up.cover": "Cover ng video",
+  "up.coverHint": "I-drag ang slider para pumili ng frame bilang cover, o mag-upload ng sarili mong larawan.",
+  "up.coverFrame": "Pumili ng frame",
+  "up.coverUpload": "Mag-upload ng sariling cover",
+  "studio.edit": "I-edit ang paglalarawan",
+  "studio.save": "I-save",
+  "studio.saveFail": "Hindi ma-save.",
+  "studio.captionLabel": "Paglalarawan ng video",
+  "studio.deleteConfirm": "Burahin ang video na ito? Hindi na ito mababawi.",
 };
 export default fil;

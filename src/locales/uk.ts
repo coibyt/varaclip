@@ -156,5 +156,14 @@ const uk: Record<string, string> = {
   "err.image": "Зображення JPG/PNG/WebP, не більше 5 МБ.",
   "err.badUrl": "Посилання має починатися з http:// або https://",
   "err.imageKey": "Недійсний ключ зображення.",
+  "up.cover": "Обкладинка відео",
+  "up.coverHint": "Перетягніть повзунок, щоб вибрати кадр для обкладинки, або завантажте власне зображення.",
+  "up.coverFrame": "Вибрати кадр",
+  "up.coverUpload": "Завантажити свою обкладинку",
+  "studio.edit": "Змінити опис",
+  "studio.save": "Зберегти",
+  "studio.saveFail": "Не вдалося зберегти.",
+  "studio.captionLabel": "Опис відео",
+  "studio.deleteConfirm": "Видалити це відео? Цю дію не можна скасувати.",
 };
 export default uk;

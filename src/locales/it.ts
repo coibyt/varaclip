@@ -156,5 +156,14 @@ const it: Record<string, string> = {
   "err.image": "Immagine JPG/PNG/WebP fino a 5 MB.",
   "err.badUrl": "Il link deve iniziare con http:// o https://",
   "err.imageKey": "Chiave immagine non valida.",
+  "up.cover": "Copertina del video",
+  "up.coverHint": "Trascina il cursore per scegliere un fotogramma come copertina, oppure carica una tua immagine.",
+  "up.coverFrame": "Scegli fotogramma",
+  "up.coverUpload": "Carica la tua copertina",
+  "studio.edit": "Modifica descrizione",
+  "studio.save": "Salva",
+  "studio.saveFail": "Impossibile salvare.",
+  "studio.captionLabel": "Descrizione del video",
+  "studio.deleteConfirm": "Eliminare questo video? L’azione non può essere annullata.",
 };
 export default it;

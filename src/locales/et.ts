@@ -156,5 +156,14 @@ const et: Record<string, string> = {
   "err.image": "JPG/PNG/WebP-pilt, kuni 5 MB.",
   "err.badUrl": "Link peab algama http:// või https://",
   "err.imageKey": "Kehtetu pildivõti.",
+  "up.cover": "Video kaanepilt",
+  "up.coverHint": "Lohista liugurit, et valida kaadri kaanepildiks, või laadi üles oma pilt.",
+  "up.coverFrame": "Vali kaader",
+  "up.coverUpload": "Laadi üles oma kaanepilt",
+  "studio.edit": "Muuda kirjeldust",
+  "studio.save": "Salvesta",
+  "studio.saveFail": "Salvestamine ebaõnnestus.",
+  "studio.captionLabel": "Video kirjeldus",
+  "studio.deleteConfirm": "Kas kustutada see video? Seda ei saa tagasi võtta.",
 };
 export default et;

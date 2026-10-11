@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Bookmark, CalendarCheck, Check, Heart, MapPin, MessageCircle, Phone, Play, Plus, Share2, Volume2, VolumeX,
+  Bookmark, CalendarCheck, Check, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
 } from "lucide-react";
 import { Avatar } from "./avatar";
 import { CommentsSheet } from "./comments-sheet";
@@ -347,6 +347,12 @@ function VideoCard({
         >
           {muted ? <VolumeX className="size-5" aria-hidden /> : <Volume2 className="size-5" aria-hidden />}
         </button>
+
+        {isMine && (
+          <Link href="/studio" aria-label={t("studio.edit")} className="absolute left-3 top-16 z-10 grid size-10 place-items-center rounded-full bg-black/40 backdrop-blur transition hover:bg-black/60 lg:top-4">
+            <Pencil className="size-5" aria-hidden />
+          </Link>
+        )}
 
         {/* Info */}
         <div className="absolute inset-x-0 bottom-0 z-10 p-4 pr-[72px] lg:pr-4">

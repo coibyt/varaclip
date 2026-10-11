@@ -156,5 +156,14 @@ const hi: Record<string, string> = {
   "err.image": "JPG/PNG/WebP छवि, अधिकतम 5MB।",
   "err.badUrl": "लिंक http:// या https:// से शुरू होना चाहिए",
   "err.imageKey": "छवि कुंजी मान्य नहीं है।",
+  "up.cover": "वीडियो कवर",
+  "up.coverHint": "कवर के लिए कोई फ़्रेम चुनने हेतु स्लाइडर खींचें, या अपनी तस्वीर अपलोड करें।",
+  "up.coverFrame": "फ़्रेम चुनें",
+  "up.coverUpload": "अपना कवर अपलोड करें",
+  "studio.edit": "विवरण संपादित करें",
+  "studio.save": "सेव करें",
+  "studio.saveFail": "सेव नहीं हो सका।",
+  "studio.captionLabel": "वीडियो का विवरण",
+  "studio.deleteConfirm": "यह वीडियो हटाएँ? यह क्रिया वापस नहीं हो सकती।",
 };
 export default hi;

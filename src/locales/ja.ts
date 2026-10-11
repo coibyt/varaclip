@@ -156,5 +156,14 @@ const ja: Record<string, string> = {
   "err.image": "JPG/PNG/WebP 画像、最大5MBまで。",
   "err.badUrl": "リンクは http:// または https:// で始めてください",
   "err.imageKey": "画像キーが無効です。",
+  "up.cover": "動画のカバー画像",
+  "up.coverHint": "スライダーを動かしてカバーにするフレームを選ぶか、自分の画像をアップロードします。",
+  "up.coverFrame": "フレームを選択",
+  "up.coverUpload": "オリジナルのカバーをアップロード",
+  "studio.edit": "説明を編集",
+  "studio.save": "保存",
+  "studio.saveFail": "保存できませんでした。",
+  "studio.captionLabel": "動画の説明",
+  "studio.deleteConfirm": "この動画を削除しますか？ この操作は元に戻せません。",
 };
 export default ja;

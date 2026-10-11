@@ -156,5 +156,14 @@ const lv: Record<string, string> = {
   "err.image": "JPG/PNG/WebP attēls, ne lielāks par 5 MB.",
   "err.badUrl": "Saitei jāsākas ar http:// vai https://",
   "err.imageKey": "Nederīga attēla atslēga.",
+  "up.cover": "Video vāks",
+  "up.coverHint": "Velc slīdni, lai izvēlētos kadru kā vāku, vai augšupielādē savu attēlu.",
+  "up.coverFrame": "Izvēlēties kadru",
+  "up.coverUpload": "Augšupielādēt savu vāku",
+  "studio.edit": "Rediģēt aprakstu",
+  "studio.save": "Saglabāt",
+  "studio.saveFail": "Neizdevās saglabāt.",
+  "studio.captionLabel": "Video apraksts",
+  "studio.deleteConfirm": "Dzēst šo video? Šo darbību nevar atsaukt.",
 };
 export default lv;

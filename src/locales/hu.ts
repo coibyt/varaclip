@@ -156,5 +156,14 @@ const hu: Record<string, string> = {
   "err.image": "JPG/PNG/WebP kép, legfeljebb 5 MB.",
   "err.badUrl": "A hivatkozásnak http:// vagy https:// előtaggal kell kezdődnie",
   "err.imageKey": "Érvénytelen képkulcs.",
+  "up.cover": "A videó borítóképe",
+  "up.coverHint": "Húzd a csúszkát, hogy kiválassz egy képkockát borítónak, vagy tölts fel saját képet.",
+  "up.coverFrame": "Képkocka kiválasztása",
+  "up.coverUpload": "Saját borító feltöltése",
+  "studio.edit": "Leírás szerkesztése",
+  "studio.save": "Mentés",
+  "studio.saveFail": "A mentés nem sikerült.",
+  "studio.captionLabel": "A videó leírása",
+  "studio.deleteConfirm": "Törlöd ezt a videót? Ez a művelet nem vonható vissza.",
 };
 export default hu;

@@ -156,5 +156,14 @@ const ko: Record<string, string> = {
   "err.image": "JPG/PNG/WebP 이미지, 최대 5MB.",
   "err.badUrl": "링크는 http:// 또는 https://로 시작해야 해요",
   "err.imageKey": "이미지 키가 올바르지 않아요.",
+  "up.cover": "영상 커버",
+  "up.coverHint": "슬라이더를 움직여 커버로 쓸 프레임을 고르거나 직접 이미지를 올리세요.",
+  "up.coverFrame": "프레임 선택",
+  "up.coverUpload": "나만의 커버 업로드",
+  "studio.edit": "설명 편집",
+  "studio.save": "저장",
+  "studio.saveFail": "저장하지 못했어요.",
+  "studio.captionLabel": "영상 설명",
+  "studio.deleteConfirm": "이 영상을 삭제할까요? 되돌릴 수 없어요.",
 };
 export default ko;

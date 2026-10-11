@@ -156,5 +156,14 @@ const de: Record<string, string> = {
   "err.image": "JPG/PNG/WebP-Bild, höchstens 5 MB.",
   "err.badUrl": "Der Link muss mit http:// oder https:// beginnen",
   "err.imageKey": "Ungültiger Bildschlüssel.",
+  "up.cover": "Titelbild des Videos",
+  "up.coverHint": "Ziehe den Regler, um ein Bild als Titelbild zu wählen, oder lade ein eigenes Bild hoch.",
+  "up.coverFrame": "Bild auswählen",
+  "up.coverUpload": "Eigenes Titelbild hochladen",
+  "studio.edit": "Beschreibung bearbeiten",
+  "studio.save": "Speichern",
+  "studio.saveFail": "Speichern nicht möglich.",
+  "studio.captionLabel": "Videobeschreibung",
+  "studio.deleteConfirm": "Dieses Video löschen? Das lässt sich nicht rückgängig machen.",
 };
 export default de;

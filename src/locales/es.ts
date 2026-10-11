@@ -156,5 +156,14 @@ const es: Record<string, string> = {
   "err.image": "Imagen JPG/PNG/WebP de hasta 5 MB.",
   "err.badUrl": "El enlace debe empezar por http:// o https://",
   "err.imageKey": "Clave de imagen no válida.",
+  "up.cover": "Portada del vídeo",
+  "up.coverHint": "Arrastra el control para elegir un fotograma como portada, o sube tu propia imagen.",
+  "up.coverFrame": "Elegir fotograma",
+  "up.coverUpload": "Subir mi portada",
+  "studio.edit": "Editar descripción",
+  "studio.save": "Guardar",
+  "studio.saveFail": "No se pudo guardar.",
+  "studio.captionLabel": "Descripción del vídeo",
+  "studio.deleteConfirm": "¿Eliminar este vídeo? No se puede deshacer.",
 };
 export default es;

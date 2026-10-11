@@ -156,5 +156,14 @@ const pl: Record<string, string> = {
   "err.image": "Obraz JPG/PNG/WebP, maksymalnie 5 MB.",
   "err.badUrl": "Link musi zaczynać się od http:// lub https://",
   "err.imageKey": "Nieprawidłowy klucz obrazu.",
+  "up.cover": "Okładka filmu",
+  "up.coverHint": "Przeciągnij suwak, aby wybrać klatkę na okładkę, lub prześlij własny obraz.",
+  "up.coverFrame": "Wybierz klatkę",
+  "up.coverUpload": "Prześlij własną okładkę",
+  "studio.edit": "Edytuj opis",
+  "studio.save": "Zapisz",
+  "studio.saveFail": "Nie udało się zapisać.",
+  "studio.captionLabel": "Opis filmu",
+  "studio.deleteConfirm": "Usunąć ten film? Tej operacji nie można cofnąć.",
 };
 export default pl;

@@ -156,5 +156,14 @@ const he: Record<string, string> = {
   "err.image": "תמונת JPG/PNG/WebP, עד 5MB.",
   "err.badUrl": "הקישור חייב להתחיל ב-http:// או ב-https://",
   "err.imageKey": "מפתח התמונה אינו תקין.",
+  "up.cover": "תמונת שער לסרטון",
+  "up.coverHint": "גררו את המחוון כדי לבחור פריים כתמונת שער, או העלו תמונה משלכם.",
+  "up.coverFrame": "בחירת פריים",
+  "up.coverUpload": "העלאת תמונת שער משלי",
+  "studio.edit": "עריכת תיאור",
+  "studio.save": "שמירה",
+  "studio.saveFail": "לא ניתן היה לשמור.",
+  "studio.captionLabel": "תיאור הסרטון",
+  "studio.deleteConfirm": "למחוק את הסרטון הזה? לא ניתן לבטל פעולה זו.",
 };
 export default he;

@@ -156,5 +156,14 @@ const id: Record<string, string> = {
   "err.image": "Gambar JPG/PNG/WebP, maksimal 5MB.",
   "err.badUrl": "Tautan harus diawali dengan http:// atau https://",
   "err.imageKey": "Kunci gambar tidak valid.",
+  "up.cover": "Sampul video",
+  "up.coverHint": "Geser penggeser untuk memilih satu bingkai sebagai sampul, atau unggah gambar Anda sendiri.",
+  "up.coverFrame": "Pilih bingkai",
+  "up.coverUpload": "Unggah sampul sendiri",
+  "studio.edit": "Edit deskripsi",
+  "studio.save": "Simpan",
+  "studio.saveFail": "Tidak dapat menyimpan.",
+  "studio.captionLabel": "Deskripsi video",
+  "studio.deleteConfirm": "Hapus video ini? Tindakan ini tidak dapat dibatalkan.",
 };
 export default id;

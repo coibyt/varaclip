@@ -156,5 +156,14 @@ const nl: Record<string, string> = {
   "err.image": "JPG/PNG/WebP-afbeelding, maximaal 5 MB.",
   "err.badUrl": "De link moet beginnen met http:// of https://",
   "err.imageKey": "Ongeldige afbeeldingssleutel.",
+  "up.cover": "Omslagafbeelding van de video",
+  "up.coverHint": "Sleep de schuifbalk om een beeld als omslag te kiezen, of upload je eigen afbeelding.",
+  "up.coverFrame": "Kies een beeld",
+  "up.coverUpload": "Eigen omslag uploaden",
+  "studio.edit": "Beschrijving bewerken",
+  "studio.save": "Opslaan",
+  "studio.saveFail": "Opslaan mislukt.",
+  "studio.captionLabel": "Videobeschrijving",
+  "studio.deleteConfirm": "Deze video verwijderen? Dit kan niet ongedaan worden gemaakt.",
 };
 export default nl;

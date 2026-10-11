@@ -156,5 +156,14 @@ const pt: Record<string, string> = {
   "err.image": "Imagem JPG/PNG/WebP de até 5 MB.",
   "err.badUrl": "O link deve começar com http:// ou https://",
   "err.imageKey": "Chave de imagem inválida.",
+  "up.cover": "Capa do vídeo",
+  "up.coverHint": "Arraste o controle para escolher um quadro como capa, ou envie sua própria imagem.",
+  "up.coverFrame": "Escolher quadro",
+  "up.coverUpload": "Enviar minha capa",
+  "studio.edit": "Editar descrição",
+  "studio.save": "Salvar",
+  "studio.saveFail": "Não foi possível salvar.",
+  "studio.captionLabel": "Descrição do vídeo",
+  "studio.deleteConfirm": "Excluir este vídeo? Esta ação não pode ser desfeita.",
 };
 export default pt;

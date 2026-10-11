@@ -156,5 +156,14 @@ const no: Record<string, string> = {
   "err.image": "JPG/PNG/WebP-bilde, maks 5 MB.",
   "err.badUrl": "Lenken må begynne med http:// eller https://",
   "err.imageKey": "Ugyldig bildenøkkel.",
+  "up.cover": "Videoens omslagsbilde",
+  "up.coverHint": "Dra i glidebryteren for å velge en ramme som omslag, eller last opp ditt eget bilde.",
+  "up.coverFrame": "Velg ramme",
+  "up.coverUpload": "Last opp eget omslag",
+  "studio.edit": "Rediger beskrivelse",
+  "studio.save": "Lagre",
+  "studio.saveFail": "Kunne ikke lagre.",
+  "studio.captionLabel": "Videobeskrivelse",
+  "studio.deleteConfirm": "Slette denne videoen? Dette kan ikke angres.",
 };
 export default no;

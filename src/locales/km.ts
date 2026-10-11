@@ -156,5 +156,14 @@ const km: Record<string, string> = {
   "err.image": "រូបភាព JPG/PNG/WebP ទំហំអតិបរមា 5MB។",
   "err.badUrl": "តំណត្រូវចាប់ផ្តើមដោយ http:// ឬ https://",
   "err.imageKey": "សោរូបភាពមិនត្រឹមត្រូវ។",
+  "up.cover": "រូបភាពគម្របវីដេអូ",
+  "up.coverHint": "អូសរបារដើម្បីជ្រើសរើសស៊ុមជាគម្រប ឬបង្ហោះរូបភាពផ្ទាល់ខ្លួន។",
+  "up.coverFrame": "ជ្រើសរើសស៊ុម",
+  "up.coverUpload": "បង្ហោះគម្របផ្ទាល់ខ្លួន",
+  "studio.edit": "កែការពិពណ៌នា",
+  "studio.save": "រក្សាទុក",
+  "studio.saveFail": "មិនអាចរក្សាទុកបានទេ។",
+  "studio.captionLabel": "ការពិពណ៌នាវីដេអូ",
+  "studio.deleteConfirm": "លុបវីដេអូនេះឬ? មិនអាចត្រឡប់វិញបានទេ។",
 };
 export default km;

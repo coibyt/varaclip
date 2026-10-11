@@ -156,5 +156,14 @@ const zh: Record<string, string> = {
   "err.image": "JPG/PNG/WebP 图片，最大 5MB。",
   "err.badUrl": "链接必须以 http:// 或 https:// 开头",
   "err.imageKey": "图片密钥无效。",
+  "up.cover": "视频封面",
+  "up.coverHint": "拖动滑块选择一帧作为封面，或上传自己的图片。",
+  "up.coverFrame": "选择画面",
+  "up.coverUpload": "上传自定义封面",
+  "studio.edit": "编辑描述",
+  "studio.save": "保存",
+  "studio.saveFail": "保存失败。",
+  "studio.captionLabel": "视频描述",
+  "studio.deleteConfirm": "删除此视频？此操作无法撤销。",
 };
 export default zh;

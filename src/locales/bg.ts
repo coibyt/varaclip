@@ -156,5 +156,14 @@ const bg: Record<string, string> = {
   "err.image": "Изображение JPG/PNG/WebP, до 5 MB.",
   "err.badUrl": "Връзката трябва да започва с http:// или https://",
   "err.imageKey": "Невалиден ключ на изображението.",
+  "up.cover": "Корица на видеото",
+  "up.coverHint": "Плъзнете плъзгача, за да изберете кадър за корица, или качете собствено изображение.",
+  "up.coverFrame": "Избор на кадър",
+  "up.coverUpload": "Качи собствена корица",
+  "studio.edit": "Редактиране на описанието",
+  "studio.save": "Запази",
+  "studio.saveFail": "Неуспешно запазване.",
+  "studio.captionLabel": "Описание на видеото",
+  "studio.deleteConfirm": "Да изтриете ли това видео? Действието е необратимо.",
 };
 export default bg;

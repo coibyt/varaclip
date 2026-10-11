@@ -171,6 +171,15 @@ const en: Record<string, string> = {
   "err.image": "JPG/PNG/WebP image, up to 5MB.",
   "err.badUrl": "The link must start with http:// or https://",
   "err.imageKey": "Invalid image key.",
+  "up.cover": "Video cover",
+  "up.coverHint": "Drag the slider to pick a frame as the cover, or upload your own picture.",
+  "up.coverFrame": "Pick a frame",
+  "up.coverUpload": "Upload your own cover",
+  "studio.edit": "Edit caption",
+  "studio.save": "Save",
+  "studio.saveFail": "Could not save.",
+  "studio.captionLabel": "Video caption",
+  "studio.deleteConfirm": "Delete this video? This cannot be undone.",
 };
 
 export default en;
