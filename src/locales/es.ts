@@ -268,6 +268,20 @@ const es: Record<string, string> = {
   "go.gateTitle": "¡Casi lo logras!",
   "go.gateBody": "Crea más vídeos cortos para llegar a {need} seguidores y desbloquear los directos. Ahora tienes {count}.",
   "go.gateCta": "Crear un vídeo corto",
+  "go.modeLabel": "Cómo emitir",
+  "go.modeCamera": "Emitir con la cámara y el micrófono del navegador",
+  "go.modeLink": "Pegar un enlace de directo de YouTube / Facebook / TikTok",
+  "go.cameraRules": "Los directos deben cumplir las normas de la comunidad: nada de contenido explícito ni peticiones de transferencias de dinero.",
+  "go.cameraNote": "Emite directamente desde la cámara y el micrófono de este dispositivo. Ideal para unos 10 espectadores a la vez; para más público, emite en YouTube, Facebook o TikTok y pega el enlace.",
+  "go.cameraDenied": "No se pudo acceder a la cámara o al micrófono. Permite el acceso en el navegador e inténtalo de nuevo.",
+  "go.keepOpen": "Mantén esta página abierta mientras emites. Cerrarla o bloquear la pantalla detiene la emisión.",
+  "go.micMute": "Silenciar micrófono",
+  "go.micUnmute": "Activar micrófono",
+  "live.connecting": "Conectando…",
+  "live.unmute": "Activar sonido",
+  "live.mute": "Silenciar",
+  "live.connectFail": "No se pudo conectar con la emisión. Revisa tu conexión e inténtalo de nuevo.",
+  "live.reconnect": "Reconectar",
 };
 
 export default es;

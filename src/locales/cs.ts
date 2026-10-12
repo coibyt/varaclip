@@ -268,6 +268,20 @@ const cs: Record<string, string> = {
   "go.gateTitle": "Skoro hotovo!",
   "go.gateBody": "Vytvořte více krátkých videí, abyste získali {need} sledujících a odemkli živé vysílání. Zatím máte {count}.",
   "go.gateCta": "Vytvořit krátké video",
+  "go.modeLabel": "Způsob vysílání",
+  "go.modeCamera": "Vysílat kamerou a mikrofonem v prohlížeči",
+  "go.modeLink": "Vložit odkaz na živé vysílání z YouTube / Facebooku / TikToku",
+  "go.cameraRules": "Živá vysílání musí dodržovat pravidla komunity: žádný explicitní obsah a žádné výzvy k převodu peněz.",
+  "go.cameraNote": "Vysílá přímo z kamery a mikrofonu tohoto zařízení. Vhodné pro zhruba 10 diváků současně; pro větší publikum vysílejte na YouTube, Facebooku nebo TikToku a vložte odkaz.",
+  "go.cameraDenied": "Nelze získat přístup ke kameře nebo mikrofonu. Povolte přístup v prohlížeči a zkuste to znovu.",
+  "go.keepOpen": "Během vysílání nechte tuto stránku otevřenou. Zavřením nebo zamknutím obrazovky se vysílání zastaví.",
+  "go.micMute": "Ztlumit mikrofon",
+  "go.micUnmute": "Zapnout mikrofon",
+  "live.connecting": "Připojování…",
+  "live.unmute": "Zapnout zvuk",
+  "live.mute": "Ztlumit",
+  "live.connectFail": "Nepodařilo se připojit k vysílání. Zkontrolujte připojení a zkuste to znovu.",
+  "live.reconnect": "Připojit znovu",
 };
 
 export default cs;

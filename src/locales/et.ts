@@ -268,6 +268,20 @@ const et: Record<string, string> = {
   "go.gateTitle": "Peaaegu valmis!",
   "go.gateBody": "Tee rohkem lühivideoid, et jõuda {need} jälgijani ja avada otseülekanded. Sul on praegu {count}.",
   "go.gateCta": "Loo lühivideo",
+  "go.modeLabel": "Kuidas edastada",
+  "go.modeCamera": "Edasta brauseris kaamera ja mikrofoniga",
+  "go.modeLink": "Kleebi YouTube’i / Facebooki / TikToki otseülekande link",
+  "go.cameraRules": "Otseülekanded peavad järgima kogukonna reegleid: ei mingit vulgaarset sisu ega rahaülekande palveid.",
+  "go.cameraNote": "Edastab otse selle seadme kaamerast ja mikrofonist. Sobib umbes 10 vaatajale korraga; suurema publiku jaoks mine otse YouTube’is, Facebookis või TikTokis ja kleebi link.",
+  "go.cameraDenied": "Kaamerale või mikrofonile ei pääsenud ligi. Luba brauseris juurdepääs ja proovi uuesti.",
+  "go.keepOpen": "Hoia see leht edastamise ajal avatuna. Selle sulgemine või ekraani lukustamine katkestab ülekande.",
+  "go.micMute": "Vaigista mikrofon",
+  "go.micUnmute": "Lülita mikrofon sisse",
+  "live.connecting": "Ühendan…",
+  "live.unmute": "Heli sisse",
+  "live.mute": "Heli välja",
+  "live.connectFail": "Ülekandega ei õnnestunud ühendust luua. Kontrolli ühendust ja proovi uuesti.",
+  "live.reconnect": "Ühenda uuesti",
 };
 
 export default et;

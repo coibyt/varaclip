@@ -268,6 +268,20 @@ const pl: Record<string, string> = {
   "go.gateTitle": "Prawie gotowe!",
   "go.gateBody": "Dodaj więcej krótkich filmów, aby zdobyć {need} obserwujących i odblokować transmisje na żywo. Masz na razie {count}.",
   "go.gateCta": "Utwórz krótki film",
+  "go.modeLabel": "Sposób transmisji",
+  "go.modeCamera": "Transmituj kamerą i mikrofonem w przeglądarce",
+  "go.modeLink": "Wklej link do transmisji z YouTube / Facebooka / TikToka",
+  "go.cameraRules": "Transmisje muszą przestrzegać zasad społeczności: bez treści erotycznych i bez próśb o przelewy pieniędzy.",
+  "go.cameraNote": "Transmituje bezpośrednio z kamery i mikrofonu tego urządzenia. Najlepsze dla ok. 10 widzów naraz; dla większej widowni rozpocznij transmisję na YouTube, Facebooku lub TikToku i wklej link.",
+  "go.cameraDenied": "Brak dostępu do kamery lub mikrofonu. Zezwól na dostęp w przeglądarce i spróbuj ponownie.",
+  "go.keepOpen": "Zostaw tę stronę otwartą podczas transmisji. Zamknięcie jej lub zablokowanie ekranu przerwie transmisję.",
+  "go.micMute": "Wycisz mikrofon",
+  "go.micUnmute": "Włącz mikrofon",
+  "live.connecting": "Łączenie…",
+  "live.unmute": "Włącz dźwięk",
+  "live.mute": "Wycisz",
+  "live.connectFail": "Nie udało się połączyć z transmisją. Sprawdź połączenie i spróbuj ponownie.",
+  "live.reconnect": "Połącz ponownie",
 };
 
 export default pl;

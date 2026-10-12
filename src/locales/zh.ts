@@ -268,6 +268,20 @@ const zh: Record<string, string> = {
   "go.gateTitle": "快要成功了！",
   "go.gateBody": "多发布一些短视频，达到 {need} 位粉丝即可开通直播功能。你目前有 {count} 位。",
   "go.gateCta": "创建短视频",
+  "go.modeLabel": "直播方式",
+  "go.modeCamera": "在浏览器中用摄像头和麦克风直播",
+  "go.modeLink": "粘贴 YouTube / Facebook / TikTok 直播链接",
+  "go.cameraRules": "直播必须遵守社区规则：不得出现低俗内容，不得要求转账。",
+  "go.cameraNote": "直接用本设备的摄像头和麦克风直播。适合同时约 10 人观看；观众更多时，请在 YouTube、Facebook 或 TikTok 上直播并粘贴链接。",
+  "go.cameraDenied": "无法使用摄像头或麦克风。请在浏览器中允许访问后重试。",
+  "go.keepOpen": "直播期间请保持此页面打开。关闭页面或锁屏会中断直播。",
+  "go.micMute": "关闭麦克风",
+  "go.micUnmute": "开启麦克风",
+  "live.connecting": "正在连接…",
+  "live.unmute": "开启声音",
+  "live.mute": "静音",
+  "live.connectFail": "无法连接到直播。请检查网络后重试。",
+  "live.reconnect": "重新连接",
 };
 
 export default zh;

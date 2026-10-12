@@ -268,6 +268,20 @@ const fi: Record<string, string> = {
   "go.gateTitle": "Melkein perillä!",
   "go.gateBody": "Tee lisää lyhyitä videoita saavuttaaksesi {need} seuraajaa ja avataksesi livelähetykset. Sinulla on nyt {count}.",
   "go.gateCta": "Luo lyhyt video",
+  "go.modeLabel": "Lähetystapa",
+  "go.modeCamera": "Lähetä selaimessa kameralla ja mikrofonilla",
+  "go.modeLink": "Liitä YouTube / Facebook / TikTok Live -linkki",
+  "go.cameraRules": "Livelähetysten on noudatettava yhteisön sääntöjä: ei vierasta sisältöä eikä rahansiirtopyyntöjä.",
+  "go.cameraNote": "Lähettää suoraan tämän laitteen kamerasta ja mikrofonista. Sopii noin 10 katsojalle kerrallaan; suuremmalle yleisölle lähetä YouTubessa, Facebookissa tai TikTokissa ja liitä linkki.",
+  "go.cameraDenied": "Kameraa tai mikrofonia ei voitu käyttää. Salli käyttö selaimessa ja yritä uudelleen.",
+  "go.keepOpen": "Pidä tämä sivu auki lähetyksen ajan. Sivun sulkeminen tai näytön lukitseminen katkaisee lähetyksen.",
+  "go.micMute": "Mykistä mikrofoni",
+  "go.micUnmute": "Poista mikrofonin mykistys",
+  "live.connecting": "Yhdistetään…",
+  "live.unmute": "Äänet päälle",
+  "live.mute": "Mykistä",
+  "live.connectFail": "Lähetykseen ei saatu yhteyttä. Tarkista verkko ja yritä uudelleen.",
+  "live.reconnect": "Yhdistä uudelleen",
 };
 
 export default fi;

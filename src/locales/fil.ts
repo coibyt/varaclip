@@ -268,6 +268,20 @@ const fil: Record<string, string> = {
   "go.gateTitle": "Malapit na!",
   "go.gateBody": "Gumawa ng mas maraming maikling video para umabot sa {need} followers at ma-unlock ang live stream. Mayroon kang {count} ngayon.",
   "go.gateCta": "Gumawa ng maikling video",
+  "go.modeLabel": "Paraan ng pag-stream",
+  "go.modeCamera": "Mag-stream gamit ang camera at mic sa browser",
+  "go.modeLink": "I-paste ang link ng live mula sa YouTube / Facebook / TikTok",
+  "go.cameraRules": "Dapat sundin ng mga live ang community rules: walang explicit na content at walang panghihingi ng money transfer.",
+  "go.cameraNote": "Direktang nag-i-stream mula sa camera at mic ng device na ito. Bagay sa humigit-kumulang 10 manonood nang sabay; para sa mas malaking audience, mag-live sa YouTube, Facebook o TikTok at i-paste ang link.",
+  "go.cameraDenied": "Hindi ma-access ang camera o mic. Payagan ito sa browser at subukan ulit.",
+  "go.keepOpen": "Panatilihing bukas ang page na ito habang nag-i-stream. Titigil ang broadcast kapag isinara ito o ni-lock ang screen.",
+  "go.micMute": "I-mute ang mic",
+  "go.micUnmute": "I-unmute ang mic",
+  "live.connecting": "Kumokonekta…",
+  "live.unmute": "I-unmute",
+  "live.mute": "I-mute",
+  "live.connectFail": "Hindi makakonekta sa stream. Suriin ang koneksyon at subukan ulit.",
+  "live.reconnect": "Kumonekta ulit",
 };
 
 export default fil;

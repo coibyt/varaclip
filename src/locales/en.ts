@@ -283,6 +283,20 @@ const en: Record<string, string> = {
   "go.gateTitle": "Almost there!",
   "go.gateBody": "Try creating more short videos to reach {need} followers and unlock live streaming. You have {count} so far.",
   "go.gateCta": "Create a short video",
+  "go.modeLabel": "How to stream",
+  "go.modeCamera": "Stream with camera & microphone in the browser",
+  "go.modeLink": "Paste a YouTube / Facebook / TikTok live link",
+  "go.cameraRules": "Live streams must follow the community rules: no explicit content, no requests for money transfers.",
+  "go.cameraNote": "Streams straight from this device’s camera and microphone. Best for about 10 viewers at a time; for bigger audiences, go live on YouTube, Facebook or TikTok and paste the link.",
+  "go.cameraDenied": "Could not access the camera or microphone. Allow access in your browser and try again.",
+  "go.keepOpen": "Keep this page open while you stream. Closing it or locking the screen stops the broadcast.",
+  "go.micMute": "Mute microphone",
+  "go.micUnmute": "Unmute microphone",
+  "live.connecting": "Connecting…",
+  "live.unmute": "Unmute",
+  "live.mute": "Mute",
+  "live.connectFail": "Could not connect to the stream. Check your connection and try again.",
+  "live.reconnect": "Reconnect",
 };
 
 export default en;

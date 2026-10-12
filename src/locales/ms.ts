@@ -268,6 +268,20 @@ const ms: Record<string, string> = {
   "go.gateTitle": "Hampir sampai!",
   "go.gateBody": "Cipta lebih banyak video pendek untuk mencapai {need} pengikut dan membuka siaran langsung. Anda kini ada {count}.",
   "go.gateCta": "Cipta video pendek",
+  "go.modeLabel": "Cara siaran",
+  "go.modeCamera": "Siaran dengan kamera & mikrofon dalam pelayar",
+  "go.modeLink": "Tampal pautan siaran langsung YouTube / Facebook / TikTok",
+  "go.cameraRules": "Siaran langsung mesti mematuhi peraturan komuniti: tiada kandungan eksplisit dan tiada gesaan memindahkan wang.",
+  "go.cameraNote": "Menyiar terus daripada kamera dan mikrofon peranti ini. Sesuai untuk kira-kira 10 penonton serentak; untuk khalayak lebih ramai, siarkan di YouTube, Facebook atau TikTok dan tampal pautan.",
+  "go.cameraDenied": "Tidak dapat mengakses kamera atau mikrofon. Benarkan akses dalam pelayar dan cuba lagi.",
+  "go.keepOpen": "Biarkan halaman ini terbuka semasa menyiar. Menutupnya atau mengunci skrin akan menghentikan siaran.",
+  "go.micMute": "Bisukan mikrofon",
+  "go.micUnmute": "Hidupkan mikrofon",
+  "live.connecting": "Menyambung…",
+  "live.unmute": "Hidupkan bunyi",
+  "live.mute": "Bisukan",
+  "live.connectFail": "Tidak dapat menyambung ke siaran. Semak sambungan anda dan cuba lagi.",
+  "live.reconnect": "Sambung semula",
 };
 
 export default ms;

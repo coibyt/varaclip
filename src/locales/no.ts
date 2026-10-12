@@ -268,6 +268,20 @@ const no: Record<string, string> = {
   "go.gateTitle": "Nesten der!",
   "go.gateBody": "Lag flere korte videoer for å nå {need} følgere og låse opp direktesending. Du har {count} så langt.",
   "go.gateCta": "Lag en kort video",
+  "go.modeLabel": "Slik sender du",
+  "go.modeCamera": "Send med kamera og mikrofon i nettleseren",
+  "go.modeLink": "Lim inn en YouTube-/Facebook-/TikTok-livelenke",
+  "go.cameraRules": "Direktesendinger må følge fellesskapsreglene: ingen eksplisitt innhold og ingen oppfordringer til pengeoverføring.",
+  "go.cameraNote": "Sender rett fra kameraet og mikrofonen på denne enheten. Passer for omtrent 10 seere om gangen; for større publikum, send på YouTube, Facebook eller TikTok og lim inn lenken.",
+  "go.cameraDenied": "Fikk ikke tilgang til kamera eller mikrofon. Gi nettleseren tillatelse og prøv igjen.",
+  "go.keepOpen": "Hold denne siden åpen mens du sender. Lukker du den eller låser skjermen, stopper sendingen.",
+  "go.micMute": "Slå av mikrofonen",
+  "go.micUnmute": "Slå på mikrofonen",
+  "live.connecting": "Kobler til…",
+  "live.unmute": "Lyd på",
+  "live.mute": "Lyd av",
+  "live.connectFail": "Kunne ikke koble til sendingen. Sjekk tilkoblingen og prøv igjen.",
+  "live.reconnect": "Koble til igjen",
 };
 
 export default no;

@@ -268,6 +268,20 @@ const lv: Record<string, string> = {
   "go.gateTitle": "Gandrīz gatavs!",
   "go.gateBody": "Izveido vairāk īsu video, lai sasniegtu {need} sekotājus un atbloķētu tiešraides. Pagaidām tev ir {count}.",
   "go.gateCta": "Izveidot īsu video",
+  "go.modeLabel": "Kā raidīt",
+  "go.modeCamera": "Raidīt ar kameru un mikrofonu pārlūkā",
+  "go.modeLink": "Ielīmēt YouTube / Facebook / TikTok tiešraides saiti",
+  "go.cameraRules": "Tiešraidēm jāievēro kopienas noteikumi: bez atklāta satura un bez aicinājumiem pārskaitīt naudu.",
+  "go.cameraNote": "Raida tieši no šīs ierīces kameras un mikrofona. Piemērots apmēram 10 skatītājiem vienlaikus; lielākai auditorijai raidi YouTube, Facebook vai TikTok un ielīmē saiti.",
+  "go.cameraDenied": "Neizdevās piekļūt kamerai vai mikrofonam. Atļauj piekļuvi pārlūkā un mēģini vēlreiz.",
+  "go.keepOpen": "Raidīšanas laikā turi šo lapu atvērtu. Ja to aizver vai bloķē ekrānu, raidījums apstājas.",
+  "go.micMute": "Izslēgt mikrofonu",
+  "go.micUnmute": "Ieslēgt mikrofonu",
+  "live.connecting": "Savienojas…",
+  "live.unmute": "Ieslēgt skaņu",
+  "live.mute": "Izslēgt skaņu",
+  "live.connectFail": "Neizdevās savienoties ar raidījumu. Pārbaudi savienojumu un mēģini vēlreiz.",
+  "live.reconnect": "Savienot vēlreiz",
 };
 
 export default lv;

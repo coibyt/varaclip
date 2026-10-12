@@ -268,6 +268,20 @@ const da: Record<string, string> = {
   "go.gateTitle": "Næsten der!",
   "go.gateBody": "Lav flere korte videoer for at nå {need} følgere og låse op for livestreaming. Du har {count} indtil videre.",
   "go.gateCta": "Lav en kort video",
+  "go.modeLabel": "Sådan sender du",
+  "go.modeCamera": "Send med kamera og mikrofon i browseren",
+  "go.modeLink": "Indsæt et YouTube-/Facebook-/TikTok-livelink",
+  "go.cameraRules": "Livestreams skal følge fællesskabsreglerne: intet eksplicit indhold og ingen opfordringer til pengeoverførsler.",
+  "go.cameraNote": "Sender direkte fra denne enheds kamera og mikrofon. Velegnet til ca. 10 seere ad gangen; til et større publikum kan du sende på YouTube, Facebook eller TikTok og indsætte linket.",
+  "go.cameraDenied": "Kunne ikke få adgang til kamera eller mikrofon. Giv browseren tilladelse, og prøv igen.",
+  "go.keepOpen": "Lad denne side være åben, mens du sender. Lukker du den eller låser skærmen, stopper udsendelsen.",
+  "go.micMute": "Slå mikrofonen fra",
+  "go.micUnmute": "Slå mikrofonen til",
+  "live.connecting": "Forbinder…",
+  "live.unmute": "Lyd til",
+  "live.mute": "Lyd fra",
+  "live.connectFail": "Kunne ikke oprette forbindelse til udsendelsen. Tjek din forbindelse, og prøv igen.",
+  "live.reconnect": "Opret forbindelse igen",
 };
 
 export default da;

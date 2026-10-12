@@ -268,6 +268,20 @@ const hu: Record<string, string> = {
   "go.gateTitle": "Majdnem megvan!",
   "go.gateBody": "Készíts több rövid videót, hogy elérd a(z) {need} követőt, és feloldd az élő adást. Jelenleg {count} követőd van.",
   "go.gateCta": "Rövid videó készítése",
+  "go.modeLabel": "Közvetítés módja",
+  "go.modeCamera": "Közvetítés kamerával és mikrofonnal a böngészőben",
+  "go.modeLink": "YouTube / Facebook / TikTok élő adás hivatkozásának beillesztése",
+  "go.cameraRules": "Az élő adásoknak követniük kell a közösségi szabályokat: nincs explicit tartalom, és nincs pénzátutalásra felszólítás.",
+  "go.cameraNote": "Közvetlenül ennek az eszköznek a kamerájáról és mikrofonjáról közvetít. Kb. 10 egyidejű nézőig ideális; nagyobb közönségnek közvetíts YouTube-on, Facebookon vagy TikTokon, és illeszd be a hivatkozást.",
+  "go.cameraDenied": "Nem érhető el a kamera vagy a mikrofon. Engedélyezd a böngészőben, és próbáld újra.",
+  "go.keepOpen": "Tartsd nyitva ezt az oldalt közvetítés közben. Ha bezárod vagy zárolod a képernyőt, a közvetítés leáll.",
+  "go.micMute": "Mikrofon némítása",
+  "go.micUnmute": "Mikrofon bekapcsolása",
+  "live.connecting": "Csatlakozás…",
+  "live.unmute": "Hang be",
+  "live.mute": "Hang ki",
+  "live.connectFail": "Nem sikerült csatlakozni az adáshoz. Ellenőrizd a kapcsolatot, és próbáld újra.",
+  "live.reconnect": "Újracsatlakozás",
 };
 
 export default hu;

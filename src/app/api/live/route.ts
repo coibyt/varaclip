@@ -41,10 +41,11 @@ export async function POST(req: Request) {
   const followers = await db.follow.count({ where: { followingId: me.id } });
   if (followers < LIVE_MIN_FOLLOWERS) return json({ error: t("go.gateBody", { need: LIVE_MIN_FOLLOWERS, count: followers }) }, 403);
 
-  const p = z.object({ title: z.string().trim().max(120).default(""), url: z.string().trim().min(8).max(600) }).safeParse(await req.json().catch(() => null));
+  const p = z.object({ title: z.string().trim().max(120).default(""), mode: z.enum(["link", "camera"]).default("link"), url: z.string().trim().max(600).default("") }).safeParse(await req.json().catch(() => null));
   if (!p.success) return json({ error: t("err.badLiveUrl") }, 400);
 
-  const src = parseLiveUrl(p.data.url);
+  const camera = p.data.mode === "camera";
+  const src = camera ? { platform: "camera", sourceUrl: "", embedId: "" } : parseLiveUrl(p.data.url);
   if ("error" in src) return json({ error: src.error === "channel" ? t("err.liveChannelLink") : t("err.badLiveUrl") }, 400);
 
   // One broadcast at a time per salon: close any earlier one first.

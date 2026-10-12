@@ -268,6 +268,20 @@ const pt: Record<string, string> = {
   "go.gateTitle": "Quase lá!",
   "go.gateBody": "Crie mais vídeos curtos para chegar a {need} seguidores e liberar as transmissões ao vivo. Você tem {count} até agora.",
   "go.gateCta": "Criar um vídeo curto",
+  "go.modeLabel": "Como transmitir",
+  "go.modeCamera": "Transmitir com câmera e microfone no navegador",
+  "go.modeLink": "Colar um link de transmissão ao vivo do YouTube / Facebook / TikTok",
+  "go.cameraRules": "As transmissões devem seguir as regras da comunidade: sem conteúdo explícito e sem pedidos de transferência de dinheiro.",
+  "go.cameraNote": "Transmite direto da câmera e do microfone deste dispositivo. Ideal para cerca de 10 espectadores ao mesmo tempo; para um público maior, transmita no YouTube, Facebook ou TikTok e cole o link.",
+  "go.cameraDenied": "Não foi possível acessar a câmera ou o microfone. Permita o acesso no navegador e tente de novo.",
+  "go.keepOpen": "Mantenha esta página aberta durante a transmissão. Fechá-la ou bloquear a tela interrompe a transmissão.",
+  "go.micMute": "Silenciar microfone",
+  "go.micUnmute": "Ativar microfone",
+  "live.connecting": "Conectando…",
+  "live.unmute": "Ativar som",
+  "live.mute": "Silenciar",
+  "live.connectFail": "Não foi possível conectar à transmissão. Verifique sua conexão e tente de novo.",
+  "live.reconnect": "Reconectar",
 };
 
 export default pt;

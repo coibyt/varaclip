@@ -268,6 +268,20 @@ const sk: Record<string, string> = {
   "go.gateTitle": "Skoro hotovo!",
   "go.gateBody": "Vytvorte viac krátkych videí, aby ste získali {need} sledovateľov a odomkli živé vysielanie. Zatiaľ máte {count}.",
   "go.gateCta": "Vytvoriť krátke video",
+  "go.modeLabel": "Spôsob vysielania",
+  "go.modeCamera": "Vysielať kamerou a mikrofónom v prehliadači",
+  "go.modeLink": "Vložiť odkaz na živé vysielanie z YouTube / Facebooku / TikToku",
+  "go.cameraRules": "Živé vysielania musia dodržiavať pravidlá komunity: žiadny explicitný obsah a žiadne výzvy na prevod peňazí.",
+  "go.cameraNote": "Vysiela priamo z kamery a mikrofónu tohto zariadenia. Vhodné pre približne 10 divákov naraz; pre väčšie publikum vysielajte na YouTube, Facebooku alebo TikToku a vložte odkaz.",
+  "go.cameraDenied": "Nepodarilo sa získať prístup ku kamere alebo mikrofónu. Povoľte prístup v prehliadači a skúste to znova.",
+  "go.keepOpen": "Počas vysielania nechajte túto stránku otvorenú. Zatvorením alebo zamknutím obrazovky sa vysielanie zastaví.",
+  "go.micMute": "Stlmiť mikrofón",
+  "go.micUnmute": "Zapnúť mikrofón",
+  "live.connecting": "Pripája sa…",
+  "live.unmute": "Zapnúť zvuk",
+  "live.mute": "Stlmiť",
+  "live.connectFail": "Nepodarilo sa pripojiť k vysielaniu. Skontrolujte pripojenie a skúste to znova.",
+  "live.reconnect": "Pripojiť znova",
 };
 
 export default sk;

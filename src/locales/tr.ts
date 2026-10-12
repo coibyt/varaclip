@@ -268,6 +268,20 @@ const tr: Record<string, string> = {
   "go.gateTitle": "Neredeyse tamam!",
   "go.gateBody": "{need} takipçiye ulaşmak ve canlı yayının kilidini açmak için daha fazla kısa video oluşturun. Şu an {count} takipçiniz var.",
   "go.gateCta": "Kısa video oluştur",
+  "go.modeLabel": "Yayın yöntemi",
+  "go.modeCamera": "Tarayıcıda kamera ve mikrofonla yayın yap",
+  "go.modeLink": "YouTube / Facebook / TikTok canlı yayın bağlantısı yapıştır",
+  "go.cameraRules": "Canlı yayınlar topluluk kurallarına uymalıdır: müstehcen içerik ve para transferi çağrısı yok.",
+  "go.cameraNote": "Doğrudan bu cihazın kamerasından ve mikrofonundan yayın yapar. Aynı anda yaklaşık 10 izleyici için uygundur; daha kalabalık kitle için YouTube, Facebook veya TikTok’ta yayın yapıp bağlantıyı yapıştırın.",
+  "go.cameraDenied": "Kamera veya mikrofona erişilemedi. Tarayıcıda erişime izin verip tekrar deneyin.",
+  "go.keepOpen": "Yayın sırasında bu sayfayı açık tutun. Sayfayı kapatmak veya ekranı kilitlemek yayını durdurur.",
+  "go.micMute": "Mikrofonu kapat",
+  "go.micUnmute": "Mikrofonu aç",
+  "live.connecting": "Bağlanıyor…",
+  "live.unmute": "Sesi aç",
+  "live.mute": "Sesi kapat",
+  "live.connectFail": "Yayına bağlanılamadı. Bağlantınızı kontrol edip tekrar deneyin.",
+  "live.reconnect": "Yeniden bağlan",
 };
 
 export default tr;

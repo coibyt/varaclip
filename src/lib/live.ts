@@ -1,4 +1,5 @@
 import { db } from "./db";
+import { HOST_GONE_MS, hostSeen } from "./rtc";
 
 /**
  * Livestreams run on the salon's own YouTube / Facebook / TikTok account: the
@@ -8,7 +9,7 @@ import { db } from "./db";
 /** A salon needs this many followers before it can announce a live. */
 export const LIVE_MIN_FOLLOWERS = 0;
 
-export type Platform = "youtube" | "facebook" | "tiktok";
+export type Platform = "youtube" | "facebook" | "tiktok" | "camera";
 export type LiveSource = { platform: Platform; sourceUrl: string; embedId: string };
 export type ParseError = "invalid" | "channel";
 
@@ -69,7 +70,7 @@ export function thumbUrl(s: { platform: string; embedId: string }): string | nul
   return s.platform === "youtube" && YT_ID.test(s.embedId) ? `https://i.ytimg.com/vi/${s.embedId}/hqdefault.jpg` : null;
 }
 
-export const platformName = (p: string) => (p === "youtube" ? "YouTube" : p === "facebook" ? "Facebook" : p === "tiktok" ? "TikTok" : p);
+export const platformName = (p: string) => (p === "youtube" ? "YouTube" : p === "facebook" ? "Facebook" : p === "tiktok" ? "TikTok" : p === "camera" ? "VaraClip" : p);
 
 const MAX_LIVE_MS = 8 * 3600_000; // a forgotten broadcast closes itself
 const VIEWER_WINDOW_MS = 30_000;
@@ -84,6 +85,11 @@ export async function closeStaleStreams() {
     where: { status: "LIVE", startedAt: { lt: new Date(Date.now() - MAX_LIVE_MS) } },
     data: { status: "ENDED", endedAt: new Date() },
   });
+  // A camera live needs the salon's page open: close it once that page stopped checking in.
+  const cams = await db.liveStream.findMany({ where: { status: "LIVE", platform: "camera" }, select: { id: true, startedAt: true } });
+  for (const c of cams) {
+    if (Date.now() - (hostSeen(c.id) ?? c.startedAt.getTime()) > HOST_GONE_MS) await endStream(c.id);
+  }
 }
 
 export async function viewerCount(streamId: string) {

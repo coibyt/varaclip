@@ -268,6 +268,20 @@ const nl: Record<string, string> = {
   "go.gateTitle": "Bijna daar!",
   "go.gateBody": "Maak meer korte video’s om {need} volgers te bereiken en livestreamen te ontgrendelen. Je hebt er nu {count}.",
   "go.gateCta": "Korte video maken",
+  "go.modeLabel": "Zo zend je uit",
+  "go.modeCamera": "Uitzenden met camera en microfoon in de browser",
+  "go.modeLink": "Plak een YouTube-/Facebook-/TikTok-livelink",
+  "go.cameraRules": "Livestreams moeten de communityregels volgen: geen expliciete inhoud en geen verzoeken om geld over te maken.",
+  "go.cameraNote": "Zendt rechtstreeks uit via de camera en microfoon van dit apparaat. Geschikt voor ongeveer 10 kijkers tegelijk; ga voor een groter publiek live op YouTube, Facebook of TikTok en plak de link.",
+  "go.cameraDenied": "Geen toegang tot camera of microfoon. Geef je browser toestemming en probeer het opnieuw.",
+  "go.keepOpen": "Houd deze pagina open terwijl je uitzendt. Sluit je haar of vergrendel je het scherm, dan stopt de uitzending.",
+  "go.micMute": "Microfoon dempen",
+  "go.micUnmute": "Microfoon aanzetten",
+  "live.connecting": "Verbinden…",
+  "live.unmute": "Geluid aan",
+  "live.mute": "Geluid uit",
+  "live.connectFail": "Kon niet met de uitzending verbinden. Controleer je verbinding en probeer het opnieuw.",
+  "live.reconnect": "Opnieuw verbinden",
 };
 
 export default nl;

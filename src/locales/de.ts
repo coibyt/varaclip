@@ -268,6 +268,20 @@ const de: Record<string, string> = {
   "go.gateTitle": "Fast geschafft!",
   "go.gateBody": "Erstelle mehr Kurzvideos, um {need} Follower zu erreichen und Livestreams freizuschalten. Du hast aktuell {count}.",
   "go.gateCta": "Kurzvideo erstellen",
+  "go.modeLabel": "Übertragungsart",
+  "go.modeCamera": "Mit Kamera und Mikrofon im Browser senden",
+  "go.modeLink": "YouTube-/Facebook-/TikTok-Live-Link einfügen",
+  "go.cameraRules": "Livestreams müssen die Community-Regeln einhalten: keine expliziten Inhalte, keine Aufforderungen zu Geldüberweisungen.",
+  "go.cameraNote": "Sendet direkt über Kamera und Mikrofon dieses Geräts. Geeignet für etwa 10 Zuschauer gleichzeitig; für ein größeres Publikum gehe auf YouTube, Facebook oder TikTok live und füge den Link ein.",
+  "go.cameraDenied": "Kein Zugriff auf Kamera oder Mikrofon. Erlaube den Zugriff im Browser und versuche es erneut.",
+  "go.keepOpen": "Lass diese Seite während der Übertragung geöffnet. Schließen oder Sperren des Bildschirms beendet die Übertragung.",
+  "go.micMute": "Mikrofon stummschalten",
+  "go.micUnmute": "Mikrofon einschalten",
+  "live.connecting": "Verbinde…",
+  "live.unmute": "Ton an",
+  "live.mute": "Ton aus",
+  "live.connectFail": "Verbindung zur Übertragung fehlgeschlagen. Prüfe deine Verbindung und versuche es erneut.",
+  "live.reconnect": "Neu verbinden",
 };
 
 export default de;

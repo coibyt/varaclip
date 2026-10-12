@@ -268,6 +268,20 @@ const id: Record<string, string> = {
   "go.gateTitle": "Hampir sampai!",
   "go.gateBody": "Buat lebih banyak video pendek untuk mencapai {need} pengikut dan membuka siaran langsung. Saat ini Anda punya {count}.",
   "go.gateCta": "Buat video pendek",
+  "go.modeLabel": "Cara siaran",
+  "go.modeCamera": "Siaran dengan kamera & mikrofon di browser",
+  "go.modeLink": "Tempel tautan siaran langsung YouTube / Facebook / TikTok",
+  "go.cameraRules": "Siaran langsung harus mematuhi aturan komunitas: tanpa konten eksplisit dan tanpa ajakan transfer uang.",
+  "go.cameraNote": "Menyiarkan langsung dari kamera dan mikrofon perangkat ini. Cocok untuk sekitar 10 penonton sekaligus; untuk penonton lebih banyak, siaran di YouTube, Facebook, atau TikTok lalu tempel tautannya.",
+  "go.cameraDenied": "Tidak dapat mengakses kamera atau mikrofon. Izinkan akses di browser lalu coba lagi.",
+  "go.keepOpen": "Biarkan halaman ini terbuka selama siaran. Menutupnya atau mengunci layar akan menghentikan siaran.",
+  "go.micMute": "Matikan mikrofon",
+  "go.micUnmute": "Nyalakan mikrofon",
+  "live.connecting": "Menghubungkan…",
+  "live.unmute": "Nyalakan suara",
+  "live.mute": "Matikan suara",
+  "live.connectFail": "Tidak dapat terhubung ke siaran. Periksa koneksi Anda lalu coba lagi.",
+  "live.reconnect": "Hubungkan ulang",
 };
 
 export default id;

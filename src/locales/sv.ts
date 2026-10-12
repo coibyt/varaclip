@@ -268,6 +268,20 @@ const sv: Record<string, string> = {
   "go.gateTitle": "Nästan där!",
   "go.gateBody": "Skapa fler korta videor för att nå {need} följare och låsa upp livesändning. Du har {count} hittills.",
   "go.gateCta": "Skapa en kort video",
+  "go.modeLabel": "Hur du sänder",
+  "go.modeCamera": "Sänd med kamera och mikrofon i webbläsaren",
+  "go.modeLink": "Klistra in en YouTube-/Facebook-/TikTok-livelänk",
+  "go.cameraRules": "Livesändningar måste följa gemenskapens regler: inget sexuellt innehåll och inga uppmaningar att skicka pengar.",
+  "go.cameraNote": "Sänder direkt från den här enhetens kamera och mikrofon. Passar för ungefär 10 tittare samtidigt; för större publik, sänd på YouTube, Facebook eller TikTok och klistra in länken.",
+  "go.cameraDenied": "Det gick inte att komma åt kameran eller mikrofonen. Tillåt åtkomst i webbläsaren och försök igen.",
+  "go.keepOpen": "Låt den här sidan vara öppen medan du sänder. Om du stänger den eller låser skärmen avbryts sändningen.",
+  "go.micMute": "Stäng av mikrofonen",
+  "go.micUnmute": "Slå på mikrofonen",
+  "live.connecting": "Ansluter…",
+  "live.unmute": "Ljud på",
+  "live.mute": "Ljud av",
+  "live.connectFail": "Det gick inte att ansluta till sändningen. Kontrollera anslutningen och försök igen.",
+  "live.reconnect": "Anslut igen",
 };
 
 export default sv;

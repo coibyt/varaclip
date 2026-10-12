@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Check, Copy, ExternalLink, Eye, Loader2, Radio, Square } from "lucide-react";
+import { CameraBroadcaster, camHold, openCamera } from "./camera-broadcaster";
 import { ChatPanel } from "./chat-panel";
 import { useT } from "./locale-provider";
 
@@ -18,6 +19,7 @@ export function GoLive({ meId, active }: { meId: string; active: ActiveLive | nu
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
+  const [mode, setMode] = useState<"camera" | "link">("camera");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
@@ -27,10 +29,17 @@ export function GoLive({ meId, active }: { meId: string; active: ActiveLive | nu
     e.preventDefault();
     setBusy(true);
     setError("");
-    const r = await fetch("/api/live", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title, url }) });
+    if (mode === "camera") {
+      try { camHold.stream = await openCamera(); } catch { setBusy(false); return setError(t("go.cameraDenied")); }
+    }
+    const r = await fetch("/api/live", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title, url, mode }) });
     const j = await r.json().catch(() => ({}));
     setBusy(false);
-    if (!r.ok) return setError(j.error ?? t("go.startFail"));
+    if (!r.ok) {
+      camHold.stream?.getTracks().forEach((tr) => tr.stop());
+      camHold.stream = null;
+      return setError(j.error ?? t("go.startFail"));
+    }
     router.refresh();
   }
 
@@ -43,6 +52,7 @@ export function GoLive({ meId, active }: { meId: string; active: ActiveLive | nu
   }
 
   if (active) {
+    const camera = active.platform === "camera";
     const shareUrl = typeof window === "undefined" ? "" : `${window.location.origin}/live/${active.id}`;
     return (
       <div className="mx-auto grid max-w-6xl gap-4 px-4 pb-28 pt-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:pb-8">
@@ -54,9 +64,11 @@ export function GoLive({ meId, active }: { meId: string; active: ActiveLive | nu
             <span className="flex items-center gap-1 tabular-nums"><Eye className="size-4" aria-hidden /> {viewers}</span>
           </p>
 
+          {camera && <div className="mt-4"><CameraBroadcaster streamId={active.id} /></div>}
+
           <div className="mt-5 flex flex-col gap-2 sm:max-w-sm">
             <Link href={`/live/${active.id}`} className="btn btn-primary"><Radio className="size-5" aria-hidden /> {t("go.open")}</Link>
-            <a href={active.sourceUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost"><ExternalLink className="size-5" aria-hidden /> {t("live.openOn", { platform: active.platformName })}</a>
+            {!camera && <a href={active.sourceUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost"><ExternalLink className="size-5" aria-hidden /> {t("live.openOn", { platform: active.platformName })}</a>}
             <button
               type="button"
               onClick={async () => { try { await navigator.clipboard.writeText(shareUrl); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { window.prompt(t("go.share"), shareUrl); } }}
@@ -68,7 +80,7 @@ export function GoLive({ meId, active }: { meId: string; active: ActiveLive | nu
               {busy ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Square className="size-5 fill-white" aria-hidden />} {t("go.end")}
             </button>
           </div>
-          <p className="mt-4 text-xs text-mist">{t("go.endHint")}</p>
+          <p className="mt-4 text-xs text-mist">{camera ? t("go.keepOpen") : t("go.endHint")}</p>
         </div>
 
         <ChatPanel streamId={active.id} creatorId={meId} meId={meId} isOwner onUpdate={(u) => setViewers(u.viewers)} className="h-[56dvh] lg:h-[calc(100dvh-3rem)] lg:max-h-[780px]" />
@@ -80,31 +92,46 @@ export function GoLive({ meId, active }: { meId: string; active: ActiveLive | nu
     <div className="mx-auto max-w-xl px-4 pb-28 pt-8 lg:pb-12">
       <h1 className="flex items-center gap-2 text-2xl font-extrabold tracking-tight"><Radio className="size-6 text-red-500" aria-hidden /> {t("go.title")}</h1>
 
-      <div className="mt-5 rounded-2xl bg-ink-2 p-4">
-        <p className="font-bold">{t("go.howTitle")}</p>
-        <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-white/85">{t("go.howBody")}</p>
-      </div>
-
       <form onSubmit={start} className="mt-6 space-y-4">
-        <div>
-          <label htmlFor="live-url" className="mb-1.5 block text-sm font-semibold">{t("go.linkLabel")}</label>
-          <input
-            id="live-url" type="url" inputMode="url" required value={url} onChange={(e) => setUrl(e.target.value)} disabled={busy}
-            placeholder="https://www.youtube.com/watch?v=…" className="input" autoComplete="off"
-          />
-          <p className="mt-1 text-xs text-mist">{t("go.linkHint")}</p>
-        </div>
         <div>
           <label htmlFor="live-title" className="mb-1.5 block text-sm font-semibold">{t("go.titleLabel")}</label>
           <input id="live-title" value={title} onChange={(e) => setTitle(e.target.value)} maxLength={120} disabled={busy} placeholder={t("go.titlePlaceholder")} className="input" />
         </div>
+        <div>
+          <label htmlFor="live-mode" className="mb-1.5 block text-sm font-semibold">{t("go.modeLabel")}</label>
+          <select id="live-mode" value={mode} onChange={(e) => setMode(e.target.value as "camera" | "link")} disabled={busy} className="input">
+            <option value="camera">{t("go.modeCamera")}</option>
+            <option value="link">{t("go.modeLink")}</option>
+          </select>
+        </div>
+
+        {mode === "camera" ? (
+          <p className="rounded-xl bg-ink-2 px-4 py-3 text-sm leading-relaxed text-white/85">{t("go.cameraNote")}</p>
+        ) : (
+          <>
+            <div className="rounded-2xl bg-ink-2 p-4">
+              <p className="font-bold">{t("go.howTitle")}</p>
+              <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-white/85">{t("go.howBody")}</p>
+            </div>
+            <div>
+              <label htmlFor="live-url" className="mb-1.5 block text-sm font-semibold">{t("go.linkLabel")}</label>
+              <input
+                id="live-url" type="url" inputMode="url" required value={url} onChange={(e) => setUrl(e.target.value)} disabled={busy}
+                placeholder="https://www.youtube.com/watch?v=…" className="input" autoComplete="off"
+              />
+              <p className="mt-1 text-xs text-mist">{t("go.linkHint")}</p>
+            </div>
+          </>
+        )}
+
+        <p className="rounded-xl border border-gold/40 bg-gold/10 px-4 py-3 text-sm leading-relaxed">{t("go.cameraRules")}</p>
 
         {error && <p role="alert" className="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{error}</p>}
 
-        <button disabled={busy || url.trim().length < 8} className="btn btn-primary w-full">
+        <button disabled={busy || (mode === "link" && url.trim().length < 8)} className="btn btn-primary w-full">
           {busy ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Radio className="size-5" aria-hidden />} {busy ? t("go.starting") : t("go.start")}
         </button>
-        <p className="text-xs text-mist">{t("go.tiktokNote")}</p>
+        {mode === "link" && <p className="text-xs text-mist">{t("go.tiktokNote")}</p>}
       </form>
     </div>
   );

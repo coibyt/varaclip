@@ -268,6 +268,20 @@ const ko: Record<string, string> = {
   "go.gateTitle": "거의 다 왔어요!",
   "go.gateBody": "짧은 영상을 더 만들어 팔로워 {need}명을 달성하면 라이브 방송을 사용할 수 있어요. 지금은 {count}명이에요.",
   "go.gateCta": "짧은 영상 만들기",
+  "go.modeLabel": "방송 방식",
+  "go.modeCamera": "브라우저에서 카메라와 마이크로 방송",
+  "go.modeLink": "YouTube / Facebook / TikTok 라이브 링크 붙여넣기",
+  "go.cameraRules": "라이브 방송은 커뮤니티 규칙을 지켜야 해요. 선정적인 내용과 송금 요구는 금지예요.",
+  "go.cameraNote": "이 기기의 카메라와 마이크로 바로 방송해요. 동시 시청 10명 안팎에 알맞아요. 더 많은 시청자는 YouTube, Facebook, TikTok에서 방송하고 링크를 붙여 넣으세요.",
+  "go.cameraDenied": "카메라 또는 마이크에 접근할 수 없어요. 브라우저에서 허용한 뒤 다시 시도하세요.",
+  "go.keepOpen": "방송 중에는 이 페이지를 열어 두세요. 페이지를 닫거나 화면을 잠그면 방송이 멈춰요.",
+  "go.micMute": "마이크 끄기",
+  "go.micUnmute": "마이크 켜기",
+  "live.connecting": "연결 중…",
+  "live.unmute": "소리 켜기",
+  "live.mute": "소리 끄기",
+  "live.connectFail": "방송에 연결할 수 없어요. 연결 상태를 확인하고 다시 시도하세요.",
+  "live.reconnect": "다시 연결",
 };
 
 export default ko;

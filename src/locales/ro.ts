@@ -268,6 +268,20 @@ const ro: Record<string, string> = {
   "go.gateTitle": "Aproape gata!",
   "go.gateBody": "Creează mai multe videoclipuri scurte pentru a ajunge la {need} urmăritori și a debloca transmisiunile live. Ai {count} până acum.",
   "go.gateCta": "Creează un videoclip scurt",
+  "go.modeLabel": "Cum transmiți",
+  "go.modeCamera": "Transmite cu camera și microfonul din browser",
+  "go.modeLink": "Lipește un link de live de pe YouTube / Facebook / TikTok",
+  "go.cameraRules": "Transmisiunile live trebuie să respecte regulile comunității: fără conținut explicit și fără cereri de transfer de bani.",
+  "go.cameraNote": "Transmite direct de la camera și microfonul acestui dispozitiv. Potrivit pentru circa 10 spectatori simultan; pentru un public mai mare, transmite pe YouTube, Facebook sau TikTok și lipește linkul.",
+  "go.cameraDenied": "Nu s-a putut accesa camera sau microfonul. Permite accesul în browser și încearcă din nou.",
+  "go.keepOpen": "Păstrează această pagină deschisă cât timp transmiți. Închiderea ei sau blocarea ecranului oprește transmisiunea.",
+  "go.micMute": "Dezactivează microfonul",
+  "go.micUnmute": "Activează microfonul",
+  "live.connecting": "Se conectează…",
+  "live.unmute": "Activează sunetul",
+  "live.mute": "Dezactivează sunetul",
+  "live.connectFail": "Nu s-a putut face conexiunea la transmisiune. Verifică rețeaua și încearcă din nou.",
+  "live.reconnect": "Reconectează",
 };
 
 export default ro;

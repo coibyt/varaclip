@@ -284,6 +284,20 @@ const vi: Record<string, string> = {
   "go.gateTitle": "Gần xong rồi!",
   "go.gateBody": "Hãy thử tạo thêm nhiều video ngắn để cán mốc {need} người theo dõi và được cấp quyền sử dụng tính năng phát trực tiếp. Hiện bạn có {count}.",
   "go.gateCta": "Tạo video ngắn",
+  "go.modeLabel": "Cách phát",
+  "go.modeCamera": "Phát bằng camera & micro trên trình duyệt",
+  "go.modeLink": "Dán link YouTube / Facebook / TikTok Live",
+  "go.cameraRules": "Livestream phải tuân thủ quy tắc cộng đồng: không nội dung khiêu dâm, không kêu gọi chuyển tiền.",
+  "go.cameraNote": "Phát thẳng từ camera và micro của thiết bị này. Phù hợp khoảng 10 người xem cùng lúc; nếu đông hơn, hãy phát bằng YouTube, Facebook hoặc TikTok rồi dán link.",
+  "go.cameraDenied": "Không truy cập được camera hoặc micro. Hãy cho phép trình duyệt dùng camera và micro rồi thử lại.",
+  "go.keepOpen": "Hãy giữ trang này mở khi đang phát. Đóng trang hoặc khóa màn hình sẽ làm buổi phát dừng lại.",
+  "go.micMute": "Tắt micro",
+  "go.micUnmute": "Bật micro",
+  "live.connecting": "Đang kết nối…",
+  "live.unmute": "Bật tiếng",
+  "live.mute": "Tắt tiếng",
+  "live.connectFail": "Không kết nối được buổi phát. Kiểm tra mạng rồi thử lại.",
+  "live.reconnect": "Kết nối lại",
 };
 
 export default vi;

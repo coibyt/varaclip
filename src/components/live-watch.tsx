@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { CalendarCheck, ExternalLink, Eye, MessageCircle, Phone } from "lucide-react";
 import { Avatar } from "./avatar";
+import { CameraViewer } from "./camera-viewer";
 import { ChatPanel } from "./chat-panel";
 import { FollowButton } from "./follow-button";
 import { useT } from "./locale-provider";
@@ -23,7 +24,7 @@ type Props = {
 };
 
 /** Viewer page: the live (embedded, or a button to open it) next to the VaraClip chat. */
-export function LiveWatch({ streamId, title, platformName, sourceUrl, embedSrc, initialStatus, meId, followed, creator }: Props) {
+export function LiveWatch({ streamId, title, platform, platformName, sourceUrl, embedSrc, initialStatus, meId, followed, creator }: Props) {
   const t = useT();
   const [status, setStatus] = useState(initialStatus);
   const [viewers, setViewers] = useState(0);
@@ -41,6 +42,8 @@ export function LiveWatch({ streamId, title, platformName, sourceUrl, embedSrc, 
         <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
           {!live ? (
             <div className="grid size-full place-items-center p-6 text-center text-mist">{t("live.ended")}</div>
+          ) : platform === "camera" ? (
+            <CameraViewer streamId={streamId} />
           ) : embedSrc ? (
             <iframe
               src={embedSrc} title={title || name} className="absolute inset-0 size-full border-0"

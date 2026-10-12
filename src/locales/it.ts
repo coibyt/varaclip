@@ -268,6 +268,20 @@ const it: Record<string, string> = {
   "go.gateTitle": "Ci sei quasi!",
   "go.gateBody": "Crea altri video brevi per arrivare a {need} follower e sbloccare le dirette. Per ora ne hai {count}.",
   "go.gateCta": "Crea un video breve",
+  "go.modeLabel": "Come trasmettere",
+  "go.modeCamera": "Trasmetti con fotocamera e microfono nel browser",
+  "go.modeLink": "Incolla un link di diretta YouTube / Facebook / TikTok",
+  "go.cameraRules": "Le dirette devono rispettare le regole della community: niente contenuti espliciti né richieste di trasferimento di denaro.",
+  "go.cameraNote": "Trasmette direttamente dalla fotocamera e dal microfono di questo dispositivo. Adatto a circa 10 spettatori alla volta; per un pubblico più ampio, vai in diretta su YouTube, Facebook o TikTok e incolla il link.",
+  "go.cameraDenied": "Impossibile accedere a fotocamera o microfono. Consenti l’accesso nel browser e riprova.",
+  "go.keepOpen": "Tieni aperta questa pagina durante la trasmissione. Chiuderla o bloccare lo schermo interrompe la diretta.",
+  "go.micMute": "Disattiva microfono",
+  "go.micUnmute": "Attiva microfono",
+  "live.connecting": "Connessione…",
+  "live.unmute": "Attiva audio",
+  "live.mute": "Disattiva audio",
+  "live.connectFail": "Impossibile connettersi alla diretta. Controlla la connessione e riprova.",
+  "live.reconnect": "Riconnetti",
 };
 
 export default it;

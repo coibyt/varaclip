@@ -268,6 +268,20 @@ const fr: Record<string, string> = {
   "go.gateTitle": "Presque !",
   "go.gateBody": "Créez davantage de courtes vidéos pour atteindre {need} abonnés et débloquer le direct. Vous en avez {count} pour l’instant.",
   "go.gateCta": "Créer une courte vidéo",
+  "go.modeLabel": "Mode de diffusion",
+  "go.modeCamera": "Diffuser avec la caméra et le micro du navigateur",
+  "go.modeLink": "Coller un lien de direct YouTube / Facebook / TikTok",
+  "go.cameraRules": "Les directs doivent respecter les règles de la communauté : pas de contenu explicite, pas de demande de virement d’argent.",
+  "go.cameraNote": "Diffuse directement depuis la caméra et le micro de cet appareil. Convient pour environ 10 spectateurs à la fois ; pour un public plus large, lancez un direct sur YouTube, Facebook ou TikTok et collez le lien.",
+  "go.cameraDenied": "Impossible d’accéder à la caméra ou au micro. Autorisez l’accès dans votre navigateur puis réessayez.",
+  "go.keepOpen": "Gardez cette page ouverte pendant la diffusion. La fermer ou verrouiller l’écran arrête le direct.",
+  "go.micMute": "Couper le micro",
+  "go.micUnmute": "Réactiver le micro",
+  "live.connecting": "Connexion…",
+  "live.unmute": "Activer le son",
+  "live.mute": "Couper le son",
+  "live.connectFail": "Impossible de se connecter au direct. Vérifiez votre connexion puis réessayez.",
+  "live.reconnect": "Se reconnecter",
 };
 
 export default fr;

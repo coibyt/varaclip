@@ -268,6 +268,20 @@ const ja: Record<string, string> = {
   "go.gateTitle": "あと少し！",
   "go.gateBody": "短い動画をもっと投稿して、フォロワー {need} 人を達成するとライブ配信が使えるようになります。現在は {count} 人です。",
   "go.gateCta": "短い動画を作成",
+  "go.modeLabel": "配信方法",
+  "go.modeCamera": "ブラウザでカメラとマイクを使って配信",
+  "go.modeLink": "YouTube / Facebook / TikTok のライブリンクを貼り付け",
+  "go.cameraRules": "ライブ配信はコミュニティルールを守る必要があります。露骨な内容や送金の呼びかけは禁止です。",
+  "go.cameraNote": "この端末のカメラとマイクから直接配信します。同時視聴は10人ほどが目安です。それ以上の場合は YouTube、Facebook、TikTok で配信してリンクを貼り付けてください。",
+  "go.cameraDenied": "カメラまたはマイクにアクセスできません。ブラウザで許可してからもう一度お試しください。",
+  "go.keepOpen": "配信中はこのページを開いたままにしてください。閉じたり画面をロックしたりすると配信が止まります。",
+  "go.micMute": "マイクをミュート",
+  "go.micUnmute": "マイクのミュートを解除",
+  "live.connecting": "接続中…",
+  "live.unmute": "音声をオン",
+  "live.mute": "ミュート",
+  "live.connectFail": "配信に接続できませんでした。通信環境を確認してもう一度お試しください。",
+  "live.reconnect": "再接続",
 };
 
 export default ja;
