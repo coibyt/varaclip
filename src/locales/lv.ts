@@ -282,6 +282,17 @@ const lv: Record<string, string> = {
   "live.mute": "Izslēgt skaņu",
   "live.connectFail": "Neizdevās savienoties ar raidījumu. Pārbaudi savienojumu un mēģini vēlreiz.",
   "live.reconnect": "Savienot vēlreiz",
+  "acc.title": "Konts",
+  "acc.email": "Pieteikšanās e-pasts",
+  "acc.currentPw": "Pašreizējā parole",
+  "acc.newPw": "Jaunā parole",
+  "acc.changePw": "Mainīt paroli",
+  "acc.pwChanged": "Parole nomainīta.",
+  "acc.pwWrong": "Pašreizējā parole nav pareiza.",
+  "acc.switch": "Pārslēgt kontu",
+  "acc.addAccount": "Pievienot citu kontu",
+  "acc.noOthers": "Citu kontu vēl nav. Pievieno kontu, lai ātri pārslēgtos.",
+  "acc.addingHint": "Piesakies vai reģistrējies ar citu kontu. Atpakaļ vari pārslēgties jebkurā laikā sadaļā Iestatījumi.",
 };
 
 export default lv;

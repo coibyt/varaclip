@@ -298,6 +298,17 @@ const vi: Record<string, string> = {
   "live.mute": "Tắt tiếng",
   "live.connectFail": "Không kết nối được buổi phát. Kiểm tra mạng rồi thử lại.",
   "live.reconnect": "Kết nối lại",
+  "acc.title": "Tài khoản",
+  "acc.email": "Email đăng nhập",
+  "acc.currentPw": "Mật khẩu hiện tại",
+  "acc.newPw": "Mật khẩu mới",
+  "acc.changePw": "Đổi mật khẩu",
+  "acc.pwChanged": "Đã đổi mật khẩu.",
+  "acc.pwWrong": "Mật khẩu hiện tại không đúng.",
+  "acc.switch": "Chuyển tài khoản",
+  "acc.addAccount": "Thêm tài khoản khác",
+  "acc.noOthers": "Chưa có tài khoản nào khác. Hãy thêm một tài khoản để chuyển nhanh.",
+  "acc.addingHint": "Đăng nhập hoặc đăng ký bằng tài khoản khác. Bạn có thể quay lại tài khoản cũ bất cứ lúc nào trong Cài đặt.",
 };
 
 export default vi;

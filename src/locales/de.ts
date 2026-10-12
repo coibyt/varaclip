@@ -282,6 +282,17 @@ const de: Record<string, string> = {
   "live.mute": "Ton aus",
   "live.connectFail": "Verbindung zur Übertragung fehlgeschlagen. Prüfe deine Verbindung und versuche es erneut.",
   "live.reconnect": "Neu verbinden",
+  "acc.title": "Konto",
+  "acc.email": "E-Mail zum Anmelden",
+  "acc.currentPw": "Aktuelles Passwort",
+  "acc.newPw": "Neues Passwort",
+  "acc.changePw": "Passwort ändern",
+  "acc.pwChanged": "Passwort geändert.",
+  "acc.pwWrong": "Das aktuelle Passwort ist falsch.",
+  "acc.switch": "Konto wechseln",
+  "acc.addAccount": "Weiteres Konto hinzufügen",
+  "acc.noOthers": "Noch keine weiteren Konten. Füge eines hinzu, um schnell zu wechseln.",
+  "acc.addingHint": "Melde dich mit einem anderen Konto an oder registriere es. Du kannst jederzeit in den Einstellungen zurückwechseln.",
 };
 
 export default de;

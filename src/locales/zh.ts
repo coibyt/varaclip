@@ -282,6 +282,17 @@ const zh: Record<string, string> = {
   "live.mute": "静音",
   "live.connectFail": "无法连接到直播。请检查网络后重试。",
   "live.reconnect": "重新连接",
+  "acc.title": "账号",
+  "acc.email": "登录邮箱",
+  "acc.currentPw": "当前密码",
+  "acc.newPw": "新密码",
+  "acc.changePw": "修改密码",
+  "acc.pwChanged": "密码已修改。",
+  "acc.pwWrong": "当前密码不正确。",
+  "acc.switch": "切换账号",
+  "acc.addAccount": "添加其他账号",
+  "acc.noOthers": "还没有其他账号。添加一个即可快速切换。",
+  "acc.addingHint": "使用其他账号登录或注册。你可以随时在设置中切换回来。",
 };
 
 export default zh;

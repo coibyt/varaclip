@@ -282,6 +282,17 @@ const fil: Record<string, string> = {
   "live.mute": "I-mute",
   "live.connectFail": "Hindi makakonekta sa stream. Suriin ang koneksyon at subukan ulit.",
   "live.reconnect": "Kumonekta ulit",
+  "acc.title": "Account",
+  "acc.email": "Email sa pag-sign in",
+  "acc.currentPw": "Kasalukuyang password",
+  "acc.newPw": "Bagong password",
+  "acc.changePw": "Palitan ang password",
+  "acc.pwChanged": "Napalitan na ang password.",
+  "acc.pwWrong": "Mali ang kasalukuyang password.",
+  "acc.switch": "Magpalit ng account",
+  "acc.addAccount": "Magdagdag ng ibang account",
+  "acc.noOthers": "Wala pang ibang account. Magdagdag ng isa para mabilis magpalit.",
+  "acc.addingHint": "Mag-sign in o mag-sign up gamit ang ibang account. Maaari kang bumalik anumang oras sa Settings.",
 };
 
 export default fil;

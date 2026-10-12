@@ -282,6 +282,17 @@ const tr: Record<string, string> = {
   "live.mute": "Sesi kapat",
   "live.connectFail": "Yayına bağlanılamadı. Bağlantınızı kontrol edip tekrar deneyin.",
   "live.reconnect": "Yeniden bağlan",
+  "acc.title": "Hesap",
+  "acc.email": "Giriş e-postası",
+  "acc.currentPw": "Mevcut şifre",
+  "acc.newPw": "Yeni şifre",
+  "acc.changePw": "Şifreyi değiştir",
+  "acc.pwChanged": "Şifre değiştirildi.",
+  "acc.pwWrong": "Mevcut şifre yanlış.",
+  "acc.switch": "Hesap değiştir",
+  "acc.addAccount": "Başka hesap ekle",
+  "acc.noOthers": "Henüz başka hesap yok. Hızlı geçiş için bir hesap ekleyin.",
+  "acc.addingHint": "Başka bir hesapla giriş yapın veya kaydolun. İstediğiniz zaman Ayarlar’dan geri dönebilirsiniz.",
 };
 
 export default tr;

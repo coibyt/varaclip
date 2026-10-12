@@ -282,6 +282,17 @@ const no: Record<string, string> = {
   "live.mute": "Lyd av",
   "live.connectFail": "Kunne ikke koble til sendingen. Sjekk tilkoblingen og prøv igjen.",
   "live.reconnect": "Koble til igjen",
+  "acc.title": "Konto",
+  "acc.email": "E-post for innlogging",
+  "acc.currentPw": "Nåværende passord",
+  "acc.newPw": "Nytt passord",
+  "acc.changePw": "Endre passord",
+  "acc.pwChanged": "Passordet er endret.",
+  "acc.pwWrong": "Nåværende passord er feil.",
+  "acc.switch": "Bytt konto",
+  "acc.addAccount": "Legg til en annen konto",
+  "acc.noOthers": "Ingen andre kontoer ennå. Legg til en for å bytte raskt.",
+  "acc.addingHint": "Logg inn eller registrer deg med en annen konto. Du kan bytte tilbake når som helst i Innstillinger.",
 };
 
 export default no;

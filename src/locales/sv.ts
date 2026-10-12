@@ -282,6 +282,17 @@ const sv: Record<string, string> = {
   "live.mute": "Ljud av",
   "live.connectFail": "Det gick inte att ansluta till sändningen. Kontrollera anslutningen och försök igen.",
   "live.reconnect": "Anslut igen",
+  "acc.title": "Konto",
+  "acc.email": "Inloggnings-e-post",
+  "acc.currentPw": "Nuvarande lösenord",
+  "acc.newPw": "Nytt lösenord",
+  "acc.changePw": "Byt lösenord",
+  "acc.pwChanged": "Lösenordet har ändrats.",
+  "acc.pwWrong": "Nuvarande lösenord är fel.",
+  "acc.switch": "Byt konto",
+  "acc.addAccount": "Lägg till ett annat konto",
+  "acc.noOthers": "Inga andra konton ännu. Lägg till ett för att växla snabbt.",
+  "acc.addingHint": "Logga in eller registrera dig med ett annat konto. Du kan byta tillbaka när som helst under Inställningar.",
 };
 
 export default sv;

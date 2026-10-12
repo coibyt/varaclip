@@ -53,7 +53,7 @@ export function SettingsForm({ p, welcome }: { p: P; welcome: boolean }) {
   }
 
   return (
-    <form onSubmit={save} className="mx-auto max-w-xl px-4 pb-28 pt-8 lg:pb-12">
+    <form onSubmit={save} className="mx-auto max-w-xl px-4 pb-6 pt-8">
       <h1 className="text-2xl font-extrabold tracking-tight">{welcome ? t("st.welcomeTitle") : t("st.title")}</h1>
       {welcome && <p className="mt-1 text-mist">{t("st.welcomeSub")}</p>}
 

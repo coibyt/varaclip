@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
-import { checkPassword, createSession, destroySession, hashPassword } from "@/lib/auth";
+import { checkPassword, createSession, destroySession, getUser, hashPassword, stashCurrentSession, switchAccount } from "@/lib/auth";
 import { HANDLE_RE } from "@/lib/util";
 import { getT } from "@/lib/i18n-server";
 
@@ -13,9 +13,11 @@ const registerSchema = z.object({
   isSalon: z.boolean().default(false),
   salonName: z.string().trim().max(80).default(""),
   city: z.string().trim().max(60).default(""),
+  add: z.boolean().default(false),
 });
 
-const loginSchema = z.object({ email: z.string().email(), password: z.string().min(1) });
+const loginSchema = z.object({ email: z.string().email(), password: z.string().min(1), add: z.boolean().default(false) });
+const passwordSchema = z.object({ current: z.string().min(1), next: z.string().min(8).max(100) });
 
 const err = (message: string, status = 400) => NextResponse.json({ error: message }, { status });
 
@@ -29,6 +31,26 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
   }
 
   const body = await req.json().catch(() => null);
+
+  if (action === "stash") {
+    await stashCurrentSession();
+    return NextResponse.json({ ok: true });
+  }
+
+  if (action === "switch") {
+    const id = typeof body?.id === "string" ? body.id : "";
+    return (await switchAccount(id)) ? NextResponse.json({ ok: true }) : err(t("err.invalid"), 404);
+  }
+
+  if (action === "password") {
+    const me = await getUser();
+    if (!me) return err(t("err.login"), 401);
+    const p = passwordSchema.safeParse(body);
+    if (!p.success) return err(t("err.password"));
+    if (!(await checkPassword(p.data.current, me.passwordHash))) return err(t("acc.pwWrong"), 403);
+    await db.user.update({ where: { id: me.id }, data: { passwordHash: await hashPassword(p.data.next) } });
+    return NextResponse.json({ ok: true });
+  }
 
   if (action === "register") {
     const p = registerSchema.safeParse(body);
@@ -53,7 +75,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
         isSalon: d.isSalon, salonName: d.salonName, city: d.city, hue: Math.floor(Math.random() * 360),
       },
     });
-    await createSession(user.id);
+    await createSession(user.id, d.add);
     return NextResponse.json({ ok: true, handle: user.handle });
   }
 
@@ -63,7 +85,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
     const user = await db.user.findUnique({ where: { email: p.data.email.toLowerCase() } });
     // Same message for unknown email and wrong password, to avoid account enumeration.
     if (!user || !(await checkPassword(p.data.password, user.passwordHash))) return err(t("err.badCreds"), 401);
-    await createSession(user.id);
+    await createSession(user.id, p.data.add);
     return NextResponse.json({ ok: true, handle: user.handle });
   }
 

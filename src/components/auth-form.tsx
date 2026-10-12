@@ -12,6 +12,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
   const t = useT();
   const sp = useSearchParams();
   const next = sp.get("next") && sp.get("next")!.startsWith("/") ? sp.get("next")! : "/";
+  const adding = sp.get("add") === "1";
   const [isSalon, setIsSalon] = useState(sp.get("salon") === "1");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -24,6 +25,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
     const f = new FormData(e.currentTarget);
     const body: Record<string, unknown> = Object.fromEntries(f.entries());
     if (reg) body.isSalon = isSalon;
+    if (adding) body.add = true;
     const r = await fetch(`/api/auth/${mode}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     const j = await r.json();
     if (!r.ok) {
@@ -38,6 +40,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
     <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center px-5 py-10 pb-24 lg:pb-10">
       <h1 className="font-display text-4xl font-bold tracking-tight">{reg ? t("auth.createTitle") : t("auth.loginTitle")}</h1>
       <p className="mt-2 text-mist">{reg ? t("auth.createSub") : t("auth.loginSub")}</p>
+      {adding && <p className="mt-3 rounded-xl bg-ink-2 px-4 py-3 text-sm text-white/85">{t("acc.addingHint")}</p>}
 
       {reg && (
         <div className="mt-6 grid grid-cols-2 gap-3" role="radiogroup" aria-label={t("auth.accountType")}>
@@ -82,7 +85,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
 
       <p className="mt-6 text-center text-sm text-mist">
         {reg ? t("auth.haveAccount") : t("auth.noAccount")}{" "}
-        <Link href={reg ? "/login" : "/register"} className="font-bold text-glow hover:underline">{reg ? t("auth.submitLogin") : t("auth.register")}</Link>
+        <Link href={`${reg ? "/login" : "/register"}${adding ? "?add=1" : ""}`} className="font-bold text-glow hover:underline">{reg ? t("auth.submitLogin") : t("auth.register")}</Link>
       </p>
       <LanguageSwitcher className="mx-auto mt-6 w-fit" />
     </div>

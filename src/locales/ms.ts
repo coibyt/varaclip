@@ -282,6 +282,17 @@ const ms: Record<string, string> = {
   "live.mute": "Bisukan",
   "live.connectFail": "Tidak dapat menyambung ke siaran. Semak sambungan anda dan cuba lagi.",
   "live.reconnect": "Sambung semula",
+  "acc.title": "Akaun",
+  "acc.email": "E-mel log masuk",
+  "acc.currentPw": "Kata laluan semasa",
+  "acc.newPw": "Kata laluan baharu",
+  "acc.changePw": "Tukar kata laluan",
+  "acc.pwChanged": "Kata laluan telah ditukar.",
+  "acc.pwWrong": "Kata laluan semasa tidak betul.",
+  "acc.switch": "Tukar akaun",
+  "acc.addAccount": "Tambah akaun lain",
+  "acc.noOthers": "Belum ada akaun lain. Tambah satu untuk bertukar dengan cepat.",
+  "acc.addingHint": "Log masuk atau daftar dengan akaun lain. Anda boleh kembali bila-bila masa dari Tetapan.",
 };
 
 export default ms;

@@ -282,6 +282,17 @@ const fr: Record<string, string> = {
   "live.mute": "Couper le son",
   "live.connectFail": "Impossible de se connecter au direct. Vérifiez votre connexion puis réessayez.",
   "live.reconnect": "Se reconnecter",
+  "acc.title": "Compte",
+  "acc.email": "E-mail de connexion",
+  "acc.currentPw": "Mot de passe actuel",
+  "acc.newPw": "Nouveau mot de passe",
+  "acc.changePw": "Changer le mot de passe",
+  "acc.pwChanged": "Mot de passe modifié.",
+  "acc.pwWrong": "Le mot de passe actuel est incorrect.",
+  "acc.switch": "Changer de compte",
+  "acc.addAccount": "Ajouter un autre compte",
+  "acc.noOthers": "Aucun autre compte pour l’instant. Ajoutez-en un pour changer rapidement.",
+  "acc.addingHint": "Connectez-vous ou inscrivez-vous avec un autre compte. Vous pourrez revenir à tout moment depuis les Paramètres.",
 };
 
 export default fr;

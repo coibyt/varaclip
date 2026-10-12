@@ -282,6 +282,17 @@ const nl: Record<string, string> = {
   "live.mute": "Geluid uit",
   "live.connectFail": "Kon niet met de uitzending verbinden. Controleer je verbinding en probeer het opnieuw.",
   "live.reconnect": "Opnieuw verbinden",
+  "acc.title": "Account",
+  "acc.email": "E-mailadres voor inloggen",
+  "acc.currentPw": "Huidig wachtwoord",
+  "acc.newPw": "Nieuw wachtwoord",
+  "acc.changePw": "Wachtwoord wijzigen",
+  "acc.pwChanged": "Wachtwoord gewijzigd.",
+  "acc.pwWrong": "Huidig wachtwoord is onjuist.",
+  "acc.switch": "Van account wisselen",
+  "acc.addAccount": "Nog een account toevoegen",
+  "acc.noOthers": "Nog geen andere accounts. Voeg er een toe om snel te wisselen.",
+  "acc.addingHint": "Log in of registreer met een ander account. Je kunt altijd teruggaan via Instellingen.",
 };
 
 export default nl;

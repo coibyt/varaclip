@@ -282,6 +282,17 @@ const et: Record<string, string> = {
   "live.mute": "Heli välja",
   "live.connectFail": "Ülekandega ei õnnestunud ühendust luua. Kontrolli ühendust ja proovi uuesti.",
   "live.reconnect": "Ühenda uuesti",
+  "acc.title": "Konto",
+  "acc.email": "Sisselogimise e-post",
+  "acc.currentPw": "Praegune parool",
+  "acc.newPw": "Uus parool",
+  "acc.changePw": "Muuda parooli",
+  "acc.pwChanged": "Parool on muudetud.",
+  "acc.pwWrong": "Praegune parool on vale.",
+  "acc.switch": "Vaheta kontot",
+  "acc.addAccount": "Lisa teine konto",
+  "acc.noOthers": "Muid kontosid pole veel. Lisa konto, et kiiresti vahetada.",
+  "acc.addingHint": "Logi sisse või registreeru teise kontoga. Tagasi saad vahetada alati Seadetes.",
 };
 
 export default et;

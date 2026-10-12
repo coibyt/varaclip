@@ -297,6 +297,17 @@ const en: Record<string, string> = {
   "live.mute": "Mute",
   "live.connectFail": "Could not connect to the stream. Check your connection and try again.",
   "live.reconnect": "Reconnect",
+  "acc.title": "Account",
+  "acc.email": "Sign-in email",
+  "acc.currentPw": "Current password",
+  "acc.newPw": "New password",
+  "acc.changePw": "Change password",
+  "acc.pwChanged": "Password changed.",
+  "acc.pwWrong": "Current password is incorrect.",
+  "acc.switch": "Switch account",
+  "acc.addAccount": "Add another account",
+  "acc.noOthers": "No other accounts yet. Add one to switch quickly.",
+  "acc.addingHint": "Sign in or sign up with another account. You can switch back any time from Settings.",
 };
 
 export default en;

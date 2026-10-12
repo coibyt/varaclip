@@ -282,6 +282,17 @@ const ja: Record<string, string> = {
   "live.mute": "ミュート",
   "live.connectFail": "配信に接続できませんでした。通信環境を確認してもう一度お試しください。",
   "live.reconnect": "再接続",
+  "acc.title": "アカウント",
+  "acc.email": "ログイン用メール",
+  "acc.currentPw": "現在のパスワード",
+  "acc.newPw": "新しいパスワード",
+  "acc.changePw": "パスワードを変更",
+  "acc.pwChanged": "パスワードを変更しました。",
+  "acc.pwWrong": "現在のパスワードが正しくありません。",
+  "acc.switch": "アカウントを切り替え",
+  "acc.addAccount": "別のアカウントを追加",
+  "acc.noOthers": "他のアカウントはまだありません。追加するとすばやく切り替えられます。",
+  "acc.addingHint": "別のアカウントでログインまたは登録します。設定からいつでも元のアカウントに戻れます。",
 };
 
 export default ja;

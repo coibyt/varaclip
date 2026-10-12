@@ -282,6 +282,17 @@ const pt: Record<string, string> = {
   "live.mute": "Silenciar",
   "live.connectFail": "Não foi possível conectar à transmissão. Verifique sua conexão e tente de novo.",
   "live.reconnect": "Reconectar",
+  "acc.title": "Conta",
+  "acc.email": "E-mail de login",
+  "acc.currentPw": "Senha atual",
+  "acc.newPw": "Nova senha",
+  "acc.changePw": "Alterar senha",
+  "acc.pwChanged": "Senha alterada.",
+  "acc.pwWrong": "A senha atual está incorreta.",
+  "acc.switch": "Trocar de conta",
+  "acc.addAccount": "Adicionar outra conta",
+  "acc.noOthers": "Ainda não há outras contas. Adicione uma para trocar rapidamente.",
+  "acc.addingHint": "Entre ou cadastre-se com outra conta. Você pode voltar quando quiser em Configurações.",
 };
 
 export default pt;

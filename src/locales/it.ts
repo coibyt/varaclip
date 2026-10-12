@@ -282,6 +282,17 @@ const it: Record<string, string> = {
   "live.mute": "Disattiva audio",
   "live.connectFail": "Impossibile connettersi alla diretta. Controlla la connessione e riprova.",
   "live.reconnect": "Riconnetti",
+  "acc.title": "Account",
+  "acc.email": "Email di accesso",
+  "acc.currentPw": "Password attuale",
+  "acc.newPw": "Nuova password",
+  "acc.changePw": "Cambia password",
+  "acc.pwChanged": "Password cambiata.",
+  "acc.pwWrong": "La password attuale non è corretta.",
+  "acc.switch": "Cambia account",
+  "acc.addAccount": "Aggiungi un altro account",
+  "acc.noOthers": "Nessun altro account per ora. Aggiungine uno per cambiare rapidamente.",
+  "acc.addingHint": "Accedi o registrati con un altro account. Potrai tornare indietro quando vuoi dalle Impostazioni.",
 };
 
 export default it;

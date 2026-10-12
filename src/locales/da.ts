@@ -282,6 +282,17 @@ const da: Record<string, string> = {
   "live.mute": "Lyd fra",
   "live.connectFail": "Kunne ikke oprette forbindelse til udsendelsen. Tjek din forbindelse, og prøv igen.",
   "live.reconnect": "Opret forbindelse igen",
+  "acc.title": "Konto",
+  "acc.email": "E-mail til login",
+  "acc.currentPw": "Nuværende adgangskode",
+  "acc.newPw": "Ny adgangskode",
+  "acc.changePw": "Skift adgangskode",
+  "acc.pwChanged": "Adgangskoden er ændret.",
+  "acc.pwWrong": "Nuværende adgangskode er forkert.",
+  "acc.switch": "Skift konto",
+  "acc.addAccount": "Tilføj en anden konto",
+  "acc.noOthers": "Ingen andre konti endnu. Tilføj en for at skifte hurtigt.",
+  "acc.addingHint": "Log ind eller tilmeld dig med en anden konto. Du kan skifte tilbage når som helst under Indstillinger.",
 };
 
 export default da;

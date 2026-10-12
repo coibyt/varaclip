@@ -282,6 +282,17 @@ const fi: Record<string, string> = {
   "live.mute": "Mykistä",
   "live.connectFail": "Lähetykseen ei saatu yhteyttä. Tarkista verkko ja yritä uudelleen.",
   "live.reconnect": "Yhdistä uudelleen",
+  "acc.title": "Tili",
+  "acc.email": "Kirjautumissähköposti",
+  "acc.currentPw": "Nykyinen salasana",
+  "acc.newPw": "Uusi salasana",
+  "acc.changePw": "Vaihda salasana",
+  "acc.pwChanged": "Salasana vaihdettu.",
+  "acc.pwWrong": "Nykyinen salasana on väärä.",
+  "acc.switch": "Vaihda tiliä",
+  "acc.addAccount": "Lisää toinen tili",
+  "acc.noOthers": "Ei vielä muita tilejä. Lisää tili vaihtaaksesi nopeasti.",
+  "acc.addingHint": "Kirjaudu tai rekisteröidy toisella tilillä. Voit palata takaisin milloin tahansa Asetuksista.",
 };
 
 export default fi;

@@ -282,6 +282,17 @@ const id: Record<string, string> = {
   "live.mute": "Matikan suara",
   "live.connectFail": "Tidak dapat terhubung ke siaran. Periksa koneksi Anda lalu coba lagi.",
   "live.reconnect": "Hubungkan ulang",
+  "acc.title": "Akun",
+  "acc.email": "Email untuk masuk",
+  "acc.currentPw": "Kata sandi saat ini",
+  "acc.newPw": "Kata sandi baru",
+  "acc.changePw": "Ubah kata sandi",
+  "acc.pwChanged": "Kata sandi telah diubah.",
+  "acc.pwWrong": "Kata sandi saat ini salah.",
+  "acc.switch": "Ganti akun",
+  "acc.addAccount": "Tambah akun lain",
+  "acc.noOthers": "Belum ada akun lain. Tambahkan satu untuk berganti dengan cepat.",
+  "acc.addingHint": "Masuk atau daftar dengan akun lain. Anda bisa kembali kapan saja dari Pengaturan.",
 };
 
 export default id;

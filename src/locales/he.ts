@@ -282,6 +282,17 @@ const he: Record<string, string> = {
   "live.mute": "השתקה",
   "live.connectFail": "לא ניתן להתחבר לשידור. בדקו את החיבור ונסו שוב.",
   "live.reconnect": "התחברות מחדש",
+  "acc.title": "חשבון",
+  "acc.email": "אימייל להתחברות",
+  "acc.currentPw": "הסיסמה הנוכחית",
+  "acc.newPw": "סיסמה חדשה",
+  "acc.changePw": "שינוי סיסמה",
+  "acc.pwChanged": "הסיסמה שונתה.",
+  "acc.pwWrong": "הסיסמה הנוכחית שגויה.",
+  "acc.switch": "החלפת חשבון",
+  "acc.addAccount": "הוספת חשבון נוסף",
+  "acc.noOthers": "אין עדיין חשבונות נוספים. הוסיפו חשבון כדי להחליף במהירות.",
+  "acc.addingHint": "התחברו או הירשמו עם חשבון אחר. אפשר לחזור בכל עת דרך ההגדרות.",
 };
 
 export default he;

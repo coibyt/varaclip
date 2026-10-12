@@ -282,6 +282,17 @@ const hu: Record<string, string> = {
   "live.mute": "Hang ki",
   "live.connectFail": "Nem sikerült csatlakozni az adáshoz. Ellenőrizd a kapcsolatot, és próbáld újra.",
   "live.reconnect": "Újracsatlakozás",
+  "acc.title": "Fiók",
+  "acc.email": "Bejelentkezési e-mail",
+  "acc.currentPw": "Jelenlegi jelszó",
+  "acc.newPw": "Új jelszó",
+  "acc.changePw": "Jelszó módosítása",
+  "acc.pwChanged": "A jelszó megváltozott.",
+  "acc.pwWrong": "A jelenlegi jelszó helytelen.",
+  "acc.switch": "Fiókváltás",
+  "acc.addAccount": "Másik fiók hozzáadása",
+  "acc.noOthers": "Még nincs másik fiók. Adj hozzá egyet a gyors váltáshoz.",
+  "acc.addingHint": "Jelentkezz be vagy regisztrálj másik fiókkal. Bármikor visszaválthatsz a Beállításokban.",
 };
 
 export default hu;

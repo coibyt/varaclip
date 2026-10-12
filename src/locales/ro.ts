@@ -282,6 +282,17 @@ const ro: Record<string, string> = {
   "live.mute": "Dezactivează sunetul",
   "live.connectFail": "Nu s-a putut face conexiunea la transmisiune. Verifică rețeaua și încearcă din nou.",
   "live.reconnect": "Reconectează",
+  "acc.title": "Cont",
+  "acc.email": "E-mail de autentificare",
+  "acc.currentPw": "Parola actuală",
+  "acc.newPw": "Parola nouă",
+  "acc.changePw": "Schimbă parola",
+  "acc.pwChanged": "Parola a fost schimbată.",
+  "acc.pwWrong": "Parola actuală este incorectă.",
+  "acc.switch": "Schimbă contul",
+  "acc.addAccount": "Adaugă alt cont",
+  "acc.noOthers": "Încă nu există alte conturi. Adaugă unul pentru a comuta rapid.",
+  "acc.addingHint": "Autentifică-te sau înregistrează-te cu alt cont. Poți reveni oricând din Setări.",
 };
 
 export default ro;

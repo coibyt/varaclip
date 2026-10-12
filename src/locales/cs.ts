@@ -282,6 +282,17 @@ const cs: Record<string, string> = {
   "live.mute": "Ztlumit",
   "live.connectFail": "Nepodařilo se připojit k vysílání. Zkontrolujte připojení a zkuste to znovu.",
   "live.reconnect": "Připojit znovu",
+  "acc.title": "Účet",
+  "acc.email": "E-mail pro přihlášení",
+  "acc.currentPw": "Současné heslo",
+  "acc.newPw": "Nové heslo",
+  "acc.changePw": "Změnit heslo",
+  "acc.pwChanged": "Heslo bylo změněno.",
+  "acc.pwWrong": "Současné heslo není správné.",
+  "acc.switch": "Přepnout účet",
+  "acc.addAccount": "Přidat další účet",
+  "acc.noOthers": "Zatím žádné další účty. Přidejte jeden pro rychlé přepínání.",
+  "acc.addingHint": "Přihlaste se nebo zaregistrujte s jiným účtem. Kdykoli se můžete vrátit v Nastavení.",
 };
 
 export default cs;

@@ -282,6 +282,17 @@ const pl: Record<string, string> = {
   "live.mute": "Wycisz",
   "live.connectFail": "Nie udało się połączyć z transmisją. Sprawdź połączenie i spróbuj ponownie.",
   "live.reconnect": "Połącz ponownie",
+  "acc.title": "Konto",
+  "acc.email": "E-mail do logowania",
+  "acc.currentPw": "Obecne hasło",
+  "acc.newPw": "Nowe hasło",
+  "acc.changePw": "Zmień hasło",
+  "acc.pwChanged": "Hasło zostało zmienione.",
+  "acc.pwWrong": "Obecne hasło jest nieprawidłowe.",
+  "acc.switch": "Przełącz konto",
+  "acc.addAccount": "Dodaj kolejne konto",
+  "acc.noOthers": "Brak innych kont. Dodaj konto, aby szybko się przełączać.",
+  "acc.addingHint": "Zaloguj się lub zarejestruj na inne konto. W każdej chwili możesz wrócić w Ustawieniach.",
 };
 
 export default pl;

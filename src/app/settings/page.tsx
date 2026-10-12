@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
-import { getUser } from "@/lib/auth";
+import { getUser, listOtherAccounts } from "@/lib/auth";
 import { mediaUrl } from "@/lib/storage";
 import { SettingsForm } from "@/components/settings-form";
+import { AccountSection } from "@/components/account-section";
 import { getT } from "@/lib/i18n-server";
 
 export async function generateMetadata() {
@@ -16,5 +17,13 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ w
     displayName: me.displayName, bio: me.bio, salonName: me.salonName, city: me.city, phone: me.phone,
     bookingUrl: me.bookingUrl, isSalon: me.isSalon, hue: me.hue, avatarUrl: mediaUrl(me.avatarKey), handle: me.handle,
   };
-  return <SettingsForm p={p} welcome={(await searchParams).welcome === "1"} />;
+  const others = (await listOtherAccounts(me.id).catch(() => [])).map((u) => ({
+    id: u.id, displayName: u.displayName, handle: u.handle, hue: u.hue, avatarUrl: mediaUrl(u.avatarKey),
+  }));
+  return (
+    <>
+      <SettingsForm p={p} welcome={(await searchParams).welcome === "1"} />
+      <AccountSection email={me.email} others={others} />
+    </>
+  );
 }

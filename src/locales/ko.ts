@@ -282,6 +282,17 @@ const ko: Record<string, string> = {
   "live.mute": "소리 끄기",
   "live.connectFail": "방송에 연결할 수 없어요. 연결 상태를 확인하고 다시 시도하세요.",
   "live.reconnect": "다시 연결",
+  "acc.title": "계정",
+  "acc.email": "로그인 이메일",
+  "acc.currentPw": "현재 비밀번호",
+  "acc.newPw": "새 비밀번호",
+  "acc.changePw": "비밀번호 변경",
+  "acc.pwChanged": "비밀번호를 변경했어요.",
+  "acc.pwWrong": "현재 비밀번호가 올바르지 않아요.",
+  "acc.switch": "계정 전환",
+  "acc.addAccount": "다른 계정 추가",
+  "acc.noOthers": "아직 다른 계정이 없어요. 추가하면 빠르게 전환할 수 있어요.",
+  "acc.addingHint": "다른 계정으로 로그인하거나 가입하세요. 설정에서 언제든 돌아올 수 있어요.",
 };
 
 export default ko;
