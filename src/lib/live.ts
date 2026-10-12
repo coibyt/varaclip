@@ -6,7 +6,7 @@ import { db } from "./db";
  * allows) and adds the chat, viewer count and moderation around it.
  */
 /** A salon needs this many followers before it can announce a live. */
-export const LIVE_MIN_FOLLOWERS = 50;
+export const LIVE_MIN_FOLLOWERS = 0;
 
 export type Platform = "youtube" | "facebook" | "tiktok";
 export type LiveSource = { platform: Platform; sourceUrl: string; embedId: string };
