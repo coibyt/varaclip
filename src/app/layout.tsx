@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import { getLocale, getMessages, getT } from "@/lib/i18n-server";
 import { isRtl } from "@/lib/i18n";
 import { Shell } from "@/components/shell";
+import { isAdminUser } from "@/lib/admin";
 import { LocaleProvider } from "@/components/locale-provider";
 import { InstallBanner, PwaRegister } from "@/components/install-app";
 
@@ -32,7 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const [me, locale] = await Promise.all([getUser(), getLocale()]);
   const [messages, fallback] = await Promise.all([getMessages(locale), getMessages("en")]);
   const unread = me ? await db.directMessage.count({ where: { recipientId: me.id, readAt: null } }).catch(() => 0) : 0;
-  const user = me ? { handle: me.handle, displayName: me.displayName, isSalon: me.isSalon, hue: me.hue } : null;
+  const user = me ? { handle: me.handle, displayName: me.displayName, isSalon: me.isSalon, hue: me.hue, isAdmin: isAdminUser(me) } : null;
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"} className={`${sans.variable} ${display.variable}`}>
       <body className="font-sans">

@@ -12,6 +12,22 @@ let deferred: InstallEvent | null = null;
 let installed = false;
 const FLAG = "vc-installed"; // remembered on this browser once the app is installed or opened as an app
 
+function deviceKey() {
+  const fresh = () => Array.from(crypto.getRandomValues(new Uint8Array(12)), (b) => (b % 36).toString(36)).join("");
+  try {
+    let k = localStorage.getItem("vc-device");
+    if (!k) { k = fresh(); localStorage.setItem("vc-device", k); }
+    return k;
+  } catch {
+    return fresh();
+  }
+}
+
+/** Tells the server (once per device) that the app was installed or opened as an app, for the admin statistics. */
+function track(kind: "installed" | "opened") {
+  fetch("/api/app/track", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ key: deviceKey(), kind }), keepalive: true }).catch(() => {});
+}
+
 function remember() {
   try { localStorage.setItem(FLAG, "1"); } catch { /* storage blocked */ }
 }
@@ -28,6 +44,7 @@ if (typeof window !== "undefined") {
     deferred = null;
     installed = true;
     remember();
+    track("installed");
     notify();
   });
 }
@@ -46,7 +63,12 @@ function useInstall() {
     const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     let flagged = false;
     try { flagged = localStorage.getItem(FLAG) === "1"; } catch { /* storage blocked */ }
-    if (standalone) remember();
+    if (standalone) {
+      remember();
+      let sent = false;
+      try { sent = localStorage.getItem("vc-open-tracked") === "1"; localStorage.setItem("vc-open-tracked", "1"); } catch { /* storage blocked */ }
+      if (!sent) track("opened");
+    }
     setEnv({ standalone: standalone || flagged, ios });
     // Chrome can tell a normal browser tab that the app is already installed on this device.
     const nav = navigator as Navigator & { getInstalledRelatedApps?: () => Promise<unknown[]> };

@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Compass, Home, LayoutDashboard, LogOut, MessageCircle, Plus, Radio, Settings, Sparkles, User } from "lucide-react";
+import { Compass, Home, LayoutDashboard, LogOut, MessageCircle, Plus, Radio, Settings, ShieldCheck, Sparkles, User } from "lucide-react";
 import { Avatar } from "./avatar";
 import { InstallButton } from "./install-app";
 import { LanguageSwitcher } from "./language-switcher";
 import { useT } from "./locale-provider";
 
-export type ShellUser = { handle: string; displayName: string; isSalon: boolean; hue: number } | null;
+export type ShellUser = { handle: string; displayName: string; isSalon: boolean; hue: number; isAdmin?: boolean } | null;
 
 const SITE = process.env.NEXT_PUBLIC_SITE_NAME || "VaraClip";
 
@@ -42,6 +42,7 @@ export function Shell({ user, unread: initialUnread = 0, children }: { user: She
       href: user ? "/messages" : "/login?next=/messages", label: t("nav.messages"), short: t("nav.messages"), icon: MessageCircle,
       match: (p: string) => p.startsWith("/messages"), badge: user ? unread : 0,
     },
+    admin: { href: "/admin", label: "Admin", short: "Admin", icon: ShieldCheck, match: (p: string) => p.startsWith("/admin") },
     studio: { href: "/studio", label: t("nav.studio"), short: t("nav.studio"), icon: LayoutDashboard, match: (p: string) => p.startsWith("/studio") },
     profile: {
       href: user ? `/u/${user.handle}` : "/login", label: user ? t("nav.profile") : t("nav.login"), short: user ? t("nav.profile") : t("nav.login"), icon: User,
@@ -50,7 +51,7 @@ export function Shell({ user, unread: initialUnread = 0, children }: { user: She
   };
   type NavItem = (typeof nav)[keyof typeof nav] & { badge?: number };
 
-  const sidebar: NavItem[] = [nav.home, nav.discover, nav.live, nav.messages, ...(user?.isSalon ? [nav.studio] : []), nav.profile];
+  const sidebar: NavItem[] = [nav.home, nav.discover, nav.live, nav.messages, ...(user?.isSalon ? [nav.studio] : []), ...(user?.isAdmin ? [nav.admin] : []), nav.profile];
   const mobileLeft: NavItem[] = [nav.home, nav.live];
   const mobileRight: NavItem[] = [nav.messages, nav.profile];
 

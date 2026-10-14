@@ -179,3 +179,16 @@ model DirectMessage {
   @@index([recipientId, readAt])
   @@index([senderId, recipientId, createdAt])
 }
+
+/// One row per device that installed the app ("installed") or opened it as an app ("opened").
+model AppInstall {
+  id        String   @id @default(cuid())
+  deviceKey String   @db.VarChar(40)
+  kind      String   @db.VarChar(12)
+  platform  String   @db.VarChar(12)
+  userId    String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([deviceKey, kind])
+}
