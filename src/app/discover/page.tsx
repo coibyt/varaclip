@@ -7,6 +7,7 @@ import { Avatar } from "@/components/avatar";
 import { mediaUrl } from "@/lib/storage";
 import { getT } from "@/lib/i18n-server";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { TrackSearch } from "@/components/track-search";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +45,7 @@ export default async function Discover({ searchParams }: { searchParams: Promise
 
   return (
     <div className="mx-auto max-w-5xl px-4 pb-28 pt-6 lg:pb-12">
+      <TrackSearch q={q} />
       <div className="flex items-center justify-between gap-3">
         <h1 className="text-2xl font-extrabold tracking-tight">{t("dc.title")}</h1>
         <LanguageSwitcher className="lg:hidden" />

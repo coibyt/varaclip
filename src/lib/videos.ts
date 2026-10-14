@@ -1,6 +1,7 @@
 import { db } from "./db";
 import { getUser } from "./auth";
 import { mediaUrl } from "./storage";
+import { affinity, loadInterests } from "./interests";
 import type { FeedVideo, VideoRow } from "./util";
 
 export const videoInclude = {
@@ -52,22 +53,31 @@ export async function hydrate(rows: VideoRow[]): Promise<FeedVideo[]> {
 }
 
 /**
- * "For You" ranking: engagement weighted and decayed by age, with a little
- * jitter so the feed doesn't feel frozen between refreshes.
+ * "For You" feed: a random order that leans towards what the viewer cares about.
+ * Every video gets a weight (a little more for topics the viewer searched for, liked, saved or
+ * commented on, a little more for fresh and well-liked videos) and the order is a weighted shuffle,
+ * so the feed is different on every visit but favourite topics come up sooner and more often.
  */
 export async function forYou(take = 30, exclude: string[] = []) {
-  const pool = await db.video.findMany({
-    where: exclude.length ? { id: { notIn: exclude } } : undefined,
-    orderBy: { createdAt: "desc" },
-    take: 200,
-    include: videoInclude,
-  });
+  const [pool, interests] = await Promise.all([
+    db.video.findMany({
+      where: exclude.length ? { id: { notIn: exclude } } : undefined,
+      orderBy: { createdAt: "desc" },
+      take: 300,
+      include: videoInclude,
+    }),
+    loadInterests(),
+  ]);
   const now = Date.now();
-  const scored = pool.map((v) => {
+  const keyed = pool.map((v) => {
+    const a = affinity(v, interests);
     const ageH = (now - v.createdAt.getTime()) / 3.6e6;
-    const eng = v._count.likes * 3 + v._count.comments * 5 + v.shares * 4 + v.views * 0.15 + 1;
-    return { v, score: (eng / Math.pow(ageH + 2, 1.15)) * (0.85 + Math.random() * 0.3) };
+    let w = 1 + 5 * (1 - Math.exp(-a / 6)); // topic match: up to 6x
+    w *= 1 + Math.min(0.5, Math.log1p(v._count.likes) * 0.12); // a little for popular videos
+    if (ageH < 72) w *= 1.25; // and for new ones
+    // weighted random sampling: u^(1/w), the biggest keys come first
+    return { v, key: Math.pow(Math.random(), 1 / w) };
   });
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, take).map((x) => x.v);
+  keyed.sort((x, y) => y.key - x.key);
+  return keyed.slice(0, take).map((x) => x.v);
 }
