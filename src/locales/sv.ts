@@ -301,6 +301,13 @@ const sv: Record<string, string> = {
   "pwa.installed": "VaraClip är installerat på den här enheten.",
   "pwa.later": "Inte nu",
   "pwa.banner": "Installera VaraClip och öppna det som en app från hemskärmen.",
+  "auth.marketTitle": "Hur vill du få marknadsföringsmeddelanden och aviseringar?",
+  "auth.byEmail": "Via e-post",
+  "auth.bySms": "Via sms",
+  "auth.phoneOpt": "Telefonnummer (valfritt)",
+  "auth.agree": "Genom att fortsätta godkänner jag VaraClip.coms {terms} och {privacy}.",
+  "auth.terms": "användarvillkor",
+  "auth.privacy": "integritetspolicy",
 };
 
 export default sv;

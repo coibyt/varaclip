@@ -317,6 +317,13 @@ const vi: Record<string, string> = {
   "pwa.installed": "VaraClip đã được cài trên thiết bị này.",
   "pwa.later": "Để sau",
   "pwa.banner": "Cài VaraClip để mở như một ứng dụng từ màn hình chính.",
+  "auth.marketTitle": "Bạn muốn nhận tin nhắn và thông báo tiếp thị bằng cách nào?",
+  "auth.byEmail": "Qua email",
+  "auth.bySms": "Qua tin nhắn văn bản",
+  "auth.phoneOpt": "Số điện thoại (không bắt buộc)",
+  "auth.agree": "Bằng việc tiếp tục, tôi đồng ý {terms} và {privacy} của VaraClip.com.",
+  "auth.terms": "Điều khoản sử dụng",
+  "auth.privacy": "Chính sách bảo mật",
 };
 
 export default vi;

@@ -301,6 +301,13 @@ const ko: Record<string, string> = {
   "pwa.installed": "이 기기에 VaraClip이 설치되어 있어요.",
   "pwa.later": "나중에",
   "pwa.banner": "VaraClip을 설치하면 홈 화면에서 앱처럼 열 수 있어요.",
+  "auth.marketTitle": "마케팅 메시지와 알림을 어떤 방법으로 받으시겠어요?",
+  "auth.byEmail": "이메일로",
+  "auth.bySms": "문자 메시지로",
+  "auth.phoneOpt": "전화번호(선택)",
+  "auth.agree": "계속하면 VaraClip.com의 {terms} 및 {privacy}에 동의하는 것으로 간주돼요.",
+  "auth.terms": "이용약관",
+  "auth.privacy": "개인정보처리방침",
 };
 
 export default ko;

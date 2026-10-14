@@ -301,6 +301,13 @@ const uk: Record<string, string> = {
   "pwa.installed": "VaraClip встановлено на цьому пристрої.",
   "pwa.later": "Не зараз",
   "pwa.banner": "Встановіть VaraClip і відкривайте його як застосунок з головного екрана.",
+  "auth.marketTitle": "Як ви хочете отримувати маркетингові повідомлення та сповіщення?",
+  "auth.byEmail": "Електронною поштою",
+  "auth.bySms": "Текстовими повідомленнями",
+  "auth.phoneOpt": "Номер телефону (необов’язково)",
+  "auth.agree": "Продовжуючи, я приймаю {terms} та {privacy} VaraClip.com.",
+  "auth.terms": "Умови користування",
+  "auth.privacy": "Політику конфіденційності",
 };
 
 export default uk;

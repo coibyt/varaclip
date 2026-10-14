@@ -192,3 +192,11 @@ model AppInstall {
   @@index([createdAt])
   @@index([deviceKey, kind])
 }
+
+/// What a person agreed to when signing up (kept apart from User so the consent can be audited).
+model UserConsent {
+  userId         String   @id
+  marketingEmail Boolean  @default(false)
+  marketingSms   Boolean  @default(false)
+  termsAt        DateTime @default(now())
+}

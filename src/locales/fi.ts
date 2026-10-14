@@ -301,6 +301,13 @@ const fi: Record<string, string> = {
   "pwa.installed": "VaraClip on asennettu tälle laitteelle.",
   "pwa.later": "Ei nyt",
   "pwa.banner": "Asenna VaraClip ja avaa se kuin sovellus aloitusnäytöltä.",
+  "auth.marketTitle": "Miten haluat vastaanottaa markkinointiviestejä ja ilmoituksia?",
+  "auth.byEmail": "Sähköpostilla",
+  "auth.bySms": "Tekstiviestillä",
+  "auth.phoneOpt": "Puhelinnumero (valinnainen)",
+  "auth.agree": "Jatkamalla hyväksyn VaraClip.comin {terms} ja {privacy}.",
+  "auth.terms": "käyttöehdot",
+  "auth.privacy": "tietosuojakäytännön",
 };
 
 export default fi;

@@ -301,6 +301,13 @@ const lv: Record<string, string> = {
   "pwa.installed": "VaraClip ir instalēts šajā ierīcē.",
   "pwa.later": "Vēlāk",
   "pwa.banner": "Instalē VaraClip un atver to kā lietotni no sākuma ekrāna.",
+  "auth.marketTitle": "Kā vēlaties saņemt mārketinga ziņojumus un paziņojumus?",
+  "auth.byEmail": "E-pastā",
+  "auth.bySms": "Īsziņā",
+  "auth.phoneOpt": "Tālruņa numurs (neobligāti)",
+  "auth.agree": "Turpinot es piekrītu VaraClip.com {terms} un {privacy}.",
+  "auth.terms": "lietošanas noteikumiem",
+  "auth.privacy": "privātuma politikai",
 };
 
 export default lv;

@@ -301,6 +301,13 @@ const zh: Record<string, string> = {
   "pwa.installed": "VaraClip 已安装在此设备上。",
   "pwa.later": "以后再说",
   "pwa.banner": "安装 VaraClip，像应用一样从主屏幕打开。",
+  "auth.marketTitle": "您希望如何接收营销消息和通知？",
+  "auth.byEmail": "通过电子邮件",
+  "auth.bySms": "通过短信",
+  "auth.phoneOpt": "电话号码（选填）",
+  "auth.agree": "继续即表示我同意 VaraClip.com 的{terms}和{privacy}。",
+  "auth.terms": "使用条款",
+  "auth.privacy": "隐私政策",
 };
 
 export default zh;

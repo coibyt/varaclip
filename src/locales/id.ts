@@ -301,6 +301,13 @@ const id: Record<string, string> = {
   "pwa.installed": "VaraClip sudah terpasang di perangkat ini.",
   "pwa.later": "Nanti saja",
   "pwa.banner": "Pasang VaraClip untuk membukanya seperti aplikasi dari layar utama.",
+  "auth.marketTitle": "Bagaimana Anda ingin menerima pesan dan notifikasi pemasaran?",
+  "auth.byEmail": "Melalui email",
+  "auth.bySms": "Melalui pesan teks",
+  "auth.phoneOpt": "Nomor telepon (opsional)",
+  "auth.agree": "Dengan melanjutkan, saya menyetujui {terms} dan {privacy} VaraClip.com.",
+  "auth.terms": "Ketentuan Penggunaan",
+  "auth.privacy": "Kebijakan Privasi",
 };
 
 export default id;

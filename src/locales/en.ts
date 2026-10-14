@@ -316,6 +316,13 @@ const en: Record<string, string> = {
   "pwa.installed": "VaraClip is installed on this device.",
   "pwa.later": "Not now",
   "pwa.banner": "Install VaraClip to open it like an app from your home screen.",
+  "auth.marketTitle": "How would you like to receive marketing messages and notifications?",
+  "auth.byEmail": "By email",
+  "auth.bySms": "By text message",
+  "auth.phoneOpt": "Phone number (optional)",
+  "auth.agree": "By continuing, I agree to the {terms} and {privacy} of VaraClip.com.",
+  "auth.terms": "Terms of Use",
+  "auth.privacy": "Privacy Policy",
 };
 
 export default en;

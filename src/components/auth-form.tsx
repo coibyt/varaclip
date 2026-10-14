@@ -13,6 +13,8 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
   const sp = useSearchParams();
   const next = sp.get("next") && sp.get("next")!.startsWith("/") ? sp.get("next")! : "/";
   const adding = sp.get("add") === "1";
+  const [mailOk, setMailOk] = useState(true);
+  const [smsOk, setSmsOk] = useState(true);
   const [isSalon, setIsSalon] = useState(sp.get("salon") === "1");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -24,7 +26,11 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
     setError("");
     const f = new FormData(e.currentTarget);
     const body: Record<string, unknown> = Object.fromEntries(f.entries());
-    if (reg) body.isSalon = isSalon;
+    if (reg) {
+      body.isSalon = isSalon;
+      body.marketingEmail = mailOk;
+      body.marketingSms = smsOk;
+    }
     if (adding) body.add = true;
     const r = await fetch(`/api/auth/${mode}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     const j = await r.json();
@@ -74,7 +80,18 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
           </>
         )}
         <Field label={t("auth.email")} name="email" type="email" autoComplete="email" required />
+        {reg && <Field label={t("auth.phoneOpt")} name="phone" type="tel" autoComplete="tel" maxLength={30} />}
         <Field label={t("auth.password")} name="password" type="password" autoComplete={reg ? "new-password" : "current-password"} required minLength={reg ? 8 : 1} hint={reg ? t("auth.passwordHint") : undefined} />
+
+        {reg && (
+          <fieldset>
+            <legend className="mb-2 text-sm font-semibold">{t("auth.marketTitle")}</legend>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <label className="flex cursor-pointer items-center gap-2 text-sm"><input type="checkbox" checked={mailOk} onChange={(e) => setMailOk(e.target.checked)} className="size-5 accent-[#FF4D8D]" /> {t("auth.byEmail")}</label>
+              <label className="flex cursor-pointer items-center gap-2 text-sm"><input type="checkbox" checked={smsOk} onChange={(e) => setSmsOk(e.target.checked)} className="size-5 accent-[#FF4D8D]" /> {t("auth.bySms")}</label>
+            </div>
+          </fieldset>
+        )}
 
         {error && <p role="alert" className="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{error}</p>}
 
@@ -83,12 +100,30 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
         </button>
       </form>
 
+      {reg && <p className="mt-4 text-center text-xs leading-relaxed text-mist"><AgreeNotice /></p>}
+
       <p className="mt-6 text-center text-sm text-mist">
         {reg ? t("auth.haveAccount") : t("auth.noAccount")}{" "}
         <Link href={`${reg ? "/login" : "/register"}${adding ? "?add=1" : ""}`} className="font-bold text-glow hover:underline">{reg ? t("auth.submitLogin") : t("auth.register")}</Link>
       </p>
       <LanguageSwitcher className="mx-auto mt-6 w-fit" />
     </div>
+  );
+}
+
+/** "By continuing, I agree to the Terms of Use and Privacy Policy of VaraClip.com", with both names as links. */
+function AgreeNotice() {
+  const t = useT();
+  const parts = t("auth.agree", { terms: "\u0001T", privacy: "\u0001P" }).split(/(\u0001T|\u0001P)/);
+  const link = "font-semibold text-white underline underline-offset-2 hover:text-glow";
+  return (
+    <>
+      {parts.map((p, i) =>
+        p === "\u0001T" ? <Link key={i} href="/terms" target="_blank" className={link}>{t("auth.terms")}</Link>
+        : p === "\u0001P" ? <Link key={i} href="/privacy" target="_blank" className={link}>{t("auth.privacy")}</Link>
+        : <span key={i}>{p}</span>,
+      )}
+    </>
   );
 }
 

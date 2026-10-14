@@ -301,6 +301,13 @@ const bg: Record<string, string> = {
   "pwa.installed": "VaraClip е инсталирано на това устройство.",
   "pwa.later": "Не сега",
   "pwa.banner": "Инсталирайте VaraClip и го отваряйте като приложение от началния екран.",
+  "auth.marketTitle": "Как искате да получавате маркетингови съобщения и известия?",
+  "auth.byEmail": "По имейл",
+  "auth.bySms": "С текстово съобщение",
+  "auth.phoneOpt": "Телефонен номер (по избор)",
+  "auth.agree": "Продължавайки, се съгласявам с {terms} и {privacy} на VaraClip.com.",
+  "auth.terms": "Условията за ползване",
+  "auth.privacy": "Политиката за поверителност",
 };
 
 export default bg;

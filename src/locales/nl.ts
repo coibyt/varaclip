@@ -301,6 +301,13 @@ const nl: Record<string, string> = {
   "pwa.installed": "VaraClip is op dit apparaat geïnstalleerd.",
   "pwa.later": "Niet nu",
   "pwa.banner": "Installeer VaraClip en open het als een app vanaf je beginscherm.",
+  "auth.marketTitle": "Hoe wil je marketingberichten en meldingen ontvangen?",
+  "auth.byEmail": "Per e-mail",
+  "auth.bySms": "Per sms",
+  "auth.phoneOpt": "Telefoonnummer (optioneel)",
+  "auth.agree": "Door verder te gaan ga ik akkoord met de {terms} en het {privacy} van VaraClip.com.",
+  "auth.terms": "gebruiksvoorwaarden",
+  "auth.privacy": "privacybeleid",
 };
 
 export default nl;

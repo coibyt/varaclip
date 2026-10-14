@@ -301,6 +301,13 @@ const fil: Record<string, string> = {
   "pwa.installed": "Naka-install na ang VaraClip sa device na ito.",
   "pwa.later": "Mamaya na",
   "pwa.banner": "I-install ang VaraClip para buksan ito na parang app mula sa home screen.",
+  "auth.marketTitle": "Paano mo gustong tumanggap ng marketing messages at notifications?",
+  "auth.byEmail": "Sa email",
+  "auth.bySms": "Sa text message",
+  "auth.phoneOpt": "Numero ng telepono (opsyonal)",
+  "auth.agree": "Sa pagpapatuloy, sumasang-ayon ako sa {terms} at {privacy} ng VaraClip.com.",
+  "auth.terms": "Mga Tuntunin sa Paggamit",
+  "auth.privacy": "Patakaran sa Privacy",
 };
 
 export default fil;

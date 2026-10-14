@@ -301,6 +301,13 @@ const hi: Record<string, string> = {
   "pwa.installed": "VaraClip इस डिवाइस पर इंस्टॉल है।",
   "pwa.later": "अभी नहीं",
   "pwa.banner": "VaraClip इंस्टॉल करें और होम स्क्रीन से ऐप की तरह खोलें।",
+  "auth.marketTitle": "आप मार्केटिंग संदेश और सूचनाएँ कैसे पाना चाहते हैं?",
+  "auth.byEmail": "ईमेल से",
+  "auth.bySms": "टेक्स्ट संदेश से",
+  "auth.phoneOpt": "फ़ोन नंबर (वैकल्पिक)",
+  "auth.agree": "जारी रखकर, मैं VaraClip.com के {terms} और {privacy} से सहमत हूँ।",
+  "auth.terms": "उपयोग की शर्तों",
+  "auth.privacy": "गोपनीयता नीति",
 };
 
 export default hi;

@@ -301,6 +301,13 @@ const ms: Record<string, string> = {
   "pwa.installed": "VaraClip telah dipasang pada peranti ini.",
   "pwa.later": "Bukan sekarang",
   "pwa.banner": "Pasang VaraClip untuk membukanya seperti aplikasi dari skrin utama.",
+  "auth.marketTitle": "Bagaimana anda mahu menerima mesej dan pemberitahuan pemasaran?",
+  "auth.byEmail": "Melalui e-mel",
+  "auth.bySms": "Melalui mesej teks",
+  "auth.phoneOpt": "Nombor telefon (pilihan)",
+  "auth.agree": "Dengan meneruskan, saya bersetuju dengan {terms} dan {privacy} VaraClip.com.",
+  "auth.terms": "Terma Penggunaan",
+  "auth.privacy": "Dasar Privasi",
 };
 
 export default ms;

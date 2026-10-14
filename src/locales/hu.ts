@@ -301,6 +301,13 @@ const hu: Record<string, string> = {
   "pwa.installed": "A VaraClip telepítve van ezen az eszközön.",
   "pwa.later": "Most nem",
   "pwa.banner": "Telepítsd a VaraClipet, és nyisd meg alkalmazásként a kezdőképernyőről.",
+  "auth.marketTitle": "Hogyan szeretnél marketingüzeneteket és értesítéseket kapni?",
+  "auth.byEmail": "E-mailben",
+  "auth.bySms": "SMS-ben",
+  "auth.phoneOpt": "Telefonszám (nem kötelező)",
+  "auth.agree": "A folytatással elfogadom a VaraClip.com {terms} és {privacy}.",
+  "auth.terms": "felhasználási feltételeit",
+  "auth.privacy": "adatvédelmi szabályzatát",
 };
 
 export default hu;

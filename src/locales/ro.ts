@@ -301,6 +301,13 @@ const ro: Record<string, string> = {
   "pwa.installed": "VaraClip este instalat pe acest dispozitiv.",
   "pwa.later": "Nu acum",
   "pwa.banner": "Instalează VaraClip și deschide-l ca o aplicație de pe ecranul principal.",
+  "auth.marketTitle": "Cum dorești să primești mesaje și notificări de marketing?",
+  "auth.byEmail": "Prin e-mail",
+  "auth.bySms": "Prin mesaj text",
+  "auth.phoneOpt": "Număr de telefon (opțional)",
+  "auth.agree": "Continuând, sunt de acord cu {terms} și {privacy} VaraClip.com.",
+  "auth.terms": "Termenii de utilizare",
+  "auth.privacy": "Politica de confidențialitate",
 };
 
 export default ro;

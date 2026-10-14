@@ -301,6 +301,13 @@ const cs: Record<string, string> = {
   "pwa.installed": "VaraClip je nainstalován v tomto zařízení.",
   "pwa.later": "Teď ne",
   "pwa.banner": "Nainstalujte VaraClip a otevírejte ho jako aplikaci z plochy.",
+  "auth.marketTitle": "Jak chcete dostávat marketingové zprávy a oznámení?",
+  "auth.byEmail": "E-mailem",
+  "auth.bySms": "Textovou zprávou",
+  "auth.phoneOpt": "Telefonní číslo (nepovinné)",
+  "auth.agree": "Pokračováním souhlasím s {terms} a {privacy} VaraClip.com.",
+  "auth.terms": "podmínkami použití",
+  "auth.privacy": "zásadami ochrany osobních údajů",
 };
 
 export default cs;

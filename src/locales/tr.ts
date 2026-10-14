@@ -301,6 +301,13 @@ const tr: Record<string, string> = {
   "pwa.installed": "VaraClip bu cihaza yüklendi.",
   "pwa.later": "Şimdi değil",
   "pwa.banner": "VaraClip’i yükleyin ve ana ekrandan uygulama gibi açın.",
+  "auth.marketTitle": "Pazarlama mesajlarını ve bildirimleri nasıl almak istersiniz?",
+  "auth.byEmail": "E-posta ile",
+  "auth.bySms": "Kısa mesajla",
+  "auth.phoneOpt": "Telefon numarası (isteğe bağlı)",
+  "auth.agree": "Devam ederek VaraClip.com’un {terms} ve {privacy} metinlerini kabul ediyorum.",
+  "auth.terms": "Kullanım Koşulları",
+  "auth.privacy": "Gizlilik Politikası",
 };
 
 export default tr;

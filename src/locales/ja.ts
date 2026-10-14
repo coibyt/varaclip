@@ -301,6 +301,13 @@ const ja: Record<string, string> = {
   "pwa.installed": "この端末に VaraClip がインストールされています。",
   "pwa.later": "あとで",
   "pwa.banner": "VaraClip をインストールして、ホーム画面からアプリのように開けます。",
+  "auth.marketTitle": "マーケティングメッセージや通知をどの方法で受け取りますか？",
+  "auth.byEmail": "メールで",
+  "auth.bySms": "テキストメッセージで",
+  "auth.phoneOpt": "電話番号（任意）",
+  "auth.agree": "続行することで、VaraClip.com の{terms}と{privacy}に同意します。",
+  "auth.terms": "利用規約",
+  "auth.privacy": "プライバシーポリシー",
 };
 
 export default ja;

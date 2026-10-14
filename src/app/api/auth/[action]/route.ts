@@ -13,6 +13,9 @@ const registerSchema = z.object({
   isSalon: z.boolean().default(false),
   salonName: z.string().trim().max(80).default(""),
   city: z.string().trim().max(60).default(""),
+  phone: z.string().trim().max(30).default(""),
+  marketingEmail: z.boolean().default(false),
+  marketingSms: z.boolean().default(false),
   add: z.boolean().default(false),
 });
 
@@ -72,9 +75,11 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
     const user = await db.user.create({
       data: {
         email, passwordHash: await hashPassword(d.password), displayName: d.displayName, handle: d.handle,
-        isSalon: d.isSalon, salonName: d.salonName, city: d.city, hue: Math.floor(Math.random() * 360),
+        isSalon: d.isSalon, salonName: d.salonName, city: d.city, phone: d.phone, hue: Math.floor(Math.random() * 360),
       },
     });
+    // Remember what they agreed to; a missing table must never block sign-up.
+    await db.userConsent.create({ data: { userId: user.id, marketingEmail: d.marketingEmail, marketingSms: d.marketingSms } }).catch(() => {});
     await createSession(user.id, d.add);
     return NextResponse.json({ ok: true, handle: user.handle });
   }

@@ -301,6 +301,13 @@ const be: Record<string, string> = {
   "pwa.installed": "VaraClip усталяваны на гэтай прыладзе.",
   "pwa.later": "Не зараз",
   "pwa.banner": "Усталюйце VaraClip і адкрывайце яго як праграму з галоўнага экрана.",
+  "auth.marketTitle": "Як вы хочаце атрымліваць маркетынгавыя паведамленні і апавяшчэнні?",
+  "auth.byEmail": "Па электроннай пошце",
+  "auth.bySms": "Тэкставымі паведамленнямі",
+  "auth.phoneOpt": "Нумар тэлефона (неабавязкова)",
+  "auth.agree": "Працягваючы, я прымаю {terms} і {privacy} VaraClip.com.",
+  "auth.terms": "Умовы выкарыстання",
+  "auth.privacy": "Палітыку прыватнасці",
 };
 
 export default be;

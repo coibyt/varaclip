@@ -301,6 +301,13 @@ const km: Record<string, string> = {
   "pwa.installed": "VaraClip ត្រូវបានដំឡើងលើឧបករណ៍នេះ។",
   "pwa.later": "ពេលក្រោយ",
   "pwa.banner": "ដំឡើង VaraClip ដើម្បីបើកដូចកម្មវិធីពីអេក្រង់ដើម។",
+  "auth.marketTitle": "តើអ្នកចង់ទទួលសារ និងការជូនដំណឹងទីផ្សារតាមវិធីណា?",
+  "auth.byEmail": "តាមអ៊ីមែល",
+  "auth.bySms": "តាមសារអត្ថបទ",
+  "auth.phoneOpt": "លេខទូរសព្ទ (ស្រេចចិត្ត)",
+  "auth.agree": "ដោយបន្ត ខ្ញុំយល់ព្រមតាម{terms} និង{privacy}របស់ VaraClip.com។",
+  "auth.terms": "លក្ខខណ្ឌប្រើប្រាស់",
+  "auth.privacy": "គោលការណ៍ឯកជនភាព",
 };
 
 export default km;

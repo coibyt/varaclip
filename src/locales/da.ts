@@ -301,6 +301,13 @@ const da: Record<string, string> = {
   "pwa.installed": "VaraClip er installeret på denne enhed.",
   "pwa.later": "Ikke nu",
   "pwa.banner": "Installer VaraClip, og åbn det som en app fra startskærmen.",
+  "auth.marketTitle": "Hvordan vil du modtage markedsføringsbeskeder og notifikationer?",
+  "auth.byEmail": "Via e-mail",
+  "auth.bySms": "Via sms",
+  "auth.phoneOpt": "Telefonnummer (valgfrit)",
+  "auth.agree": "Ved at fortsætte accepterer jeg VaraClip.coms {terms} og {privacy}.",
+  "auth.terms": "vilkår for brug",
+  "auth.privacy": "privatlivspolitik",
 };
 
 export default da;
