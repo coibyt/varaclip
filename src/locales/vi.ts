@@ -309,6 +309,14 @@ const vi: Record<string, string> = {
   "acc.addAccount": "Thêm tài khoản khác",
   "acc.noOthers": "Chưa có tài khoản nào khác. Hãy thêm một tài khoản để chuyển nhanh.",
   "acc.addingHint": "Đăng nhập hoặc đăng ký bằng tài khoản khác. Bạn có thể quay lại tài khoản cũ bất cứ lúc nào trong Cài đặt.",
+  "pwa.install": "Cài ứng dụng",
+  "pwa.title": "Cài VaraClip vào điện thoại",
+  "pwa.sub": "Mở toàn màn hình như một ứng dụng thật, có biểu tượng riêng. Luôn tự cập nhật, cùng video, livestream và tin nhắn với website.",
+  "pwa.iosSteps": "1. Mở trang này bằng Safari.\n2. Bấm nút Chia sẻ.\n3. Chọn “Thêm vào Màn hình chính”, rồi bấm Thêm.",
+  "pwa.manual": "Mở menu của trình duyệt (⋮ hoặc ⋯) và chọn “Cài đặt ứng dụng” hoặc “Thêm vào màn hình chính”.",
+  "pwa.installed": "VaraClip đã được cài trên thiết bị này.",
+  "pwa.later": "Để sau",
+  "pwa.banner": "Cài VaraClip để mở như một ứng dụng từ màn hình chính.",
 };
 
 export default vi;

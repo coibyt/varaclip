@@ -293,6 +293,14 @@ const cs: Record<string, string> = {
   "acc.addAccount": "Přidat další účet",
   "acc.noOthers": "Zatím žádné další účty. Přidejte jeden pro rychlé přepínání.",
   "acc.addingHint": "Přihlaste se nebo zaregistrujte s jiným účtem. Kdykoli se můžete vrátit v Nastavení.",
+  "pwa.install": "Nainstalovat aplikaci",
+  "pwa.title": "Nainstalujte VaraClip do telefonu",
+  "pwa.sub": "Otevře se na celou obrazovku jako skutečná aplikace s vlastní ikonou. Vždy aktuální, se stejnými videi, živými vysíláními a zprávami jako web.",
+  "pwa.iosSteps": "1. Otevřete tuto stránku v Safari.\n2. Klepněte na tlačítko Sdílet.\n3. Zvolte „Přidat na plochu“ a klepněte na Přidat.",
+  "pwa.manual": "Otevřete nabídku prohlížeče (⋮ nebo ⋯) a zvolte „Nainstalovat aplikaci“ nebo „Přidat na plochu“.",
+  "pwa.installed": "VaraClip je nainstalován v tomto zařízení.",
+  "pwa.later": "Teď ne",
+  "pwa.banner": "Nainstalujte VaraClip a otevírejte ho jako aplikaci z plochy.",
 };
 
 export default cs;

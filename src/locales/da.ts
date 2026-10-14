@@ -293,6 +293,14 @@ const da: Record<string, string> = {
   "acc.addAccount": "Tilføj en anden konto",
   "acc.noOthers": "Ingen andre konti endnu. Tilføj en for at skifte hurtigt.",
   "acc.addingHint": "Log ind eller tilmeld dig med en anden konto. Du kan skifte tilbage når som helst under Indstillinger.",
+  "pwa.install": "Installer appen",
+  "pwa.title": "Installer VaraClip på din telefon",
+  "pwa.sub": "Åbner i fuld skærm som en rigtig app med eget ikon. Altid opdateret, med de samme videoer, livestreams og beskeder som hjemmesiden.",
+  "pwa.iosSteps": "1. Åbn denne side i Safari.\n2. Tryk på Del-knappen.\n3. Vælg “Føj til hjemmeskærm”, og tryk på Tilføj.",
+  "pwa.manual": "Åbn browserens menu (⋮ eller ⋯), og vælg “Installer app” eller “Føj til startskærm”.",
+  "pwa.installed": "VaraClip er installeret på denne enhed.",
+  "pwa.later": "Ikke nu",
+  "pwa.banner": "Installer VaraClip, og åbn det som en app fra startskærmen.",
 };
 
 export default da;

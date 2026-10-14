@@ -293,6 +293,14 @@ const nl: Record<string, string> = {
   "acc.addAccount": "Nog een account toevoegen",
   "acc.noOthers": "Nog geen andere accounts. Voeg er een toe om snel te wisselen.",
   "acc.addingHint": "Log in of registreer met een ander account. Je kunt altijd teruggaan via Instellingen.",
+  "pwa.install": "App installeren",
+  "pwa.title": "Installeer VaraClip op je telefoon",
+  "pwa.sub": "Opent op volledig scherm als een echte app, met een eigen icoon. Altijd up-to-date, met dezelfde video’s, livestreams en berichten als de website.",
+  "pwa.iosSteps": "1. Open deze pagina in Safari.\n2. Tik op de knop Delen.\n3. Kies “Zet op beginscherm” en tik op Voeg toe.",
+  "pwa.manual": "Open het menu van je browser (⋮ of ⋯) en kies “App installeren” of “Toevoegen aan startscherm”.",
+  "pwa.installed": "VaraClip is op dit apparaat geïnstalleerd.",
+  "pwa.later": "Niet nu",
+  "pwa.banner": "Installeer VaraClip en open het als een app vanaf je beginscherm.",
 };
 
 export default nl;

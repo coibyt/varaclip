@@ -293,6 +293,14 @@ const de: Record<string, string> = {
   "acc.addAccount": "Weiteres Konto hinzufügen",
   "acc.noOthers": "Noch keine weiteren Konten. Füge eines hinzu, um schnell zu wechseln.",
   "acc.addingHint": "Melde dich mit einem anderen Konto an oder registriere es. Du kannst jederzeit in den Einstellungen zurückwechseln.",
+  "pwa.install": "App installieren",
+  "pwa.title": "VaraClip auf dem Handy installieren",
+  "pwa.sub": "Öffnet im Vollbild wie eine echte App, mit eigenem Symbol. Immer aktuell, mit denselben Videos, Livestreams und Nachrichten wie die Website.",
+  "pwa.iosSteps": "1. Öffne diese Seite in Safari.\n2. Tippe auf die Teilen-Schaltfläche.\n3. Wähle „Zum Home-Bildschirm“ und tippe auf Hinzufügen.",
+  "pwa.manual": "Öffne das Browsermenü (⋮ oder ⋯) und wähle „App installieren“ oder „Zum Startbildschirm hinzufügen“.",
+  "pwa.installed": "VaraClip ist auf diesem Gerät installiert.",
+  "pwa.later": "Nicht jetzt",
+  "pwa.banner": "Installiere VaraClip und öffne es wie eine App vom Startbildschirm.",
 };
 
 export default de;

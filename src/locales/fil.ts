@@ -293,6 +293,14 @@ const fil: Record<string, string> = {
   "acc.addAccount": "Magdagdag ng ibang account",
   "acc.noOthers": "Wala pang ibang account. Magdagdag ng isa para mabilis magpalit.",
   "acc.addingHint": "Mag-sign in o mag-sign up gamit ang ibang account. Maaari kang bumalik anumang oras sa Settings.",
+  "pwa.install": "I-install ang app",
+  "pwa.title": "I-install ang VaraClip sa telepono mo",
+  "pwa.sub": "Bumubukas nang full-screen na parang totoong app, may sariling icon. Laging updated, kapareho ng mga video, live stream at mensahe sa website.",
+  "pwa.iosSteps": "1. Buksan ang page na ito sa Safari.\n2. I-tap ang Share button.\n3. Piliin ang “Add to Home Screen”, tapos i-tap ang Add.",
+  "pwa.manual": "Buksan ang menu ng browser (⋮ o ⋯) at piliin ang “I-install ang app” o “Idagdag sa Home screen”.",
+  "pwa.installed": "Naka-install na ang VaraClip sa device na ito.",
+  "pwa.later": "Mamaya na",
+  "pwa.banner": "I-install ang VaraClip para buksan ito na parang app mula sa home screen.",
 };
 
 export default fil;

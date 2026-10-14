@@ -293,6 +293,14 @@ const sk: Record<string, string> = {
   "acc.addAccount": "Pridať ďalší účet",
   "acc.noOthers": "Zatiaľ žiadne ďalšie účty. Pridajte jeden na rýchle prepínanie.",
   "acc.addingHint": "Prihláste sa alebo zaregistrujte s iným účtom. Kedykoľvek sa môžete vrátiť v Nastaveniach.",
+  "pwa.install": "Nainštalovať aplikáciu",
+  "pwa.title": "Nainštalujte VaraClip do telefónu",
+  "pwa.sub": "Otvorí sa na celú obrazovku ako skutočná aplikácia s vlastnou ikonou. Vždy aktuálna, s rovnakými videami, živými vysielaniami a správami ako web.",
+  "pwa.iosSteps": "1. Otvorte túto stránku v Safari.\n2. Ťuknite na tlačidlo Zdieľať.\n3. Vyberte „Pridať na plochu“ a ťuknite na Pridať.",
+  "pwa.manual": "Otvorte ponuku prehliadača (⋮ alebo ⋯) a vyberte „Nainštalovať aplikáciu“ alebo „Pridať na plochu“.",
+  "pwa.installed": "VaraClip je nainštalovaný v tomto zariadení.",
+  "pwa.later": "Teraz nie",
+  "pwa.banner": "Nainštalujte VaraClip a otvárajte ho ako aplikáciu z plochy.",
 };
 
 export default sk;

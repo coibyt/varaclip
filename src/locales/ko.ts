@@ -293,6 +293,14 @@ const ko: Record<string, string> = {
   "acc.addAccount": "다른 계정 추가",
   "acc.noOthers": "아직 다른 계정이 없어요. 추가하면 빠르게 전환할 수 있어요.",
   "acc.addingHint": "다른 계정으로 로그인하거나 가입하세요. 설정에서 언제든 돌아올 수 있어요.",
+  "pwa.install": "앱 설치",
+  "pwa.title": "VaraClip을 휴대폰에 설치",
+  "pwa.sub": "고유 아이콘과 함께 진짜 앱처럼 전체 화면으로 열려요. 항상 최신 상태이며 영상, 라이브, 메시지는 웹사이트와 같아요.",
+  "pwa.iosSteps": "1. 이 페이지를 Safari에서 여세요.\n2. 공유 버튼을 누르세요.\n3. “홈 화면에 추가”를 선택하고 추가를 누르세요.",
+  "pwa.manual": "브라우저 메뉴(⋮ 또는 ⋯)를 열고 “앱 설치” 또는 “홈 화면에 추가”를 선택하세요.",
+  "pwa.installed": "이 기기에 VaraClip이 설치되어 있어요.",
+  "pwa.later": "나중에",
+  "pwa.banner": "VaraClip을 설치하면 홈 화면에서 앱처럼 열 수 있어요.",
 };
 
 export default ko;

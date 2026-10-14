@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Compass, Home, LayoutDashboard, LogOut, MessageCircle, Plus, Radio, Settings, Sparkles, User } from "lucide-react";
 import { Avatar } from "./avatar";
+import { InstallButton } from "./install-app";
 import { LanguageSwitcher } from "./language-switcher";
 import { useT } from "./locale-provider";
 
@@ -91,6 +92,7 @@ export function Shell({ user, unread: initialUnread = 0, children }: { user: She
         </nav>
 
         <div className="mt-auto space-y-3">
+          <InstallButton />
           <LanguageSwitcher />
           {user ? (
             <div className="rounded-2xl bg-ink-2 p-3">

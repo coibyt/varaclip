@@ -7,6 +7,7 @@ import { getLocale, getMessages, getT } from "@/lib/i18n-server";
 import { isRtl } from "@/lib/i18n";
 import { Shell } from "@/components/shell";
 import { LocaleProvider } from "@/components/locale-provider";
+import { InstallBanner, PwaRegister } from "@/components/install-app";
 
 const sans = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext", "vietnamese"], variable: "--font-sans", display: "swap" });
 
@@ -19,6 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: { default: `${name} — ${t("meta.title")}`, template: `%s · ${name}` },
     description: t("meta.description"),
+    applicationName: name,
+    icons: { icon: "/pwa-icon?size=192&round=1", apple: "/pwa-icon?size=180" },
+    appleWebApp: { capable: true, title: name, statusBarStyle: "black-translucent" },
   };
 }
 
@@ -34,6 +38,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="font-sans">
         <LocaleProvider locale={locale} messages={messages} fallback={fallback}>
           <Shell user={user} unread={unread}>{children}</Shell>
+          <InstallBanner />
+          <PwaRegister />
         </LocaleProvider>
       </body>
     </html>

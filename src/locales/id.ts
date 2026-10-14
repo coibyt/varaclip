@@ -293,6 +293,14 @@ const id: Record<string, string> = {
   "acc.addAccount": "Tambah akun lain",
   "acc.noOthers": "Belum ada akun lain. Tambahkan satu untuk berganti dengan cepat.",
   "acc.addingHint": "Masuk atau daftar dengan akun lain. Anda bisa kembali kapan saja dari Pengaturan.",
+  "pwa.install": "Pasang aplikasi",
+  "pwa.title": "Pasang VaraClip di ponsel Anda",
+  "pwa.sub": "Terbuka layar penuh seperti aplikasi sungguhan, dengan ikon sendiri. Selalu terbaru, dengan video, siaran langsung, dan pesan yang sama seperti situs web.",
+  "pwa.iosSteps": "1. Buka halaman ini di Safari.\n2. Ketuk tombol Bagikan.\n3. Pilih “Tambah ke Layar Utama”, lalu ketuk Tambah.",
+  "pwa.manual": "Buka menu browser (⋮ atau ⋯) lalu pilih “Instal aplikasi” atau “Tambahkan ke layar utama”.",
+  "pwa.installed": "VaraClip sudah terpasang di perangkat ini.",
+  "pwa.later": "Nanti saja",
+  "pwa.banner": "Pasang VaraClip untuk membukanya seperti aplikasi dari layar utama.",
 };
 
 export default id;

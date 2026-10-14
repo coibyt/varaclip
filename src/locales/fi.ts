@@ -293,6 +293,14 @@ const fi: Record<string, string> = {
   "acc.addAccount": "Lisää toinen tili",
   "acc.noOthers": "Ei vielä muita tilejä. Lisää tili vaihtaaksesi nopeasti.",
   "acc.addingHint": "Kirjaudu tai rekisteröidy toisella tilillä. Voit palata takaisin milloin tahansa Asetuksista.",
+  "pwa.install": "Asenna sovellus",
+  "pwa.title": "Asenna VaraClip puhelimeesi",
+  "pwa.sub": "Aukeaa koko näytölle kuin oikea sovellus omalla kuvakkeellaan. Aina ajan tasalla, samat videot, livelähetykset ja viestit kuin verkkosivustolla.",
+  "pwa.iosSteps": "1. Avaa tämä sivu Safarissa.\n2. Napauta Jaa-painiketta.\n3. Valitse “Lisää Koti-valikkoon” ja napauta Lisää.",
+  "pwa.manual": "Avaa selaimen valikko (⋮ tai ⋯) ja valitse “Asenna sovellus” tai “Lisää aloitusnäyttöön”.",
+  "pwa.installed": "VaraClip on asennettu tälle laitteelle.",
+  "pwa.later": "Ei nyt",
+  "pwa.banner": "Asenna VaraClip ja avaa se kuin sovellus aloitusnäytöltä.",
 };
 
 export default fi;

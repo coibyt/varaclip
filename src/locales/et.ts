@@ -293,6 +293,14 @@ const et: Record<string, string> = {
   "acc.addAccount": "Lisa teine konto",
   "acc.noOthers": "Muid kontosid pole veel. Lisa konto, et kiiresti vahetada.",
   "acc.addingHint": "Logi sisse või registreeru teise kontoga. Tagasi saad vahetada alati Seadetes.",
+  "pwa.install": "Installi rakendus",
+  "pwa.title": "Installi VaraClip oma telefoni",
+  "pwa.sub": "Avaneb täisekraanil nagu päris rakendus, oma ikooniga. Alati ajakohane, samade videote, otseülekannete ja sõnumitega nagu veebisait.",
+  "pwa.iosSteps": "1. Ava see leht Safaris.\n2. Puuduta nuppu Jaga.\n3. Vali „Lisa avakuvale“ ja puuduta Lisa.",
+  "pwa.manual": "Ava brauseri menüü (⋮ või ⋯) ja vali „Installi rakendus“ või „Lisa avakuvale“.",
+  "pwa.installed": "VaraClip on sellesse seadmesse installitud.",
+  "pwa.later": "Mitte praegu",
+  "pwa.banner": "Installi VaraClip ja ava see avakuvalt nagu rakendus.",
 };
 
 export default et;

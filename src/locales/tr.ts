@@ -293,6 +293,14 @@ const tr: Record<string, string> = {
   "acc.addAccount": "Başka hesap ekle",
   "acc.noOthers": "Henüz başka hesap yok. Hızlı geçiş için bir hesap ekleyin.",
   "acc.addingHint": "Başka bir hesapla giriş yapın veya kaydolun. İstediğiniz zaman Ayarlar’dan geri dönebilirsiniz.",
+  "pwa.install": "Uygulamayı yükle",
+  "pwa.title": "VaraClip’i telefonunuza yükleyin",
+  "pwa.sub": "Kendi simgesiyle, gerçek bir uygulama gibi tam ekran açılır. Her zaman güncel; web sitesiyle aynı videolar, canlı yayınlar ve mesajlar.",
+  "pwa.iosSteps": "1. Bu sayfayı Safari’de açın.\n2. Paylaş düğmesine dokunun.\n3. “Ana Ekrana Ekle”yi seçin ve Ekle’ye dokunun.",
+  "pwa.manual": "Tarayıcı menüsünü (⋮ veya ⋯) açın ve “Uygulamayı yükle” ya da “Ana ekrana ekle”yi seçin.",
+  "pwa.installed": "VaraClip bu cihaza yüklendi.",
+  "pwa.later": "Şimdi değil",
+  "pwa.banner": "VaraClip’i yükleyin ve ana ekrandan uygulama gibi açın.",
 };
 
 export default tr;

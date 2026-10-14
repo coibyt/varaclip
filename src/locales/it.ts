@@ -293,6 +293,14 @@ const it: Record<string, string> = {
   "acc.addAccount": "Aggiungi un altro account",
   "acc.noOthers": "Nessun altro account per ora. Aggiungine uno per cambiare rapidamente.",
   "acc.addingHint": "Accedi o registrati con un altro account. Potrai tornare indietro quando vuoi dalle Impostazioni.",
+  "pwa.install": "Installa l’app",
+  "pwa.title": "Installa VaraClip sul telefono",
+  "pwa.sub": "Si apre a schermo intero come una vera app, con la sua icona. Sempre aggiornata, con gli stessi video, dirette e messaggi del sito.",
+  "pwa.iosSteps": "1. Apri questa pagina in Safari.\n2. Tocca il pulsante Condividi.\n3. Scegli “Aggiungi alla schermata Home” e tocca Aggiungi.",
+  "pwa.manual": "Apri il menu del browser (⋮ o ⋯) e scegli “Installa app” o “Aggiungi a schermata Home”.",
+  "pwa.installed": "VaraClip è installata su questo dispositivo.",
+  "pwa.later": "Non ora",
+  "pwa.banner": "Installa VaraClip e aprila come un’app dalla schermata Home.",
 };
 
 export default it;

@@ -293,6 +293,14 @@ const lv: Record<string, string> = {
   "acc.addAccount": "Pievienot citu kontu",
   "acc.noOthers": "Citu kontu vēl nav. Pievieno kontu, lai ātri pārslēgtos.",
   "acc.addingHint": "Piesakies vai reģistrējies ar citu kontu. Atpakaļ vari pārslēgties jebkurā laikā sadaļā Iestatījumi.",
+  "pwa.install": "Instalēt lietotni",
+  "pwa.title": "Instalē VaraClip savā tālrunī",
+  "pwa.sub": "Atveras pilnekrāna režīmā kā īsta lietotne ar savu ikonu. Vienmēr aktuāla, ar tiem pašiem video, tiešraidēm un ziņojumiem kā vietnē.",
+  "pwa.iosSteps": "1. Atver šo lapu pārlūkā Safari.\n2. Pieskaries pogai Kopīgot.\n3. Izvēlies “Pievienot sākuma ekrānam” un pieskaries Pievienot.",
+  "pwa.manual": "Atver pārlūka izvēlni (⋮ vai ⋯) un izvēlies “Instalēt lietotni” vai “Pievienot sākuma ekrānam”.",
+  "pwa.installed": "VaraClip ir instalēts šajā ierīcē.",
+  "pwa.later": "Vēlāk",
+  "pwa.banner": "Instalē VaraClip un atver to kā lietotni no sākuma ekrāna.",
 };
 
 export default lv;

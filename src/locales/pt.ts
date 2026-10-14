@@ -293,6 +293,14 @@ const pt: Record<string, string> = {
   "acc.addAccount": "Adicionar outra conta",
   "acc.noOthers": "Ainda não há outras contas. Adicione uma para trocar rapidamente.",
   "acc.addingHint": "Entre ou cadastre-se com outra conta. Você pode voltar quando quiser em Configurações.",
+  "pwa.install": "Instalar o app",
+  "pwa.title": "Instale o VaraClip no celular",
+  "pwa.sub": "Abre em tela cheia como um app de verdade, com ícone próprio. Sempre atualizado, com os mesmos vídeos, transmissões e mensagens do site.",
+  "pwa.iosSteps": "1. Abra esta página no Safari.\n2. Toque no botão Compartilhar.\n3. Escolha “Adicionar à Tela de Início” e toque em Adicionar.",
+  "pwa.manual": "Abra o menu do navegador (⋮ ou ⋯) e escolha “Instalar app” ou “Adicionar à tela inicial”.",
+  "pwa.installed": "O VaraClip está instalado neste dispositivo.",
+  "pwa.later": "Agora não",
+  "pwa.banner": "Instale o VaraClip e abra como um app pela tela inicial.",
 };
 
 export default pt;

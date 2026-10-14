@@ -293,6 +293,14 @@ const es: Record<string, string> = {
   "acc.addAccount": "Añadir otra cuenta",
   "acc.noOthers": "Aún no hay otras cuentas. Añade una para cambiar rápido.",
   "acc.addingHint": "Inicia sesión o regístrate con otra cuenta. Puedes volver cuando quieras desde Ajustes.",
+  "pwa.install": "Instalar la app",
+  "pwa.title": "Instala VaraClip en tu teléfono",
+  "pwa.sub": "Se abre a pantalla completa como una app de verdad, con su propio icono. Siempre actualizada, con los mismos vídeos, directos y mensajes que la web.",
+  "pwa.iosSteps": "1. Abre esta página en Safari.\n2. Toca el botón Compartir.\n3. Elige “Añadir a pantalla de inicio” y toca Añadir.",
+  "pwa.manual": "Abre el menú del navegador (⋮ o ⋯) y elige “Instalar app” o “Añadir a pantalla de inicio”.",
+  "pwa.installed": "VaraClip está instalada en este dispositivo.",
+  "pwa.later": "Ahora no",
+  "pwa.banner": "Instala VaraClip y ábrela como una app desde la pantalla de inicio.",
 };
 
 export default es;

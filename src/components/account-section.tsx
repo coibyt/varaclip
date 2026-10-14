@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2, LogOut, Mail, UserPlus } from "lucide-react";
 import { Avatar } from "./avatar";
+import { InstallButton } from "./install-app";
 import { useT } from "./locale-provider";
 
 type Other = { id: string; displayName: string; handle: string; hue: number; avatarUrl: string };
@@ -51,6 +52,8 @@ export function AccountSection({ email, others }: { email: string; others: Other
     <section className="mx-auto max-w-xl px-4 pb-28 lg:pb-12">
       <div className="border-t border-white/10 pt-8">
         <h2 className="text-xl font-extrabold tracking-tight">{t("acc.title")}</h2>
+
+        <InstallButton className="mt-4" />
 
         <div className="mt-4">
           <p className="mb-1.5 text-sm font-semibold">{t("acc.email")}</p>

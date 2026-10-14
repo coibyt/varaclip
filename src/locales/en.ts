@@ -308,6 +308,14 @@ const en: Record<string, string> = {
   "acc.addAccount": "Add another account",
   "acc.noOthers": "No other accounts yet. Add one to switch quickly.",
   "acc.addingHint": "Sign in or sign up with another account. You can switch back any time from Settings.",
+  "pwa.install": "Install app",
+  "pwa.title": "Install VaraClip on your phone",
+  "pwa.sub": "Opens full-screen like a real app, with its own icon. Always up to date, with the same videos, live streams and messages as the website.",
+  "pwa.iosSteps": "1. Open this page in Safari.\n2. Tap the Share button.\n3. Choose “Add to Home Screen”, then tap Add.",
+  "pwa.manual": "Open your browser menu (⋮ or ⋯) and choose “Install app” or “Add to Home screen”.",
+  "pwa.installed": "VaraClip is installed on this device.",
+  "pwa.later": "Not now",
+  "pwa.banner": "Install VaraClip to open it like an app from your home screen.",
 };
 
 export default en;

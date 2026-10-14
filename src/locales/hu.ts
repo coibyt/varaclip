@@ -293,6 +293,14 @@ const hu: Record<string, string> = {
   "acc.addAccount": "Másik fiók hozzáadása",
   "acc.noOthers": "Még nincs másik fiók. Adj hozzá egyet a gyors váltáshoz.",
   "acc.addingHint": "Jelentkezz be vagy regisztrálj másik fiókkal. Bármikor visszaválthatsz a Beállításokban.",
+  "pwa.install": "Alkalmazás telepítése",
+  "pwa.title": "Telepítsd a VaraClipet a telefonodra",
+  "pwa.sub": "Teljes képernyőn nyílik meg, mint egy igazi alkalmazás, saját ikonnal. Mindig naprakész, ugyanazokkal a videókkal, élő adásokkal és üzenetekkel, mint a weboldal.",
+  "pwa.iosSteps": "1. Nyisd meg ezt az oldalt Safariban.\n2. Koppints a Megosztás gombra.\n3. Válaszd a „Főképernyőhöz adás” lehetőséget, majd koppints a Hozzáadás gombra.",
+  "pwa.manual": "Nyisd meg a böngésző menüjét (⋮ vagy ⋯), és válaszd az „Alkalmazás telepítése” vagy a „Hozzáadás a kezdőképernyőhöz” lehetőséget.",
+  "pwa.installed": "A VaraClip telepítve van ezen az eszközön.",
+  "pwa.later": "Most nem",
+  "pwa.banner": "Telepítsd a VaraClipet, és nyisd meg alkalmazásként a kezdőképernyőről.",
 };
 
 export default hu;

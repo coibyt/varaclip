@@ -293,6 +293,14 @@ const ro: Record<string, string> = {
   "acc.addAccount": "Adaugă alt cont",
   "acc.noOthers": "Încă nu există alte conturi. Adaugă unul pentru a comuta rapid.",
   "acc.addingHint": "Autentifică-te sau înregistrează-te cu alt cont. Poți reveni oricând din Setări.",
+  "pwa.install": "Instalează aplicația",
+  "pwa.title": "Instalează VaraClip pe telefon",
+  "pwa.sub": "Se deschide pe tot ecranul ca o aplicație adevărată, cu pictogramă proprie. Mereu actualizată, cu aceleași videoclipuri, transmisiuni live și mesaje ca site-ul.",
+  "pwa.iosSteps": "1. Deschide această pagină în Safari.\n2. Atinge butonul Partajare.\n3. Alege „Adăugați pe ecranul principal”, apoi atinge Adăugați.",
+  "pwa.manual": "Deschide meniul browserului (⋮ sau ⋯) și alege „Instalează aplicația” sau „Adaugă pe ecranul de pornire”.",
+  "pwa.installed": "VaraClip este instalat pe acest dispozitiv.",
+  "pwa.later": "Nu acum",
+  "pwa.banner": "Instalează VaraClip și deschide-l ca o aplicație de pe ecranul principal.",
 };
 
 export default ro;

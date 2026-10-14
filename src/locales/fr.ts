@@ -293,6 +293,14 @@ const fr: Record<string, string> = {
   "acc.addAccount": "Ajouter un autre compte",
   "acc.noOthers": "Aucun autre compte pour l’instant. Ajoutez-en un pour changer rapidement.",
   "acc.addingHint": "Connectez-vous ou inscrivez-vous avec un autre compte. Vous pourrez revenir à tout moment depuis les Paramètres.",
+  "pwa.install": "Installer l’appli",
+  "pwa.title": "Installer VaraClip sur votre téléphone",
+  "pwa.sub": "S’ouvre en plein écran comme une vraie appli, avec sa propre icône. Toujours à jour, avec les mêmes vidéos, directs et messages que le site.",
+  "pwa.iosSteps": "1. Ouvrez cette page dans Safari.\n2. Touchez le bouton Partager.\n3. Choisissez « Sur l’écran d’accueil », puis touchez Ajouter.",
+  "pwa.manual": "Ouvrez le menu du navigateur (⋮ ou ⋯) et choisissez « Installer l’application » ou « Ajouter à l’écran d’accueil ».",
+  "pwa.installed": "VaraClip est installé sur cet appareil.",
+  "pwa.later": "Plus tard",
+  "pwa.banner": "Installez VaraClip pour l’ouvrir comme une appli depuis l’écran d’accueil.",
 };
 
 export default fr;

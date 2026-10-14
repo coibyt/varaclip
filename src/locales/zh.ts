@@ -293,6 +293,14 @@ const zh: Record<string, string> = {
   "acc.addAccount": "添加其他账号",
   "acc.noOthers": "还没有其他账号。添加一个即可快速切换。",
   "acc.addingHint": "使用其他账号登录或注册。你可以随时在设置中切换回来。",
+  "pwa.install": "安装应用",
+  "pwa.title": "把 VaraClip 安装到手机",
+  "pwa.sub": "像真正的应用一样全屏打开，有自己的图标。始终保持最新，视频、直播和消息与网站完全一致。",
+  "pwa.iosSteps": "1. 在 Safari 中打开此页面。\n2. 点按“分享”按钮。\n3. 选择“添加到主屏幕”，再点按“添加”。",
+  "pwa.manual": "打开浏览器菜单（⋮ 或 ⋯），选择“安装应用”或“添加到主屏幕”。",
+  "pwa.installed": "VaraClip 已安装在此设备上。",
+  "pwa.later": "以后再说",
+  "pwa.banner": "安装 VaraClip，像应用一样从主屏幕打开。",
 };
 
 export default zh;
