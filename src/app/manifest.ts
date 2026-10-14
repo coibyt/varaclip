@@ -15,6 +15,9 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: "portrait",
     background_color: "#0B0B0F",
     theme_color: "#0B0B0F",
+    // lets Chrome tell the website that this app is already installed on the device
+    related_applications: [{ platform: "webapp", url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://varaclip.com"}/manifest.webmanifest` }],
+    prefer_related_applications: false,
     icons: [
       { src: "/pwa-icon?size=192&round=1", sizes: "192x192", type: "image/png", purpose: "any" },
       { src: "/pwa-icon?size=512&round=1", sizes: "512x512", type: "image/png", purpose: "any" },

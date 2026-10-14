@@ -10,6 +10,11 @@ type InstallEvent = Event & { prompt: () => Promise<void>; userChoice: Promise<{
 // The browser fires "beforeinstallprompt" once, so it is kept here and shared by every install button.
 let deferred: InstallEvent | null = null;
 let installed = false;
+const FLAG = "vc-installed"; // remembered on this browser once the app is installed or opened as an app
+
+function remember() {
+  try { localStorage.setItem(FLAG, "1"); } catch { /* storage blocked */ }
+}
 const subs = new Set<() => void>();
 const notify = () => subs.forEach((f) => f());
 
@@ -22,6 +27,7 @@ if (typeof window !== "undefined") {
   window.addEventListener("appinstalled", () => {
     deferred = null;
     installed = true;
+    remember();
     notify();
   });
 }
@@ -38,7 +44,15 @@ function useInstall() {
   useEffect(() => {
     const standalone = window.matchMedia("(display-mode: standalone)").matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
     const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    setEnv({ standalone, ios });
+    let flagged = false;
+    try { flagged = localStorage.getItem(FLAG) === "1"; } catch { /* storage blocked */ }
+    if (standalone) remember();
+    setEnv({ standalone: standalone || flagged, ios });
+    // Chrome can tell a normal browser tab that the app is already installed on this device.
+    const nav = navigator as Navigator & { getInstalledRelatedApps?: () => Promise<unknown[]> };
+    nav.getInstalledRelatedApps?.().then((apps) => {
+      if (apps.length) { remember(); setEnv((e) => ({ ...e, standalone: true })); }
+    }).catch(() => {});
   }, []);
   async function install() {
     if (!deferred) return;
@@ -61,11 +75,12 @@ function Steps({ ios }: { ios: boolean }) {
 }
 
 /** "Install app" button: one tap on Android and desktop Chrome / Edge, short steps on iPhone and other browsers. */
-export function InstallButton({ className = "", showSteps = true }: { className?: string; showSteps?: boolean }) {
+export function InstallButton({ className = "", showSteps = true, quiet = false }: { className?: string; showSteps?: boolean; quiet?: boolean }) {
   const t = useT();
   const { canPrompt, installed: isInstalled, ios, install } = useInstall();
   const [help, setHelp] = useState(false);
 
+  if (isInstalled && quiet) return null;
   if (isInstalled) return <p className="flex items-center gap-2 text-sm text-emerald-300"><Check className="size-4" aria-hidden /> {t("pwa.installed")}</p>;
   return (
     <div className={className}>
@@ -93,7 +108,7 @@ export function InstallPanel() {
 }
 
 const DISMISS_KEY = "vc-install-dismissed";
-const DISMISS_MS = 7 * 24 * 3600_000;
+const DISMISS_MS = 24 * 3600_000; // comes back every day until the app is installed
 
 /** Small prompt above the mobile tab bar, shown once in a while to people who have not installed the app. */
 export function InstallBanner() {
@@ -106,7 +121,7 @@ export function InstallBanner() {
     let dismissed = 0;
     try { dismissed = Number(localStorage.getItem(DISMISS_KEY)) || 0; } catch { /* storage blocked */ }
     if (Date.now() - dismissed < DISMISS_MS) return;
-    const id = setTimeout(() => setShow(true), 6000);
+    const id = setTimeout(() => setShow(true), 1500);
     return () => clearTimeout(id);
   }, []);
 
@@ -121,9 +136,9 @@ export function InstallBanner() {
       <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-glow to-gold text-lg font-extrabold text-ink">V</span>
       <p className="min-w-0 flex-1 text-sm leading-snug">{t("pwa.banner")}</p>
       {canPrompt ? (
-        <button type="button" onClick={() => { void install(); dismiss(); }} className="btn btn-primary !min-h-[40px] !px-4 text-sm">{t("pwa.install")}</button>
+        <button type="button" onClick={() => { void install(); dismiss(); }} className="btn btn-primary !min-h-[40px] animate-pulse !px-4 text-sm shadow-lg shadow-glow/40">{t("pwa.install")}</button>
       ) : (
-        <a href="/install" className="btn btn-primary !min-h-[40px] !px-4 text-sm">{t("pwa.install")}</a>
+        <a href="/install" className="btn btn-primary !min-h-[40px] animate-pulse !px-4 text-sm shadow-lg shadow-glow/40">{t("pwa.install")}</a>
       )}
       <button type="button" onClick={dismiss} aria-label={t("pwa.later")} className="grid size-9 shrink-0 place-items-center rounded-full text-mist hover:bg-white/10"><X className="size-4" aria-hidden /></button>
     </div>

@@ -92,7 +92,7 @@ export function Shell({ user, unread: initialUnread = 0, children }: { user: She
         </nav>
 
         <div className="mt-auto space-y-3">
-          <InstallButton />
+          <InstallButton quiet className="rounded-2xl shadow-lg shadow-glow/30" />
           <LanguageSwitcher />
           {user ? (
             <div className="rounded-2xl bg-ink-2 p-3">
