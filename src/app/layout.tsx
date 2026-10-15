@@ -9,6 +9,7 @@ import { Shell } from "@/components/shell";
 import { isAdminUser } from "@/lib/admin";
 import { LocaleProvider } from "@/components/locale-provider";
 import { InstallBanner, PwaRegister } from "@/components/install-app";
+import { SiteTracker } from "@/components/site-tracker";
 
 const sans = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext", "vietnamese"], variable: "--font-sans", display: "swap" });
 
@@ -41,6 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Shell user={user} unread={unread}>{children}</Shell>
           <InstallBanner />
           <PwaRegister />
+          <SiteTracker />
         </LocaleProvider>
       </body>
     </html>

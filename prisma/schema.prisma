@@ -200,3 +200,17 @@ model UserConsent {
   marketingSms   Boolean  @default(false)
   termsAt        DateTime @default(now())
 }
+
+/// One row per visitor per day (Helsinki time); `views` counts the pages they opened that day.
+model SiteVisit {
+  id         String   @id @default(cuid())
+  day        String   @db.VarChar(10)
+  visitorKey String   @db.VarChar(40)
+  userId     String?
+  platform   String   @db.VarChar(12)
+  views      Int      @default(1)
+  createdAt  DateTime @default(now())
+
+  @@unique([day, visitorKey])
+  @@index([day])
+}

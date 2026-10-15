@@ -3,6 +3,7 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { Check, Download, Share, X } from "lucide-react";
+import { deviceKey } from "@/lib/device";
 import { useT } from "./locale-provider";
 
 type InstallEvent = Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: "accepted" | "dismissed" }> };
@@ -11,17 +12,6 @@ type InstallEvent = Event & { prompt: () => Promise<void>; userChoice: Promise<{
 let deferred: InstallEvent | null = null;
 let installed = false;
 const FLAG = "vc-installed"; // remembered on this browser once the app is installed or opened as an app
-
-function deviceKey() {
-  const fresh = () => Array.from(crypto.getRandomValues(new Uint8Array(12)), (b) => (b % 36).toString(36)).join("");
-  try {
-    let k = localStorage.getItem("vc-device");
-    if (!k) { k = fresh(); localStorage.setItem("vc-device", k); }
-    return k;
-  } catch {
-    return fresh();
-  }
-}
 
 /** Tells the server (once per device) that the app was installed or opened as an app, for the admin statistics. */
 function track(kind: "installed" | "opened") {
