@@ -28,7 +28,8 @@ export default async function Profile({ params, searchParams }: { params: Promis
   if (!u) notFound();
   const mine = me?.id === u.id;
 
-  const [followers, following, likeAgg, isFollowing, rows, liveNow] = await Promise.all([
+  const [videoCount, followers, following, likeAgg, isFollowing, rows, liveNow] = await Promise.all([
+    db.video.count({ where: { creatorId: u.id } }),
     db.follow.count({ where: { followingId: u.id } }),
     db.follow.count({ where: { followerId: u.id } }),
     db.like.count({ where: { video: { creatorId: u.id } } }),
@@ -52,7 +53,7 @@ export default async function Profile({ params, searchParams }: { params: Promis
           <p className="text-mist">@{u.handle}{u.isSalon && u.salonName ? ` · ${u.displayName}` : ""}</p>
 
           <dl className="mt-4 flex justify-center gap-6 sm:justify-start">
-            {[[t("pf.following"), following], [t("pf.followers"), followers], [t("pf.likes"), likeAgg]].map(([k, n]) => (
+            {[...(u.isSalon ? [[t("common.videos"), videoCount]] : []), [t("pf.following"), following], [t("pf.followers"), followers], [t("pf.likes"), likeAgg]].map(([k, n]) => (
               <div key={k as string}><dd className="text-lg font-extrabold tabular-nums">{compact(n as number, locale)}</dd><dt className="text-xs text-mist">{k}</dt></div>
             ))}
           </dl>
