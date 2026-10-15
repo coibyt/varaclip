@@ -12,9 +12,37 @@ export const metadata = { title: "Admin" };
 const DAY = 24 * 3600_000;
 const PAGE = 25;
 const PLATFORM_LABEL: Record<string, string> = { android: "Android", ios: "iPhone / iPad", desktop: "Máy tính", other: "Khác" };
-const SQL_NOTICE = (file: string) => (
+const SQL = {
+  visits: `CREATE TABLE IF NOT EXISTS \`SiteVisit\` (
+  \`id\` VARCHAR(191) NOT NULL,
+  \`day\` VARCHAR(10) NOT NULL,
+  \`visitorKey\` VARCHAR(40) NOT NULL,
+  \`userId\` VARCHAR(191) NULL,
+  \`platform\` VARCHAR(12) NOT NULL,
+  \`views\` INT NOT NULL DEFAULT 1,
+  \`createdAt\` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  UNIQUE INDEX \`SiteVisit_day_visitorKey_key\`(\`day\`, \`visitorKey\`),
+  INDEX \`SiteVisit_day_idx\`(\`day\`),
+  PRIMARY KEY (\`id\`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`,
+  installs: `CREATE TABLE IF NOT EXISTS \`AppInstall\` (
+  \`id\` VARCHAR(191) NOT NULL,
+  \`deviceKey\` VARCHAR(40) NOT NULL,
+  \`kind\` VARCHAR(12) NOT NULL,
+  \`platform\` VARCHAR(12) NOT NULL,
+  \`userId\` VARCHAR(191) NULL,
+  \`createdAt\` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  INDEX \`AppInstall_createdAt_idx\`(\`createdAt\`),
+  INDEX \`AppInstall_deviceKey_kind_idx\`(\`deviceKey\`, \`kind\`),
+  PRIMARY KEY (\`id\`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`,
+};
+
+// Shown until the statistics table exists: the exact SQL to paste, so nothing has to be looked up.
+const SQL_NOTICE = (which: keyof typeof SQL) => (
   <div className="mt-3 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-sm leading-relaxed">
-    Chưa có bảng thống kê. Vào phpMyAdmin, mở tab SQL, dán nội dung file <code>{file}</code> rồi bấm Thực hiện. Sau đó tải lại trang này.
+    <p>Mục này cần tạo một bảng dữ liệu (làm một lần). Vào phpMyAdmin, mở tab <strong>SQL</strong>, dán đoạn dưới đây, bấm <strong>Thực hiện</strong>, rồi tải lại trang này.</p>
+    <pre className="mt-3 max-h-56 select-all overflow-auto rounded-xl bg-black/50 p-3 text-xs leading-snug">{SQL[which]}</pre>
   </div>
 );
 
@@ -122,7 +150,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
       </div>
 
       <h2 className="mt-10 text-lg font-bold">Lượng truy cập</h2>
-      {traffic === null ? SQL_NOTICE("docs/database-visits.sql") : (
+      {traffic === null ? SQL_NOTICE("visits") : (
         <>
           <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
             <Card label="Đang xem website" value={online} sub="trong 1 phút qua" />
@@ -181,7 +209,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
       <p className="mt-2 text-xs leading-relaxed text-mist">“Theo dõi” là số người đang theo dõi tài khoản đó. “Thích” là tổng lượt thích trên các video của tài khoản đó.</p>
 
       <h2 className="mt-10 text-lg font-bold">Lượt tải ứng dụng</h2>
-      {rows === null ? SQL_NOTICE("docs/database-app-installs.sql") : (
+      {rows === null ? SQL_NOTICE("installs") : (
         <>
           <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
             <Card label="Tổng thiết bị" value={list.length} sub="đã cài hoặc đã mở app" />

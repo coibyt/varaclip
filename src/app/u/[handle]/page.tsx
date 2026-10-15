@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CalendarCheck, LayoutDashboard, MapPin, MessageCircle, Phone, Radio, Settings } from "lucide-react";
+import { CalendarCheck, LayoutDashboard, MapPin, MessageCircle, Phone, Radio, Settings, ShieldCheck } from "lucide-react";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
+import { isAdminUser } from "@/lib/admin";
 import { hydrate, videoInclude } from "@/lib/videos";
 import { mediaUrl } from "@/lib/storage";
 import { compact } from "@/lib/util";
@@ -61,6 +62,7 @@ export default async function Profile({ params, searchParams }: { params: Promis
               <>
                 <Link href="/settings" className="btn btn-ghost"><Settings className="size-5" aria-hidden /> {t("pf.edit")}</Link>
                 {u.isSalon && <Link href="/studio" className="btn btn-ghost"><LayoutDashboard className="size-5" aria-hidden /> {t("nav.studio")}</Link>}
+                {isAdminUser(me) && <Link href="/admin" className="btn btn-primary"><ShieldCheck className="size-5" aria-hidden /> Admin</Link>}
               </>
             ) : (
               <>

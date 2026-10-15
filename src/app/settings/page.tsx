@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getUser, listOtherAccounts } from "@/lib/auth";
 import { mediaUrl } from "@/lib/storage";
 import { SettingsForm } from "@/components/settings-form";
+import { isAdminUser } from "@/lib/admin";
 import { AccountSection } from "@/components/account-section";
 import { getT } from "@/lib/i18n-server";
 
@@ -23,7 +24,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ w
   return (
     <>
       <SettingsForm p={p} welcome={(await searchParams).welcome === "1"} />
-      <AccountSection email={me.email} others={others} />
+      <AccountSection email={me.email} others={others} isAdmin={isAdminUser(me)} />
     </>
   );
 }

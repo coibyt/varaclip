@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, LogOut, Mail, UserPlus } from "lucide-react";
+import Link from "next/link";
+import { Loader2, LogOut, Mail, ShieldCheck, UserPlus } from "lucide-react";
 import { Avatar } from "./avatar";
 import { InstallButton } from "./install-app";
 import { useT } from "./locale-provider";
@@ -13,7 +14,7 @@ const post = (action: string, body?: object) =>
   fetch(`/api/auth/${action}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body ?? {}) });
 
 /** Settings: account email, password change, switching between accounts, and logging out. */
-export function AccountSection({ email, others }: { email: string; others: Other[] }) {
+export function AccountSection({ email, others, isAdmin = false }: { email: string; others: Other[]; isAdmin?: boolean }) {
   const t = useT();
   const router = useRouter();
   const [current, setCurrent] = useState("");
@@ -52,6 +53,8 @@ export function AccountSection({ email, others }: { email: string; others: Other
     <section className="mx-auto max-w-xl px-4 pb-28 lg:pb-12">
       <div className="border-t border-white/10 pt-8">
         <h2 className="text-xl font-extrabold tracking-tight">{t("acc.title")}</h2>
+
+        {isAdmin && <Link href="/admin" className="btn btn-primary mt-4 w-full sm:w-auto"><ShieldCheck className="size-5" aria-hidden /> Admin</Link>}
 
         <InstallButton className="mt-4" />
 
