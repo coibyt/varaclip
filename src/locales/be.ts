@@ -308,6 +308,8 @@ const be: Record<string, string> = {
   "auth.agree": "Працягваючы, я прымаю {terms} і {privacy} VaraClip.com.",
   "auth.terms": "Умовы выкарыстання",
   "auth.privacy": "Палітыку прыватнасці",
+  "badge.hot": "У трэндзе",
+  "badge.new": "Новае",
 };
 
 export default be;

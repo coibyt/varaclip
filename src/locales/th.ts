@@ -308,6 +308,8 @@ const th: Record<string, string> = {
   "auth.agree": "การดำเนินการต่อถือว่าฉันยอมรับ{terms}และ{privacy}ของ VaraClip.com",
   "auth.terms": "ข้อกำหนดการใช้งาน",
   "auth.privacy": "นโยบายความเป็นส่วนตัว",
+  "badge.hot": "กำลังฮิต",
+  "badge.new": "ใหม่",
 };
 
 export default th;

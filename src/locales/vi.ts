@@ -324,6 +324,8 @@ const vi: Record<string, string> = {
   "auth.agree": "Bằng việc tiếp tục, tôi đồng ý {terms} và {privacy} của VaraClip.com.",
   "auth.terms": "Điều khoản sử dụng",
   "auth.privacy": "Chính sách bảo mật",
+  "badge.hot": "Đang hot",
+  "badge.new": "Mới",
 };
 
 export default vi;

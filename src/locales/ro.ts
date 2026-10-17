@@ -308,6 +308,8 @@ const ro: Record<string, string> = {
   "auth.agree": "Continuând, sunt de acord cu {terms} și {privacy} VaraClip.com.",
   "auth.terms": "Termenii de utilizare",
   "auth.privacy": "Politica de confidențialitate",
+  "badge.hot": "În trend",
+  "badge.new": "Nou",
 };
 
 export default ro;

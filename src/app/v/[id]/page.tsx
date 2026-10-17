@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
+import { isAdminUser } from "@/lib/admin";
 import { getUser } from "@/lib/auth";
 import { forYou, hydrate, videoInclude } from "@/lib/videos";
 import { mediaUrl } from "@/lib/storage";
@@ -26,5 +27,5 @@ export default async function VideoPage({ params }: { params: Promise<{ id: stri
   const first = await db.video.findUnique({ where: { id }, include: videoInclude });
   if (!first) notFound();
   const [me, more] = await Promise.all([getUser(), forYou(6, [id])]);
-  return <VideoFeed initial={await hydrate([first, ...more])} meId={me?.id ?? null} />;
+  return <VideoFeed initial={await hydrate([first, ...more])} meId={me?.id ?? null} isAdmin={isAdminUser(me)} />;
 }

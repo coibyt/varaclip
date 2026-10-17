@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Search } from "lucide-react";
 import { db } from "@/lib/db";
+import { getUser } from "@/lib/auth";
+import { isAdminUser } from "@/lib/admin";
 import { hydrate, videoInclude } from "@/lib/videos";
 import { VideoGrid } from "@/components/video-grid";
 import { Avatar } from "@/components/avatar";
@@ -85,7 +87,7 @@ export default async function Discover({ searchParams }: { searchParams: Promise
 
       <section className="mt-8" aria-label={t("common.videos")}>
         <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-mist">{term ? t("dc.resultsFor", { q }) : t("dc.mostViewed")}</h2>
-        <VideoGrid videos={await hydrate(rows)} empty={t("dc.noResults")} watch={t("studio.watch")} locale={locale} />
+        <VideoGrid showViews={isAdminUser(await getUser())} videos={await hydrate(rows)} empty={t("dc.noResults")} watch={t("studio.watch")} locale={locale} />
       </section>
     </div>
   );

@@ -308,6 +308,8 @@ const he: Record<string, string> = {
   "auth.agree": "בהמשך אני מסכים/ה ל{terms} ול{privacy} של VaraClip.com.",
   "auth.terms": "תנאי השימוש",
   "auth.privacy": "מדיניות הפרטיות",
+  "badge.hot": "חם",
+  "badge.new": "חדש",
 };
 
 export default he;

@@ -308,6 +308,8 @@ const sv: Record<string, string> = {
   "auth.agree": "Genom att fortsätta godkänner jag VaraClip.coms {terms} och {privacy}.",
   "auth.terms": "användarvillkor",
   "auth.privacy": "integritetspolicy",
+  "badge.hot": "Het",
+  "badge.new": "Ny",
 };
 
 export default sv;

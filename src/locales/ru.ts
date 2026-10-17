@@ -308,6 +308,8 @@ const ru: Record<string, string> = {
   "auth.agree": "Продолжая, я принимаю {terms} и {privacy} VaraClip.com.",
   "auth.terms": "Условия использования",
   "auth.privacy": "Политику конфиденциальности",
+  "badge.hot": "В тренде",
+  "badge.new": "Новое",
 };
 
 export default ru;

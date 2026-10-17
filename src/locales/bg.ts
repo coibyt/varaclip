@@ -308,6 +308,8 @@ const bg: Record<string, string> = {
   "auth.agree": "Продължавайки, се съгласявам с {terms} и {privacy} на VaraClip.com.",
   "auth.terms": "Условията за ползване",
   "auth.privacy": "Политиката за поверителност",
+  "badge.hot": "Хит",
+  "badge.new": "Ново",
 };
 
 export default bg;

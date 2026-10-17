@@ -308,6 +308,8 @@ const fil: Record<string, string> = {
   "auth.agree": "Sa pagpapatuloy, sumasang-ayon ako sa {terms} at {privacy} ng VaraClip.com.",
   "auth.terms": "Mga Tuntunin sa Paggamit",
   "auth.privacy": "Patakaran sa Privacy",
+  "badge.hot": "Patok",
+  "badge.new": "Bago",
 };
 
 export default fil;

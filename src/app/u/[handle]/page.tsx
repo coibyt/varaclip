@@ -89,7 +89,7 @@ export default async function Profile({ params, searchParams }: { params: Promis
       </nav>
 
       <div className="mt-4">
-        <VideoGrid videos={await hydrate(rows)} empty={tab === "saved" ? t("pf.noSaved") : mine && u.isSalon ? t("pf.noVideosOwner") : t("pf.noVideos")} watch={t("studio.watch")} locale={locale} />
+        <VideoGrid showViews={isAdminUser(me)} videos={await hydrate(rows)} empty={tab === "saved" ? t("pf.noSaved") : mine && u.isSalon ? t("pf.noVideosOwner") : t("pf.noVideos")} watch={t("studio.watch")} locale={locale} />
       </div>
     </div>
   );

@@ -20,6 +20,10 @@ export function parseTags(raw: string) {
 
 export const HANDLE_RE = /^[a-z0-9_.]{3,24}$/;
 
+export type Badge = "hot" | "new" | null;
+/** auto = decided by the rules; hot / new = chosen by an admin; none = an admin hid the badge. */
+export type BadgeMode = "auto" | "hot" | "new" | "none";
+
 export type FeedVideo = {
   id: string;
   caption: string;
@@ -34,6 +38,8 @@ export type FeedVideo = {
   createdAt: string;
   liked: boolean;
   saved: boolean;
+  badge: Badge;
+  badgeMode: BadgeMode;
   creator: {
     id: string; handle: string; displayName: string; salonName: string; city: string;
     avatarUrl: string; hue: number; bookingUrl: string; phone: string; followed: boolean;

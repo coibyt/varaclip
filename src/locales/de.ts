@@ -308,6 +308,8 @@ const de: Record<string, string> = {
   "auth.agree": "Indem ich fortfahre, stimme ich den {terms} und der {privacy} von VaraClip.com zu.",
   "auth.terms": "Nutzungsbedingungen",
   "auth.privacy": "Datenschutzerklärung",
+  "badge.hot": "Angesagt",
+  "badge.new": "Neu",
 };
 
 export default de;

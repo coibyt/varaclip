@@ -308,6 +308,8 @@ const id: Record<string, string> = {
   "auth.agree": "Dengan melanjutkan, saya menyetujui {terms} dan {privacy} VaraClip.com.",
   "auth.terms": "Ketentuan Penggunaan",
   "auth.privacy": "Kebijakan Privasi",
+  "badge.hot": "Lagi hot",
+  "badge.new": "Baru",
 };
 
 export default id;

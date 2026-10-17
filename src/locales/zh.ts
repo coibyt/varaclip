@@ -308,6 +308,8 @@ const zh: Record<string, string> = {
   "auth.agree": "继续即表示我同意 VaraClip.com 的{terms}和{privacy}。",
   "auth.terms": "使用条款",
   "auth.privacy": "隐私政策",
+  "badge.hot": "热门",
+  "badge.new": "新",
 };
 
 export default zh;

@@ -308,6 +308,8 @@ const uk: Record<string, string> = {
   "auth.agree": "Продовжуючи, я приймаю {terms} та {privacy} VaraClip.com.",
   "auth.terms": "Умови користування",
   "auth.privacy": "Політику конфіденційності",
+  "badge.hot": "У тренді",
+  "badge.new": "Нове",
 };
 
 export default uk;

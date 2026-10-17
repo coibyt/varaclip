@@ -308,6 +308,8 @@ const ko: Record<string, string> = {
   "auth.agree": "계속하면 VaraClip.com의 {terms} 및 {privacy}에 동의하는 것으로 간주돼요.",
   "auth.terms": "이용약관",
   "auth.privacy": "개인정보처리방침",
+  "badge.hot": "인기",
+  "badge.new": "신규",
 };
 
 export default ko;

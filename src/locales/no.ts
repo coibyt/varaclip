@@ -308,6 +308,8 @@ const no: Record<string, string> = {
   "auth.agree": "Ved å fortsette godtar jeg VaraClip.coms {terms} og {privacy}.",
   "auth.terms": "brukervilkår",
   "auth.privacy": "personvernerklæring",
+  "badge.hot": "Het",
+  "badge.new": "Ny",
 };
 
 export default no;

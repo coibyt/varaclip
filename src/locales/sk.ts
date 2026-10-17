@@ -308,6 +308,8 @@ const sk: Record<string, string> = {
   "auth.agree": "Pokračovaním súhlasím s {terms} a {privacy} VaraClip.com.",
   "auth.terms": "podmienkami používania",
   "auth.privacy": "zásadami ochrany osobných údajov",
+  "badge.hot": "Hit",
+  "badge.new": "Nové",
 };
 
 export default sk;

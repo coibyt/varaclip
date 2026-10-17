@@ -308,6 +308,8 @@ const ja: Record<string, string> = {
   "auth.agree": "続行することで、VaraClip.com の{terms}と{privacy}に同意します。",
   "auth.terms": "利用規約",
   "auth.privacy": "プライバシーポリシー",
+  "badge.hot": "話題",
+  "badge.new": "新着",
 };
 
 export default ja;

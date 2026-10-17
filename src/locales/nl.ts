@@ -308,6 +308,8 @@ const nl: Record<string, string> = {
   "auth.agree": "Door verder te gaan ga ik akkoord met de {terms} en het {privacy} van VaraClip.com.",
   "auth.terms": "gebruiksvoorwaarden",
   "auth.privacy": "privacybeleid",
+  "badge.hot": "Hot",
+  "badge.new": "Nieuw",
 };
 
 export default nl;

@@ -308,6 +308,8 @@ const et: Record<string, string> = {
   "auth.agree": "Jätkates nõustun VaraClip.com {terms} ja {privacy}.",
   "auth.terms": "kasutustingimustega",
   "auth.privacy": "privaatsuspoliitikaga",
+  "badge.hot": "Populaarne",
+  "badge.new": "Uus",
 };
 
 export default et;

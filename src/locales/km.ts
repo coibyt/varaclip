@@ -308,6 +308,8 @@ const km: Record<string, string> = {
   "auth.agree": "ដោយបន្ត ខ្ញុំយល់ព្រមតាម{terms} និង{privacy}របស់ VaraClip.com។",
   "auth.terms": "លក្ខខណ្ឌប្រើប្រាស់",
   "auth.privacy": "គោលការណ៍ឯកជនភាព",
+  "badge.hot": "កំពុងពេញនិយម",
+  "badge.new": "ថ្មី",
 };
 
 export default km;

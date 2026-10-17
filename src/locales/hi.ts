@@ -308,6 +308,8 @@ const hi: Record<string, string> = {
   "auth.agree": "जारी रखकर, मैं VaraClip.com के {terms} और {privacy} से सहमत हूँ।",
   "auth.terms": "उपयोग की शर्तों",
   "auth.privacy": "गोपनीयता नीति",
+  "badge.hot": "ट्रेंडिंग",
+  "badge.new": "नया",
 };
 
 export default hi;

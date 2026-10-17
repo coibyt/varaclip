@@ -214,3 +214,10 @@ model SiteVisit {
   @@unique([day, visitorKey])
   @@index([day])
 }
+
+/// A badge an admin chose by hand for a video ("hot", "new", or "none" to hide the automatic one).
+model VideoBadge {
+  videoId   String   @id
+  badge     String   @db.VarChar(8)
+  updatedAt DateTime @default(now()) @updatedAt
+}

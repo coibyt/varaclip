@@ -308,6 +308,8 @@ const ms: Record<string, string> = {
   "auth.agree": "Dengan meneruskan, saya bersetuju dengan {terms} dan {privacy} VaraClip.com.",
   "auth.terms": "Terma Penggunaan",
   "auth.privacy": "Dasar Privasi",
+  "badge.hot": "Sedang hot",
+  "badge.new": "Baharu",
 };
 
 export default ms;

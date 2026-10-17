@@ -308,6 +308,8 @@ const lv: Record<string, string> = {
   "auth.agree": "Turpinot es piekrītu VaraClip.com {terms} un {privacy}.",
   "auth.terms": "lietošanas noteikumiem",
   "auth.privacy": "privātuma politikai",
+  "badge.hot": "Populārs",
+  "badge.new": "Jauns",
 };
 
 export default lv;

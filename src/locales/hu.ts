@@ -308,6 +308,8 @@ const hu: Record<string, string> = {
   "auth.agree": "A folytatással elfogadom a VaraClip.com {terms} és {privacy}.",
   "auth.terms": "felhasználási feltételeit",
   "auth.privacy": "adatvédelmi szabályzatát",
+  "badge.hot": "Felkapott",
+  "badge.new": "Új",
 };
 
 export default hu;

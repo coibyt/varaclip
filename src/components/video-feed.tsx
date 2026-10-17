@@ -8,7 +8,8 @@ import {
 } from "lucide-react";
 import { Avatar } from "./avatar";
 import { CommentsSheet } from "./comments-sheet";
-import { compact, type FeedVideo } from "@/lib/util";
+import { compact, type Badge, type BadgeMode, type FeedVideo } from "@/lib/util";
+import { AdminBadgeControl, BadgeChip } from "./video-badge";
 import { useI18n } from "./locale-provider";
 import { LanguageSwitcher } from "./language-switcher";
 import { DownloadButton } from "./download-button";
@@ -16,6 +17,8 @@ import { DownloadButton } from "./download-button";
 type Props = {
   initial: FeedVideo[];
   meId: string | null;
+  /** Admins can set a video's badge by hand. */
+  isAdmin?: boolean;
   /** Hide the For You / Following switch (e.g. when showing one profile's videos). */
   tabs?: boolean;
   /** Fixed list: no infinite loading. */
@@ -23,7 +26,7 @@ type Props = {
   startId?: string;
 };
 
-export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }: Props) {
+export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed = false, startId }: Props) {
   const router = useRouter();
   const { t } = useI18n();
   const [tab, setTab] = useState<"foryou" | "following">("foryou");
@@ -210,6 +213,8 @@ export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }
             onShare={() => share(v)}
             onComments={() => setCommentsFor(v)}
             isMine={v.creator.id === meId}
+            admin={isAdmin}
+            onBadge={(badge, badgeMode) => patch(v.id, (x) => ({ ...x, badge, badgeMode }))}
           />
         ))}
 
@@ -236,11 +241,11 @@ export function VideoFeed({ initial, meId, tabs = true, fixed = false, startId }
 }
 
 function VideoCard({
-  v, active, muted, setMuted, onLike, onSave, onFollow, onShare, onComments, isMine,
+  v, active, muted, setMuted, onLike, onSave, onFollow, onShare, onComments, isMine, admin, onBadge,
 }: {
   v: FeedVideo; active: boolean; muted: boolean; setMuted: (f: (m: boolean) => boolean) => void;
   onLike: () => void; onSave: () => void; onFollow: () => void; onShare: () => Promise<"copied" | "shared" | undefined>;
-  onComments: () => void; isMine: boolean;
+  onComments: () => void; isMine: boolean; admin: boolean; onBadge: (badge: Badge, mode: BadgeMode) => void;
 }) {
   const { t, locale } = useI18n();
   const ref = useRef<HTMLVideoElement>(null);
@@ -361,9 +366,12 @@ function VideoCard({
           </Link>
         )}
 
+        {admin && <AdminBadgeControl videoId={v.id} mode={v.badgeMode} onChange={onBadge} className="absolute left-3 top-[112px] z-20 lg:top-16" />}
+
         {/* Info */}
         <div className="absolute inset-x-0 bottom-0 z-10 p-4 pr-[72px] lg:pr-4">
-          <Link href={`/u/${v.creator.handle}`} className="inline-flex items-center gap-2 font-bold hover:underline">
+          {v.badge && <BadgeChip badge={v.badge} className="mb-1.5" />}
+          <Link href={`/u/${v.creator.handle}`} className="flex items-center gap-2 font-bold hover:underline">
             @{v.creator.handle}
           </Link>
           {(v.creator.salonName || v.creator.city) && (
