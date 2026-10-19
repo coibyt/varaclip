@@ -10,6 +10,8 @@ export function EmailComposer() {
   const [info, setInfo] = useState<Info | null>(null);
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
+  const [btnLabel, setBtnLabel] = useState("");
+  const [btnUrl, setBtnUrl] = useState("");
   const [busy, setBusy] = useState(false);
   const [log, setLog] = useState<{ ok: boolean; text: string } | null>(null);
 
@@ -18,7 +20,7 @@ export function EmailComposer() {
   }, []);
 
   async function call(mode: "test" | "all", offset = 0) {
-    const r = await fetch("/api/admin/email", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ subject, body, mode, offset }) });
+    const r = await fetch("/api/admin/email", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ subject, body, mode, offset, ...(btnLabel || btnUrl ? { buttonLabel: btnLabel, buttonUrl: btnUrl } : {}) }) });
     return { ok: r.ok, data: await r.json().catch(() => ({})) };
   }
 
@@ -63,6 +65,17 @@ export function EmailComposer() {
         <label htmlFor="em-body" className="mb-1.5 block text-sm font-semibold">Nội dung</label>
         <textarea id="em-body" rows={10} value={body} onChange={(e) => setBody(e.target.value)} maxLength={8000} className="input" placeholder="Viết nội dung. Cách một dòng trống để xuống đoạn mới." />
       </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div>
+          <label htmlFor="em-btn" className="mb-1.5 block text-sm font-semibold">Chữ trên nút (không bắt buộc)</label>
+          <input id="em-btn" value={btnLabel} onChange={(e) => setBtnLabel(e.target.value)} maxLength={40} placeholder="Xem ngay" className="input" />
+        </div>
+        <div>
+          <label htmlFor="em-url" className="mb-1.5 block text-sm font-semibold">Link của nút</label>
+          <input id="em-url" type="url" value={btnUrl} onChange={(e) => setBtnUrl(e.target.value)} maxLength={500} placeholder="https://varaclip.com/live" className="input" />
+        </div>
+      </div>
+      <p className="text-xs text-mist">Email tự động có lời chào theo tên khách, thiết kế VaraClip, và liên kết hủy nhận ở cuối.</p>
       {log && <p role={log.ok ? "status" : "alert"} className={`rounded-xl px-4 py-3 text-sm ${log.ok ? "bg-emerald-500/10 text-emerald-300" : "bg-red-500/10 text-red-300"}`}>{log.text}</p>}
       <div className="flex flex-wrap gap-2">
         <button type="button" onClick={test} disabled={busy || !ready} className="btn btn-ghost">{busy ? <Loader2 className="size-5 animate-spin" aria-hidden /> : <Send className="size-5" aria-hidden />} Gửi thử cho tôi</button>

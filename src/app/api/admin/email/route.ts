@@ -14,6 +14,8 @@ const schema = z.object({
   body: z.string().trim().min(5).max(8000),
   mode: z.enum(["test", "all"]),
   offset: z.number().int().min(0).default(0),
+  buttonLabel: z.string().trim().max(40).optional(),
+  buttonUrl: z.string().trim().max(500).optional(),
 });
 
 async function guard() {
@@ -37,9 +39,12 @@ export async function POST(req: Request) {
   if (!p.success) return NextResponse.json({ error: "Tiêu đề (từ 3 ký tự) và nội dung (từ 5 ký tự) là bắt buộc." }, { status: 400 });
   const { subject, body, mode, offset } = p.data;
   const html = textToHtml(body);
+  // An optional button: both fields are needed and the link must be an https address.
+  const button = p.data.buttonLabel && p.data.buttonUrl && /^https:\/\//i.test(p.data.buttonUrl) ? { label: p.data.buttonLabel, url: p.data.buttonUrl } : undefined;
+  if ((p.data.buttonLabel || p.data.buttonUrl) && !button) return NextResponse.json({ error: "Nút bấm cần cả chữ trên nút và một link bắt đầu bằng https://" }, { status: 400 });
 
   if (mode === "test") {
-    const r = await sendMail(marketingMail(me.email, `[Thử] ${subject}`, html, body, unsubscribeUrl(me.id)));
+    const r = await sendMail(marketingMail(me.email, `[Thử] ${subject}`, html, body, unsubscribeUrl(me.id), { name: me.displayName, button }));
     return r.ok ? NextResponse.json({ ok: true, sent: 1, failed: 0, done: true, to: me.email }) : NextResponse.json({ error: r.error }, { status: 502 });
   }
 
@@ -48,12 +53,12 @@ export async function POST(req: Request) {
     db.userConsent.count({ where }),
     db.userConsent.findMany({ where, orderBy: { userId: "asc" }, skip: offset, take: BATCH, select: { userId: true } }),
   ]);
-  const users = await db.user.findMany({ where: { id: { in: consents.map((c) => c.userId) } }, select: { id: true, email: true } });
+  const users = await db.user.findMany({ where: { id: { in: consents.map((c) => c.userId) } }, select: { id: true, email: true, displayName: true } });
 
   let sent = 0;
   const errors: string[] = [];
   for (const u of users) {
-    const r = await sendMail(marketingMail(u.email, subject, html, body, unsubscribeUrl(u.id)));
+    const r = await sendMail(marketingMail(u.email, subject, html, body, unsubscribeUrl(u.id), { name: u.displayName, button }));
     if (r.ok) sent++;
     else errors.push(`${u.email}: ${escapeHtml(r.error).slice(0, 120)}`);
     await new Promise((ok) => setTimeout(ok, GAP_MS));

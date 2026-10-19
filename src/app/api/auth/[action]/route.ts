@@ -5,7 +5,7 @@ import { checkPassword, createSession, destroySession, getUser, hashPassword, st
 import { HANDLE_RE } from "@/lib/util";
 import { getLocale, getT } from "@/lib/i18n-server";
 import { SITE_URL, hashToken, mailConfigured, newToken, readSignup, sendMail, signSignup } from "@/lib/mail";
-import { confirmSignupMail, resetMail, welcomeMail } from "@/lib/mails";
+import { confirmSignupMail, passwordChangedMail, resetMail, welcomeMail } from "@/lib/mails";
 import { getFlag } from "@/lib/settings";
 
 const registerSchema = z.object({
@@ -62,7 +62,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
       },
     });
     await db.userConsent.create({ data: { userId: user.id, marketingEmail: pending.marketingEmail, marketingSms: pending.marketingSms } }).catch(() => {});
-    await sendMail(welcomeMail(user.email, user.displayName, pending.locale)).catch(() => {});
+    await sendMail(welcomeMail(user.email, user.displayName, pending.locale, undefined, pending.isSalon)).catch(() => {});
     await createSession(user.id);
     return NextResponse.json({ ok: true, handle: user.handle, isSalon: user.isSalon });
   }
@@ -78,7 +78,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
         if (!recent) {
           const token = newToken();
           await db.emailToken.create({ data: { userId: user.id, type: "reset", tokenHash: hashToken(token), expiresAt: new Date(Date.now() + 3600_000) } });
-          await sendMail(resetMail(user.email, await getLocale(), `${SITE_URL}/reset-password?token=${token}`));
+          await sendMail(resetMail(user.email, await getLocale(), `${SITE_URL}/reset-password?token=${token}`, user.displayName));
         }
       } catch { /* the page answers the same way */ }
     }
@@ -92,6 +92,8 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
     if (!row) return err(t("auth.resetBad"), 400);
     await db.user.update({ where: { id: row.userId }, data: { passwordHash: await hashPassword(p.data.password) } });
     await db.emailToken.updateMany({ where: { userId: row.userId, type: "reset", usedAt: null }, data: { usedAt: new Date() } });
+    const owner = await db.user.findUnique({ where: { id: row.userId }, select: { email: true, displayName: true } });
+    if (owner) await sendMail(passwordChangedMail(owner.email, await getLocale(), owner.displayName));
     return NextResponse.json({ ok: true });
   }
 
@@ -102,6 +104,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
     if (!p.success) return err(t("err.password"));
     if (!(await checkPassword(p.data.current, me.passwordHash))) return err(t("acc.pwWrong"), 403);
     await db.user.update({ where: { id: me.id }, data: { passwordHash: await hashPassword(p.data.next) } });
+    await sendMail(passwordChangedMail(me.email, await getLocale(), me.displayName));
     return NextResponse.json({ ok: true });
   }
 
@@ -148,7 +151,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ action:
         await db.emailToken.create({ data: { userId: user.id, type: "verify", tokenHash: hashToken(token), expiresAt: new Date(Date.now() + 7 * 24 * 3600_000) } });
         verifyUrl = `${SITE_URL}/verify?token=${token}`;
       } catch { /* table not created yet: send the welcome email without the link */ }
-      await sendMail(welcomeMail(user.email, user.displayName, await getLocale(), verifyUrl));
+      await sendMail(welcomeMail(user.email, user.displayName, await getLocale(), verifyUrl, d.isSalon));
     } catch { /* ignore */ }
     await createSession(user.id, d.add);
     return NextResponse.json({ ok: true, handle: user.handle });

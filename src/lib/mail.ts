@@ -64,25 +64,8 @@ export function checkUnsubscribe(userId: string, t: string) {
 // ── email layout
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-export function layout(opts: { title: string; bodyHtml: string; button?: { label: string; url: string }; footer?: string }) {
-  const btn = opts.button
-    ? `<p style="margin:28px 0"><a href="${opts.button.url}" style="background:#FF4D8D;color:#ffffff;text-decoration:none;font-weight:700;padding:14px 28px;border-radius:999px;display:inline-block">${esc(opts.button.label)}</a></p>`
-    : "";
-  return `<!doctype html><html><body style="margin:0;background:#f4f4f7;font-family:Arial,Helvetica,sans-serif;color:#1d1d27">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 12px">
-<table role="presentation" width="100%" style="max-width:520px;background:#ffffff;border-radius:16px;overflow:hidden" cellpadding="0" cellspacing="0">
-<tr><td style="background:linear-gradient(135deg,#FF4D8D,#F5C26B);padding:20px 28px;font-size:22px;font-weight:800;color:#0B0B0F">${esc(SITE)}</td></tr>
-<tr><td style="padding:28px;font-size:15px;line-height:1.6">
-<h1 style="margin:0 0 12px;font-size:20px">${esc(opts.title)}</h1>
-${opts.bodyHtml}
-${btn}
-</td></tr>
-<tr><td style="padding:16px 28px 24px;font-size:12px;color:#777;line-height:1.5">${opts.footer ?? ""}<br>${esc(SITE)} · <a href="${SITE_URL}" style="color:#777">${SITE_URL.replace(/^https?:\/\//, "")}</a></td></tr>
-</table></td></tr></table></body></html>`;
-}
-
 /** Plain text from the admin's message -> safe HTML paragraphs. */
-export const textToHtml = (t: string) => t.split(/\n{2,}/).map((p) => `<p style="margin:0 0 14px">${esc(p).replace(/\n/g, "<br>")}</p>`).join("");
+export const textToHtml = (t: string) => t.split(/\n{2,}/).map((p) => `<p style="margin:0 0 16px;font-size:16px;line-height:1.65;color:#1D1D27">${esc(p).replace(/\n/g, "<br>")}</p>`).join("");
 export const escapeHtml = esc;
 
 // ── "confirm your email to finish signing up": the pending sign-up travels inside a signed link
