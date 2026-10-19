@@ -221,3 +221,24 @@ model VideoBadge {
   badge     String   @db.VarChar(8)
   updatedAt DateTime @default(now()) @updatedAt
 }
+
+/// One-time links sent by email: "verify" (confirm the address) and "reset" (new password). Only a hash of the token is kept.
+model EmailToken {
+  id        String    @id @default(cuid())
+  userId    String
+  type      String    @db.VarChar(10)
+  tokenHash String    @db.VarChar(64)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([tokenHash])
+  @@index([userId, type])
+}
+
+/// Site-wide switches an admin can flip.
+model SiteSetting {
+  key       String   @id @db.VarChar(40)
+  value     String   @db.VarChar(200)
+  updatedAt DateTime @default(now()) @updatedAt
+}

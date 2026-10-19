@@ -13,6 +13,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
   const sp = useSearchParams();
   const next = sp.get("next") && sp.get("next")!.startsWith("/") ? sp.get("next")! : "/";
   const adding = sp.get("add") === "1";
+  const [pendingEmail, setPendingEmail] = useState("");
   const [mailOk, setMailOk] = useState(true);
   const [smsOk, setSmsOk] = useState(true);
   const [isSalon, setIsSalon] = useState(sp.get("salon") === "1");
@@ -38,8 +39,21 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
       setBusy(false);
       return setError(j.error ?? t("auth.genericError"));
     }
+    if (j.pending) {
+      setBusy(false);
+      return setPendingEmail(j.email);
+    }
     router.push(reg && isSalon ? "/settings?welcome=1" : next);
     router.refresh();
+  }
+
+  if (pendingEmail) {
+    return (
+      <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center px-5 py-10 pb-24 text-center lg:pb-10">
+        <h1 className="font-display text-3xl font-bold tracking-tight">{t("auth.createTitle")}</h1>
+        <p role="status" className="mt-5 rounded-xl bg-emerald-500/10 px-4 py-3 text-sm leading-relaxed text-emerald-300">{t("auth.checkEmail", { email: pendingEmail })}</p>
+      </div>
+    );
   }
 
   return (
@@ -82,6 +96,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
         <Field label={t("auth.email")} name="email" type="email" autoComplete="email" required />
         {reg && <Field label={t("auth.phoneOpt")} name="phone" type="tel" autoComplete="tel" maxLength={30} />}
         <Field label={t("auth.password")} name="password" type="password" autoComplete={reg ? "new-password" : "current-password"} required minLength={reg ? 8 : 1} hint={reg ? t("auth.passwordHint") : undefined} />
+        {!reg && <p className="-mt-2 text-right text-sm"><Link href="/forgot-password" className="font-semibold text-glow hover:underline">{t("auth.forgot")}</Link></p>}
 
         {reg && (
           <fieldset>

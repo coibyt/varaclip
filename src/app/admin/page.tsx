@@ -5,6 +5,9 @@ import { getUser } from "@/lib/auth";
 import { isAdminUser } from "@/lib/admin";
 import { helsinkiDay, onlineNow } from "@/lib/online";
 import { AutoRefresh } from "@/components/auto-refresh";
+import { SignupSetting } from "@/components/signup-setting";
+import { getFlag } from "@/lib/settings";
+import { mailConfigured } from "@/lib/mail";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin" };
@@ -139,7 +142,12 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
   return (
     <div className="mx-auto max-w-5xl px-4 pb-28 pt-8 lg:pb-12">
       <AutoRefresh seconds={30} />
-      <h1 className="text-2xl font-extrabold tracking-tight">Quản trị</h1>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-2xl font-extrabold tracking-tight">Quản trị</h1>
+        <Link href="/admin/email" className="btn btn-primary">Gửi email marketing</Link>
+      </div>
+
+      <div className="mt-6"><SignupSetting initial={await getFlag("requireEmailVerify")} mailConfigured={mailConfigured()} /></div>
 
       <h2 className="mt-8 text-lg font-bold">Tổng quan website</h2>
       <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
