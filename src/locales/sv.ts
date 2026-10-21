@@ -333,6 +333,7 @@ const sv: Record<string, string> = {
   "share.more": "Dela via en annan app",
   "share.linkLabel": "Videolänk (klistra in på VaraaAi.com)",
   "share.embedLabel": "Inbäddningskod (klistra in på en webbplats)",
+  "feed.tapForSound": "Tryck för ljud",
 };
 
 export default sv;

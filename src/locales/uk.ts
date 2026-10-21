@@ -333,6 +333,7 @@ const uk: Record<string, string> = {
   "share.more": "Поділитися через інший застосунок",
   "share.linkLabel": "Посилання на відео (вставте у VaraaAi.com)",
   "share.embedLabel": "Код для вбудовування (вставте на сайт)",
+  "feed.tapForSound": "Торкніться, щоб увімкнути звук",
 };
 
 export default uk;

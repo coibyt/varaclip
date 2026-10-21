@@ -333,6 +333,7 @@ const de: Record<string, string> = {
   "share.more": "Über eine andere App teilen",
   "share.linkLabel": "Video-Link (in VaraaAi.com einfügen)",
   "share.embedLabel": "Einbettungscode (in eine Website einfügen)",
+  "feed.tapForSound": "Tippen für Ton",
 };
 
 export default de;

@@ -333,6 +333,7 @@ const da: Record<string, string> = {
   "share.more": "Del via en anden app",
   "share.linkLabel": "Videolink (indsæt på VaraaAi.com)",
   "share.embedLabel": "Indlejringskode (indsæt på en hjemmeside)",
+  "feed.tapForSound": "Tryk for lyd",
 };
 
 export default da;

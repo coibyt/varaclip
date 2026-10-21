@@ -333,6 +333,7 @@ const ko: Record<string, string> = {
   "share.more": "다른 앱으로 공유",
   "share.linkLabel": "동영상 링크(VaraaAi.com에 붙여넣기)",
   "share.embedLabel": "삽입 코드(웹사이트에 붙여넣기)",
+  "feed.tapForSound": "탭하여 소리 켜기",
 };
 
 export default ko;

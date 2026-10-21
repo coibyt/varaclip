@@ -333,6 +333,7 @@ const sk: Record<string, string> = {
   "share.more": "Zdieľať cez inú aplikáciu",
   "share.linkLabel": "Odkaz na video (vložte do VaraaAi.com)",
   "share.embedLabel": "Kód na vloženie (vložte na web)",
+  "feed.tapForSound": "Ťuknutím zapnete zvuk",
 };
 
 export default sk;

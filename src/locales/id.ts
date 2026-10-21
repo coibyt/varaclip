@@ -333,6 +333,7 @@ const id: Record<string, string> = {
   "share.more": "Bagikan lewat aplikasi lain",
   "share.linkLabel": "Tautan video (tempel di VaraaAi.com)",
   "share.embedLabel": "Kode sematan (tempel di situs web)",
+  "feed.tapForSound": "Ketuk untuk menyalakan suara",
 };
 
 export default id;

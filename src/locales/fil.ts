@@ -333,6 +333,7 @@ const fil: Record<string, string> = {
   "share.more": "I-share gamit ang ibang app",
   "share.linkLabel": "Link ng video (i-paste sa VaraaAi.com)",
   "share.embedLabel": "Embed code (i-paste sa website)",
+  "feed.tapForSound": "I-tap para buksan ang tunog",
 };
 
 export default fil;

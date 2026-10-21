@@ -333,6 +333,7 @@ const ms: Record<string, string> = {
   "share.more": "Kongsi melalui aplikasi lain",
   "share.linkLabel": "Pautan video (tampal dalam VaraaAi.com)",
   "share.embedLabel": "Kod benam (tampal dalam laman web)",
+  "feed.tapForSound": "Ketik untuk hidupkan bunyi",
 };
 
 export default ms;

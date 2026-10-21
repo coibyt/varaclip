@@ -333,6 +333,7 @@ const bg: Record<string, string> = {
   "share.more": "Споделяне чрез друго приложение",
   "share.linkLabel": "Връзка към видеото (поставете във VaraaAi.com)",
   "share.embedLabel": "Код за вграждане (поставете в уебсайт)",
+  "feed.tapForSound": "Докоснете за звук",
 };
 
 export default bg;

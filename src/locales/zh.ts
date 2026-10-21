@@ -333,6 +333,7 @@ const zh: Record<string, string> = {
   "share.more": "通过其他应用分享",
   "share.linkLabel": "视频链接（粘贴到 VaraaAi.com）",
   "share.embedLabel": "嵌入代码（粘贴到网站）",
+  "feed.tapForSound": "点按开启声音",
 };
 
 export default zh;

@@ -333,6 +333,7 @@ const he: Record<string, string> = {
   "share.more": "שיתוף דרך אפליקציה אחרת",
   "share.linkLabel": "קישור לסרטון (להדביק ב-VaraaAi.com)",
   "share.embedLabel": "קוד הטמעה (להדביק באתר)",
+  "feed.tapForSound": "הקישו להפעלת צליל",
 };
 
 export default he;

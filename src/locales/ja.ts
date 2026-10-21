@@ -333,6 +333,7 @@ const ja: Record<string, string> = {
   "share.more": "他のアプリで共有",
   "share.linkLabel": "動画リンク（VaraaAi.com に貼り付け）",
   "share.embedLabel": "埋め込みコード（ウェブサイトに貼り付け）",
+  "feed.tapForSound": "タップして音声をオン",
 };
 
 export default ja;

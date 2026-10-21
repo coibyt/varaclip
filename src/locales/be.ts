@@ -333,6 +333,7 @@ const be: Record<string, string> = {
   "share.more": "Падзяліцца праз іншую праграму",
   "share.linkLabel": "Спасылка на відэа (устаўце ў VaraaAi.com)",
   "share.embedLabel": "Код для ўбудавання (устаўце на сайт)",
+  "feed.tapForSound": "Націсніце, каб уключыць гук",
 };
 
 export default be;

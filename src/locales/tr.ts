@@ -333,6 +333,7 @@ const tr: Record<string, string> = {
   "share.more": "Başka uygulamayla paylaş",
   "share.linkLabel": "Video bağlantısı (VaraaAi.com’a yapıştırın)",
   "share.embedLabel": "Gömme kodu (web sitesine yapıştırın)",
+  "feed.tapForSound": "Sesi açmak için dokunun",
 };
 
 export default tr;

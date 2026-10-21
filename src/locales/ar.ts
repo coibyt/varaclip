@@ -333,6 +333,7 @@ const ar: Record<string, string> = {
   "share.more": "المشاركة عبر تطبيق آخر",
   "share.linkLabel": "رابط الفيديو (الصقه في VaraaAi.com)",
   "share.embedLabel": "كود التضمين (الصقه في موقع)",
+  "feed.tapForSound": "المس لتشغيل الصوت",
 };
 
 export default ar;

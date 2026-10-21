@@ -333,6 +333,7 @@ const lv: Record<string, string> = {
   "share.more": "Kopīgot ar citu lietotni",
   "share.linkLabel": "Video saite (ielīmē VaraaAi.com)",
   "share.embedLabel": "Iegulšanas kods (ielīmē vietnē)",
+  "feed.tapForSound": "Pieskaries, lai ieslēgtu skaņu",
 };
 
 export default lv;

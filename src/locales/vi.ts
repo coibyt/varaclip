@@ -349,6 +349,7 @@ const vi: Record<string, string> = {
   "share.more": "Chia sẻ qua ứng dụng khác",
   "share.linkLabel": "Link video (dán vào VaraaAi.com)",
   "share.embedLabel": "Mã nhúng (dán vào website)",
+  "feed.tapForSound": "Chạm để bật tiếng",
 };
 
 export default vi;

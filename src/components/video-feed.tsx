@@ -40,14 +40,17 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
   // the video starts silent and the sound switches on with the first tap / swipe / key press anywhere.
   const [muted, setMuted] = useState(false);
   const soundBlocked = useRef(false);
+  const [tapForSound, setTapForSound] = useState(false);
   const onSoundBlocked = useCallback(() => {
     if (soundBlocked.current) return;
     soundBlocked.current = true;
     setMuted(true);
+    setTapForSound(true);
     const events = ["click", "touchend", "pointerup", "keydown"] as const;
     const unlock = () => {
       soundBlocked.current = false;
       setMuted(false);
+      setTapForSound(false);
       events.forEach((e) => window.removeEventListener(e, unlock));
     };
     events.forEach((e) => window.addEventListener(e, unlock, { passive: true }));
@@ -190,6 +193,15 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
             </Link>
           </div>
         </div>
+      )}
+
+      {tapForSound && (
+        <button
+          type="button" onClick={() => { /* any tap unlocks the sound (see onSoundBlocked) */ }}
+          className="absolute left-1/2 top-[92px] z-30 flex -translate-x-1/2 animate-pulse items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-extrabold text-ink shadow-xl lg:top-24"
+        >
+          <Volume2 className="size-5" aria-hidden /> {t("feed.tapForSound")}
+        </button>
       )}
 
       <div className="absolute right-3 top-[112px] z-30 flex flex-col gap-2 lg:hidden">

@@ -333,6 +333,7 @@ const hi: Record<string, string> = {
   "share.more": "दूसरे ऐप से शेयर करें",
   "share.linkLabel": "वीडियो लिंक (VaraaAi.com में चिपकाएँ)",
   "share.embedLabel": "एम्बेड कोड (वेबसाइट में चिपकाएँ)",
+  "feed.tapForSound": "आवाज़ चालू करने के लिए छुएँ",
 };
 
 export default hi;

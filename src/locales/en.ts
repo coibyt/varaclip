@@ -348,6 +348,7 @@ const en: Record<string, string> = {
   "share.more": "Share via another app",
   "share.linkLabel": "Video link (paste into VaraaAi.com)",
   "share.embedLabel": "Embed code (paste into a website)",
+  "feed.tapForSound": "Tap to turn sound on",
 };
 
 export default en;

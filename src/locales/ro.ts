@@ -333,6 +333,7 @@ const ro: Record<string, string> = {
   "share.more": "Distribuie prin altă aplicație",
   "share.linkLabel": "Linkul videoclipului (lipește-l în VaraaAi.com)",
   "share.embedLabel": "Cod de încorporare (lipește-l într-un site)",
+  "feed.tapForSound": "Atinge pentru a porni sunetul",
 };
 
 export default ro;

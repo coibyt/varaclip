@@ -333,6 +333,7 @@ const cs: Record<string, string> = {
   "share.more": "Sdílet přes jinou aplikaci",
   "share.linkLabel": "Odkaz na video (vložte do VaraaAi.com)",
   "share.embedLabel": "Kód pro vložení (vložte na web)",
+  "feed.tapForSound": "Klepnutím zapnete zvuk",
 };
 
 export default cs;

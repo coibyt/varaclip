@@ -333,6 +333,7 @@ const fi: Record<string, string> = {
   "share.more": "Jaa toisella sovelluksella",
   "share.linkLabel": "Videolinkki (liitä VaraaAi.comiin)",
   "share.embedLabel": "Upotuskoodi (liitä verkkosivulle)",
+  "feed.tapForSound": "Napauta äänet päälle",
 };
 
 export default fi;

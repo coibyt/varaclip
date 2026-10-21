@@ -333,6 +333,7 @@ const th: Record<string, string> = {
   "share.more": "แชร์ผ่านแอปอื่น",
   "share.linkLabel": "ลิงก์วิดีโอ (วางใน VaraaAi.com)",
   "share.embedLabel": "โค้ดฝัง (วางในเว็บไซต์)",
+  "feed.tapForSound": "แตะเพื่อเปิดเสียง",
 };
 
 export default th;

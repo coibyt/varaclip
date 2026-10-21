@@ -333,6 +333,7 @@ const km: Record<string, string> = {
   "share.more": "ចែករំលែកតាមកម្មវិធីផ្សេង",
   "share.linkLabel": "តំណវីដេអូ (បិទភ្ជាប់ក្នុង VaraaAi.com)",
   "share.embedLabel": "កូដបង្កប់ (បិទភ្ជាប់ក្នុងគេហទំព័រ)",
+  "feed.tapForSound": "ចុចដើម្បីបើកសំឡេង",
 };
 
 export default km;

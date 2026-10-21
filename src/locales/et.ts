@@ -333,6 +333,7 @@ const et: Record<string, string> = {
   "share.more": "Jaga teise rakendusega",
   "share.linkLabel": "Video link (kleebi VaraaAi.com-i)",
   "share.embedLabel": "Manustamiskood (kleebi veebilehele)",
+  "feed.tapForSound": "Puuduta heli sisselülitamiseks",
 };
 
 export default et;

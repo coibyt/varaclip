@@ -333,6 +333,7 @@ const hu: Record<string, string> = {
   "share.more": "Megosztás másik alkalmazással",
   "share.linkLabel": "Videó hivatkozása (illeszd be a VaraaAi.comra)",
   "share.embedLabel": "Beágyazókód (illeszd be egy weboldalra)",
+  "feed.tapForSound": "Koppints a hang bekapcsolásához",
 };
 
 export default hu;
