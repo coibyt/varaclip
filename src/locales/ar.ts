@@ -329,6 +329,10 @@ const ar: Record<string, string> = {
   "auth.checkEmail": "أرسلنا رابط تأكيد إلى {email}. افتح البريد واضغط على الرابط لإكمال إنشاء حسابك (تحقق أيضًا من الرسائل غير المرغوب فيها).",
   "auth.confirming": "جارٍ إكمال التسجيل…",
   "auth.confirmBad": "رابط التسجيل هذا غير صالح أو انتهت صلاحيته. يرجى التسجيل مرة أخرى.",
+  "share.title": "مشاركة الفيديو",
+  "share.more": "المشاركة عبر تطبيق آخر",
+  "share.linkLabel": "رابط الفيديو (الصقه في VaraaAi.com)",
+  "share.embedLabel": "كود التضمين (الصقه في موقع)",
 };
 
 export default ar;

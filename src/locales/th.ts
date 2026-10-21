@@ -329,6 +329,10 @@ const th: Record<string, string> = {
   "auth.checkEmail": "เราส่งลิงก์ยืนยันไปที่ {email} แล้ว เปิดอีเมลและแตะลิงก์เพื่อสร้างบัญชีให้เสร็จสมบูรณ์ (ตรวจสอบอีเมลขยะด้วย)",
   "auth.confirming": "กำลังทำการสมัครให้เสร็จสิ้น…",
   "auth.confirmBad": "ลิงก์สมัครนี้ไม่ถูกต้องหรือหมดอายุ โปรดสมัครใหม่",
+  "share.title": "แชร์วิดีโอ",
+  "share.more": "แชร์ผ่านแอปอื่น",
+  "share.linkLabel": "ลิงก์วิดีโอ (วางใน VaraaAi.com)",
+  "share.embedLabel": "โค้ดฝัง (วางในเว็บไซต์)",
 };
 
 export default th;

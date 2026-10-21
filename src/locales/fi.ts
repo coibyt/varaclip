@@ -329,6 +329,10 @@ const fi: Record<string, string> = {
   "auth.checkEmail": "Lähetimme vahvistuslinkin osoitteeseen {email}. Avaa viesti ja napauta linkkiä viimeistelläksesi tilin luomisen (tarkista myös roskaposti).",
   "auth.confirming": "Viimeistellään rekisteröitymistä…",
   "auth.confirmBad": "Rekisteröitymislinkki on virheellinen tai vanhentunut. Rekisteröidy uudelleen.",
+  "share.title": "Jaa video",
+  "share.more": "Jaa toisella sovelluksella",
+  "share.linkLabel": "Videolinkki (liitä VaraaAi.comiin)",
+  "share.embedLabel": "Upotuskoodi (liitä verkkosivulle)",
 };
 
 export default fi;

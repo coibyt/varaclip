@@ -329,6 +329,10 @@ const zh: Record<string, string> = {
   "auth.checkEmail": "我们已向 {email} 发送确认链接。请打开邮件并点击链接以完成账号创建（也请查看垃圾邮件）。",
   "auth.confirming": "正在完成注册…",
   "auth.confirmBad": "此注册链接无效或已过期，请重新注册。",
+  "share.title": "分享视频",
+  "share.more": "通过其他应用分享",
+  "share.linkLabel": "视频链接（粘贴到 VaraaAi.com）",
+  "share.embedLabel": "嵌入代码（粘贴到网站）",
 };
 
 export default zh;

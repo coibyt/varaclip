@@ -329,6 +329,10 @@ const pl: Record<string, string> = {
   "auth.checkEmail": "Wysłaliśmy link potwierdzający na adres {email}. Otwórz wiadomość i stuknij link, aby dokończyć zakładanie konta (sprawdź też spam).",
   "auth.confirming": "Kończenie rejestracji…",
   "auth.confirmBad": "Ten link rejestracyjny jest nieprawidłowy lub wygasł. Zarejestruj się ponownie.",
+  "share.title": "Udostępnij wideo",
+  "share.more": "Udostępnij w innej aplikacji",
+  "share.linkLabel": "Link do wideo (wklej w VaraaAi.com)",
+  "share.embedLabel": "Kod osadzania (wklej na stronie)",
 };
 
 export default pl;

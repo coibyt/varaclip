@@ -329,6 +329,10 @@ const ms: Record<string, string> = {
   "auth.checkEmail": "Kami telah menghantar pautan pengesahan ke {email}. Buka e-mel dan ketik pautan untuk melengkapkan pembuatan akaun (semak juga spam).",
   "auth.confirming": "Melengkapkan pendaftaran…",
   "auth.confirmBad": "Pautan pendaftaran ini tidak sah atau telah tamat tempoh. Sila daftar semula.",
+  "share.title": "Kongsi video",
+  "share.more": "Kongsi melalui aplikasi lain",
+  "share.linkLabel": "Pautan video (tampal dalam VaraaAi.com)",
+  "share.embedLabel": "Kod benam (tampal dalam laman web)",
 };
 
 export default ms;

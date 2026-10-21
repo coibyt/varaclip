@@ -329,6 +329,10 @@ const sv: Record<string, string> = {
   "auth.checkEmail": "Vi har skickat en bekräftelselänk till {email}. Öppna mejlet och tryck på länken för att slutföra skapandet av kontot (kolla även skräpposten).",
   "auth.confirming": "Slutför registreringen…",
   "auth.confirmBad": "Registreringslänken är ogiltig eller har gått ut. Registrera dig igen.",
+  "share.title": "Dela video",
+  "share.more": "Dela via en annan app",
+  "share.linkLabel": "Videolänk (klistra in på VaraaAi.com)",
+  "share.embedLabel": "Inbäddningskod (klistra in på en webbplats)",
 };
 
 export default sv;

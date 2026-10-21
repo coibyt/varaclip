@@ -329,6 +329,10 @@ const hi: Record<string, string> = {
   "auth.checkEmail": "हमने {email} पर पुष्टि लिंक भेजा है। ईमेल खोलें और खाता बनाना पूरा करने के लिए लिंक दबाएँ (स्पैम भी देखें)।",
   "auth.confirming": "आपका साइन-अप पूरा हो रहा है…",
   "auth.confirmBad": "यह साइन-अप लिंक अमान्य है या समाप्त हो गया है। कृपया फिर से साइन अप करें।",
+  "share.title": "वीडियो शेयर करें",
+  "share.more": "दूसरे ऐप से शेयर करें",
+  "share.linkLabel": "वीडियो लिंक (VaraaAi.com में चिपकाएँ)",
+  "share.embedLabel": "एम्बेड कोड (वेबसाइट में चिपकाएँ)",
 };
 
 export default hi;

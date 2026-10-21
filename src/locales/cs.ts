@@ -329,6 +329,10 @@ const cs: Record<string, string> = {
   "auth.checkEmail": "Poslali jsme potvrzovací odkaz na {email}. Otevřete e-mail a klepnutím na odkaz dokončete vytvoření účtu (zkontrolujte i spam).",
   "auth.confirming": "Dokončuje se registrace…",
   "auth.confirmBad": "Tento registrační odkaz je neplatný nebo vypršel. Zaregistrujte se znovu.",
+  "share.title": "Sdílet video",
+  "share.more": "Sdílet přes jinou aplikaci",
+  "share.linkLabel": "Odkaz na video (vložte do VaraaAi.com)",
+  "share.embedLabel": "Kód pro vložení (vložte na web)",
 };
 
 export default cs;

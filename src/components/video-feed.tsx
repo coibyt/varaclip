@@ -4,10 +4,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Bookmark, CalendarCheck, Check, Compass, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
+  Bookmark, CalendarCheck, Compass, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
 } from "lucide-react";
 import { Avatar } from "./avatar";
 import { CommentsSheet } from "./comments-sheet";
+import { ShareSheet } from "./share-sheet";
 import { compact, type Badge, type BadgeMode, type FeedVideo } from "@/lib/util";
 import { AdminBadgeControl, BadgeChip } from "./video-badge";
 import { useI18n } from "./locale-provider";
@@ -37,6 +38,7 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
   const [activeId, setActiveId] = useState<string | null>(initial[0]?.id ?? null);
   const [muted, setMuted] = useState(true);
   const [commentsFor, setCommentsFor] = useState<FeedVideo | null>(null);
+  const [shareFor, setShareFor] = useState<FeedVideo | null>(null);
   const scroller = useRef<HTMLDivElement>(null);
 
   const requireLogin = useCallback(() => {
@@ -150,25 +152,6 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
     [meId, requireLogin],
   );
 
-  const share = useCallback(
-    async (v: FeedVideo) => {
-      const url = `${window.location.origin}/v/${v.id}`;
-      try {
-        if (navigator.share) await navigator.share({ title: v.creator.salonName || v.creator.displayName, text: v.caption, url });
-        else {
-          await navigator.clipboard.writeText(url);
-          return "copied" as const;
-        }
-        fetch(`/api/videos/${v.id}/share`, { method: "POST" });
-        patch(v.id, (x) => ({ ...x, shares: x.shares + 1 }));
-      } catch {
-        /* user cancelled */
-      }
-      return "shared" as const;
-    },
-    [patch],
-  );
-
   const empty = videos.length === 0 && !loading;
 
   return (
@@ -210,7 +193,7 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
             onLike={() => toggle(v, "like")}
             onSave={() => toggle(v, "save")}
             onFollow={() => follow(v)}
-            onShare={() => share(v)}
+            onShare={() => setShareFor(v)}
             onComments={() => setCommentsFor(v)}
             isMine={v.creator.id === meId}
             admin={isAdmin}
@@ -235,6 +218,7 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
         )}
       </div>
 
+      <ShareSheet video={shareFor} onClose={() => setShareFor(null)} onShared={(id) => patch(id, (x) => ({ ...x, shares: x.shares + 1 }))} />
       <CommentsSheet video={commentsFor} meId={meId} onClose={() => setCommentsFor(null)} onPosted={(id) => patch(id, (x) => ({ ...x, comments: x.comments + 1 }))} onNeedLogin={requireLogin} />
     </div>
   );
@@ -244,7 +228,7 @@ function VideoCard({
   v, active, muted, setMuted, onLike, onSave, onFollow, onShare, onComments, isMine, admin, onBadge,
 }: {
   v: FeedVideo; active: boolean; muted: boolean; setMuted: (f: (m: boolean) => boolean) => void;
-  onLike: () => void; onSave: () => void; onFollow: () => void; onShare: () => Promise<"copied" | "shared" | undefined>;
+  onLike: () => void; onSave: () => void; onFollow: () => void; onShare: () => void;
   onComments: () => void; isMine: boolean; admin: boolean; onBadge: (badge: Badge, mode: BadgeMode) => void;
 }) {
   const { t, locale } = useI18n();
@@ -256,7 +240,6 @@ function VideoCard({
   const [paused, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [ready, setReady] = useState(false);
   const [hearts, setHearts] = useState<{ id: number; x: number; y: number }[]>([]);
-  const [copied, setCopied] = useState(false);
   const [contain, setContain] = useState(false);
 
   // Play only the visible card; pause and rewind the rest to save bandwidth/CPU.
@@ -429,19 +412,8 @@ function VideoCard({
           <Action label={t("card.save")} onClick={onSave} pressed={v.saved} className={rail}>
             <Bookmark className={`size-6 ${v.saved ? "fill-gold text-gold" : ""}`} aria-hidden />
           </Action>
-          <Action
-            label={copied ? t("card.copied") : t("card.share")}
-            count={v.shares}
-            locale={locale}
-            onClick={async () => {
-              if ((await onShare()) === "copied") {
-                setCopied(true);
-                setTimeout(() => setCopied(false), 1800);
-              }
-            }}
-            className={rail}
-          >
-            {copied ? <Check className="size-6 text-gold" aria-hidden /> : <Share2 className="size-6" aria-hidden />}
+          <Action label={t("card.share")} count={v.shares} locale={locale} onClick={onShare} className={rail}>
+            <Share2 className="size-6" aria-hidden />
           </Action>
           <div className="flex flex-col items-center gap-1">
             <DownloadButton v={v} className={rail} onBusy={(b) => setPaused(b)} />

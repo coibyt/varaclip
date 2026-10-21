@@ -329,6 +329,10 @@ const he: Record<string, string> = {
   "auth.checkEmail": "שלחנו קישור אישור אל {email}. פתחו את המייל והקישו על הקישור כדי להשלים את יצירת החשבון (בדקו גם בספאם).",
   "auth.confirming": "משלימים את ההרשמה…",
   "auth.confirmBad": "קישור ההרשמה אינו תקין או שפג תוקפו. הירשמו מחדש.",
+  "share.title": "שיתוף הסרטון",
+  "share.more": "שיתוף דרך אפליקציה אחרת",
+  "share.linkLabel": "קישור לסרטון (להדביק ב-VaraaAi.com)",
+  "share.embedLabel": "קוד הטמעה (להדביק באתר)",
 };
 
 export default he;

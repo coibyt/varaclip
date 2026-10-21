@@ -329,6 +329,10 @@ const ko: Record<string, string> = {
   "auth.checkEmail": "{email}(으)로 확인 링크를 보냈어요. 이메일을 열고 링크를 눌러 계정 만들기를 마무리하세요(스팸함도 확인하세요).",
   "auth.confirming": "가입을 마무리하는 중…",
   "auth.confirmBad": "이 가입 링크는 유효하지 않거나 만료되었어요. 다시 가입해 주세요.",
+  "share.title": "동영상 공유",
+  "share.more": "다른 앱으로 공유",
+  "share.linkLabel": "동영상 링크(VaraaAi.com에 붙여넣기)",
+  "share.embedLabel": "삽입 코드(웹사이트에 붙여넣기)",
 };
 
 export default ko;

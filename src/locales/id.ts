@@ -329,6 +329,10 @@ const id: Record<string, string> = {
   "auth.checkEmail": "Kami mengirim tautan konfirmasi ke {email}. Buka email dan ketuk tautan untuk menyelesaikan pembuatan akun (periksa juga spam).",
   "auth.confirming": "Menyelesaikan pendaftaran…",
   "auth.confirmBad": "Tautan pendaftaran ini tidak valid atau sudah kedaluwarsa. Silakan daftar lagi.",
+  "share.title": "Bagikan video",
+  "share.more": "Bagikan lewat aplikasi lain",
+  "share.linkLabel": "Tautan video (tempel di VaraaAi.com)",
+  "share.embedLabel": "Kode sematan (tempel di situs web)",
 };
 
 export default id;

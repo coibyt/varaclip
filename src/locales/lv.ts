@@ -329,6 +329,10 @@ const lv: Record<string, string> = {
   "auth.checkEmail": "Mēs nosūtījām apstiprinājuma saiti uz {email}. Atver e-pastu un pieskaries saitei, lai pabeigtu konta izveidi (pārbaudi arī surogātpastu).",
   "auth.confirming": "Pabeidz reģistrāciju…",
   "auth.confirmBad": "Šī reģistrācijas saite nav derīga vai ir beigusies. Reģistrējies vēlreiz.",
+  "share.title": "Kopīgot video",
+  "share.more": "Kopīgot ar citu lietotni",
+  "share.linkLabel": "Video saite (ielīmē VaraaAi.com)",
+  "share.embedLabel": "Iegulšanas kods (ielīmē vietnē)",
 };
 
 export default lv;

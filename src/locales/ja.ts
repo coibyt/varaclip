@@ -329,6 +329,10 @@ const ja: Record<string, string> = {
   "auth.checkEmail": "{email} に確認リンクを送信しました。メールを開いてリンクをタップすると、アカウント作成が完了します（迷惑メールもご確認ください）。",
   "auth.confirming": "登録を完了しています…",
   "auth.confirmBad": "この登録リンクは無効か期限切れです。もう一度登録してください。",
+  "share.title": "動画を共有",
+  "share.more": "他のアプリで共有",
+  "share.linkLabel": "動画リンク（VaraaAi.com に貼り付け）",
+  "share.embedLabel": "埋め込みコード（ウェブサイトに貼り付け）",
 };
 
 export default ja;

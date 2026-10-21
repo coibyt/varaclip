@@ -329,6 +329,10 @@ const tr: Record<string, string> = {
   "auth.checkEmail": "{email} adresine bir onay bağlantısı gönderdik. E-postayı açıp bağlantıya dokunarak hesabınızı oluşturmayı tamamlayın (spam klasörüne de bakın).",
   "auth.confirming": "Kaydınız tamamlanıyor…",
   "auth.confirmBad": "Bu kayıt bağlantısı geçersiz veya süresi dolmuş. Lütfen yeniden kaydolun.",
+  "share.title": "Videoyu paylaş",
+  "share.more": "Başka uygulamayla paylaş",
+  "share.linkLabel": "Video bağlantısı (VaraaAi.com’a yapıştırın)",
+  "share.embedLabel": "Gömme kodu (web sitesine yapıştırın)",
 };
 
 export default tr;

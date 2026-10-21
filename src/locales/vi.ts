@@ -345,6 +345,10 @@ const vi: Record<string, string> = {
   "auth.checkEmail": "Chúng tôi đã gửi liên kết xác nhận đến {email}. Hãy mở email và bấm vào liên kết để hoàn tất việc tạo tài khoản (kiểm tra cả thư rác).",
   "auth.confirming": "Đang hoàn tất đăng ký…",
   "auth.confirmBad": "Liên kết đăng ký không hợp lệ hoặc đã hết hạn. Vui lòng đăng ký lại.",
+  "share.title": "Chia sẻ video",
+  "share.more": "Chia sẻ qua ứng dụng khác",
+  "share.linkLabel": "Link video (dán vào VaraaAi.com)",
+  "share.embedLabel": "Mã nhúng (dán vào website)",
 };
 
 export default vi;

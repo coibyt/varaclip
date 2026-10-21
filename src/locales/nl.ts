@@ -329,6 +329,10 @@ const nl: Record<string, string> = {
   "auth.checkEmail": "We hebben een bevestigingslink gestuurd naar {email}. Open de e-mail en tik op de link om je account aan te maken (controleer ook je spam).",
   "auth.confirming": "Registratie afronden…",
   "auth.confirmBad": "Deze registratielink is ongeldig of verlopen. Registreer je opnieuw.",
+  "share.title": "Video delen",
+  "share.more": "Delen via een andere app",
+  "share.linkLabel": "Videolink (plak in VaraaAi.com)",
+  "share.embedLabel": "Insluitcode (plak in een website)",
 };
 
 export default nl;

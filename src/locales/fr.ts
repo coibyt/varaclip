@@ -329,6 +329,10 @@ const fr: Record<string, string> = {
   "auth.checkEmail": "Nous avons envoyé un lien de confirmation à {email}. Ouvrez l’e-mail et touchez le lien pour finaliser la création de votre compte (vérifiez aussi vos spams).",
   "auth.confirming": "Finalisation de votre inscription…",
   "auth.confirmBad": "Ce lien d’inscription est invalide ou a expiré. Veuillez vous réinscrire.",
+  "share.title": "Partager la vidéo",
+  "share.more": "Partager via une autre appli",
+  "share.linkLabel": "Lien de la vidéo (à coller dans VaraaAi.com)",
+  "share.embedLabel": "Code d’intégration (à coller dans un site)",
 };
 
 export default fr;

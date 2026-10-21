@@ -329,6 +329,10 @@ const no: Record<string, string> = {
   "auth.checkEmail": "Vi har sendt en bekreftelseslenke til {email}. Åpne e-posten og trykk på lenken for å fullføre opprettelsen av kontoen (sjekk også søppelposten).",
   "auth.confirming": "Fullfører registreringen…",
   "auth.confirmBad": "Registreringslenken er ugyldig eller utløpt. Registrer deg på nytt.",
+  "share.title": "Del video",
+  "share.more": "Del via en annen app",
+  "share.linkLabel": "Videolenke (lim inn på VaraaAi.com)",
+  "share.embedLabel": "Innbyggingskode (lim inn på et nettsted)",
 };
 
 export default no;

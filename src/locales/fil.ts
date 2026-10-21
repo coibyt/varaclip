@@ -329,6 +329,10 @@ const fil: Record<string, string> = {
   "auth.checkEmail": "Nagpadala kami ng confirmation link sa {email}. Buksan ang email at i-tap ang link para matapos ang paggawa ng account (tingnan din ang spam).",
   "auth.confirming": "Tinatapos ang sign-up mo…",
   "auth.confirmBad": "Hindi wasto o nag-expire na ang sign-up link na ito. Mag-sign up ulit.",
+  "share.title": "I-share ang video",
+  "share.more": "I-share gamit ang ibang app",
+  "share.linkLabel": "Link ng video (i-paste sa VaraaAi.com)",
+  "share.embedLabel": "Embed code (i-paste sa website)",
 };
 
 export default fil;

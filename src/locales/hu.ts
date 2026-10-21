@@ -329,6 +329,10 @@ const hu: Record<string, string> = {
   "auth.checkEmail": "Megerősítő hivatkozást küldtünk a(z) {email} címre. Nyisd meg az e-mailt, és koppints a hivatkozásra a fiók létrehozásának befejezéséhez (nézd meg a spam mappát is).",
   "auth.confirming": "A regisztráció befejezése…",
   "auth.confirmBad": "Ez a regisztrációs hivatkozás érvénytelen vagy lejárt. Regisztrálj újra.",
+  "share.title": "Videó megosztása",
+  "share.more": "Megosztás másik alkalmazással",
+  "share.linkLabel": "Videó hivatkozása (illeszd be a VaraaAi.comra)",
+  "share.embedLabel": "Beágyazókód (illeszd be egy weboldalra)",
 };
 
 export default hu;

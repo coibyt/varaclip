@@ -329,6 +329,10 @@ const et: Record<string, string> = {
   "auth.checkEmail": "Saatsime kinnituslingi aadressile {email}. Ava e-kiri ja puuduta linki, et konto loomine lõpule viia (kontrolli ka rämpsposti).",
   "auth.confirming": "Registreerimist lõpetatakse…",
   "auth.confirmBad": "See registreerumislink on kehtetu või aegunud. Registreeru uuesti.",
+  "share.title": "Jaga videot",
+  "share.more": "Jaga teise rakendusega",
+  "share.linkLabel": "Video link (kleebi VaraaAi.com-i)",
+  "share.embedLabel": "Manustamiskood (kleebi veebilehele)",
 };
 
 export default et;

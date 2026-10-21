@@ -344,6 +344,10 @@ const en: Record<string, string> = {
   "auth.checkEmail": "We sent a confirmation link to {email}. Open the email and tap the link to finish creating your account (check your spam folder too).",
   "auth.confirming": "Finishing your sign-up…",
   "auth.confirmBad": "This sign-up link is invalid or has expired. Please sign up again.",
+  "share.title": "Share video",
+  "share.more": "Share via another app",
+  "share.linkLabel": "Video link (paste into VaraaAi.com)",
+  "share.embedLabel": "Embed code (paste into a website)",
 };
 
 export default en;

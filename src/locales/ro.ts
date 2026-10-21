@@ -329,6 +329,10 @@ const ro: Record<string, string> = {
   "auth.checkEmail": "Am trimis un link de confirmare la {email}. Deschide e-mailul și atinge linkul pentru a finaliza crearea contului (verifică și spamul).",
   "auth.confirming": "Se finalizează înregistrarea…",
   "auth.confirmBad": "Acest link de înregistrare este invalid sau a expirat. Înregistrează-te din nou.",
+  "share.title": "Distribuie videoclipul",
+  "share.more": "Distribuie prin altă aplicație",
+  "share.linkLabel": "Linkul videoclipului (lipește-l în VaraaAi.com)",
+  "share.embedLabel": "Cod de încorporare (lipește-l într-un site)",
 };
 
 export default ro;

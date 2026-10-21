@@ -329,6 +329,10 @@ const de: Record<string, string> = {
   "auth.checkEmail": "Wir haben einen Bestätigungslink an {email} gesendet. Öffne die E-Mail und tippe auf den Link, um dein Konto zu erstellen (prüfe auch den Spam-Ordner).",
   "auth.confirming": "Registrierung wird abgeschlossen…",
   "auth.confirmBad": "Dieser Registrierungslink ist ungültig oder abgelaufen. Bitte registriere dich erneut.",
+  "share.title": "Video teilen",
+  "share.more": "Über eine andere App teilen",
+  "share.linkLabel": "Video-Link (in VaraaAi.com einfügen)",
+  "share.embedLabel": "Einbettungscode (in eine Website einfügen)",
 };
 
 export default de;

@@ -329,6 +329,10 @@ const da: Record<string, string> = {
   "auth.checkEmail": "Vi har sendt et bekræftelseslink til {email}. Åbn e-mailen, og tryk på linket for at gennemføre oprettelsen af kontoen (tjek også spam).",
   "auth.confirming": "Gennemfører tilmeldingen…",
   "auth.confirmBad": "Tilmeldingslinket er ugyldigt eller udløbet. Tilmeld dig igen.",
+  "share.title": "Del video",
+  "share.more": "Del via en anden app",
+  "share.linkLabel": "Videolink (indsæt på VaraaAi.com)",
+  "share.embedLabel": "Indlejringskode (indsæt på en hjemmeside)",
 };
 
 export default da;
