@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Bookmark, CalendarCheck, Compass, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
+  Bookmark, CalendarCheck, Check, Compass, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
 } from "lucide-react";
 import { Avatar } from "./avatar";
 import { CommentsSheet } from "./comments-sheet";
