@@ -36,7 +36,22 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(fixed);
   const [activeId, setActiveId] = useState<string | null>(initial[0]?.id ?? null);
-  const [muted, setMuted] = useState(true);
+  // Sound is ON by default. Browsers refuse sound before the visitor has touched the page, so when that happens
+  // the video starts silent and the sound switches on with the first tap / swipe / key press anywhere.
+  const [muted, setMuted] = useState(false);
+  const soundBlocked = useRef(false);
+  const onSoundBlocked = useCallback(() => {
+    if (soundBlocked.current) return;
+    soundBlocked.current = true;
+    setMuted(true);
+    const events = ["click", "touchend", "pointerup", "keydown"] as const;
+    const unlock = () => {
+      soundBlocked.current = false;
+      setMuted(false);
+      events.forEach((e) => window.removeEventListener(e, unlock));
+    };
+    events.forEach((e) => window.addEventListener(e, unlock, { passive: true }));
+  }, []);
   const [commentsFor, setCommentsFor] = useState<FeedVideo | null>(null);
   const [shareFor, setShareFor] = useState<FeedVideo | null>(null);
   const scroller = useRef<HTMLDivElement>(null);
@@ -190,6 +205,8 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
             active={v.id === activeId}
             muted={muted}
             setMuted={setMuted}
+            onSoundBlocked={onSoundBlocked}
+            soundPending={() => soundBlocked.current}
             onLike={() => toggle(v, "like")}
             onSave={() => toggle(v, "save")}
             onFollow={() => follow(v)}
@@ -225,9 +242,9 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
 }
 
 function VideoCard({
-  v, active, muted, setMuted, onLike, onSave, onFollow, onShare, onComments, isMine, admin, onBadge,
+  v, active, muted, setMuted, onSoundBlocked, soundPending, onLike, onSave, onFollow, onShare, onComments, isMine, admin, onBadge,
 }: {
-  v: FeedVideo; active: boolean; muted: boolean; setMuted: (f: (m: boolean) => boolean) => void;
+  v: FeedVideo; active: boolean; muted: boolean; setMuted: (f: (m: boolean) => boolean) => void; onSoundBlocked: () => void; soundPending: () => boolean;
   onLike: () => void; onSave: () => void; onFollow: () => void; onShare: () => void;
   onComments: () => void; isMine: boolean; admin: boolean; onBadge: (badge: Badge, mode: BadgeMode) => void;
 }) {
@@ -235,6 +252,8 @@ function VideoCard({
   const ref = useRef<HTMLVideoElement>(null);
   const bar = useRef<HTMLDivElement>(null);
   const counted = useRef(false);
+  const mutedRef = useRef(muted);
+  mutedRef.current = muted;
   const lastTap = useRef(0);
   // Respect reduced-motion: do not autoplay, wait for the viewer to press play.
   const [paused, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -247,9 +266,17 @@ function VideoCard({
     const el = ref.current;
     if (!el) return;
     if (active && !paused) {
-      el.play().catch(() => {
-        /* autoplay blocked: the poster + play icon remain, tap to start */
-        setPaused(true);
+      el.muted = mutedRef.current;
+      el.play().catch((err: unknown) => {
+        if (!mutedRef.current && (err as { name?: string })?.name === "NotAllowedError") {
+          // The browser does not allow sound yet: play silently and switch the sound on at the first tap.
+          el.muted = true;
+          onSoundBlocked();
+          el.play().catch(() => setPaused(true));
+        } else {
+          /* autoplay blocked: the poster + play icon remain, tap to start */
+          setPaused(true);
+        }
       });
       if (!counted.current) {
         counted.current = true;
@@ -262,6 +289,7 @@ function VideoCard({
         setPaused(false);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, paused, v.id]);
 
   useEffect(() => {
@@ -271,6 +299,8 @@ function VideoCard({
   const tags = useMemo(() => v.tags.slice(0, 5), [v.tags]);
 
   function onTap(e: React.MouseEvent) {
+    // While the sound is waiting for its first tap, that tap only switches the sound on (it must not also pause).
+    if (soundPending()) return;
     const now = Date.now();
     if (now - lastTap.current < 300) {
       // double tap = like (never un-likes)
@@ -309,7 +339,6 @@ function VideoCard({
           poster={v.thumbUrl || undefined}
           loop
           playsInline
-          muted
           preload={active ? "auto" : "metadata"}
           onClick={onTap}
           onLoadedData={() => setReady(true)}
