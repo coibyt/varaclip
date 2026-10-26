@@ -334,6 +334,15 @@ const it: Record<string, string> = {
   "share.linkLabel": "Link del video (incollalo in VaraaAi.com)",
   "share.embedLabel": "Codice di incorporamento (incollalo in un sito)",
   "feed.tapForSound": "Tocca per attivare l’audio",
+  "cat.label": "Scegli una categoria",
+  "cat.required": "Scegli una categoria per il tuo video.",
+  "cat.title": "Categorie di video",
+  "cat.indexIntro": "Sfoglia i video di bellezza per categoria: capelli, unghie, ciglia, cura della pelle, spa, trucco… da saloni veri. Scegli la tua categoria preferita e prenota subito.",
+  "cat.pageTitle": "Video {name}: ispirazione dai saloni",
+  "cat.pageDesc": "Guarda gli ultimi video {name} dai saloni: look bellissimi, tendenze e risultati reali dei clienti. Segui i tuoi saloni preferiti e prenota su VaraClip.",
+  "cat.count": "{n} video",
+  "cat.empty": "Ancora nessun video in questa categoria. Torna presto!",
+  "cat.none": "Nessuna categoria",
 };
 
 export default it;

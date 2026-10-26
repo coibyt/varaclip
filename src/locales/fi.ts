@@ -334,6 +334,15 @@ const fi: Record<string, string> = {
   "share.linkLabel": "Videolinkki (liitä VaraaAi.comiin)",
   "share.embedLabel": "Upotuskoodi (liitä verkkosivulle)",
   "feed.tapForSound": "Napauta äänet päälle",
+  "cat.label": "Valitse kategoria",
+  "cat.required": "Valitse videollesi kategoria.",
+  "cat.title": "Videokategoriat",
+  "cat.indexIntro": "Selaa kauneusvideoita kategorioittain: hiukset, kynnet, ripset, ihonhoito, spa, meikki… oikeilta salongeilta. Valitse suosikkikategoriasi ja varaa heti.",
+  "cat.pageTitle": "{name}-videot: ideoita salongeilta",
+  "cat.pageDesc": "Katso uusimmat {name}-videot salongeilta: kauniit tyylit, trendit ja asiakkaiden todelliset tulokset. Seuraa suosikkisalonkejasi ja varaa VaraClipissä.",
+  "cat.count": "{n} videota",
+  "cat.empty": "Tässä kategoriassa ei ole vielä videoita. Palaa pian takaisin!",
+  "cat.none": "Ei kategoriaa",
 };
 
 export default fi;

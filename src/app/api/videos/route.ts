@@ -9,6 +9,7 @@ import {
 } from "@/lib/storage";
 import { parseTags } from "@/lib/util";
 import { getT } from "@/lib/i18n-server";
+import { setVideoCategory } from "@/lib/video-categories";
 
 const err = (message: string, status = 400) => NextResponse.json({ error: message }, { status });
 
@@ -51,6 +52,7 @@ const createSchema = z.object({
   duration: z.number().min(0).max(3600).default(0),
   width: z.number().int().min(0).max(10000).default(0),
   height: z.number().int().min(0).max(10000).default(0),
+  category: z.string().max(24).optional(),
 });
 
 export async function POST(req: Request) {
@@ -83,5 +85,6 @@ export async function POST(req: Request) {
       height: d.height,
     },
   });
+  if (d.category) await setVideoCategory(video.id, d.category);
   return NextResponse.json({ id: video.id });
 }

@@ -334,6 +334,15 @@ const id: Record<string, string> = {
   "share.linkLabel": "Tautan video (tempel di VaraaAi.com)",
   "share.embedLabel": "Kode sematan (tempel di situs web)",
   "feed.tapForSound": "Ketuk untuk menyalakan suara",
+  "cat.label": "Pilih kategori",
+  "cat.required": "Silakan pilih kategori untuk video Anda.",
+  "cat.title": "Kategori video",
+  "cat.indexIntro": "Jelajahi video kecantikan per kategori: rambut, kuku, bulu mata, perawatan kulit, spa, rias wajah… dari salon sungguhan. Pilih kategori favorit dan langsung pesan.",
+  "cat.pageTitle": "Video {name}: inspirasi dari salon",
+  "cat.pageDesc": "Tonton video {name} terbaru dari salon: tampilan cantik, tren, dan hasil nyata pelanggan. Ikuti salon favorit Anda dan pesan di VaraClip.",
+  "cat.count": "{n} video",
+  "cat.empty": "Belum ada video di kategori ini. Kembali lagi nanti!",
+  "cat.none": "Belum ada kategori",
 };
 
 export default id;

@@ -334,6 +334,15 @@ const fil: Record<string, string> = {
   "share.linkLabel": "Link ng video (i-paste sa VaraaAi.com)",
   "share.embedLabel": "Embed code (i-paste sa website)",
   "feed.tapForSound": "I-tap para buksan ang tunog",
+  "cat.label": "Pumili ng kategorya",
+  "cat.required": "Pumili ng kategorya para sa video mo.",
+  "cat.title": "Mga kategorya ng video",
+  "cat.indexIntro": "Tumingin ng beauty videos ayon sa kategorya: buhok, kuko, pilikmata, skincare, spa, makeup… mula sa totoong salon. Piliin ang paborito mong kategorya at mag-book agad.",
+  "cat.pageTitle": "Mga video ng {name}: inspirasyon mula sa salon",
+  "cat.pageDesc": "Panoorin ang pinakabagong video ng {name} mula sa mga salon: magagandang look, trend at totoong resulta ng mga customer. I-follow ang paborito mong salon at mag-book sa VaraClip.",
+  "cat.count": "{n} video",
+  "cat.empty": "Wala pang video sa kategoryang ito. Bumalik ka ulit!",
+  "cat.none": "Wala pang kategorya",
 };
 
 export default fil;

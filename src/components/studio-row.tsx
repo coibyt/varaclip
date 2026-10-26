@@ -6,12 +6,15 @@ import { useRouter } from "next/navigation";
 import { Check, Code2, Copy, Eye, Heart, Link2, MessageCircle, Pencil, Trash2 } from "lucide-react";
 import { compact, timeAgo, type FeedVideo } from "@/lib/util";
 import { useI18n } from "./locale-provider";
+import { CategoryPicker } from "./category-picker";
+import { categoryBySlug, categoryName, type CategorySlug } from "@/lib/categories";
 
 export function StudioRow({ v }: { v: FeedVideo }) {
   const router = useRouter();
   const { t, locale } = useI18n();
   const [confirm, setConfirm] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [category, setCategory] = useState<CategorySlug | null>((v.category as CategorySlug | null) ?? null);
   const [caption, setCaption] = useState(v.caption);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -47,7 +50,7 @@ export function StudioRow({ v }: { v: FeedVideo }) {
     setBusy(true);
     setError("");
     const r = await fetch(`/api/videos/${v.id}`, {
-      method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ caption }),
+      method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ caption, category }),
     });
     setBusy(false);
     if (!r.ok) return setError((await r.json().catch(() => null))?.error ?? t("studio.saveFail"));
@@ -73,6 +76,7 @@ export function StudioRow({ v }: { v: FeedVideo }) {
                 className="input resize-none !py-2 text-sm" autoFocus
               />
               <p className="mt-1 text-right text-xs tabular-nums text-mist">{caption.length}/500</p>
+              <div className="mt-2"><CategoryPicker id={`cat-${v.id}`} value={category} onChange={setCategory} disabled={busy} /></div>
               {error && <p role="alert" className="mt-1 text-sm text-red-400">{error}</p>}
               <div className="mt-2 flex gap-2">
                 <button onClick={save} disabled={busy} className="btn btn-primary !min-h-[40px] !px-5 text-sm">{t("studio.save")}</button>
@@ -82,7 +86,7 @@ export function StudioRow({ v }: { v: FeedVideo }) {
           ) : (
             <>
               <p className="line-clamp-2 text-[15px] font-semibold">{v.caption || <span className="text-mist">{t("studio.noCaption")}</span>}</p>
-              <p className="mt-0.5 text-xs text-mist">{timeAgo(v.createdAt, locale, t("time.now"))}</p>
+              <p className="mt-0.5 text-xs text-mist">{timeAgo(v.createdAt, locale, t("time.now"))} · {(() => { const c = categoryBySlug(v.category); return c ? categoryName(locale, c) : <span className="text-gold">{t("cat.none")}</span>; })()}</p>
               <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm tabular-nums text-white/85">
                 <span className="flex items-center gap-1"><Eye className="size-4 text-mist" aria-hidden /> {compact(v.views, locale)}</span>
                 <span className="flex items-center gap-1"><Heart className="size-4 text-mist" aria-hidden /> {compact(v.likes, locale)}</span>

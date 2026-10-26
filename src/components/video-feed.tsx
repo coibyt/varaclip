@@ -4,11 +4,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Bookmark, CalendarCheck, Check, Compass, Heart, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
+  Bookmark, CalendarCheck, Check, Compass, Heart, LayoutGrid, MapPin, MessageCircle, Pencil, Phone, Play, Plus, Share2, Volume2, VolumeX,
 } from "lucide-react";
 import { Avatar } from "./avatar";
 import { CommentsSheet } from "./comments-sheet";
 import { ShareSheet } from "./share-sheet";
+import { categoryBySlug, categoryName } from "@/lib/categories";
 import { compact, type Badge, type BadgeMode, type FeedVideo } from "@/lib/util";
 import { AdminBadgeControl, BadgeChip } from "./video-badge";
 import { useI18n } from "./locale-provider";
@@ -207,6 +208,7 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
       <div className="absolute right-3 top-[112px] z-30 flex flex-col gap-2 lg:hidden">
         <LanguageSwitcher iconOnly />
         <Link href="/discover" aria-label={t("nav.discover")} className="grid size-10 place-items-center rounded-full bg-black/40 backdrop-blur transition hover:bg-black/60"><Compass className="size-5" aria-hidden /></Link>
+        <Link href="/c" aria-label={t("cat.title")} className="grid size-10 place-items-center rounded-full bg-black/40 backdrop-blur transition hover:bg-black/60"><LayoutGrid className="size-5" aria-hidden /></Link>
       </div>
 
       <div ref={scroller} className="snap-feed feed-h" tabIndex={-1}>
@@ -394,7 +396,15 @@ function VideoCard({
 
         {/* Info */}
         <div className="absolute inset-x-0 bottom-0 z-10 p-4 pr-[72px] lg:pr-4">
-          {v.badge && <BadgeChip badge={v.badge} className="mb-1.5" />}
+          {(v.badge || v.category) && (
+            <div className="mb-1.5 flex flex-wrap items-center gap-1.5">
+              {v.badge && <BadgeChip badge={v.badge} />}
+              {(() => {
+                const c = categoryBySlug(v.category);
+                return c ? <Link href={`/c/${c.slug}`} className="rounded-md bg-black/45 px-2 py-0.5 text-[12px] font-bold backdrop-blur hover:bg-black/60">{categoryName(locale, c)}</Link> : null;
+              })()}
+            </div>
+          )}
           <Link href={`/u/${v.creator.handle}`} className="flex items-center gap-2 font-bold hover:underline">
             @{v.creator.handle}
           </Link>

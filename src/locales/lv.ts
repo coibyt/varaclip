@@ -334,6 +334,15 @@ const lv: Record<string, string> = {
   "share.linkLabel": "Video saite (ielīmē VaraaAi.com)",
   "share.embedLabel": "Iegulšanas kods (ielīmē vietnē)",
   "feed.tapForSound": "Pieskaries, lai ieslēgtu skaņu",
+  "cat.label": "Izvēlies kategoriju",
+  "cat.required": "Izvēlies kategoriju savam video.",
+  "cat.title": "Video kategorijas",
+  "cat.indexIntro": "Pārlūko skaistumkopšanas video pa kategorijām: mati, nagi, skropstas, ādas kopšana, spa, grims… no īstiem saloniem. Izvēlies savu mīļāko kategoriju un piesakies uzreiz.",
+  "cat.pageTitle": "{name} video: iedvesma no saloniem",
+  "cat.pageDesc": "Skaties jaunākos {name} video no saloniem: skaisti tēli, tendences un īsti klientu rezultāti. Seko saviem mīļākajiem saloniem un piesakies VaraClip.",
+  "cat.count": "{n} video",
+  "cat.empty": "Šajā kategorijā vēl nav video. Ieskaties drīz atkal!",
+  "cat.none": "Kategorija vēl nav izvēlēta",
 };
 
 export default lv;

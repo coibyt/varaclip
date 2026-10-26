@@ -334,6 +334,15 @@ const hu: Record<string, string> = {
   "share.linkLabel": "Videó hivatkozása (illeszd be a VaraaAi.comra)",
   "share.embedLabel": "Beágyazókód (illeszd be egy weboldalra)",
   "feed.tapForSound": "Koppints a hang bekapcsolásához",
+  "cat.label": "Válassz kategóriát",
+  "cat.required": "Válassz kategóriát a videódhoz.",
+  "cat.title": "Videókategóriák",
+  "cat.indexIntro": "Böngéssz szépségvideók között kategóriánként: haj, köröm, szempilla, bőrápolás, spa, smink… valódi szalonoktól. Válaszd ki a kedvenc kategóriádat, és foglalj azonnal.",
+  "cat.pageTitle": "{name} videók: ihlet szalonoktól",
+  "cat.pageDesc": "Nézd meg a legújabb {name} videókat a szalonoktól: gyönyörű megjelenések, trendek és valódi vendégeredmények. Kövesd kedvenc szalonjaidat, és foglalj a VaraClipen.",
+  "cat.count": "{n} videó",
+  "cat.empty": "Ebben a kategóriában még nincs videó. Nézz vissza hamarosan!",
+  "cat.none": "Még nincs kategória",
 };
 
 export default hu;

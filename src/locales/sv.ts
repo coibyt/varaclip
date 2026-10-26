@@ -334,6 +334,15 @@ const sv: Record<string, string> = {
   "share.linkLabel": "Videolänk (klistra in på VaraaAi.com)",
   "share.embedLabel": "Inbäddningskod (klistra in på en webbplats)",
   "feed.tapForSound": "Tryck för ljud",
+  "cat.label": "Välj kategori",
+  "cat.required": "Välj en kategori för din video.",
+  "cat.title": "Videokategorier",
+  "cat.indexIntro": "Bläddra bland skönhetsvideor efter kategori: hår, naglar, fransar, hudvård, spa, smink… från riktiga salonger. Välj din favoritkategori och boka direkt.",
+  "cat.pageTitle": "{name}-videor: inspiration från salonger",
+  "cat.pageDesc": "Se de senaste {name}-videorna från salonger: vackra looker, trender och riktiga kundresultat. Följ dina favoritsalonger och boka på VaraClip.",
+  "cat.count": "{n} videor",
+  "cat.empty": "Inga videor i den här kategorin ännu. Titta in snart igen!",
+  "cat.none": "Ingen kategori ännu",
 };
 
 export default sv;

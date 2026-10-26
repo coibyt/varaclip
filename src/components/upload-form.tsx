@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { CheckCircle2, Film, ImagePlus, Loader2, UploadCloud, X } from "lucide-react";
 import { useT } from "./locale-provider";
 import { VideoEditor } from "./video-editor";
+import { CategoryPicker } from "./category-picker";
+import type { CategorySlug } from "@/lib/categories";
 
 type Meta = { duration: number; width: number; height: number; thumb: Blob | null };
 const MAX = 200 * 1024 * 1024;
@@ -67,6 +69,7 @@ export function UploadForm() {
   const [preview, setPreview] = useState("");
   const [meta, setMeta] = useState<Meta | null>(null);
   const [caption, setCaption] = useState("");
+  const [category, setCategory] = useState<CategorySlug | null>(null);
   const [drag, setDrag] = useState(false);
   const [progress, setProgress] = useState(0);
   const [stage, setStage] = useState<"idle" | "uploading" | "saving" | "done">("idle");
@@ -150,6 +153,11 @@ export function UploadForm() {
 
   async function publish() {
     if (!file) return;
+    if (!category) {
+      setError(t("cat.required"));
+      document.getElementById("category")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
     setError("");
     setStage("uploading");
     setProgress(0);
@@ -170,7 +178,7 @@ export function UploadForm() {
       const c = await fetch("/api/videos", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          videoKey: up.videoKey, thumbKey: up.thumb ? up.thumbKey : undefined, mimeType: file.type, caption,
+          videoKey: up.videoKey, thumbKey: up.thumb ? up.thumbKey : undefined, mimeType: file.type, caption, category,
           duration: meta?.duration || 0, width: meta?.width || 0, height: meta?.height || 0,
         }),
       });
@@ -218,6 +226,10 @@ export function UploadForm() {
       <div>
         <h1 className="text-2xl font-extrabold tracking-tight">{t("up.title")}</h1>
         <p className="mt-1 text-mist">{t("up.subtitle")}</p>
+
+        <div className="mt-6">
+          <CategoryPicker value={category} onChange={setCategory} disabled={busy} />
+        </div>
 
         <div className="mt-6">
           <label htmlFor="cap" className="mb-1.5 flex justify-between text-sm font-semibold">

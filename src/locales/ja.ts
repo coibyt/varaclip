@@ -334,6 +334,15 @@ const ja: Record<string, string> = {
   "share.linkLabel": "動画リンク（VaraaAi.com に貼り付け）",
   "share.embedLabel": "埋め込みコード（ウェブサイトに貼り付け）",
   "feed.tapForSound": "タップして音声をオン",
+  "cat.label": "カテゴリーを選択",
+  "cat.required": "動画のカテゴリーを選んでください。",
+  "cat.title": "動画カテゴリー",
+  "cat.indexIntro": "カテゴリー別に美容動画をチェック：ヘア、ネイル、まつげ、スキンケア、スパ、メイク…実際のサロンから。好きなカテゴリーを選んで、すぐに予約できます。",
+  "cat.pageTitle": "{name}の動画：サロンのアイデア集",
+  "cat.pageDesc": "サロンの最新{name}動画をチェック：素敵なスタイル、トレンド、お客様のリアルな仕上がり。お気に入りのサロンをフォローして VaraClip で予約しましょう。",
+  "cat.count": "{n} 本の動画",
+  "cat.empty": "このカテゴリーにはまだ動画がありません。また後で見に来てください！",
+  "cat.none": "カテゴリー未設定",
 };
 
 export default ja;

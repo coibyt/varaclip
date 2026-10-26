@@ -334,6 +334,15 @@ const et: Record<string, string> = {
   "share.linkLabel": "Video link (kleebi VaraaAi.com-i)",
   "share.embedLabel": "Manustamiskood (kleebi veebilehele)",
   "feed.tapForSound": "Puuduta heli sisselülitamiseks",
+  "cat.label": "Vali kategooria",
+  "cat.required": "Vali oma videole kategooria.",
+  "cat.title": "Videokategooriad",
+  "cat.indexIntro": "Sirvi ilu­videoid kategooriate kaupa: juuksed, küüned, ripsmed, nahahooldus, spaa, meik… päris salongidest. Vali oma lemmikkategooria ja broneeri kohe.",
+  "cat.pageTitle": "{name} videod: inspiratsioon salongidest",
+  "cat.pageDesc": "Vaata uusimaid {name} videoid salongidest: ilusad välimused, trendid ja päris klientide tulemused. Jälgi oma lemmiksalonge ja broneeri VaraClipis.",
+  "cat.count": "{n} videot",
+  "cat.empty": "Selles kategoorias pole veel videoid. Vaata varsti uuesti!",
+  "cat.none": "Kategooria valimata",
 };
 
 export default et;

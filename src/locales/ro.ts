@@ -334,6 +334,15 @@ const ro: Record<string, string> = {
   "share.linkLabel": "Linkul videoclipului (lipește-l în VaraaAi.com)",
   "share.embedLabel": "Cod de încorporare (lipește-l într-un site)",
   "feed.tapForSound": "Atinge pentru a porni sunetul",
+  "cat.label": "Alege o categorie",
+  "cat.required": "Alege o categorie pentru videoclipul tău.",
+  "cat.title": "Categorii de videoclipuri",
+  "cat.indexIntro": "Răsfoiește videoclipuri de frumusețe pe categorii: păr, unghii, gene, îngrijirea pielii, spa, machiaj… de la saloane reale. Alege categoria preferată și programează-te imediat.",
+  "cat.pageTitle": "Videoclipuri {name}: inspirație din saloane",
+  "cat.pageDesc": "Urmărește cele mai noi videoclipuri {name} din saloane: look-uri frumoase, tendințe și rezultate reale ale clienților. Urmărește saloanele preferate și programează-te pe VaraClip.",
+  "cat.count": "{n} videoclipuri",
+  "cat.empty": "Încă nu există videoclipuri în această categorie. Revino curând!",
+  "cat.none": "Încă fără categorie",
 };
 
 export default ro;

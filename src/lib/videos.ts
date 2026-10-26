@@ -3,6 +3,7 @@ import { getUser } from "./auth";
 import { mediaUrl } from "./storage";
 import { affinity, loadInterests } from "./interests";
 import { isAdminUser } from "./admin";
+import { categoriesOf } from "./video-categories";
 import type { Badge, BadgeMode, FeedVideo, VideoRow } from "./util";
 
 export const videoInclude = {
@@ -14,7 +15,7 @@ export const videoInclude = {
 export const HOT_MIN_POINTS = 3;
 const DAY_MS = 24 * 3600_000;
 
-type Extras = { badge: Badge; badgeMode: BadgeMode; showViews: boolean };
+type Extras = { badge: Badge; badgeMode: BadgeMode; showViews: boolean; category?: string | null };
 
 export function toFeedVideo(v: VideoRow, liked: Set<string>, saved: Set<string>, followed: Set<string>, x: Extras = { badge: null, badgeMode: "auto", showViews: false }): FeedVideo {
   return {
@@ -33,6 +34,7 @@ export function toFeedVideo(v: VideoRow, liked: Set<string>, saved: Set<string>,
     saved: saved.has(v.id),
     badge: x.badge,
     badgeMode: x.badgeMode,
+    category: x.category ?? null,
     creator: {
       id: v.creator.id, handle: v.creator.handle, displayName: v.creator.displayName,
       salonName: v.creator.salonName, city: v.creator.city, avatarUrl: mediaUrl(v.creator.avatarKey),
@@ -61,11 +63,12 @@ export async function hydrate(rows: VideoRow[]): Promise<FeedVideo[]> {
   const ids = rows.map((r) => r.id);
   const since = new Date(Date.now() - DAY_MS);
 
-  const [likes24, comments24, manual] = await Promise.all([
+  const [likes24, comments24, manual, cats] = await Promise.all([
     db.like.groupBy({ by: ["videoId"], where: { videoId: { in: ids }, createdAt: { gt: since } }, _count: { _all: true } }),
     db.comment.groupBy({ by: ["videoId"], where: { videoId: { in: ids }, createdAt: { gt: since } }, _count: { _all: true } }),
     // created by docs/database-badges.sql; until then the automatic badges still work
     db.videoBadge.findMany({ where: { videoId: { in: ids } } }).catch(() => [] as { videoId: string; badge: string }[]),
+    categoriesOf(ids),
   ]);
   const l24 = new Map(likes24.map((r) => [r.videoId, r._count._all]));
   const c24 = new Map(comments24.map((r) => [r.videoId, r._count._all]));
@@ -79,7 +82,7 @@ export async function hydrate(rows: VideoRow[]): Promise<FeedVideo[]> {
       if ((l24.get(r.id) ?? 0) + (c24.get(r.id) ?? 0) * 2 >= HOT_MIN_POINTS) badge = "hot";
       else if (Date.now() - r.createdAt.getTime() < DAY_MS) badge = "new";
     }
-    return { badge, badgeMode: mode, showViews: admin || (!!me && r.creator.id === me.id) };
+    return { badge, badgeMode: mode, showViews: admin || (!!me && r.creator.id === me.id), category: cats.get(r.id) ?? null };
   };
 
   if (!me) {

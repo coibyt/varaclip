@@ -5,6 +5,7 @@ import { getUser } from "@/lib/auth";
 import { deleteObject } from "@/lib/storage";
 import { getT } from "@/lib/i18n-server";
 import { parseTags } from "@/lib/util";
+import { setVideoCategory } from "@/lib/video-categories";
 
 type Ctx = { params: Promise<{ id: string }> };
 
@@ -17,11 +18,12 @@ export async function PATCH(req: Request, { params }: Ctx) {
   const v = await db.video.findUnique({ where: { id }, select: { creatorId: true } });
   if (!v || v.creatorId !== me.id) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
-  const p = z.object({ caption: z.string().trim().max(500) }).safeParse(await req.json().catch(() => null));
+  const p = z.object({ caption: z.string().trim().max(500), category: z.string().max(24).nullable().optional() }).safeParse(await req.json().catch(() => null));
   if (!p.success) return NextResponse.json({ error: t("err.invalid") }, { status: 400 });
 
   const tags = parseTags(p.data.caption.match(/#[\p{L}\p{N}_]+/gu)?.join(" ") ?? "").join(" ");
   await db.video.update({ where: { id }, data: { caption: p.data.caption, tags } });
+  if (p.data.category !== undefined) await setVideoCategory(id, p.data.category);
   return NextResponse.json({ ok: true, caption: p.data.caption });
 }
 

@@ -242,3 +242,11 @@ model SiteSetting {
   value     String   @db.VarChar(200)
   updatedAt DateTime @default(now()) @updatedAt
 }
+
+/// The category a video belongs to (one of the eight VaraaAi categories, see src/lib/categories.ts).
+model VideoCategory {
+  videoId  String @id
+  category String @db.VarChar(24)
+
+  @@index([category])
+}

@@ -334,6 +334,15 @@ const nl: Record<string, string> = {
   "share.linkLabel": "Videolink (plak in VaraaAi.com)",
   "share.embedLabel": "Insluitcode (plak in een website)",
   "feed.tapForSound": "Tik om geluid aan te zetten",
+  "cat.label": "Kies een categorie",
+  "cat.required": "Kies een categorie voor je video.",
+  "cat.title": "Videocategorieën",
+  "cat.indexIntro": "Bekijk beautyvideo’s per categorie: haar, nagels, wimpers, huidverzorging, spa, make-up… van echte salons. Kies je favoriete categorie en boek meteen.",
+  "cat.pageTitle": "{name}-video’s: inspiratie van salons",
+  "cat.pageDesc": "Bekijk de nieuwste {name}-video’s van salons: mooie looks, trends en echte resultaten van klanten. Volg je favoriete salons en boek op VaraClip.",
+  "cat.count": "{n} video’s",
+  "cat.empty": "Nog geen video’s in deze categorie. Kom snel terug!",
+  "cat.none": "Nog geen categorie",
 };
 
 export default nl;

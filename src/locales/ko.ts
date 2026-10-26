@@ -334,6 +334,15 @@ const ko: Record<string, string> = {
   "share.linkLabel": "동영상 링크(VaraaAi.com에 붙여넣기)",
   "share.embedLabel": "삽입 코드(웹사이트에 붙여넣기)",
   "feed.tapForSound": "탭하여 소리 켜기",
+  "cat.label": "카테고리 선택",
+  "cat.required": "동영상의 카테고리를 선택해 주세요.",
+  "cat.title": "동영상 카테고리",
+  "cat.indexIntro": "카테고리별로 뷰티 영상을 둘러보세요: 헤어, 네일, 속눈썹, 스킨케어, 스파, 메이크업… 실제 살롱의 영상이에요. 좋아하는 카테고리를 고르고 바로 예약하세요.",
+  "cat.pageTitle": "{name} 동영상: 살롱의 영감",
+  "cat.pageDesc": "살롱의 최신 {name} 영상을 확인하세요: 멋진 스타일, 트렌드, 실제 고객의 결과. 좋아하는 살롱을 팔로우하고 VaraClip에서 예약하세요.",
+  "cat.count": "동영상 {n}개",
+  "cat.empty": "이 카테고리에는 아직 동영상이 없어요. 곧 다시 확인해 주세요!",
+  "cat.none": "카테고리 없음",
 };
 
 export default ko;

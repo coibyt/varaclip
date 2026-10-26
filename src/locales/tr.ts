@@ -334,6 +334,15 @@ const tr: Record<string, string> = {
   "share.linkLabel": "Video bağlantısı (VaraaAi.com’a yapıştırın)",
   "share.embedLabel": "Gömme kodu (web sitesine yapıştırın)",
   "feed.tapForSound": "Sesi açmak için dokunun",
+  "cat.label": "Kategori seç",
+  "cat.required": "Lütfen videon için bir kategori seç.",
+  "cat.title": "Video kategorileri",
+  "cat.indexIntro": "Güzellik videolarına kategoriye göre göz at: saç, tırnak, kirpik, cilt bakımı, spa, makyaj… gerçek salonlardan. En sevdiğin kategoriyi seç ve hemen randevu al.",
+  "cat.pageTitle": "{name} videoları: salonlardan ilham",
+  "cat.pageDesc": "Salonlardan en yeni {name} videolarını izle: güzel görünümler, trendler ve gerçek müşteri sonuçları. Sevdiğin salonları takip et ve VaraClip’te randevu al.",
+  "cat.count": "{n} video",
+  "cat.empty": "Bu kategoride henüz video yok. Yakında tekrar bak!",
+  "cat.none": "Henüz kategori yok",
 };
 
 export default tr;

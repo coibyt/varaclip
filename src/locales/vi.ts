@@ -350,6 +350,15 @@ const vi: Record<string, string> = {
   "share.linkLabel": "Link video (dán vào VaraaAi.com)",
   "share.embedLabel": "Mã nhúng (dán vào website)",
   "feed.tapForSound": "Chạm để bật tiếng",
+  "cat.label": "Chọn danh mục",
+  "cat.required": "Hãy chọn danh mục cho video của bạn.",
+  "cat.title": "Danh mục video",
+  "cat.indexIntro": "Xem video làm đẹp theo từng danh mục: tóc, nail, mi, chăm sóc da, spa, trang điểm… từ các salon thật. Chọn danh mục bạn thích và đặt lịch ngay.",
+  "cat.pageTitle": "Video {name}: mẫu đẹp từ các salon",
+  "cat.pageDesc": "Xem video {name} mới nhất từ các salon: kiểu đẹp, xu hướng và kết quả thực tế của khách hàng. Theo dõi salon yêu thích và đặt lịch ngay trên VaraClip.",
+  "cat.count": "{n} video",
+  "cat.empty": "Chưa có video trong danh mục này. Hãy quay lại sau nhé!",
+  "cat.none": "Chưa chọn danh mục",
 };
 
 export default vi;

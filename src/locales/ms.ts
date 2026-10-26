@@ -334,6 +334,15 @@ const ms: Record<string, string> = {
   "share.linkLabel": "Pautan video (tampal dalam VaraaAi.com)",
   "share.embedLabel": "Kod benam (tampal dalam laman web)",
   "feed.tapForSound": "Ketik untuk hidupkan bunyi",
+  "cat.label": "Pilih kategori",
+  "cat.required": "Sila pilih kategori untuk video anda.",
+  "cat.title": "Kategori video",
+  "cat.indexIntro": "Lihat video kecantikan mengikut kategori: rambut, kuku, bulu mata, penjagaan kulit, spa, solekan… daripada salon sebenar. Pilih kategori kegemaran dan tempah segera.",
+  "cat.pageTitle": "Video {name}: inspirasi daripada salon",
+  "cat.pageDesc": "Tonton video {name} terkini daripada salon: gaya cantik, trend dan hasil sebenar pelanggan. Ikuti salon kegemaran anda dan tempah di VaraClip.",
+  "cat.count": "{n} video",
+  "cat.empty": "Belum ada video dalam kategori ini. Kembali lagi nanti!",
+  "cat.none": "Belum ada kategori",
 };
 
 export default ms;

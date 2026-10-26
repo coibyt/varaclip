@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Compass, Home, LayoutDashboard, LogOut, MessageCircle, Plus, Radio, Settings, ShieldCheck, Sparkles, User } from "lucide-react";
+import { Compass, Home, LayoutDashboard, LayoutGrid, LogOut, MessageCircle, Plus, Radio, Settings, ShieldCheck, Sparkles, User } from "lucide-react";
 import { Avatar } from "./avatar";
 import { InstallButton } from "./install-app";
 import { LanguageSwitcher } from "./language-switcher";
@@ -36,6 +36,7 @@ export function Shell({ user, unread: initialUnread = 0, children }: { user: She
 
   const nav = {
     home: { href: "/", label: t("nav.foryou"), short: t("nav.home"), icon: Home, match: (p: string) => p === "/" },
+    categories: { href: "/c", label: t("cat.title"), short: t("cat.title"), icon: LayoutGrid, match: (p: string) => p === "/c" || p.startsWith("/c/") },
     discover: { href: "/discover", label: t("nav.discover"), short: t("nav.discover"), icon: Compass, match: (p: string) => p.startsWith("/discover") },
     live: { href: "/live", label: t("nav.live"), short: t("nav.live"), icon: Radio, match: (p: string) => p.startsWith("/live") },
     messages: {
@@ -51,7 +52,7 @@ export function Shell({ user, unread: initialUnread = 0, children }: { user: She
   };
   type NavItem = (typeof nav)[keyof typeof nav] & { badge?: number };
 
-  const sidebar: NavItem[] = [nav.home, nav.discover, nav.live, nav.messages, ...(user?.isSalon ? [nav.studio] : []), ...(user?.isAdmin ? [nav.admin] : []), nav.profile];
+  const sidebar: NavItem[] = [nav.home, nav.discover, nav.categories, nav.live, nav.messages, ...(user?.isSalon ? [nav.studio] : []), ...(user?.isAdmin ? [nav.admin] : []), nav.profile];
   const mobileLeft: NavItem[] = [nav.home, nav.live];
   const mobileRight: NavItem[] = [nav.messages, nav.profile];
 

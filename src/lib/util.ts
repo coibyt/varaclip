@@ -40,6 +40,8 @@ export type FeedVideo = {
   saved: boolean;
   badge: Badge;
   badgeMode: BadgeMode;
+  /** One of the eight category slugs (src/lib/categories.ts), or null. */
+  category: string | null;
   creator: {
     id: string; handle: string; displayName: string; salonName: string; city: string;
     avatarUrl: string; hue: number; bookingUrl: string; phone: string; followed: boolean;

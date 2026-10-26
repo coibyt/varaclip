@@ -334,6 +334,15 @@ const cs: Record<string, string> = {
   "share.linkLabel": "Odkaz na video (vložte do VaraaAi.com)",
   "share.embedLabel": "Kód pro vložení (vložte na web)",
   "feed.tapForSound": "Klepnutím zapnete zvuk",
+  "cat.label": "Vyberte kategorii",
+  "cat.required": "Vyberte kategorii pro své video.",
+  "cat.title": "Kategorie videí",
+  "cat.indexIntro": "Procházejte videa o kráse podle kategorií: vlasy, nehty, řasy, péče o pleť, spa, make-up… ze skutečných salonů. Vyberte si oblíbenou kategorii a hned si rezervujte.",
+  "cat.pageTitle": "Videa: {name} – inspirace ze salonů",
+  "cat.pageDesc": "Podívejte se na nejnovější videa z kategorie {name} ze salonů: krásné vzhledy, trendy a skutečné výsledky zákazníků. Sledujte oblíbené salony a rezervujte na VaraClip.",
+  "cat.count": "{n} videí",
+  "cat.empty": "V této kategorii zatím nejsou žádná videa. Vraťte se brzy!",
+  "cat.none": "Zatím bez kategorie",
 };
 
 export default cs;

@@ -334,6 +334,15 @@ const zh: Record<string, string> = {
   "share.linkLabel": "视频链接（粘贴到 VaraaAi.com）",
   "share.embedLabel": "嵌入代码（粘贴到网站）",
   "feed.tapForSound": "点按开启声音",
+  "cat.label": "选择分类",
+  "cat.required": "请为你的视频选择一个分类。",
+  "cat.title": "视频分类",
+  "cat.indexIntro": "按分类浏览美容视频：美发、美甲、睫毛、护肤、水疗、化妆……全部来自真实门店。选择你喜欢的分类，立即预约。",
+  "cat.pageTitle": "{name}视频：来自门店的灵感",
+  "cat.pageDesc": "观看门店最新的{name}视频：好看的造型、流行趋势和顾客的真实效果。关注你喜欢的门店，在 VaraClip 上预约。",
+  "cat.count": "{n} 个视频",
+  "cat.empty": "这个分类还没有视频，过段时间再来看看吧！",
+  "cat.none": "尚未选择分类",
 };
 
 export default zh;

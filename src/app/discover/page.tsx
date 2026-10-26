@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Search } from "lucide-react";
+import { CATEGORIES, categoryName } from "@/lib/categories";
+import { CategoryIcon } from "@/components/category-picker";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
 import { isAdminUser } from "@/lib/admin";
@@ -58,6 +60,14 @@ export default async function Discover({ searchParams }: { searchParams: Promise
         <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-mist" aria-hidden />
         <input id="q" name="q" defaultValue={q} placeholder={t("dc.placeholder")} className="input !rounded-full !pl-12" />
       </form>
+
+      <nav aria-label={t("cat.title")} className="no-scrollbar -mx-4 mt-4 flex gap-2 overflow-x-auto px-4">
+        {CATEGORIES.map((c) => (
+          <Link key={c.slug} href={`/c/${c.slug}`} className="flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-ink-2 px-3.5 py-2 text-sm font-semibold transition hover:border-white/30">
+            <CategoryIcon icon={c.icon} className="size-4 text-gold" /> {categoryName(locale, c)}
+          </Link>
+        ))}
+      </nav>
 
       {trending.length > 0 && (
         <div className="no-scrollbar -mx-4 mt-4 flex gap-2 overflow-x-auto px-4">
