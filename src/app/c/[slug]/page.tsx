@@ -14,7 +14,9 @@ import { CategoryIcon } from "@/components/category-picker";
 export const dynamic = "force-dynamic";
 const SITE = (process.env.NEXT_PUBLIC_SITE_URL || "https://varaclip.com").replace(/\/$/, "");
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ page?: string }> };
+// Every video of the category is shown; only very large categories are split into pages of this size.
+const PAGE = 300;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = categoryBySlug((await params).slug);
@@ -28,13 +30,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /** One category: its newest videos in a grid, written so search engines understand the page. */
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params, searchParams }: Props) {
   const cat = categoryBySlug((await params).slug);
   if (!cat) notFound();
   const { t, locale } = await getT();
   const name = categoryName(locale, cat);
 
-  const ids = await videoIdsIn(cat.slug, 60);
+  const page = Math.max(1, Number((await searchParams).page) || 1);
+  const { ids, total } = await videoIdsIn(cat.slug, PAGE, (page - 1) * PAGE);
+  const pages = Math.max(1, Math.ceil(total / PAGE));
   const rows = ids.length ? await db.video.findMany({ where: { id: { in: ids } }, orderBy: { createdAt: "desc" }, include: videoInclude }) : [];
   const [videos, me] = await Promise.all([hydrate(rows), getUser()]);
 
@@ -49,7 +53,7 @@ export default async function CategoryPage({ params }: Props) {
       inLanguage: locale,
       mainEntity: {
         "@type": "ItemList",
-        numberOfItems: videos.length,
+        numberOfItems: total,
         itemListElement: videos.slice(0, 30).map((v, i) => ({
           "@type": "ListItem",
           position: i + 1,
@@ -91,7 +95,7 @@ export default async function CategoryPage({ params }: Props) {
         <div className="min-w-0">
           <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">{t("cat.pageTitle", { name })}</h1>
           <p className="mt-1.5 max-w-2xl text-mist">{t("cat.pageDesc", { name })}</p>
-          <p className="mt-1 text-sm text-white/70">{t("cat.count", { n: videos.length })}</p>
+          <p className="mt-1 text-sm text-white/70">{t("cat.count", { n: total })}</p>
         </div>
       </header>
 
@@ -109,6 +113,14 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mt-6">
         <VideoGrid showViews={isAdminUser(me)} videos={videos} empty={t("cat.empty")} watch={t("studio.watch")} locale={locale} />
       </div>
+      {pages > 1 && (
+        <nav aria-label="Pagination" className="mt-6 flex flex-wrap justify-center gap-2">
+          {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+            <Link key={n} href={n === 1 ? `/c/${cat.slug}` : `/c/${cat.slug}?page=${n}`} aria-current={n === page ? "page" : undefined}
+              className={`grid size-10 place-items-center rounded-full text-sm font-bold ${n === page ? "bg-glow text-white" : "bg-ink-2 hover:bg-ink-3"}`}>{n}</Link>
+          ))}
+        </nav>
+      )}
     </div>
   );
 }

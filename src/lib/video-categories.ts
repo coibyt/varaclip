@@ -24,12 +24,16 @@ export async function categoriesOf(videoIds: string[]): Promise<Map<string, Cate
   return new Map(rows.filter((r) => isCategorySlug(r.category)).map((r) => [r.videoId, r.category as CategorySlug]));
 }
 
-/** Ids of the newest videos in a category. */
-export async function videoIdsIn(slug: CategorySlug, take = 60): Promise<string[]> {
+/** Ids of the videos in a category, newest first, one page at a time, plus how many there are in total. */
+export async function videoIdsIn(slug: CategorySlug, take = 300, skip = 0): Promise<{ ids: string[]; total: number }> {
   const rows = await db.videoCategory.findMany({ where: { category: slug }, select: { videoId: true } }).catch(() => []);
-  if (!rows.length) return [];
-  const vids = await db.video.findMany({ where: { id: { in: rows.map((r) => r.videoId) } }, orderBy: { createdAt: "desc" }, take, select: { id: true } });
-  return vids.map((v) => v.id);
+  if (!rows.length) return { ids: [], total: 0 };
+  const where = { id: { in: rows.map((r) => r.videoId) } };
+  const [total, vids] = await Promise.all([
+    db.video.count({ where }),
+    db.video.findMany({ where, orderBy: { createdAt: "desc" }, skip, take, select: { id: true } }),
+  ]);
+  return { ids: vids.map((v) => v.id), total };
 }
 
 /** How many videos each category has (null when the table does not exist yet). */
