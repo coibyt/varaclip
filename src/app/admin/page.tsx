@@ -8,6 +8,8 @@ import { AutoRefresh } from "@/components/auto-refresh";
 import { SignupSetting } from "@/components/signup-setting";
 import { getFlag } from "@/lib/settings";
 import { mailConfigured } from "@/lib/mail";
+import { mediaUrl } from "@/lib/storage";
+import { AdminCategories } from "@/components/admin-categories";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin" };
@@ -16,6 +18,12 @@ const DAY = 24 * 3600_000;
 const PAGE = 25;
 const PLATFORM_LABEL: Record<string, string> = { android: "Android", ios: "iPhone / iPad", desktop: "Máy tính", other: "Khác" };
 const SQL = {
+  categories: `CREATE TABLE IF NOT EXISTS \`VideoCategory\` (
+  \`videoId\` VARCHAR(191) NOT NULL,
+  \`category\` VARCHAR(24) NOT NULL,
+  INDEX \`VideoCategory_category_idx\`(\`category\`),
+  PRIMARY KEY (\`videoId\`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`,
   visits: `CREATE TABLE IF NOT EXISTS \`SiteVisit\` (
   \`id\` VARCHAR(191) NOT NULL,
   \`day\` VARCHAR(10) NOT NULL,
@@ -93,6 +101,15 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     db.liveStream.count({ where: { status: "LIVE" } }).catch(() => 0),
   ]);
 
+  // Video categories: which videos still have none (the table may not exist yet).
+  const categorized = await db.videoCategory.findMany({ select: { videoId: true } }).then((r) => new Set(r.map((x) => x.videoId))).catch(() => null);
+  const uncategorizedRows = categorized
+    ? await db.video.findMany({
+        where: { id: { notIn: [...categorized] } }, orderBy: { createdAt: "desc" }, take: 40,
+        select: { id: true, caption: true, thumbKey: true, creator: { select: { handle: true } } },
+      })
+    : [];
+
   // ── traffic (last 14 days, Helsinki days)
   const now = Date.now();
   const days = Array.from({ length: 14 }, (_, i) => helsinkiDay(new Date(now - (13 - i) * DAY)));
@@ -156,6 +173,15 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
         <Card label="Tổng lượt theo dõi" value={follows} />
         <Card label="Tổng lượt thích" value={likes} sub={`${comments} bình luận`} />
       </div>
+
+      <h2 className="mt-10 text-lg font-bold">Danh mục video</h2>
+      {categorized === null ? SQL_NOTICE("categories") : (
+        <AdminCategories
+          total={videos}
+          uncategorized={videos - categorized.size}
+          items={uncategorizedRows.map((v) => ({ id: v.id, caption: v.caption, thumbUrl: mediaUrl(v.thumbKey), handle: v.creator.handle }))}
+        />
+      )}
 
       <h2 className="mt-10 text-lg font-bold">Lượng truy cập</h2>
       {traffic === null ? SQL_NOTICE("visits") : (

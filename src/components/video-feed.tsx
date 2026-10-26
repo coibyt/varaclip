@@ -199,13 +199,14 @@ export function VideoFeed({ initial, meId, isAdmin = false, tabs = true, fixed =
       {tapForSound && (
         <button
           type="button" onClick={() => { /* any tap unlocks the sound (see onSoundBlocked) */ }}
-          className="absolute left-1/2 top-[92px] z-30 flex -translate-x-1/2 animate-pulse items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-extrabold text-ink shadow-xl lg:top-24"
+          className="absolute left-1/2 top-[120px] z-30 flex -translate-x-1/2 animate-pulse items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-extrabold text-ink shadow-xl lg:top-24"
         >
           <Volume2 className="size-5" aria-hidden /> {t("feed.tapForSound")}
         </button>
       )}
 
-      <div className="absolute right-3 top-[112px] z-30 flex flex-col gap-2 lg:hidden">
+      {/* Shortcuts sit in one row left of the mute button, so they never overlap the like / comment column below. */}
+      <div className="absolute right-[60px] top-16 z-30 flex flex-row gap-2 lg:hidden">
         <LanguageSwitcher iconOnly />
         <Link href="/discover" aria-label={t("nav.discover")} className="grid size-10 place-items-center rounded-full bg-black/40 backdrop-blur transition hover:bg-black/60"><Compass className="size-5" aria-hidden /></Link>
         <Link href="/c" aria-label={t("cat.title")} className="grid size-10 place-items-center rounded-full bg-black/40 backdrop-blur transition hover:bg-black/60"><LayoutGrid className="size-5" aria-hidden /></Link>
