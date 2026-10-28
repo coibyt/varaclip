@@ -343,6 +343,19 @@ const zh: Record<string, string> = {
   "cat.count": "{n} 个视频",
   "cat.empty": "这个分类还没有视频，过段时间再来看看吧！",
   "cat.none": "尚未选择分类",
+  "api.title": "API 密钥（发布软件）",
+  "api.desc": "供你的视频发布软件使用，代替密码。密钥只能发布/查看/编辑/删除视频，无法读取消息或修改设置。不要把密钥给别人。",
+  "api.none": "还没有密钥。",
+  "api.create": "创建新密钥",
+  "api.namePh": "密钥名称（例如：视频发布软件）",
+  "api.newKey": "你的新密钥。请立即复制，它只会显示这一次。",
+  "api.copy": "复制",
+  "api.revoke": "吊销",
+  "api.revokeConfirm": "要吊销这个密钥吗？使用它的软件将无法再发布。",
+  "api.lastUsed": "最近使用：{when}",
+  "api.neverUsed": "从未使用",
+  "api.docs": "查看 API 指南",
+  "api.tooMany": "每个账号最多只能有 {n} 个有效密钥。",
 };
 
 export default zh;

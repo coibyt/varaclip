@@ -343,6 +343,19 @@ const da: Record<string, string> = {
   "cat.count": "{n} videoer",
   "cat.empty": "Ingen videoer i denne kategori endnu. Kig forbi snart!",
   "cat.none": "Ingen kategori endnu",
+  "api.title": "API-nøgler (udgivelsesprogram)",
+  "api.desc": "Til dit program, der udgiver videoer, i stedet for din adgangskode. En nøgle kan kun udgive/læse/redigere/slette videoer; den kan ikke læse beskeder eller ændre indstillinger. Del aldrig en nøgle.",
+  "api.none": "Ingen nøgler endnu.",
+  "api.create": "Opret en ny nøgle",
+  "api.namePh": "Nøglens navn (fx udgivelsesprogram)",
+  "api.newKey": "Din nye nøgle. Kopiér den nu, den vises kun denne ene gang.",
+  "api.copy": "Kopiér",
+  "api.revoke": "Tilbagekald",
+  "api.revokeConfirm": "Tilbagekald nøglen? Programmer, der bruger den, kan ikke længere udgive.",
+  "api.lastUsed": "Sidst brugt: {when}",
+  "api.neverUsed": "Aldrig brugt",
+  "api.docs": "Læs API-vejledningen",
+  "api.tooMany": "En konto kan højst have {n} aktive nøgler.",
 };
 
 export default da;

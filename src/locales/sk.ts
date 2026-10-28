@@ -343,6 +343,19 @@ const sk: Record<string, string> = {
   "cat.count": "{n} videí",
   "cat.empty": "V tejto kategórii zatiaľ nie sú žiadne videá. Vráťte sa čoskoro!",
   "cat.none": "Zatiaľ bez kategórie",
+  "api.title": "Kľúče API (publikačný softvér)",
+  "api.desc": "Pre váš softvér na publikovanie videí namiesto hesla. Kľúč vie len publikovať/čítať/upravovať/mazať videá; nečíta správy ani nemení nastavenia. Kľúč nikomu neposielajte.",
+  "api.none": "Zatiaľ žiadne kľúče.",
+  "api.create": "Vytvoriť nový kľúč",
+  "api.namePh": "Názov kľúča (napr. publikačný softvér)",
+  "api.newKey": "Váš nový kľúč. Skopírujte ho hneď, zobrazí sa iba teraz.",
+  "api.copy": "Kopírovať",
+  "api.revoke": "Zrušiť",
+  "api.revokeConfirm": "Zrušiť tento kľúč? Softvér, ktorý ho používa, už nebude môcť publikovať.",
+  "api.lastUsed": "Naposledy použitý: {when}",
+  "api.neverUsed": "Nepoužitý",
+  "api.docs": "Prečítať návod k API",
+  "api.tooMany": "Účet môže mať najviac {n} aktívnych kľúčov.",
 };
 
 export default sk;

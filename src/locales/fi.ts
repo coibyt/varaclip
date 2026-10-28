@@ -343,6 +343,19 @@ const fi: Record<string, string> = {
   "cat.count": "{n} videota",
   "cat.empty": "Tässä kategoriassa ei ole vielä videoita. Palaa pian takaisin!",
   "cat.none": "Ei kategoriaa",
+  "api.title": "API-avaimet (julkaisuohjelma)",
+  "api.desc": "Videoiden julkaisuohjelmallesi salasanan sijaan. Avaimella voi vain julkaista/lukea/muokata/poistaa videoita; se ei lue viestejä eikä muuta asetuksia. Älä jaa avainta.",
+  "api.none": "Ei vielä avaimia.",
+  "api.create": "Luo uusi avain",
+  "api.namePh": "Avaimen nimi (esim. julkaisuohjelma)",
+  "api.newKey": "Uusi avaimesi. Kopioi se nyt, se näytetään vain tämän kerran.",
+  "api.copy": "Kopioi",
+  "api.revoke": "Peruuta",
+  "api.revokeConfirm": "Peruutetaanko avain? Sitä käyttävä ohjelma ei voi enää julkaista.",
+  "api.lastUsed": "Viimeksi käytetty: {when}",
+  "api.neverUsed": "Ei käytetty",
+  "api.docs": "Lue API-ohje",
+  "api.tooMany": "Tilillä voi olla enintään {n} aktiivista avainta.",
 };
 
 export default fi;

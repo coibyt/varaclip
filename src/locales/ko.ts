@@ -343,6 +343,19 @@ const ko: Record<string, string> = {
   "cat.count": "동영상 {n}개",
   "cat.empty": "이 카테고리에는 아직 동영상이 없어요. 곧 다시 확인해 주세요!",
   "cat.none": "카테고리 없음",
+  "api.title": "API 키(게시 프로그램)",
+  "api.desc": "비밀번호 대신 동영상 게시 프로그램에서 사용하세요. 키로는 동영상 게시/조회/수정/삭제만 할 수 있고, 메시지를 읽거나 설정을 바꿀 수 없어요. 키를 다른 사람에게 주지 마세요.",
+  "api.none": "아직 키가 없어요.",
+  "api.create": "새 키 만들기",
+  "api.namePh": "키 이름(예: 게시 프로그램)",
+  "api.newKey": "새 키예요. 지금 복사하세요. 이번 한 번만 보여요.",
+  "api.copy": "복사",
+  "api.revoke": "폐기",
+  "api.revokeConfirm": "이 키를 폐기할까요? 이 키를 쓰는 프로그램은 더 이상 게시할 수 없어요.",
+  "api.lastUsed": "마지막 사용: {when}",
+  "api.neverUsed": "사용한 적 없음",
+  "api.docs": "API 안내 보기",
+  "api.tooMany": "계정당 활성 키는 최대 {n}개예요.",
 };
 
 export default ko;

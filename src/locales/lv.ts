@@ -343,6 +343,19 @@ const lv: Record<string, string> = {
   "cat.count": "{n} video",
   "cat.empty": "Šajā kategorijā vēl nav video. Ieskaties drīz atkal!",
   "cat.none": "Kategorija vēl nav izvēlēta",
+  "api.title": "API atslēgas (publicēšanas programma)",
+  "api.desc": "Tavai video publicēšanas programmai paroles vietā. Atslēga var tikai publicēt/lasīt/rediģēt/dzēst video; tā nelasa ziņas un nemaina iestatījumus. Nekad nedalies ar atslēgu.",
+  "api.none": "Vēl nav atslēgu.",
+  "api.create": "Izveidot jaunu atslēgu",
+  "api.namePh": "Atslēgas nosaukums (piem., publicēšanas programma)",
+  "api.newKey": "Tava jaunā atslēga. Nokopē to tagad, tā tiek parādīta tikai šoreiz.",
+  "api.copy": "Kopēt",
+  "api.revoke": "Atsaukt",
+  "api.revokeConfirm": "Atsaukt šo atslēgu? Programma, kas to izmanto, vairs nevarēs publicēt.",
+  "api.lastUsed": "Pēdējoreiz lietota: {when}",
+  "api.neverUsed": "Nav lietota",
+  "api.docs": "Lasīt API pamācību",
+  "api.tooMany": "Kontam var būt ne vairāk kā {n} aktīvas atslēgas.",
 };
 
 export default lv;

@@ -343,6 +343,19 @@ const sv: Record<string, string> = {
   "cat.count": "{n} videor",
   "cat.empty": "Inga videor i den här kategorin ännu. Titta in snart igen!",
   "cat.none": "Ingen kategori ännu",
+  "api.title": "API-nycklar (publiceringsprogram)",
+  "api.desc": "För ditt program som publicerar videor, i stället för lösenordet. En nyckel kan bara publicera/läsa/redigera/radera videor; den kan inte läsa meddelanden eller ändra inställningar. Dela aldrig en nyckel.",
+  "api.none": "Inga nycklar ännu.",
+  "api.create": "Skapa en ny nyckel",
+  "api.namePh": "Nyckelns namn (t.ex. publiceringsprogram)",
+  "api.newKey": "Din nya nyckel. Kopiera den nu, den visas bara den här gången.",
+  "api.copy": "Kopiera",
+  "api.revoke": "Återkalla",
+  "api.revokeConfirm": "Återkalla nyckeln? Program som använder den kan inte längre publicera.",
+  "api.lastUsed": "Senast använd: {when}",
+  "api.neverUsed": "Aldrig använd",
+  "api.docs": "Läs API-guiden",
+  "api.tooMany": "Ett konto kan ha högst {n} aktiva nycklar.",
 };
 
 export default sv;

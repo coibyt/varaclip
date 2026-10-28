@@ -343,6 +343,19 @@ const ms: Record<string, string> = {
   "cat.count": "{n} video",
   "cat.empty": "Belum ada video dalam kategori ini. Kembali lagi nanti!",
   "cat.none": "Belum ada kategori",
+  "api.title": "Kunci API (perisian siaran)",
+  "api.desc": "Untuk perisian siaran video anda, menggantikan kata laluan. Kunci hanya boleh siar/baca/sunting/padam video; tidak boleh membaca mesej atau menukar tetapan. Jangan kongsi kunci.",
+  "api.none": "Belum ada kunci.",
+  "api.create": "Cipta kunci baharu",
+  "api.namePh": "Nama kunci (cth. perisian siaran)",
+  "api.newKey": "Kunci baharu anda. Salin sekarang, ia dipaparkan sekali sahaja.",
+  "api.copy": "Salin",
+  "api.revoke": "Batalkan",
+  "api.revokeConfirm": "Batalkan kunci ini? Perisian yang menggunakannya tidak lagi boleh menyiarkan.",
+  "api.lastUsed": "Kali terakhir digunakan: {when}",
+  "api.neverUsed": "Belum digunakan",
+  "api.docs": "Baca panduan API",
+  "api.tooMany": "Satu akaun boleh mempunyai maksimum {n} kunci aktif.",
 };
 
 export default ms;

@@ -343,6 +343,19 @@ const nl: Record<string, string> = {
   "cat.count": "{n} video’s",
   "cat.empty": "Nog geen video’s in deze categorie. Kom snel terug!",
   "cat.none": "Nog geen categorie",
+  "api.title": "API-sleutels (publicatiesoftware)",
+  "api.desc": "Voor je software die video’s plaatst, in plaats van je wachtwoord. Een sleutel kan alleen video’s plaatsen/lezen/bewerken/verwijderen; hij kan geen berichten lezen of instellingen wijzigen. Deel nooit een sleutel.",
+  "api.none": "Nog geen sleutels.",
+  "api.create": "Nieuwe sleutel maken",
+  "api.namePh": "Naam van de sleutel (bijv. publicatiesoftware)",
+  "api.newKey": "Je nieuwe sleutel. Kopieer hem nu, hij wordt alleen deze keer getoond.",
+  "api.copy": "Kopiëren",
+  "api.revoke": "Intrekken",
+  "api.revokeConfirm": "Deze sleutel intrekken? Software die hem gebruikt kan niet meer plaatsen.",
+  "api.lastUsed": "Laatst gebruikt: {when}",
+  "api.neverUsed": "Nooit gebruikt",
+  "api.docs": "Lees de API-handleiding",
+  "api.tooMany": "Een account kan maximaal {n} actieve sleutels hebben.",
 };
 
 export default nl;

@@ -343,6 +343,19 @@ const de: Record<string, string> = {
   "cat.count": "{n} Videos",
   "cat.empty": "Noch keine Videos in dieser Kategorie. Schau bald wieder vorbei!",
   "cat.none": "Noch keine Kategorie",
+  "api.title": "API-Schlüssel (Posting-Software)",
+  "api.desc": "Für deine Software zum Veröffentlichen von Videos, statt deines Passworts. Ein Schlüssel kann nur Videos veröffentlichen/lesen/bearbeiten/löschen; er kann keine Nachrichten lesen oder Einstellungen ändern. Gib einen Schlüssel niemals weiter.",
+  "api.none": "Noch keine Schlüssel.",
+  "api.create": "Neuen Schlüssel erstellen",
+  "api.namePh": "Name des Schlüssels (z. B. Posting-Software)",
+  "api.newKey": "Dein neuer Schlüssel. Kopiere ihn jetzt, er wird nur dieses eine Mal angezeigt.",
+  "api.copy": "Kopieren",
+  "api.revoke": "Widerrufen",
+  "api.revokeConfirm": "Diesen Schlüssel widerrufen? Software, die ihn nutzt, kann dann nicht mehr posten.",
+  "api.lastUsed": "Zuletzt genutzt: {when}",
+  "api.neverUsed": "Nie genutzt",
+  "api.docs": "API-Anleitung lesen",
+  "api.tooMany": "Ein Konto kann höchstens {n} aktive Schlüssel haben.",
 };
 
 export default de;

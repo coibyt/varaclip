@@ -343,6 +343,19 @@ const fr: Record<string, string> = {
   "cat.count": "{n} vidéos",
   "cat.empty": "Aucune vidéo dans cette catégorie pour le moment. Revenez bientôt !",
   "cat.none": "Pas encore de catégorie",
+  "api.title": "Clés API (logiciel de publication)",
+  "api.desc": "Pour votre logiciel de publication de vidéos, à la place de votre mot de passe. Une clé peut seulement publier/lire/modifier/supprimer des vidéos ; elle ne lit pas les messages et ne change pas les paramètres. Ne partagez jamais une clé.",
+  "api.none": "Aucune clé pour l’instant.",
+  "api.create": "Créer une clé",
+  "api.namePh": "Nom de la clé (ex. logiciel de publication)",
+  "api.newKey": "Votre nouvelle clé. Copiez-la maintenant, elle n’est affichée qu’une seule fois.",
+  "api.copy": "Copier",
+  "api.revoke": "Révoquer",
+  "api.revokeConfirm": "Révoquer cette clé ? Les logiciels qui l’utilisent ne pourront plus publier.",
+  "api.lastUsed": "Dernière utilisation : {when}",
+  "api.neverUsed": "Jamais utilisée",
+  "api.docs": "Lire le guide de l’API",
+  "api.tooMany": "Un compte peut avoir au maximum {n} clés actives.",
 };
 
 export default fr;

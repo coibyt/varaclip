@@ -343,6 +343,19 @@ const id: Record<string, string> = {
   "cat.count": "{n} video",
   "cat.empty": "Belum ada video di kategori ini. Kembali lagi nanti!",
   "cat.none": "Belum ada kategori",
+  "api.title": "Kunci API (software posting)",
+  "api.desc": "Untuk software posting video Anda, menggantikan kata sandi. Kunci hanya bisa memposting/membaca/mengedit/menghapus video; tidak bisa membaca pesan atau mengubah pengaturan. Jangan bagikan kunci.",
+  "api.none": "Belum ada kunci.",
+  "api.create": "Buat kunci baru",
+  "api.namePh": "Nama kunci (mis. software posting)",
+  "api.newKey": "Kunci baru Anda. Salin sekarang, kunci hanya ditampilkan kali ini.",
+  "api.copy": "Salin",
+  "api.revoke": "Cabut",
+  "api.revokeConfirm": "Cabut kunci ini? Software yang memakainya tidak bisa memposting lagi.",
+  "api.lastUsed": "Terakhir dipakai: {when}",
+  "api.neverUsed": "Belum pernah dipakai",
+  "api.docs": "Baca panduan API",
+  "api.tooMany": "Satu akun maksimal punya {n} kunci aktif.",
 };
 
 export default id;

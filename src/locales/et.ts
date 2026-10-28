@@ -343,6 +343,19 @@ const et: Record<string, string> = {
   "cat.count": "{n} videot",
   "cat.empty": "Selles kategoorias pole veel videoid. Vaata varsti uuesti!",
   "cat.none": "Kategooria valimata",
+  "api.title": "API-võtmed (postitamistarkvara)",
+  "api.desc": "Sinu videopostitamise tarkvarale parooli asemel. Võti saab ainult videoid postitada/lugeda/muuta/kustutada; see ei loe sõnumeid ega muuda seadeid. Ära jaga võtit kellegagi.",
+  "api.none": "Võtmeid veel pole.",
+  "api.create": "Loo uus võti",
+  "api.namePh": "Võtme nimi (nt postitamistarkvara)",
+  "api.newKey": "Sinu uus võti. Kopeeri see kohe, seda näidatakse ainult see kord.",
+  "api.copy": "Kopeeri",
+  "api.revoke": "Tühista",
+  "api.revokeConfirm": "Tühistada see võti? Seda kasutav tarkvara ei saa enam postitada.",
+  "api.lastUsed": "Viimati kasutatud: {when}",
+  "api.neverUsed": "Kasutamata",
+  "api.docs": "Loe API juhendit",
+  "api.tooMany": "Kontol võib olla kuni {n} aktiivset võtit.",
 };
 
 export default et;

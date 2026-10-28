@@ -343,6 +343,19 @@ const pl: Record<string, string> = {
   "cat.count": "{n} filmów",
   "cat.empty": "W tej kategorii nie ma jeszcze filmów. Zajrzyj wkrótce!",
   "cat.none": "Brak kategorii",
+  "api.title": "Klucze API (program do publikacji)",
+  "api.desc": "Dla Twojego programu publikującego filmy, zamiast hasła. Klucz może tylko publikować/odczytywać/edytować/usuwać filmy; nie odczyta wiadomości ani nie zmieni ustawień. Nigdy nie udostępniaj klucza.",
+  "api.none": "Brak kluczy.",
+  "api.create": "Utwórz nowy klucz",
+  "api.namePh": "Nazwa klucza (np. program do publikacji)",
+  "api.newKey": "Twój nowy klucz. Skopiuj go teraz, jest pokazywany tylko raz.",
+  "api.copy": "Kopiuj",
+  "api.revoke": "Unieważnij",
+  "api.revokeConfirm": "Unieważnić ten klucz? Program, który go używa, nie będzie mógł już publikować.",
+  "api.lastUsed": "Ostatnio użyty: {when}",
+  "api.neverUsed": "Nieużywany",
+  "api.docs": "Przeczytaj przewodnik API",
+  "api.tooMany": "Konto może mieć maksymalnie {n} aktywnych kluczy.",
 };
 
 export default pl;

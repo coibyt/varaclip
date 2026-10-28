@@ -24,7 +24,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ w
   return (
     <>
       <SettingsForm p={p} welcome={(await searchParams).welcome === "1"} />
-      <AccountSection email={me.email} others={others} isAdmin={isAdminUser(me)} />
+      <AccountSection email={me.email} others={others} isAdmin={isAdminUser(me)} isSalon={me.isSalon} />
     </>
   );
 }

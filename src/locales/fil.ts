@@ -343,6 +343,19 @@ const fil: Record<string, string> = {
   "cat.count": "{n} video",
   "cat.empty": "Wala pang video sa kategoryang ito. Bumalik ka ulit!",
   "cat.none": "Wala pang kategorya",
+  "api.title": "Mga API key (posting software)",
+  "api.desc": "Para sa software na nagpo-post ng mga video mo, kapalit ng password. Ang key ay puwede lang mag-post/magbasa/mag-edit/magbura ng video; hindi ito nakakabasa ng mensahe o nakakapagpalit ng settings. Huwag ibigay ang key sa iba.",
+  "api.none": "Wala pang key.",
+  "api.create": "Gumawa ng bagong key",
+  "api.namePh": "Pangalan ng key (hal. posting software)",
+  "api.newKey": "Ang bago mong key. Kopyahin ito ngayon, ngayon lang ito ipapakita.",
+  "api.copy": "Kopyahin",
+  "api.revoke": "Bawiin",
+  "api.revokeConfirm": "Bawiin ang key na ito? Hindi na makakapag-post ang software na gumagamit nito.",
+  "api.lastUsed": "Huling ginamit: {when}",
+  "api.neverUsed": "Hindi pa nagagamit",
+  "api.docs": "Basahin ang gabay sa API",
+  "api.tooMany": "Hanggang {n} aktibong key lang ang puwede sa isang account.",
 };
 
 export default fil;

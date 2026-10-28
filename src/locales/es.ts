@@ -343,6 +343,19 @@ const es: Record<string, string> = {
   "cat.count": "{n} vídeos",
   "cat.empty": "Aún no hay vídeos en esta categoría. ¡Vuelve pronto!",
   "cat.none": "Sin categoría todavía",
+  "api.title": "Claves API (software de publicación)",
+  "api.desc": "Para tu software de publicación de vídeos, en lugar de tu contraseña. Una clave solo puede publicar/leer/editar/eliminar vídeos; no puede leer mensajes ni cambiar ajustes. No compartas nunca una clave.",
+  "api.none": "Aún no hay claves.",
+  "api.create": "Crear una clave",
+  "api.namePh": "Nombre de la clave (p. ej. software de publicación)",
+  "api.newKey": "Tu nueva clave. Cópiala ahora, solo se muestra esta vez.",
+  "api.copy": "Copiar",
+  "api.revoke": "Revocar",
+  "api.revokeConfirm": "¿Revocar esta clave? El software que la use ya no podrá publicar.",
+  "api.lastUsed": "Último uso: {when}",
+  "api.neverUsed": "Nunca usada",
+  "api.docs": "Leer la guía de la API",
+  "api.tooMany": "Una cuenta puede tener como máximo {n} claves activas.",
 };
 
 export default es;

@@ -343,6 +343,19 @@ const ro: Record<string, string> = {
   "cat.count": "{n} videoclipuri",
   "cat.empty": "Încă nu există videoclipuri în această categorie. Revino curând!",
   "cat.none": "Încă fără categorie",
+  "api.title": "Chei API (program de publicare)",
+  "api.desc": "Pentru programul tău care publică videoclipuri, în loc de parolă. O cheie poate doar publica/citi/edita/șterge videoclipuri; nu citește mesaje și nu schimbă setări. Nu da nimănui cheia.",
+  "api.none": "Încă nu există chei.",
+  "api.create": "Creează o cheie nouă",
+  "api.namePh": "Numele cheii (ex.: program de publicare)",
+  "api.newKey": "Noua ta cheie. Copiaz-o acum, apare doar de această dată.",
+  "api.copy": "Copiază",
+  "api.revoke": "Revocă",
+  "api.revokeConfirm": "Revoci această cheie? Programul care o folosește nu va mai putea publica.",
+  "api.lastUsed": "Ultima utilizare: {when}",
+  "api.neverUsed": "Nefolosită",
+  "api.docs": "Citește ghidul API",
+  "api.tooMany": "Un cont poate avea cel mult {n} chei active.",
 };
 
 export default ro;

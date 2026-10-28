@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Loader2, LogOut, Mail, ShieldCheck, UserPlus } from "lucide-react";
+import { Loader2, LogOut, Mail, ShieldCheck, UserPlus, Users, X } from "lucide-react";
 import { Avatar } from "./avatar";
 import { InstallButton } from "./install-app";
+import { ApiKeysCard } from "./api-keys-card";
 import { useT } from "./locale-provider";
 
 type Other = { id: string; displayName: string; handle: string; hue: number; avatarUrl: string };
@@ -14,13 +15,14 @@ const post = (action: string, body?: object) =>
   fetch(`/api/auth/${action}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body ?? {}) });
 
 /** Settings: account email, password change, switching between accounts, and logging out. */
-export function AccountSection({ email, others, isAdmin = false }: { email: string; others: Other[]; isAdmin?: boolean }) {
+export function AccountSection({ email, others, isAdmin = false, isSalon = false }: { email: string; others: Other[]; isAdmin?: boolean; isSalon?: boolean }) {
   const t = useT();
   const router = useRouter();
   const [current, setCurrent] = useState("");
   const [next, setNext] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const [switching, setSwitching] = useState(false);
 
   async function changePassword(e: React.FormEvent) {
     e.preventDefault();
@@ -54,8 +56,6 @@ export function AccountSection({ email, others, isAdmin = false }: { email: stri
       <div className="border-t border-white/10 pt-8">
         <h2 className="text-xl font-extrabold tracking-tight">{t("acc.title")}</h2>
 
-        {isAdmin && <Link href="/admin" className="btn btn-primary mt-4 w-full sm:w-auto"><ShieldCheck className="size-5" aria-hidden /> Admin</Link>}
-
         <InstallButton className="mt-4" />
 
         <div className="mt-4">
@@ -79,26 +79,40 @@ export function AccountSection({ email, others, isAdmin = false }: { email: stri
           </button>
         </form>
 
-        <div className="mt-8">
-          <h3 className="text-sm font-semibold">{t("acc.switch")}</h3>
-          {others.length === 0 ? (
-            <p className="mt-2 text-sm text-mist">{t("acc.noOthers")}</p>
-          ) : (
-            <ul className="mt-2 space-y-2">
-              {others.map((o) => (
-                <li key={o.id}>
-                  <button type="button" onClick={() => switchTo(o.id)} className="flex w-full items-center gap-3 rounded-xl bg-ink-2 px-3 py-2.5 text-left hover:bg-ink-3">
-                    <Avatar name={o.displayName} hue={o.hue} url={o.avatarUrl} size={36} />
-                    <span className="min-w-0 flex-1"><span className="block truncate font-semibold">{o.displayName}</span><span className="block truncate text-xs text-mist">@{o.handle}</span></span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          <button type="button" onClick={addAccount} className="btn btn-ghost mt-3 w-full sm:w-auto"><UserPlus className="size-5" aria-hidden /> {t("acc.addAccount")}</button>
+        {isSalon && <ApiKeysCard />}
+
+        <div className="mt-8 flex flex-wrap gap-2">
+          {isAdmin && <Link href="/admin" className="btn btn-ghost"><ShieldCheck className="size-5" aria-hidden /> Admin</Link>}
+          <button type="button" onClick={() => setSwitching(true)} className="btn btn-ghost"><Users className="size-5" aria-hidden /> {t("acc.switch")}</button>
         </div>
 
-        <button type="button" onClick={logout} className="btn mt-8 w-full bg-red-600 text-white hover:bg-red-700 sm:w-auto"><LogOut className="size-5" aria-hidden /> {t("nav.logout")}</button>
+        {switching && (
+          <div className="fixed inset-0 z-[70] flex items-end justify-center bg-black/60 backdrop-blur-sm sm:items-center" onClick={() => setSwitching(false)} role="presentation">
+            <div role="dialog" aria-modal="true" aria-label={t("acc.switch")} onClick={(e) => e.stopPropagation()} className="w-full max-w-md rounded-t-3xl bg-ink-2 p-5 pb-8 shadow-2xl sm:rounded-3xl">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-extrabold">{t("acc.switch")}</h3>
+                <button type="button" onClick={() => setSwitching(false)} aria-label={t("common.close")} className="grid size-10 place-items-center rounded-full hover:bg-white/10"><X className="size-5" aria-hidden /></button>
+              </div>
+              {others.length === 0 ? (
+                <p className="mt-3 text-sm text-mist">{t("acc.noOthers")}</p>
+              ) : (
+                <ul className="mt-3 space-y-2">
+                  {others.map((o) => (
+                    <li key={o.id}>
+                      <button type="button" onClick={() => switchTo(o.id)} className="flex w-full items-center gap-3 rounded-xl bg-ink-3 px-3 py-2.5 text-left hover:bg-ink-4">
+                        <Avatar name={o.displayName} hue={o.hue} url={o.avatarUrl} size={40} />
+                        <span className="min-w-0 flex-1"><span className="block truncate font-semibold">{o.displayName}</span><span className="block truncate text-xs text-mist">@{o.handle}</span></span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <button type="button" onClick={addAccount} className="btn btn-primary mt-4 w-full"><UserPlus className="size-5" aria-hidden /> {t("acc.addAccount")}</button>
+            </div>
+          </div>
+        )}
+
+        <button type="button" onClick={logout} className="btn mt-3 w-full bg-red-600 text-white hover:bg-red-700 sm:w-auto"><LogOut className="size-5" aria-hidden /> {t("nav.logout")}</button>
       </div>
     </section>
   );

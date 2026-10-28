@@ -343,6 +343,19 @@ const ja: Record<string, string> = {
   "cat.count": "{n} 本の動画",
   "cat.empty": "このカテゴリーにはまだ動画がありません。また後で見に来てください！",
   "cat.none": "カテゴリー未設定",
+  "api.title": "API キー（投稿ソフト）",
+  "api.desc": "動画投稿ソフト用で、パスワードの代わりに使います。キーでできるのは動画の投稿・閲覧・編集・削除のみで、メッセージを読んだり設定を変えたりはできません。キーは誰にも渡さないでください。",
+  "api.none": "キーはまだありません。",
+  "api.create": "新しいキーを作成",
+  "api.namePh": "キーの名前（例：投稿ソフト）",
+  "api.newKey": "新しいキーです。今すぐコピーしてください。表示されるのはこの一度だけです。",
+  "api.copy": "コピー",
+  "api.revoke": "無効化",
+  "api.revokeConfirm": "このキーを無効にしますか？このキーを使うソフトは投稿できなくなります。",
+  "api.lastUsed": "最終使用：{when}",
+  "api.neverUsed": "未使用",
+  "api.docs": "API ガイドを読む",
+  "api.tooMany": "1 アカウントで有効なキーは最大 {n} 個です。",
 };
 
 export default ja;

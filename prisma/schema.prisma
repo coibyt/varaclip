@@ -250,3 +250,17 @@ model VideoCategory {
 
   @@index([category])
 }
+
+/// Personal API keys for posting software (see src/lib/api-keys.ts). Only a hash of the key is stored.
+model ApiKey {
+  id         String    @id @default(cuid())
+  userId     String
+  name       String    @db.VarChar(60)
+  prefix     String    @db.VarChar(12)
+  keyHash    String    @unique @db.VarChar(64)
+  createdAt  DateTime  @default(now())
+  lastUsedAt DateTime?
+  revokedAt  DateTime?
+
+  @@index([userId])
+}

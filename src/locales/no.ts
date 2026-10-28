@@ -343,6 +343,19 @@ const no: Record<string, string> = {
   "cat.count": "{n} videoer",
   "cat.empty": "Ingen videoer i denne kategorien ennå. Kom tilbake snart!",
   "cat.none": "Ingen kategori ennå",
+  "api.title": "API-nøkler (publiseringsprogram)",
+  "api.desc": "For programmet som publiserer videoene dine, i stedet for passordet. En nøkkel kan bare publisere/lese/redigere/slette videoer; den kan ikke lese meldinger eller endre innstillinger. Del aldri en nøkkel.",
+  "api.none": "Ingen nøkler ennå.",
+  "api.create": "Lag en ny nøkkel",
+  "api.namePh": "Nøkkelens navn (f.eks. publiseringsprogram)",
+  "api.newKey": "Den nye nøkkelen din. Kopier den nå, den vises bare denne ene gangen.",
+  "api.copy": "Kopier",
+  "api.revoke": "Tilbakekall",
+  "api.revokeConfirm": "Tilbakekalle nøkkelen? Programmer som bruker den kan ikke lenger publisere.",
+  "api.lastUsed": "Sist brukt: {when}",
+  "api.neverUsed": "Aldri brukt",
+  "api.docs": "Les API-veiledningen",
+  "api.tooMany": "En konto kan ha maks {n} aktive nøkler.",
 };
 
 export default no;

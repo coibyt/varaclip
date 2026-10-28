@@ -359,6 +359,19 @@ const vi: Record<string, string> = {
   "cat.count": "{n} video",
   "cat.empty": "Chưa có video trong danh mục này. Hãy quay lại sau nhé!",
   "cat.none": "Chưa chọn danh mục",
+  "api.title": "Khóa API (phần mềm đăng bài)",
+  "api.desc": "Dùng cho phần mềm đăng video của bạn, thay cho mật khẩu. Khóa chỉ đăng/xem/sửa/xóa video, không đọc được tin nhắn hay đổi cài đặt. Đừng gửi khóa cho người khác.",
+  "api.none": "Chưa có khóa nào.",
+  "api.create": "Tạo khóa mới",
+  "api.namePh": "Tên khóa (ví dụ: phần mềm đăng video)",
+  "api.newKey": "Khóa mới của bạn. Hãy sao chép ngay, khóa chỉ hiện một lần này.",
+  "api.copy": "Sao chép",
+  "api.revoke": "Thu hồi",
+  "api.revokeConfirm": "Thu hồi khóa này? Phần mềm dùng khóa này sẽ không đăng được nữa.",
+  "api.lastUsed": "Dùng lần cuối: {when}",
+  "api.neverUsed": "Chưa dùng",
+  "api.docs": "Xem hướng dẫn API",
+  "api.tooMany": "Mỗi tài khoản chỉ có tối đa {n} khóa đang hoạt động.",
 };
 
 export default vi;

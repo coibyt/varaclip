@@ -358,6 +358,19 @@ const en: Record<string, string> = {
   "cat.count": "{n} videos",
   "cat.empty": "No videos in this category yet. Check back soon!",
   "cat.none": "No category yet",
+  "api.title": "API keys (posting software)",
+  "api.desc": "For your video posting software, instead of your password. A key can only post/read/edit/delete videos; it cannot read messages or change settings. Never share a key.",
+  "api.none": "No keys yet.",
+  "api.create": "Create a new key",
+  "api.namePh": "Key name (e.g. posting software)",
+  "api.newKey": "Your new key. Copy it now, it is shown only this once.",
+  "api.copy": "Copy",
+  "api.revoke": "Revoke",
+  "api.revokeConfirm": "Revoke this key? Software using it will no longer be able to post.",
+  "api.lastUsed": "Last used: {when}",
+  "api.neverUsed": "Never used",
+  "api.docs": "Read the API guide",
+  "api.tooMany": "An account can have at most {n} active keys.",
 };
 
 export default en;

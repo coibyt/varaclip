@@ -343,6 +343,19 @@ const hu: Record<string, string> = {
   "cat.count": "{n} videó",
   "cat.empty": "Ebben a kategóriában még nincs videó. Nézz vissza hamarosan!",
   "cat.none": "Még nincs kategória",
+  "api.title": "API-kulcsok (közzétevő program)",
+  "api.desc": "A videókat közzétevő programodhoz, a jelszavad helyett. A kulcs csak videókat tehet közzé/olvashat/szerkeszthet/törölhet; üzeneteket nem olvas, beállításokat nem módosít. Soha ne add ki a kulcsot.",
+  "api.none": "Még nincs kulcs.",
+  "api.create": "Új kulcs létrehozása",
+  "api.namePh": "Kulcs neve (pl. közzétevő program)",
+  "api.newKey": "Az új kulcsod. Másold ki most, csak ez egyszer látható.",
+  "api.copy": "Másolás",
+  "api.revoke": "Visszavonás",
+  "api.revokeConfirm": "Visszavonod ezt a kulcsot? Az ezt használó program többé nem tud közzétenni.",
+  "api.lastUsed": "Utoljára használva: {when}",
+  "api.neverUsed": "Még nem használt",
+  "api.docs": "Az API-útmutató megnyitása",
+  "api.tooMany": "Egy fióknak legfeljebb {n} aktív kulcsa lehet.",
 };
 
 export default hu;

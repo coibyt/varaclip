@@ -343,6 +343,19 @@ const tr: Record<string, string> = {
   "cat.count": "{n} video",
   "cat.empty": "Bu kategoride henüz video yok. Yakında tekrar bak!",
   "cat.none": "Henüz kategori yok",
+  "api.title": "API anahtarları (paylaşım yazılımı)",
+  "api.desc": "Video paylaşım yazılımın için, şifren yerine. Anahtar yalnızca video paylaşabilir/okuyabilir/düzenleyebilir/silebilir; mesajları okuyamaz, ayarları değiştiremez. Anahtarı kimseyle paylaşma.",
+  "api.none": "Henüz anahtar yok.",
+  "api.create": "Yeni anahtar oluştur",
+  "api.namePh": "Anahtar adı (örn. paylaşım yazılımı)",
+  "api.newKey": "Yeni anahtarın. Şimdi kopyala, yalnızca bu kez gösterilir.",
+  "api.copy": "Kopyala",
+  "api.revoke": "İptal et",
+  "api.revokeConfirm": "Bu anahtar iptal edilsin mi? Onu kullanan yazılım artık paylaşım yapamaz.",
+  "api.lastUsed": "Son kullanım: {when}",
+  "api.neverUsed": "Hiç kullanılmadı",
+  "api.docs": "API kılavuzunu oku",
+  "api.tooMany": "Bir hesapta en fazla {n} etkin anahtar olabilir.",
 };
 
 export default tr;

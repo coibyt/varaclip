@@ -343,6 +343,19 @@ const cs: Record<string, string> = {
   "cat.count": "{n} videí",
   "cat.empty": "V této kategorii zatím nejsou žádná videa. Vraťte se brzy!",
   "cat.none": "Zatím bez kategorie",
+  "api.title": "Klíče API (publikační software)",
+  "api.desc": "Pro váš software na publikování videí místo hesla. Klíč umí jen publikovat/číst/upravovat/mazat videa; nečte zprávy ani nemění nastavení. Klíč nikomu neposílejte.",
+  "api.none": "Zatím žádné klíče.",
+  "api.create": "Vytvořit nový klíč",
+  "api.namePh": "Název klíče (např. publikační software)",
+  "api.newKey": "Váš nový klíč. Zkopírujte ho hned, zobrazí se jen tentokrát.",
+  "api.copy": "Kopírovat",
+  "api.revoke": "Zneplatnit",
+  "api.revokeConfirm": "Zneplatnit tento klíč? Software, který ho používá, už nebude moci publikovat.",
+  "api.lastUsed": "Naposledy použit: {when}",
+  "api.neverUsed": "Nepoužit",
+  "api.docs": "Přečíst návod k API",
+  "api.tooMany": "Účet může mít nejvýše {n} aktivních klíčů.",
 };
 
 export default cs;
