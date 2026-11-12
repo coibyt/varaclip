@@ -161,7 +161,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
       <AutoRefresh seconds={30} />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-extrabold tracking-tight">Quản trị</h1>
-        <Link href="/admin/email" className="btn btn-primary">Gửi email marketing</Link>
+        <div className="flex flex-wrap gap-2"><Link href="/admin/email" className="btn btn-primary">Gửi email marketing</Link><Link href="/admin/automations" className="btn btn-ghost">Email tự động</Link></div>
       </div>
 
       <div className="mt-6"><SignupSetting initial={await getFlag("requireEmailVerify")} mailConfigured={mailConfigured()} /></div>

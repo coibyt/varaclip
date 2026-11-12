@@ -264,3 +264,28 @@ model ApiKey {
 
   @@index([userId])
 }
+
+/// What an admin changed for one automatic email (the defaults live in src/lib/automations.ts).
+model EmailAutomation {
+  key         String   @id @db.VarChar(40)
+  enabled     Boolean  @default(false)
+  subject     String   @db.VarChar(150)
+  body        String   @db.Text
+  buttonLabel String   @default("") @db.VarChar(40)
+  delayDays   Int      @default(1)
+  updatedAt   DateTime @default(now()) @updatedAt
+}
+
+/// One automatic email to one person for one period ("once", "2026-W46", "2026-11"): never sent twice.
+model EmailAutomationSend {
+  id         String   @id @default(cuid())
+  automation String   @db.VarChar(40)
+  userId     String
+  period     String   @db.VarChar(20)
+  status     String   @db.VarChar(10)
+  error      String   @default("") @db.VarChar(200)
+  sentAt     DateTime @default(now())
+
+  @@unique([automation, userId, period])
+  @@index([sentAt])
+}

@@ -3,6 +3,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { getUser } from "@/lib/auth";
 import { helsinkiDay, markOnline } from "@/lib/online";
+import { maybeRunAutomations } from "@/lib/automations";
 
 const schema = z.object({ key: z.string().regex(/^[a-z0-9]{8,40}$/), type: z.enum(["view", "beat"]) });
 const BOT = /bot|crawl|spider|slurp|facebookexternalhit|preview|headless|lighthouse/i;
@@ -21,6 +22,7 @@ export async function POST(req: Request) {
   if (!p.success || BOT.test(ua)) return NextResponse.json({ ok: true });
 
   markOnline(p.data.key);
+  void maybeRunAutomations(); // at most once an hour, in the background
   if (p.data.type === "view") {
     try {
       const me = await getUser();
